@@ -1,0 +1,163 @@
+<!--
+ * @Description: 
+ * @Autor: wangmanna
+ * @Date: 2022-01-11 17:33:22
+ * @LastEditors: wangmanna
+ * @LastEditTime: 2024-12-18 10:10:26
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport" />
+  <title>播放器</title>
+  <style>
+    .player-main {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .player-main .player-box {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+    }
+
+    #video_player {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    #video_player1 {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+    <link type="text/css" rel="stylesheet" href="./css/dmsplayer.css" />
+</head>
+<body>
+  <button onClick="destroy()">销毁</button>
+  <button onClick="init(76370)">视频1</button>
+  <div class="player-main">
+    <div class="player-box">
+      <div id="video_player"></div>
+
+      <script src="./js/jquery.js"></script>
+      <script src="./js/screenfull.js"></script>
+      <script src="./js/dmsplayer.min.js"></script>
+      <script>
+        window.onload = function() {
+        window.myDmsplayer = new DmsPlayer({
+            containerId: 'video_player',
+            url: '',
+            autoplay: false,
+            // muted: false,
+            loop: false,
+            drag: false,
+            hideTrack:true,
+            showBar: true,
+            autoHideBar: true,
+            autoHideBarTime: 5000,
+            currentTime: 0, // 指定开始播放时间
+            allowDuration: -1,
+            playType: 3,
+            appId: 37, // 获取防盗链项目id参数
+            vid: 76370, // 视频编号
+            logo: {
+              url: '',
+              postion: 0,
+              w: '20%',
+              h: 'auto'
+            },
+            playCallBackTime: 1000, // 播放多长时间回调一次 单位毫秒
+            playCallBack: function(data) { // 播放回调函数，在这里自定义调用播放过程
+              //中请求接口逻辑 data 返回当前视频播放的时间,以及总时长
+              console.log(data);
+            },
+            onPlay: function(data) { // 当点击播放时的回调
+              // myDmsplayer.changeCurrentTime(1)
+              console.log('播放1')
+            },
+            onPause: function(data) { // 当播放暂停时的回调
+              console.log('暂停1')
+              
+            },
+            onEnd: function(data) { // 当播放完成时的回调
+              console.log('结束1')
+            },
+            onError: function(data) { // 当播放失败时的回调
+              console.log('播放失败1')
+            },
+            fullscreenCallBack: function(value) {
+              // 全屏回调 value = true 全屏 false 退出全屏
+              console.log(value)
+            },
+            onDestroy: function(value) {
+              console.log('onDestroy')
+            }
+          })
+        }
+        function destroy() {
+          window.myDmsplayer.destroy();
+        }
+        function init(vid1) {
+          window.myDmsplayer.destroy();
+          let vid = vid1 || 251184
+          window.myDmsplayer = new DmsPlayer({
+            containerId: 'video_player',
+            url: '',
+            autoplay: false,
+            // muted: false,
+            loop: false,
+            showBar: true,
+            autoHideBar: true,
+            autoHideBarTime: 5000,
+            currentTime: 0, // 指定开始播放时间
+            allowDuration: -1,
+            playType: 3,
+            appId: 37, // 获取防盗链项目id参数
+            vid: vid, // 视频编号
+            logo: {
+              url: '',
+              postion: 0,
+              w: '20%',
+              h: 'auto'
+            },
+            playCallBackTime: 1000, // 播放多长时间回调一次 单位毫秒
+            playCallBack: function(data) { // 播放回调函数，在这里自定义调用播放过程
+              //中请求接口逻辑 data 返回当前视频播放的时间,以及总时长
+              console.log(data);
+            },
+            onPlay: function(data) { // 当点击播放时的回调
+              // myDmsplayer.changeCurrentTime(1)
+              console.log('播放1')
+            },
+            onPause: function(data) { // 当播放暂停时的回调
+              console.log('暂停1')
+              
+            },
+            onEnd: function(data) { // 当播放完成时的回调
+              console.log('结束1')
+            },
+            onError: function(data) { // 当播放失败时的回调
+              console.log('播放失败1')
+            },
+            fullscreenCallBack: function(value) {
+              // 全屏回调 value = true 全屏 false 退出全屏
+              console.log(value)
+            },
+            onDestroy: function(value) {
+              console.log('onDestroy')
+            }
+          })
+        }
+      </script>
+    </div>
+  </div>
+</body>
+</html>
+
