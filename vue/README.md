@@ -245,6 +245,7 @@ const handleTimeUpdate = (data) => {
 | initEnterExitPoint | 初始化进入退出点 | - |
 | changeViewPointsShow | 切换观看记录显示 | state |
 | setProgressMarkers | 设置进度条标记点 | markers |
+| PictureInPicture | 进入画中画模式 | 参数值boolean true 进入画中画 false 退出画中画 |
 | showToast | 显示吐司提示 | message,option |
 
 
