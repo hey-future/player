@@ -9,7 +9,7 @@
       :appId="option.appId"
       :vid="option.vid"
       :playType="option.playType"
-      :allowDuration="-1"
+      :allowDuration="2"
       :url="option.url"
       @login="handleLogin"
       @timeupdate="handleTimeUpdate"

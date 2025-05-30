@@ -166,7 +166,7 @@ const handleTimeUpdate = (data) => {
 | options | 播放器配置 | object | - |
 | enterExitPoint | 进入退出点 | array | - |
 | playType | 播放方式 | number | 默认1 1传入url视频地址播放  1地址播放（开放不加密）2 传appId和vid获取视频播放|
-| allowDuration | 允许播放时长 | number | - |
+| allowDuration | 允许试看时长 | number | -1 标识可以观看全部 >0需要登录后才可以观看全部 单位秒  如果设置参数大于0可以通过调用播放器changeLoginState来更改登录状态|
 | url | 视频地址 | string | - |
 #### 播放器配置optins
 | 参数 | 说明 | 类型 | 默认值 |
