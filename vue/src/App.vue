@@ -27,6 +27,8 @@
   <button @click="handleInit(1)">初始化</button>
   <h3> 播放器方法 </h3>
   <button @click="handleDestory">销毁</button>
+  <button @click="pipButton(true)">开启画中画模式</button>
+  <button @click="pipButton(false)">关闭画中画模式</button>
   <button @click="showProgressMarkers">显示视频打点标记</button>
   <button @click="hideProgressMarkers">隐藏视频打点标记</button>
   <button @click="hanldeShowKnowledge(true)">显示知识点开关</button>
@@ -47,6 +49,10 @@ const videoRef = ref(null);
 // 销毁
 const handleDestory = () => {
   videoRef.value.destroy();
+}
+// 画中画
+const pipButton = (value) => {
+  videoRef.value.PictureInPicture(value)
 }
 // 初始化
 const handleInit = (type) => {
