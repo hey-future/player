@@ -1,0 +1,13320 @@
+import { defineComponent, shallowRef, ref, reactive, onMounted, onUnmounted, createElementBlock, openBlock, Fragment, createElementVNode, createBlock, normalizeStyle, normalizeClass, Teleport, createCommentVNode } from "vue";
+var commonjsGlobal = typeof globalThis < "u" ? globalThis : typeof window < "u" ? window : typeof global < "u" ? global : typeof self < "u" ? self : {};
+function getDefaultExportFromCjs(c) {
+  return c && c.__esModule && Object.prototype.hasOwnProperty.call(c, "default") ? c.default : c;
+}
+function commonjsRequire(c) {
+  throw new Error('Could not dynamically require "' + c + '". Please configure the dynamicRequireTargets or/and ignoreDynamicRequires option of @rollup/plugin-commonjs appropriately for this require call to work.');
+}
+var aliplayerMin = { exports: {} };
+/*! aliyun-aliplayer - v2.30.4 - 2025-05-27 20.35.20 */
+var hasRequiredAliplayerMin;
+function requireAliplayerMin() {
+  return hasRequiredAliplayerMin || (hasRequiredAliplayerMin = 1, function(module, exports) {
+    (function(c) {
+      module.exports = c();
+    })(function() {
+      return function c(o, x, _) {
+        function l(s, t) {
+          if (!x[s]) {
+            if (!o[s]) {
+              var e = typeof commonjsRequire == "function" && commonjsRequire;
+              if (!t && e) return e(s, !0);
+              if (u) return u(s, !0);
+              throw (t = new Error("Cannot find module '" + s + "'")).code = "MODULE_NOT_FOUND", t;
+            }
+            e = x[s] = { exports: {} }, o[s][0].call(e.exports, function(n) {
+              return l(o[s][1][n] || n);
+            }, e, e.exports, c, o, x, _);
+          }
+          return x[s].exports;
+        }
+        for (var u = typeof commonjsRequire == "function" && commonjsRequire, a = 0; a < _.length; a++) l(_[a]);
+        return l;
+      }({ 1: [function(c, o, x) {
+        var _, l, u = Object.defineProperty, a = Object.defineProperties, s = Object.getOwnPropertyDescriptors, t = Object.getOwnPropertySymbols, e = Object.prototype.hasOwnProperty, n = Object.prototype.propertyIsEnumerable, r = (oe, ce, ge) => ce in oe ? u(oe, ce, { enumerable: !0, configurable: !0, writable: !0, value: ge }) : oe[ce] = ge, h = (oe, ce) => {
+          for (var ge in ce = ce || {}) e.call(ce, ge) && r(oe, ge, ce[ge]);
+          if (t) for (var ge of t(ce)) n.call(ce, ge) && r(oe, ge, ce[ge]);
+          return oe;
+        }, y = (oe, ce, ge) => (r(oe, typeof ce != "symbol" ? ce + "" : ce, ge), ge), p = (Object.defineProperties(x, { __esModule: { value: !0 }, [Symbol.toStringTag]: { value: "Module" } }), { exports: {} }), d = { exports: {} };
+        function g() {
+          var oe, ce, ge;
+          return l || (l = 1, Date.now = Date.now || function() {
+            return (/* @__PURE__ */ new Date()).getTime();
+          }, oe = Date.now(), ge = { noop: ce = function() {
+          }, warn: (() => {
+            var V = typeof console == "object" ? console.warn : ce;
+            try {
+              var Z = { warn: V };
+              Z.warn.call(Z);
+            } catch {
+              return ce;
+            }
+            return V;
+          })(), key: "__bl", selfErrKey: "ARMS_SDK_ERROR", selfErrPage: "ARMSSDK", win: typeof window == "object" && window.document ? window : void 0, regionMap: { cn: "https://arms-retcode.aliyuncs.com/r.png?", sg: "https://arms-retcode-sg.aliyuncs.com/r.png?", sg_2: "https://retcode-sg-lazada.arms.aliyuncs.com/r.png?", daily: "http://arms-retcode-daily.alibaba.net/r.png?", daily_2: "https://arms-retcode-daily.alibaba.net/r.png?", daily_3: "http://arms-retcode-daily.aliyun.test/r.png?", us: "https://retcode-us-west-1.arms.aliyuncs.com/r.png?", tw: "https://arms-retcode.orientalgame.com.tw/r.png?", tw_sg: "https://arms-retcode-sg.orientalgame.com.tw/r.png?", hz_finance: "https://arms-retcode-hz-finance.aliyuncs.com/r.png?" }, defaultImgUrl: "https://arms-retcode.aliyuncs.com/r.png?", createObject: function(V) {
+            var Z;
+            return Object.create ? Object.create(V) : ((Z = function() {
+            }).prototype = V, new Z());
+          }, each: function(V, Z) {
+            var re = 0, K = V.length;
+            if (this.T(V, "Array")) for (; re < K && Z.call(V[re], V[re], re) !== !1; re++) ;
+            else for (re in V) if (Z.call(V[re], V[re], re) === !1) break;
+            return V;
+          }, safetyCall: function(V, Z, re) {
+            if (typeof V != "function") return re;
+            try {
+              return V.apply(this, Z);
+            } catch {
+              return re;
+            }
+          }, T: function(V, Z) {
+            return V = Object.prototype.toString.call(V).substring(8).replace("]", ""), Z ? V === Z : V;
+          }, duration: function() {
+            var V = Date;
+            try {
+              performance && this.T(performance.now, "Function") && (V = performance);
+            } catch {
+              V = Date;
+            }
+            var Z = V.now();
+            return function() {
+              return Math.round(V.now() - Z);
+            };
+          }, filterByRule: function() {
+            var V, Z, re, K, Y, se = [].slice.call(arguments), le = se.length;
+            return le < 2 ? se[0] : (V = se[le - 1], (Z = se[0]) ? V ? (K = (re = this).T(V), Y = se.slice(0, le - 1), K === "Function" ? re.safetyCall(V, Y, Z) : K === "Array" ? (this.each(V, function(pe) {
+              Y[0] = Z = re.filterByRule.apply(re, [].concat(Y, pe));
+            }), Z) : K === "Object" ? Z.replace(V.rule, V.target || "") : Z.replace(V, "")) : Z : "");
+          }, ignoreByRule: function(V, Z) {
+            if (!V || !Z) return !1;
+            if ((this.isString(Z) || Z.source || this.T(Z) === "Function") && (Z = [Z]), !this.isArray(Z)) return this.warn("[arms] invalid rules of ignore config, (list of) String/RegExp/Funcitons are available"), !1;
+            for (var re, K = [], Y = 0, se = Z.length; Y < se; Y++) if (re = Z[Y], this.isString(re)) K.push(re.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1"));
+            else if (re && re.source) K.push(re.source);
+            else if (re && this.T(re) === "Function" && this.safetyCall(re, [V], !1) === !0) return !0;
+            var le = new RegExp(K.join("|"), "i");
+            return !!(K.length && le.test && le.test(V));
+          }, J: function(V) {
+            if (!V || typeof V != "string") return V;
+            var Z = null;
+            try {
+              Z = JSON.parse(V);
+            } catch {
+            }
+            return Z;
+          }, pick: function(V) {
+            return V === 1 || Math.ceil(Math.random() * V) === 1;
+          }, verifyConfig: function(V) {
+            var Z, re;
+            return "sample" in V && (1 <= (re = 0 < (re = (re = Z = V.sample) && /^\d+(\.\d+)?%$/.test(Z) ? parseInt(100 / parseFloat(Z)) : re) && re < 1 ? parseInt(1 / re) : re) && re <= 100 ? V.sample = re : delete V.sample), V;
+          }, on: function(V, Z, re, K, Y) {
+            return V.addEventListener ? (Y = Y || !1, V.addEventListener(Z, function se(le) {
+              K && V.removeEventListener(Z, se, Y), re.call(this, le);
+            }, Y)) : V.attachEvent && V.attachEvent("on" + Z, function se(le) {
+              K && V.detachEvent("on" + Z, se), re.call(this, le);
+            }), this;
+          }, off: function(V, Z, re) {
+            return re && (V.removeEventListener ? V.removeEventListener(Z, re) : V.detachEvent && V.detachEvent(Z, re)), this;
+          }, delay: function(V, Z) {
+            return Z === -1 ? (V(), null) : setTimeout(V, Z || 0);
+          }, ext: function(V) {
+            for (var Z = 1, re = arguments.length; Z < re; Z++) {
+              var K, Y = arguments[Z];
+              for (K in Y) Object.prototype.hasOwnProperty.call(Y, K) && (V[K] = Y[K]);
+            }
+            return V;
+          }, sub: function(V, Z) {
+            var re = {};
+            return this.each(V, function(K, Y) {
+              Z.indexOf(Y) !== -1 && (re[Y] = K);
+            }), re;
+          }, uu: function() {
+            for (var V, Z, re = 20, K = new Array(re), Y = Date.now().toString(36).split(""); 0 < re--; ) Z = (V = 36 * Math.random() | 0).toString(36), K[re] = V % 3 ? Z : Z.toUpperCase();
+            for (var se = 0; se < 8; se++) K.splice(3 * se + 2, 0, Y[se]);
+            return K.join("");
+          }, guid: function() {
+            return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(V) {
+              var Z = 16 * Math.random() | 0;
+              return (V === "x" ? Z : 3 & Z | 8).toString(16);
+            });
+          }, seq: function() {
+            return (oe++).toString(36);
+          }, decode: function(V) {
+            try {
+              V = decodeURIComponent(V);
+            } catch {
+            }
+            return V;
+          }, encode: function(V, Z) {
+            try {
+              V = Z ? encodeURIComponent(V).replace(/\(/g, "%28").replace(/\)/g, "%29") : encodeURIComponent(V);
+            } catch {
+            }
+            return V;
+          }, serialize: function(V) {
+            var Z, re = [];
+            for (Z in V = V || {}) Object.prototype.hasOwnProperty.call(V, Z) && V[Z] !== void 0 && re.push(Z + "=" + this.encode(V[Z], Z === "msg"));
+            return re.join("&");
+          }, checkAPI: function(V, Z) {
+            var re;
+            return !(!V || typeof V != "string" || (!(re = /arms-retcode[\w-]*\.aliyuncs/.test(V)) && Z ? /(alicdn\.com)|(mmstat\.com)/.test(V) : re));
+          }, checkAutoError: function(V) {
+            return !(!V || !V.message || /failed[\w\s]+fetch/i.test(V.message));
+          }, cutUrlSearch: function(V) {
+            return V && typeof V == "string" ? V.replace(/^(https?:)?\/\//, "").replace(/\?.*$/, "") : "";
+          }, removeUrlSearch: function(V) {
+            return V && typeof V == "string" ? V.replace(/\?.*$/, "") : "";
+          }, createFakeToString: function(V) {
+            return function() {
+              return V + "() { [native code] }";
+            };
+          }, checkSameOrigin: function(V, Z) {
+            var re;
+            return !(!Z || !V || (re = "//" + Z.split("/")[2], V !== Z && V.slice(0, Z.length + 1) !== Z + "/" && V !== re && V.slice(0, re.length + 1) !== re + "/" && /^(\/\/|http:|https:).*/.test(V)));
+          }, getRandIP: function() {
+            for (var V = [], Z = 0; Z < 4; Z++) {
+              var re = Math.floor(256 * Math.random());
+              V[Z] = (15 < re ? "" : "0") + re.toString(16);
+            }
+            return V.join("").replace(/^0/, "1");
+          }, getSortNum: function(V) {
+            return V ? 1e3 <= (V += 1) && V <= 9999 ? V : V < 1e3 ? V + 1e3 : V % 1e4 + 1e3 : 1e3;
+          }, getRandNum: function(V) {
+            return !V || typeof V != "string" || V.length < 5 ? this.getNum(5) : V.substring(V.length - 5);
+          }, getNum: function(V) {
+            for (var Z = [], re = 0; re < V; re++) {
+              var K = Math.floor(16 * Math.random());
+              Z[re] = K.toString(16);
+            }
+            return Z.join("");
+          }, getCurDomain: function() {
+            return location && location.hostname || "";
+          }, getSrcType: function(V, Z) {
+            var re = location && location.host || "";
+            if (!re) return "";
+            var K = new URL(V).host;
+            if (K === re) return "self";
+            for (var Y = 0; Y < Z.length; Y += 1) if (K.includes(Z[Y])) return "cdn";
+            return "others";
+          }, parseFetchHeaders: function(V) {
+            if (!V) return {};
+            var Z = {};
+            try {
+              if (typeof V.keys == "function") for (var re = V.keys(), K = re.next(); !K.done; ) {
+                var Y = K.value;
+                Z[Y] = V.get(Y), K = re.next();
+              }
+              else Z = V;
+            } catch {
+              Z = {};
+            }
+            return Z;
+          }, parseXhrHeaders: function(V) {
+            if (!V && typeof V != "string") return {};
+            var Z = {};
+            try {
+              Z = V.split(`\r
+`).reduce(function(re, K) {
+                return K = K.split(": "), re[K[0]] = K[1], re;
+              }, {});
+            } catch {
+              Z = {};
+            }
+            return Z;
+          }, getQuerys: function(V) {
+            if (!V) return "";
+            var Z, re, K, Y = {};
+            try {
+              var se = [];
+              if (0 < (se = 0 <= V.indexOf("?") ? V.substring(V.indexOf("?") + 1, V.length).split("&") : se).length) for (var le in se) re = (Z = se[le].split("="))[0], K = Z[1], Y[re] = K;
+            } catch {
+              Y = {};
+            }
+            return Y;
+          }, getURL: function(V) {
+            if (!V) return null;
+            var Z = {}, Y = V.length, re = V.indexOf("://");
+            if (re < 0) return null;
+            Z.protocol = V.substring(0, re + 1);
+            var se = V.indexOf("#"), K = V.indexOf("?"), Y = (se < 0 && (se = Y), K < 0 && (K = se), Z.search = V.substring(K, se).substring(0, 1e3), V.substring(re + 3, K)), se = Y.indexOf("/");
+            return se < 0 && (se = Y.length), Z.domain = Y.substring(0, se).split(":")[0], Z.path = Y.substring(se, Y.length).substring(0, 1e3), Z;
+          }, getResType: function(V, K) {
+            if (-1 < ["script", "img", "other"].indexOf(V)) return V;
+            if (-1 < ["video"].indexOf(V)) return "media";
+            if (-1 < ["document", "iframe"].indexOf(V)) return "doc";
+            var K = K ? this.getURL(K) : null, re = K && K.path ? K.path.lastIndexOf(".") : -1, K = (0 < re ? K.path.substr(re + 1) : "").toLowerCase();
+            if (K) {
+              if (-1 < ["eot", "woff", "woff2", "ttf"].indexOf(K)) return "font";
+              if (K === "css") return "css";
+              if (K === "js") return "script";
+            }
+            return -1 < ["fetch", "xmlhttprequest", "beacon"].indexOf(V) ? "api" : "others";
+          }, areInOrder: function() {
+            for (var V = 1; V < arguments.length; V += 1) if (arguments[V] < arguments[V - 1]) return !1;
+            return !0;
+          }, getFetchSnapshot: function(V, Z, re) {
+            try {
+              var K = (V && typeof V[0] != "string" ? V[0].url : V[0]) || "", Y = (V && typeof V[0] != "string" ? V[0] : V[1]) || {}, se = Y.method.toUpperCase() === "POST" ? Y.body : this.getQuerys(K), le = { originApi: K, method: Y.method || "unknown", params: se, response: Z || "", reqHeaders: this.parseFetchHeaders(Y.headers || null), resHeaders: this.parseFetchHeaders(re) }, pe = JSON && JSON.stringify(le) || "{}";
+            } catch {
+              pe = "{}";
+            }
+            return pe;
+          }, getXhrSnapshot: function(V, Z, re) {
+            if (!V || !Z || !re) return {};
+            var K, Y;
+            try {
+              var se = "";
+              re.responseType === "" || re.responseType === "text" ? se = re.responseText : re.responseType === "document" && (se = re.responseXML), K = { originApi: V, method: Z, params: this.getQuerys(V), response: se, reqHeaders: {}, resHeaders: this.parseXhrHeaders(typeof re.getAllResponseHeaders == "function" && re.getAllResponseHeaders() || "") }, Y = JSON && JSON.stringify(K) || "{}";
+            } catch {
+              Y = "{}";
+            }
+            return Y;
+          }, isRobot: function() {
+            var V = ["nuhk", "googlebot/", "googlebot-image", "yammybot", "openbot", "slurp", "msnbot", "ask jeeves/teoma", "ia_archiver", "baiduspider", "bingbot/", "adsbot"];
+            if (navigator && typeof navigator.userAgent == "string") try {
+              for (var Z = navigator.userAgent.toLowerCase(), re = 0; re < V.length; re++) {
+                var K = V[re];
+                if (0 <= Z.lastIndexOf(K)) return !0;
+              }
+            } catch {
+              this.warn("[arms] useragent parse error");
+            }
+            return !1;
+          }, isFunction: function(V) {
+            return typeof V == "function";
+          }, isPlainObject: function(V) {
+            return Object.prototype.toString.call(V) === "[object Object]";
+          }, isString: function(V) {
+            return Object.prototype.toString.call(V) === "[object String]";
+          }, isArray: function(V) {
+            return Object.prototype.toString.call(V) === "[object Array]";
+          }, joinRegExp: function(V) {
+            for (var Z, re = [], K = 0, Y = V.length; K < Y; K++) Z = V[K], this.isString(Z) ? re.push(Z.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1")) : Z && Z.source && re.push(Z.source);
+            return new RegExp(re.join("|"), "i");
+          }, reWriteMethod: function(V, Z, re) {
+            var K;
+            V !== null && (K = V[Z], V[Z] = re(K));
+          }, checkSDKError: function(V, Z) {
+            return !(!V && !Z || !new RegExp(this.selfErrKey, "i").test(V) && !this.ignoreByRule(Z, [/retcode.alicdn.com\/retcode\/bl.js/, /g.alicdn.com\/retcode\/cloud-sdk\/bl.js/, /laz-g-cdn.alicdn.com\/retcode\/cloud-sdk\/bl.js/, /local.taobao.com:8880\/build\/bl/]));
+          }, sdkError: function(V) {
+            return { msg: V, message: this.selfErrKey };
+          }, dealParam: function(V, Z, re) {
+            var K = {};
+            try {
+              K = this.isPlainObject(V) ? this.ext({ key: V.key || "default", val: V.val || V.value || re }, V, { begin: Date.now() }) : { key: V || "default", val: Z || re, begin: Date.now() };
+            } catch (Y) {
+              this.warn("[retcode] baseLog error: " + Y);
+            }
+            return K;
+          } }, _ = ge), _;
+        }
+        var m, v, f, b, S = { exports: {} }, w = { exports: {} };
+        function T() {
+          var oe, ce, ge, V, Z, re;
+          return f || (f = 1, oe = g(), v || (v = 1, re = g(), m = function(K, Y, se) {
+            typeof K == "object" && (K = re.serialize(K)), window && window.navigator && typeof window.navigator.sendBeacon == "function" ? window.navigator.sendBeacon(Y + K + (se ? "&post_res=" : ""), se || "&post_res=") : re.warn("[arms] navigator.sendBeacon not surported");
+          }), ce = m, ge = "aokcdqn3ly@e629dabd48a9933", V = function(K, Y) {
+            var se, le, pe;
+            if (Y.t !== "error" || !(se = K.requestQueue[0]) || se.t !== "error" || Y.msg !== se.msg) return Y.t === "behavior" ? 0 < (le = K.requestQueue && K.requestQueue.length) && K.requestQueue[le - 1].t === "behavior" ? (pe = Y.behavior || [], K.requestQueue[le - 1].behavior.concat(pe)) : K.requestQueue.push(Y) : K.requestQueue.unshift(Y), K.onReady(function() {
+              K.requestTimmer = oe.delay(function() {
+                K.clear();
+              }, K.requestQueue[0] && K.requestQueue[0].t === "error" ? 3e3 : -1);
+            }), !0;
+            Y.times = se.times + 1, K.requestQueue[0] = Y;
+          }, (Z = function(K) {
+            return this.ver = "1.8.36-beta.12", this._conf = oe.ext({}, Z.dftCon), this.sampleCache = {}, this.requestQueue = [], this.selfQueue = [], this.sdkFlag = !0, this.hash = oe.seq(), this.resetPageview(), this.setConfig(K), this.rip = oe.getRandIP(), this.record = 999, this["EagleEye-TraceID"] = this.getTraceId()["EagleEye-TraceID"], this._common = {}, this;
+          }).dftCon = { sample: 1, pvSample: 1, tag: "", imgUrl: "https://arms-retcode.aliyuncs.com/r.png?", region: null, ignore: { ignoreUrls: [], ignoreApis: [], ignoreErrors: [/^Script error\.?$/], ignoreResErrors: [], ignoreResources: [/\/(bl|wl)(.debug)?.js$/] }, release: void 0, environment: "prod", beforeReport: null, parseTraceId: null }, Z.prototype = { constructor: Z, onReady: function(K) {
+            return K();
+          }, getPage: function() {
+            var K = this._conf.page;
+            return oe.safetyCall(K, [], K + "");
+          }, setPage: function() {
+          }, setConfig: function(K) {
+            K && typeof K == "object" && (oe.verifyConfig(K), K = this.setImgUrl(K), this._conf = oe.ext({}, this._conf, K));
+          }, setImgUrl: function(K) {
+            var Y = K.region, se = K.imgUrl;
+            return Y ? (Y = oe.regionMap[Y], K.imgUrl = Y || oe.defaultImgUrl) : se && (K.imgUrl = se), K;
+          }, checkImgUrl: function() {
+            return !0;
+          }, sendRequest: function() {
+          }, sendBeacon: function(K, Y, se) {
+            ce(K, Y || this.getConfig("imgUrl"), se);
+          }, postData: function() {
+          }, commonInfo: function() {
+            return {};
+          }, setCommonInfo: function(K) {
+            K && typeof K == "object" && (this._common = oe.ext({}, this._common, K));
+          }, resetPageview: function() {
+            this.pageview = oe.uu(), this.sBegin = Date.now();
+          }, getUsername: function() {
+            if (!this.username) {
+              var K = this._conf, K = K && K.setUsername;
+              if (typeof K == "function") try {
+                var Y = K();
+                typeof Y == "string" && (Y = Y.substr(0, 40), this.username = Y);
+              } catch (se) {
+                oe.warn("[arms] setUsername fail", se);
+              }
+            }
+            return this.username;
+          }, getTraceId: function() {
+            var se = this.rip, K = Date.now(), Y = oe.getSortNum(this.record), se = se + K + Y + oe.getRandNum(this._conf.pid);
+            return this["EagleEye-TraceID"] = se, this.record = Y, { "EagleEye-TraceID": se };
+          }, getUberTraceId: function(K) {
+            var le = this.rip, pe = Date.now(), Y = oe.getSortNum(this.record), se = oe.getRandNum(this._conf.pid), le = le + pe + Y + oe.getNum(2) + se, pe = le.substring(0, 16);
+            return K = K ? "1" : "0", le[0] === "0" && (le[0] = "1"), le[16] === "0" && (le[16] = "1"), { "uber-trace-id": le + ":" + pe + ":0:" + K, traceId: le };
+          }, getB3TraceId: function(K) {
+            var le = this.rip, pe = Date.now(), Y = oe.getSortNum(this.record), se = oe.getRandNum(this._conf.pid), le = le + pe + Y + oe.getNum(2) + se, pe = le.substring(0, 16);
+            return K = K ? "1" : "0", le[0] === "0" && (le[0] = "1"), le[16] === "0" && (le[16] = "1"), { b3: le + "-" + pe + "-" + K + "-0", "X-B3-TraceId": le, "X-B3-ParentSpanId": "0", "X-B3-SpanId": pe, "X-B3-Sampled": K };
+          }, getPageviewId: function() {
+            return { "EagleEye-SessionID": this.pageview };
+          }, getConfig: function(K) {
+            return K ? this._conf[K] : oe.ext({}, this._conf);
+          }, sampling: function(K) {
+            return K === 1 || (typeof this.sampleCache[K] == "boolean" || (this.sampleCache[K] = oe.pick(K)), this.sampleCache[K]);
+          }, clear: function(K) {
+            var Y;
+            clearTimeout(this.requestTimmer), this.requestTimmer = null;
+            for (var se, le = this._conf && typeof this._conf.sendRequest == "function"; Y = this.requestQueue.pop(); ) Y.t === "res" ? this.postData(Y, "res") : Y.t === "error" ? this.postData(Y, "err") : Y.t === "api" ? this.postData(Y, "apiSnapshot") : Y.t === "behavior" ? this.postData(Y, "behavior") : Y.t === "health" && !le && window && window.navigator && typeof window.navigator.sendBeacon == "function" ? this.sendBeacon(Y) : Y.t === "resource" && !le && window && window.navigator && typeof window.navigator.sendBeacon == "function" ? (se = JSON.stringify({ resource: Y.resource }), delete Y.resource, this.sendBeacon(Y, null, se)) : Y.t === "resource" ? this.postData(Y, "resource") : this.sendRequest(Y);
+            return K && this.clearSelf(), this;
+          }, clearSelf: function() {
+            var K;
+            for (clearTimeout(this.Timmer), this.Timmer = null; K = this.selfQueue.pop(); ) this.postData(K, "err");
+            return this;
+          }, _lg: function(K, Y, se, le) {
+            var pe = this, ye = pe._conf, Se = pe.getPage(), ve = ye.ignore || {}, _e = ve.ignoreErrors, he = ve.ignoreResErrors, we = ve.ignoreUrls, ve = ve.ignoreApis;
+            if (pe._isRobot || oe.ignoreByRule(Se, we) || oe.ignoreByRule(oe.decode(Se), we) || K === "error" && (oe.ignoreByRule(Y.msg, _e) || oe.ignoreByRule(oe.decode(Y.msg), _e)) || K === "resourceError" && (oe.ignoreByRule(Y.src, he) || oe.ignoreByRule(oe.decode(Y.src), he)) || K === "api" && (oe.ignoreByRule(Y.api, ve) || oe.ignoreByRule(oe.decode(Y.api), ve)) || !pe.checkImgUrl(ye.imgUrl) || !Y || ye.disabled || !ye.pid || le === 0) return pe;
+            if (we = Y.dl, delete Y.dl, Y = oe.ext({ t: K, times: 1, page: Se, tag: ye.tag || "", release: ye.release || "", environment: ye.environment, begin: Date.now(), c1: ye.c1, c2: ye.c2, c3: ye.c3 }, Y, pe.commonInfo(), pe._common, { pid: ye.pid, _v: pe.ver, pv_id: pe.pageview, username: pe.getUsername(), sampling: se || 1, dl: we, z: oe.seq() }), oe.T(ye.beforeReport) === "Function") try {
+              if (!(Y = ye.beforeReport(Y))) return pe;
+            } catch {
+              return pe;
+            }
+            return le !== 1 && se && !pe.sampling(se) ? pe : V(pe, Y);
+          }, _self: function(K, Y, se) {
+            var le = this, pe = le._conf;
+            if (K !== "error" || !le.checkImgUrl(pe.imgUrl) || !Y || pe.disabled || !pe.pid || se && !le.sampling(se)) return le;
+            if (Y = oe.ext({ t: K, times: 1, page: oe.selfErrPage, tag: pe.pid, begin: Date.now() }, Y, { pid: ge, _v: le.ver, sampling: se || 1, z: oe.seq() }), K = le.selfQueue[0], K) {
+              K.times++;
+              try {
+                K.err && Y.err && K.err.msg_raw && Y.err.msg_raw && K.err.msg_raw.split("&").indexOf(Y.err.msg_raw) < 0 && K.err.msg_raw.length < 1e3 && (K.err.msg_raw += "&" + Y.err.msg_raw);
+              } catch {
+              }
+            } else le.selfQueue.unshift(Y), le.onReady(function() {
+              le.sdkFlag && (le.sdkFlag = !1, le.Timmer = oe.delay(function() {
+                le.clearSelf();
+              }, 1e4));
+            });
+          }, custom: function(K, Y) {
+            var se, le;
+            return K && typeof K == "object" && (se = !1, le = { begin: Date.now() }, oe.each(K, function(pe, ye) {
+              return (se = ye && ye.length <= 20) || oe.warn("[retcode] invalid key: " + ye), le["x-" + ye] = pe, se;
+            }), se) ? this._lg("custom", le, Y || 1) : this;
+          } }, w.exports = Z), w.exports;
+        }
+        var R, P = { exports: {} }, E, A, H, M = { exports: {} };
+        function O() {
+          var oe;
+          return H || (H = 1, oe = g(), A = function(ce, ge) {
+            function V(pe, ye, Se) {
+              var _e;
+              pe !== null && (_e = pe[ye], pe[ye] = Se(_e));
+            }
+            function Z(pe, ye) {
+              return function(Se) {
+                if (Se && Se !== le) {
+                  var _e;
+                  le = Se;
+                  try {
+                    _e = Se.target;
+                  } catch {
+                    _e = "<unknown>";
+                  }
+                  _e.length !== 0 && (Se = { type: "ui.".concat(pe), data: { message: ((he) => {
+                    if (!he || he.nodeType !== 1) return "";
+                    for (var we = he || null, ve = [], Te = 0, W = 0, z = ""; we && Te++ < 5 && !((z = ((ee) => {
+                      var ue, fe, Ee, Ae, Pe = [];
+                      if (!ee || typeof ee.tagName != "string") return "";
+                      if (Pe.push(ee.tagName.toLowerCase()), typeof ee.id == "string" && Pe.push("#".concat(ee.id)), typeof (ue = ee.className) == "string") for (fe = ue.split(/\s+/), xe = 0; xe < fe.length; xe++) Pe.push(".".concat(fe[xe]));
+                      for (var Ie = ["type", "name", "title", "alt", "data-arms-attr"], xe = 0; xe < Ie.length; xe++) typeof (Ae = ee.getAttribute(Ee = Ie[xe])) == "string" && Pe.push("[".concat(Ee, '="').concat(Ae, '"]'));
+                      return Pe.join("");
+                    })(we)) === "html" || 1 < Te && 80 <= W + 3 * ve.length + z.length); ) ve.push(z), W += z.length, we = we.parentNode;
+                    return ve.reverse().join(" > ");
+                  })(_e) }, timestamp: Date.now() }, pe === "click" ? K && K.addBehavior(Se) : pe === "keypress" && (se || K && K.addBehavior(Se), clearTimeout(se), se = setTimeout(function() {
+                    se = void 0;
+                  }, 100)));
+                }
+              };
+            }
+            var re = [], K = null, Y = ge && ge.location && ge.location.href, se = void 0, le = null;
+            oe.ext(ce.prototype, { addBehavior: function(pe) {
+              if (this.getConfig("behavior") && pe && typeof pe == "object") {
+                var ye = {}, Se = pe.data || {};
+                if (pe.type) ye = Se;
+                else {
+                  if (typeof Se.name != "string" || typeof Se.message != "string") return;
+                  ye.name = Se.name.substr(0, 20), ye.message = Se.message.substr(0, 200);
+                }
+                return ye.message && (ye.message = oe.encode(ye.message)), Se = { type: pe.type || "custom", data: ye || {}, timestamp: pe.timestamp || Date.now(), page: pe.page || ge && ge.location && ge.location.pathname }, re.push(Se), re = re.slice(-100);
+              }
+            }, getBehavior: function() {
+              return re || [];
+            }, setBehavior: function(pe) {
+              return re = pe || re;
+            }, reportBehavior: function(pe) {
+              var ye = this;
+              ye.getConfig("behavior") && (ye.sendBhTimer && (clearTimeout(ye.sendBhTimer), ye.sendBhTimer = void 0), ye.sendBhTimer = setTimeout(function() {
+                re && 0 < re.length && (ye.behavior(re), re = [], ye.sendBhTimer = void 0, pe) && typeof pe == "function" && pe();
+              }, 0));
+            }, initBehavior: function() {
+              if (!this.hasInitBehavior && !K) {
+                try {
+                  document && document.referrer && document.location && (z = document.referrer, ee = document.location.href, z !== "") && (Y = ee, K) && K.addBehavior({ type: "navigation", data: { from: z, to: ee } }), ge && ge.document && ge.document.addEventListener && (ge.document.addEventListener("click", Z("click"), !1), ge.document.addEventListener("keypress", Z("keypress"), !1)), Te = (Te = ge && ge.chrome) && Te.app && Te.app.runtime, W = "history" in ge && !!ge.history.pushState && !!ge.history.replaceState, !Te && W && (we = function(ue, fe) {
+                    K && K.addBehavior({ type: "navigation", data: { from: ue, to: fe } }), Y = fe;
+                  }, ve = ge.onpopstate, ge.onpopstate = function() {
+                    for (var ue = arguments.length, fe = new Array(ue), Ee = 0; Ee < ue; Ee++) fe[Ee] = arguments[Ee];
+                    var Ae = ge.location.href;
+                    if (we(Y, Ae), ve) return ve.apply(this, fe);
+                  }, V(ge.history, "pushState", Te = function(ue) {
+                    return function() {
+                      for (var fe = arguments.length, Ee = new Array(fe), Ae = 0; Ae < fe; Ae++) Ee[Ae] = arguments[Ae];
+                      var Pe = 2 < Ee.length ? Ee[2] : void 0;
+                      return Pe && we(Y, String(Pe)), ue.apply(this, Ee);
+                    };
+                  }), V(ge.history, "replaceState", Te));
+                  var pe = this.getConfig("enableConsole");
+                  if (pe) {
+                    var ye = pe;
+                    if (ge && ge.console) {
+                      var Se = ["debug", "info", "warn", "log", "error", "assert"];
+                      oe.isArray(ye) && (Se = ye);
+                      for (var _e = 0; _e < Se.length; _e++) {
+                        var he = Se[_e];
+                        he && oe.isString(he) && ge.console[he] && typeof ge.console[he] == "function" && V(ge.console, he, function(ue) {
+                          var fe = he;
+                          return function() {
+                            for (var Ee = arguments.length, Ae = new Array(Ee), Pe = 0; Pe < Ee; Pe++) Ae[Pe] = arguments[Pe];
+                            if (K && K.addBehavior({ type: "console", data: { level: fe, message: Ae } }), fe === "error") for (var Ie = 0; Ie < Ae.length; Ie++) {
+                              var xe = Ae[Ie];
+                              xe && xe.message && xe.stack && K && K.errorHandler(new ErrorEvent("error", { error: xe, message: xe.message }));
+                            }
+                            ue && Function.prototype.apply.call(ue, ge.console, Ae);
+                          };
+                        });
+                      }
+                    }
+                  }
+                } catch (ue) {
+                  oe.warn("[arms] error in initBehavior", ue);
+                }
+                (K = this).hasInitBehavior = !0;
+              }
+              var we, ve, Te, W, z, ee;
+              return this;
+            } });
+          }), A;
+        }
+        var j, U, N, C, I, L, q, Q, B, k, D, X, te, ie, ne, G, F, J = {};
+        function ae() {
+          return j || (j = 1, J.TIMING_KEYS = ["startTime", "fetchStart", "domainLookupStart", "domainLookupEnd", "connectStart", "connectEnd", "requestStart", "responseStart", "responseEnd", "", "domInteractive", "", "domContentLoadedEventEnd", "", "loadEventStart", "", "msFirstPaint", "secureConnectionStart", "redirectStart", "redirectEnd"]), J;
+        }
+        function de() {
+          return q || (q = 1, L = function(oe, ce, ge) {
+            function V(z, ee, ue, fe, Ee) {
+              if (ee === void 0) {
+                var Ae;
+                if (!W[z]) {
+                  Pe = new RegExp(z + "=([^;]+)");
+                  try {
+                    Ae = Pe.exec(ge.cookie);
+                  } catch (Ie) {
+                    return le.warn("[retcode] can not get cookie:", Ie), null;
+                  }
+                  Ae && (W[z] = Ae[1]);
+                }
+                return W[z];
+              }
+              var Pe = z + "=" + ee;
+              Pe += "; path=/", ue && (Pe += "; max-age=" + ue);
+              try {
+                return ge.cookie = Pe, !!ge.cookie;
+              } catch (Ie) {
+                return le.warn("[retcode] can not set cookie: ", Ie), !1;
+              }
+            }
+            function Z(z) {
+              return (z = z._conf.uid || V("_nk_") || V("_bl_uid")) || (z = le.uu(), V("_bl_uid", z, 15552e3)) ? z : null;
+            }
+            var re, K, Y, se, le = g(), pe = (N || (N = 1, Y = g(), se = ae().TIMING_KEYS, U = function() {
+              var z, ee, ue, fe = Y.win || {}, Ee = fe.performance;
+              return Ee && typeof Ee == "object" && typeof Ee.getEntriesByType == "function" ? (z = {}, ee = Ee.timing || {}, ue = Ee.getEntriesByType("resource") || [], z.begin = ee[se[1]] || Date.now(), typeof fe.PerformanceNavigationTiming == "function" && (fe = Ee.getEntriesByType("navigation")[0]) && (ee = fe), Y.each({ dom: [10, 8], load: [14, 1] }, function(xe, Pe) {
+                var Ie = ee[se[xe[1]]], xe = ee[se[xe[0]]];
+                0 < Ie && 0 < xe && 0 <= (xe = Math.round(xe - Ie)) && xe < 6e5 && (z[Pe] = xe);
+              }), z.res = JSON.stringify(ue), z) : null;
+            }), U), ye = (I || (I = 1, re = g(), K = ae().TIMING_KEYS, C = function() {
+              var z, ee, ue, fe, Ee, Ae = re.win || {}, Pe = Ae.performance;
+              return Pe && typeof Pe == "object" ? (z = {}, ee = Pe.timing || {}, ue = Date.now(), fe = 1, typeof Ae.PerformanceNavigationTiming == "function" && (Ee = Pe.getEntriesByType("navigation")[0]) && (ee = Ee, fe = 2), re.each({ dns: [3, 2], tcp: [5, 4], ssl: [5, 17], ttfb: [7, 6], trans: [8, 7], dom: [10, 8], res: [14, 12], firstbyte: [7, 2], fpt: [8, 1], tti: [10, 1], ready: [12, 1], load: [14, 1] }, function($e, xe) {
+                var Ue = ee[K[$e[1]]], $e = ee[K[$e[0]]];
+                (fe === 2 || 0 < Ue && 0 < $e) && 0 <= ($e = Math.round($e - Ue)) && $e < 6e5 && (z[xe] = $e);
+              }), Ee = Ae.navigator.connection, Ae = Pe.navigation || {}, z.ct = Ee ? Ee.effectiveType || Ee.type : "", (Pe = 999 < (Pe = Ee && (Ee.downlink || Ee.downlinkMax || Ee.bandwidth) || null) ? 999 : Pe) && (z.bandwidth = Pe), z.navtype = Ae.type === 1 ? "Reload" : "Other", fe === 1 && 0 < ee[K[16]] && 0 < ee[K[1]] && 0 <= (Ee = ee[K[16]] - ee[K[1]]) && Ee < 36e5 && (z.fpt = Ee), fe === 1 && 0 < ee[K[1]] ? z.begin = ee[K[1]] : z.begin = fe === 2 && 0 < z.load ? ue - z.load : ue, z) : null;
+            }), C), Se = null, _e = ge.documentElement, he = ce.innerWidth || _e.clientWidth || ge.body.clientWidth, we = ce.innerHeight || _e.clientHeight || ge.body.clientHeight, ve = ce.navigator.connection, Te = { sr: screen.width + "x" + screen.height, vp: he + "x" + we, ct: ve ? ve.effectiveType || ve.type : "" }, W = {};
+            return le.ext(oe.prototype, { activeErrHandler: function(z) {
+              return Se && !z || (Se = this), this;
+            }, errorHandler: function(z) {
+              if (z) {
+                var ee, ue = z.type;
+                ue === "error" ? !(ee = z.target || z.srcElement) || !ee.tagName || z.message || z.filename || z.lineno || z.colno ? this.error(z.error || { message: z.message }, z) : this.resourceErrorHandler(z) : ue === "unhandledrejection" && le.T(z.reason, "Error") && le.checkAutoError(z.reason) && this.error(z.reason);
+                try {
+                  this.getConfig("behavior") && this.reportBehavior && this.reportBehavior();
+                } catch {
+                }
+              }
+              return this;
+            }, resourceErrorHandler: function(z) {
+              var ee = this, ue = z.target || z.srcElement;
+              try {
+                var fe = ee.getSrc(ue), Ee = typeof ue.tagName == "string" ? ue.tagName.toLowerCase() : "", Ae = ee.getXPath(ue, 5), Pe = le.getURL(fe), Ie = { src: fe && fe.substring(0, 1e3), node_name: Ee, xpath: Ae, res_type: le.getResType(Ee, fe), res_name: Pe.path, domain: Pe.domain };
+                return ee._conf.enableResource && ee.fixResourceStatus && z.timeStamp && ee.fixResourceStatus({ src: fe, node_name: Ee, res_type: le.getResType(Ee, fe), timeStamp: z.timeStamp, domain: Pe.domain }), ee._lg("resourceError", Ie), ee;
+              } catch (xe) {
+                return le.warn("[ARMS] resourceErrorHandler error :", xe), ee;
+              }
+            }, getSrc: function(z) {
+              var ee, ue, fe = z.src || z.href;
+              try {
+                fe || (ee = (typeof z.tagName == "string" ? z.tagName.toLowerCase() : "") === "object", ue = z.getAttribute("classid") && z.getAttribute("classid").toLowerCase() === "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" || z.getAttribute("type") === "application/x-shockwave-flash", fe = (fe = ee && ue ? z.getAttribute("data") || z.getAttribute("codebase") : fe) || z.outerHTML || z.innerHTML);
+              } catch {
+                fe = "";
+              }
+              return fe;
+            }, getXPath: function(z, ee) {
+              var fe = z.id ? "#" + z.id : "", ue = typeof z.className == "string" ? "." + z.className.split(" ").join(".") : "", fe = (typeof z.tagName == "string" ? z.tagName.toLowerCase() : "") + fe + ue;
+              return z.parentNode && z.parentNode.tagName && ee - 1 != 0 ? this.getXPath(z.parentNode, ee - 1) + " > " + fe : fe;
+            }, sendPerformance: function(z) {
+              var ee = this;
+              ee.onReady(function() {
+                var ue = ye();
+                ue && ue.load && 0 < ue.load && (ue.page = ee.getPage(!0), (ue = z ? le.ext(ue, z) : ue).autoSend = !0, ee.performance(ue));
+              });
+            }, sendResources: function(z) {
+              var ee = this;
+              ee.onReady(function() {
+                var ue = pe();
+                ue && ue.load && 0 < ue.load && (ue.load && ue.load <= 2e3 || ue.load && ue.load <= 8e3 && 0.05 < Math.random() || (ue.page = ee.getPage(!0), ue.dl = location.href, z && (ue = le.ext(ue, z)), ee._lg("res", ue, ee.getConfig("sample"))));
+              });
+            }, sendPV: function() {
+              var z = this;
+              z.onReady(function() {
+                ue = Z(z), ee = ce.devicePixelRatio || 1;
+                var ee, ue = { uid: ue, dt: ge.title, dl: location.href, dr: ge.referrer, dpr: ee.toFixed(2), de: (ge.characterSet || ge.defaultCharset || "").toLowerCase(), ul: _e.lang, begin: Date.now() };
+                ue.uid && z._lg("pv", ue, z.getConfig("pvSample"));
+              });
+            }, commonInfo: function() {
+              return Te.uid = Z(this), Te.sid = ((z) => {
+                if (z.session) return z.session;
+                var ee;
+                try {
+                  if (typeof window == "object" && typeof sessionStorage == "object" && typeof sessionStorage.getItem == "function") return typeof (ee = sessionStorage.getItem("_bl_sid")) == "string" ? z.session = ee : (ee = le.uu(), z.session = ee, typeof sessionStorage.setItem == "function" && sessionStorage.setItem("_bl_sid", ee)), ee;
+                } catch (ue) {
+                  le.warn("[ARMS] getSid error :", ue);
+                }
+                return z.session = ee = le.uu(), ee;
+              })(this), Te;
+            }, handleUnload: function(z) {
+              var ee = Date.now();
+              if (ee - this._lastUnload < 200) return this;
+              this._lastUnload = ee, this.sendHealth(z), this.speedCache && (this._lg("speed", this.speedCache), this.speedCache = null, clearTimeout(this.speedTimmer)), this._conf && this._conf.enableResource && this.resourceComboReport(), this.clear(!0);
+            }, bindHashChange: function(z) {
+              var ee = this;
+              if (!z ^ ee.hashChangeHandler) return ee;
+              z ? (ee.hackHistoryState(), ee.hashChangeHandler = function(ue) {
+                var fe = ee._conf.parseHash(location.hash);
+                fe && ee.setPage(fe, ue !== !1);
+              }, ee.stateChangeHandler = function(ue) {
+                ue = ee._conf.parseHash(ue.detail), ue && ee.setPage(ue);
+              }, le.on(ce, "hashchange", ee.hashChangeHandler), le.on(ce, "historystatechange", ee.stateChangeHandler), ee.hashChangeHandler(!1)) : (le.off(ce, "hashchange", ee.hashChangeHandler), le.off(ce, "historystatechange", ee.stateChangeHandler), ee.hashChangeHandler = null, ee.stateChangeHandler = null);
+            }, initHandler: function() {
+              var z, ee = this;
+              return ee.hasInitHandler || (z = ee._conf, le.on(ce, "beforeunload", function() {
+                ee.handleUnload(0);
+              }), ee.bindHashChange(z.enableSPA), ee.activeErrHandler(!1), ee.hasInitHandler = !0), ee;
+            } }), le.on(ce, "error", function(z) {
+              Se && Se.errorHandler(z);
+            }, !1, !0).on(ce, "unhandledrejection", function(z) {
+              Se && Se.errorHandler(z);
+            }), oe;
+          }), L;
+        }
+        function me() {
+          var oe, ce;
+          return B || (B = 1, oe = g(), ce = 500, Q = function(ge, V, Z) {
+            var re = V.innerHeight || 0, K = [], Y = null, se = 0;
+            oe.ext(ge.prototype, { initFmpObserver: function(le) {
+              var pe = this;
+              if (!pe._conf || !pe._conf.useFmp) return null;
+              if (!V.MutationObserver) return oe.warn("[retcode] first meaningful paint can not be retrieved"), pe.sendPerformance(), null;
+              oe.on(V, "beforeunload", function() {
+                pe.endObserving(0, !0);
+              });
+              var ye = V.MutationObserver;
+              return (Y = new ye(function() {
+                var Se, _e, he;
+                Se = pe._startTime, Se = Date.now() - Se, (he = Z.querySelector("body")) ? (_e = 0, _e += function we(ve, Te, W) {
+                  var z = 0, ee = ve.tagName;
+                  if (ee !== "SCRIPT" && ee !== "STYLE" && ee !== "META" && ee !== "HEAD") {
+                    if (0 < (ee = ve.children ? ve.children.length : 0)) for (var ue = ve.children, fe = ee - 1; 0 <= fe; fe--) z += we(ue[fe], Te + 1, 0 < z);
+                    if (z <= 0 && !W && !(ve.getBoundingClientRect && ve.getBoundingClientRect().top < re)) return 0;
+                    z += 1 + 0.5 * Te;
+                  }
+                  return z;
+                }(he, 1, !1), K.push({ score: _e, t: Se })) : K.push({ score: 0, t: Se });
+              })).observe(document, { childList: !0, subtree: !0 }), se = 1, pe.onReady(function() {
+                pe.endObserving(le);
+              }), Y;
+            }, endObserving: function(le, pe) {
+              var ye = this;
+              if (Y && se) if (ye.fmpTimmer && (clearTimeout(ye.fmpTimmer), ye.fmpTimmer = null), pe || !((we, ve) => (we = Date.now() - we, !(ve < we || we - (K && K.length && K[K.length - 1].t || 0) > 2 * ce)))(ye._startTime, le)) {
+                Y.disconnect(), se = 0, K = function we(ve) {
+                  for (var Te = 1; Te < ve.length; Te++) if (ve[Te].score < ve[Te - 1].score) return ve.splice(Te, 1), we(ve);
+                  return ve;
+                }(K);
+                for (var Se, _e = null, he = 1; he < K.length; he++) K[he].t >= K[he - 1].t && (Se = K[he].score - K[he - 1].score, !_e || _e.rate <= Se) && (_e = { t: K[he].t, rate: Se });
+                _e && 0 < _e.t && _e.t < 36e5 ? ye.sendPerformance({ fmp: _e.t }) : ye.sendPerformance();
+              } else ye.fmpTimmer = oe.delay(function() {
+                ye.endObserving(le);
+              }, ce);
+            } });
+          }), Q;
+        }
+        function ke() {
+          return D || (D = 1, k = function(oe, ce) {
+            function ge(pe, ye, Se, _e, he, we, ve, Te, W, z, ee, ue, fe) {
+              he = V.J(he) || null, (ye = V.safetyCall(ye, [he, _e], null)) && (he = ye.code || we, _e = !("success" in ye) || ye.success, pe.api(Se, _e, ve, he, ye.msg, Te, W, z, _e ? {} : ee, re, ue, fe));
+            }
+            var V = g(), Z = null, re = V.getCurDomain(), K = "fetch", Y = "__oFetch_", se = "__oXMLHttpRequest_", le = "XMLHttpRequest";
+            return V.ext(oe.prototype, { removeHook: function(pe, ye) {
+              return Z && (ye || this === Z) && (ce[Y] && (ce[K] = ce[Y], delete ce[Y]), ce[se] && (ce[le] = ce[se], delete ce[se]), Z = null), this;
+            }, addHook: function(pe) {
+              return !pe && Z || (Z || (typeof ce[K] == "function" && (he = ce[K], ce[Y] = he, ce[K] = function(we, ve) {
+                var Te = arguments.length === 1 ? [we] : Array.apply(null, arguments), W = Z;
+                if (!W || !W.api || ve && (ve.method === "HEAD" || ve.mode === "no-cors")) return he.apply(ce, Te);
+                ve = ve || {};
+                var z = Date.now(), ee = W._conf, ue = V.duration(), fe = Ee = (we && typeof we != "string" ? we.url : we) || "", Ee = V.cutUrlSearch(Ee), Pe = (ee.ignore || {}).ignoreApis, Ae = ee.parseTraceId;
+                if (!V.checkAPI(Ee, !0) || V.ignoreByRule(Ee, Pe)) return he.apply(ce, Te);
+                Ee = V.filterByRule(Ee, fe, ee.ignoreApiPath || ee.apiHelper);
+                var Pe = ee.enableLinkTrace, Ie = "", xe = "", Ue = W.getConfig("pid"), $e = null, Je = W.getConfig("sample"), ot = W.getConfig("linkType"), ze = 1;
+                if (Je && !W.sampling(Je) && (ze = 0), Pe) {
+                  Je = "";
+                  try {
+                    Je = location.origin || location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "");
+                  } catch {
+                    Je = "";
+                  }
+                  var Re, Pe = V.checkSameOrigin(fe, Je);
+                  if (W.getConfig("enableApiCors") || Pe) if (we && typeof we != "string") try {
+                    if (Te[0].headers && typeof Te[0].headers.get == "function" && typeof Te[0].headers.append == "function") switch (ot) {
+                      case "arms":
+                        var We = Te[0].headers.get("EagleEye-TraceID"), Ge = Te[0].headers.get("EagleEye-SessionID"), it = Te[0].headers.get("EagleEye-pAppName");
+                        We ? Ie = We : (Ie = W.getTraceId()["EagleEye-TraceID"], Te[0].headers.append("EagleEye-TraceID", Ie)), Ge ? xe = Ge : (xe = W.getPageviewId()["EagleEye-SessionID"], Te[0].headers.append("EagleEye-SessionID", xe)), it || Te[0].headers.append("EagleEye-pAppName", Ue);
+                        break;
+                      case "b3":
+                        var Be, st = Te[0].headers.get("X-B3-TraceId"), Ie = st || (Be = W.getB3TraceId(ze), Te[0].headers.append("X-B3-TraceId", Be["X-B3-TraceId"]), Te[0].headers.append("X-B3-ParentSpanId", Be["X-B3-ParentSpanId"]), Te[0].headers.append("X-B3-SpanId", Be["X-B3-SpanId"]), Te[0].headers.append("X-B3-Sampled", Be["X-B3-Sampled"]), Te[0].headers.append("X-Request-ID", V.guid()), Be["X-B3-TraceId"]), xe = W.pageview;
+                        break;
+                      default:
+                        var lt = Te[0].headers.get("uber-trace-id");
+                        Ie = lt ? lt.split(":")[0] : (lt = W.getUberTraceId(ze), Te[0].headers.append("uber-trace-id", lt["uber-trace-id"]), lt.traceId), xe = W.pageview;
+                    }
+                  } catch (Ze) {
+                    V.warn(`[retcode] fetch failed to set header, exception is :
+` + Ze);
+                  }
+                  else switch (ve.headers = ve.headers || {}, ot) {
+                    case "arms":
+                      ve.headers["EagleEye-TraceID"] ? Ie = ve.headers["EagleEye-TraceID"] : (Ie = W.getTraceId()["EagleEye-TraceID"], ve.headers["EagleEye-TraceID"] = Ie), ve.headers["EagleEye-SessionID"] ? xe = ve.headers["EagleEye-SessionID"] : (xe = W.getPageviewId()["EagleEye-SessionID"], ve.headers["EagleEye-SessionID"] = xe), ve.headers["EagleEye-pAppName"] || (ve.headers["EagleEye-pAppName"] = Ue);
+                      break;
+                    case "b3":
+                      Ie = ve.headers["X-B3-TraceId"] || (Re = W.getB3TraceId(ze), ve.headers["X-B3-TraceId"] = Re["X-B3-TraceId"], ve.headers["X-B3-ParentSpanId"] = Re["X-B3-ParentSpanId"], ve.headers["X-B3-SpanId"] = Re["X-B3-SpanId"], ve.headers["X-B3-Sampled"] = Re["X-B3-Sampled"], ve.headers["X-Request-ID"] = V.guid(), Re["X-B3-TraceId"]), xe = W.getPageviewId()["EagleEye-SessionID"];
+                      break;
+                    default:
+                      Ie = ve.headers["uber-trace-id"] ? ve.headers["uber-trace-id"].split(":")[0] : (Re = W.getUberTraceId(ze), ve.headers["uber-trace-id"] = Re["uber-trace-id"], Re.traceId), xe = W.getPageviewId()["EagleEye-SessionID"];
+                  }
+                }
+                return he.apply(ce, Te).then(function(rt) {
+                  if (!W || !W.api) return rt;
+                  try {
+                    if (rt && typeof rt.clone == "function") {
+                      var Ze = rt.clone(), ut = Ze.headers;
+                      if (ut && typeof ut.get == "function") {
+                        var pt, ht = ut.get("content-type");
+                        if (ht && !/(text)|(json)/.test(ht)) return rt;
+                        Ie || typeof (pt = V.parseFetchHeaders(ut)) == "object" && pt["eagleeye-traceid"] && (Ie = pt["eagleeye-traceid"], $e = "response");
+                      }
+                      var ft = ue();
+                      Ze.text().then(function(ct) {
+                        !Ie && V.isFunction(Ae) && (dt = Ae(Ze, ct)) && V.isString(dt) && (Ie = dt);
+                        var dt = V.getFetchSnapshot(Te, ct, ut);
+                        Ze.ok ? ge(W, ee.parseResponse, Ee, fe, ct, Ze.status || 200, ft, z, Ie, xe, dt, $e, ze) : (W.api(Ee, !1, ft, Ze.status || 404, Ze.statusText, z, Ie, xe, dt, re, $e, ze), ee.enableResource && Z.fixResourceStatus && Z.fixResourceStatus({ src: Ze.url, res_type: "api" }));
+                      });
+                    }
+                    return rt;
+                  } catch (ct) {
+                    return V.warn("[ARMS] fetch response error :", ct), rt;
+                  }
+                }).catch(function(rt) {
+                  var Ze;
+                  throw W && W.api && (Ze = ue(), W.api(Ee, !1, Ze, rt.name || "Error", rt.message, z, Ie, xe, {}, re), ee.enableResource) && Z.fixResourceStatus && Z.fixResourceStatus({ src: fe, res_type: "api" }), rt;
+                });
+              }, ce[K].toString = V.createFakeToString(K)), typeof ce[le] == "function" && (Se = ce[le], ce[se] = Se, (_e = function(we) {
+                var ve, Te, W, z, ee, ue, fe, Ee, Ae, Pe, Ie, xe, Ue, $e, Je, ot, ze, Re = new Se(we), We = Z;
+                return We && We.api && Re.addEventListener && (ee = Re.send, ue = Re.open, fe = Re.setRequestHeader, Ee = We._conf, Ae = (Ee.ignore || {}).ignoreApis, Pe = Ee.parseTraceId, Ie = We.getConfig("enableLinkTrace"), $e = Ue = xe = "", Je = null, we = We.getConfig("sample"), ot = We.getConfig("linkType"), ze = 1, we && !We.sampling(we) && (ze = 0), Re.open = function(Ge, it) {
+                  if (ye = Ge, Ge = arguments.length === 1 ? [Ge] : Array.apply(null, arguments), ue.apply(Re, Ge), z = it || "", W = V.cutUrlSearch(z), Ge = !V.checkAPI(W, !0) || V.ignoreByRule(W, Ae), W = W ? V.filterByRule(W, z, Ee.ignoreApiPath || Ee.apiHelper) : "", !Ge && Ie) {
+                    it = "";
+                    try {
+                      it = location.origin || location.protocol + "//" + location.hostname + (location.port ? ":" + location.port : "");
+                    } catch {
+                      it = "";
+                    }
+                    if (Ge = V.checkSameOrigin(z, it), (We.getConfig("enableApiCors") || Ge) && fe && typeof fe == "function") switch (ot) {
+                      case "arms":
+                        xe = We.getTraceId()["EagleEye-TraceID"], fe.apply(Re, ["EagleEye-TraceID", xe]), Ue = We.getPageviewId()["EagleEye-SessionID"], fe.apply(Re, ["EagleEye-SessionID", Ue]), $e = We.getConfig("pid"), fe.apply(Re, ["EagleEye-pAppName", $e]);
+                        break;
+                      case "b3":
+                        var Be = We.getB3TraceId(ze);
+                        fe.apply(Re, ["X-B3-TraceId", Be["X-B3-TraceId"]]), fe.apply(Re, ["X-B3-ParentSpanId", Be["X-B3-ParentSpanId"]]), fe.apply(Re, ["X-B3-SpanId", Be["X-B3-SpanId"]]), fe.apply(Re, ["X-B3-Sampled", Be["X-B3-Sampled"]]), fe.apply(Re, ["X-Request-ID", V.guid()]), xe = Be["X-B3-TraceId"], Ue = We.getPageviewId()["EagleEye-SessionID"];
+                        break;
+                      default:
+                        Be = We.getUberTraceId(ze), fe.apply(Re, ["uber-trace-id", Be["uber-trace-id"]]), xe = Be.traceId, Ue = We.getPageviewId()["EagleEye-SessionID"];
+                    }
+                  }
+                }, Re.send = function() {
+                  ve = Date.now(), Te = V.duration();
+                  var Ge = arguments.length === 1 ? [arguments[0]] : Array.apply(null, arguments);
+                  ee.apply(Re, Ge);
+                }, V.on(Re, "readystatechange", function() {
+                  if (W && Re.readyState === 4) {
+                    var Ge = Te(), it = V.getXhrSnapshot(z, ye, Re);
+                    if (xe || typeof (Be = V.parseXhrHeaders(typeof Re.getAllResponseHeaders == "function" && Re.getAllResponseHeaders() || "")) == "object" && Be["eagleeye-traceid"] && (xe = Be["eagleeye-traceid"], Je = "response"), !xe && V.isFunction(Pe) && (Be = Pe(Re)) && V.isString(Be) && (xe = Be), 200 <= Re.status && Re.status <= 299) {
+                      var Be = Re.status || 200;
+                      if (typeof Re.getResponseHeader == "function") {
+                        var st = Re.getResponseHeader("Content-Type");
+                        if (st && !/(text)|(json)/.test(st)) return;
+                      }
+                      Re.responseType && Re.responseType !== "text" ? We.api(W, !0, Ge, Be, "", ve, xe, Ue, {}, re, Je, ze) : ge(We, Ee.parseResponse, W, z, Re.responseText, Be, Ge, ve, xe, Ue, it, Je, ze);
+                    } else We.api(W, !1, Ge, Re.status || "FAILED", Re.statusText, ve, xe, Ue, it, re, Je, ze), Ee.enableResource && Z.fixResourceStatus && Z.fixResourceStatus({ src: Re.responseURL || z, res_type: "api" });
+                  }
+                })), Re;
+              }).prototype = Se.prototype, V.each(Object.keys(Se), function(we) {
+                _e[we] = Se[we];
+              }), ce[le] = _e, ce[le].toString = V.createFakeToString(le))), Z = this), this;
+              var ye, Se, _e, he;
+            }, initHook: function() {
+              return this.hasInitHook || (this.getConfig("disableHook") || this.addHook(), this.hasInitHook = !0), this;
+            } }), oe;
+          }), k;
+        }
+        function Le() {
+          return te || (te = 1, X = function(oe, ce) {
+            function ge(Y, se) {
+              var le;
+              ce.CustomEvent ? le = new CustomEvent(Y, { detail: se }) : ((le = K.createEvent("HTMLEvents")).initEvent(Y, !1, !0), le.detail = se), ce.dispatchEvent(le);
+            }
+            function V(Y) {
+              var se = re[Y];
+              typeof se == "function" && (re[Y] = function(_e, pe, ye) {
+                var _e = arguments.length === 1 ? [_e] : Array.apply(null, arguments), Se = location.href, _e = se.apply(re, _e);
+                if (ye && typeof ye == "string" && ye !== Se) try {
+                  var he = Se.split("#"), we = ye.split("#"), ve = Z.cutUrlSearch(he[0]), Te = Z.cutUrlSearch(we[0]), W = he[1] && he[1].replace(/^\/?(.*)/, "$1"), z = we[1] && we[1].replace(/^\/?(.*)/, "$1");
+                  W !== z ? ge("historystatechange", z) : ve !== Te && ge("historystatechange", Te);
+                } catch (ee) {
+                  Z.warn("[retcode] error in " + Y + ": " + ee);
+                }
+                return _e;
+              }, re[Y].toString = Z.createFakeToString(Y));
+            }
+            var Z = g(), re = ce.history || {}, K = ce.document;
+            Z.ext(oe.prototype, { hackHistoryState: function() {
+              return this.hasHackedHistoryState || (V("pushState"), V("replaceState"), this.hasHackedHistoryState = !0), this;
+            } });
+          }), X;
+        }
+        function je() {
+          var oe, ce;
+          return ne || (ne = 1, oe = g(), ce = ae().TIMING_KEYS, ie = function(ge, V) {
+            var Z = "_resource-" + Date.now(), re = "_resource_error-" + Date.now();
+            oe.ext(ge.prototype, { initResource: function() {
+              var K, Y = this, se = V.performance, le = V.PerformanceObserver;
+              return Y[re] || (Y[re] = /* @__PURE__ */ new WeakMap()), se && le && typeof se == "object" && typeof se.getEntriesByType == "function" ? (K = se.getEntriesByType("resource") || [], setTimeout(function() {
+                Y.setResource(K);
+              }, 10), new le(function(pe) {
+                setTimeout(function() {
+                  Y.setResource(pe.getEntries());
+                }, 10);
+              }).observe({ entryTypes: ["resource"] }), this.onReady(function() {
+                setTimeout(Y.resourceComboReport.bind(Y), 5e3);
+              }), Y) : null;
+            }, setResource: function(K) {
+              var Y = this._conf, se = this[re];
+              if (oe.isArray(K) && K.length) {
+                this[Z] || (this[Z] = {});
+                for (var le = this[Z], pe = 0, ye = K.length; pe < ye; pe += 1) {
+                  var Se, _e = K[pe];
+                  oe.checkAPI(_e.name, !1) && (_e = ((he, we, ve) => {
+                    if (he instanceof V.PerformanceResourceTiming && he.initiatorType) {
+                      var Te, W, z, ee, ue, fe, Ee, Ae, Pe, Ie = oe.getResType(he.initiatorType, he.name), xe = we.resourceTypes || [], Ue = (we.ignore || {}).ignoreResources;
+                      if (Ie && xe.includes(Ie) && !oe.ignoreByRule(he.name, Ue) && !oe.ignoreByRule(oe.decode(he.name), Ue)) return xe = he[ce[0]], Ue = he[ce[1]], Te = he[ce[2]], W = he[ce[3]], z = he[ce[4]], ee = he[ce[5]], ue = he[ce[6]], fe = he[ce[7]], Ee = he[ce[8]], Ae = he[ce[18]], Pe = he[ce[19]], (ve.has(he) || oe.areInOrder(xe, Ue, Te, W, z, ee, ue, fe, Ee) && !(fe < xe)) && oe.areInOrder(xe, Ae = Ae < xe ? xe : Ae, Pe = Pe < xe ? Ue : Pe, Ue) ? { domain: oe.getURL(he.name).domain, res_type: Ie, src_type: oe.getSrcType(he.name, we.cdnHostList), success: 1, size: Math.round(he.decodedBodySize), duration: Math.round(he.duration), timeStamp: he.responseEnd, timing: he } : void 0;
+                    }
+                  })(_e, Y, se)) && ((Se = _e.res_type + "-" + _e.domain) in le || (le[Se] = []), le[Se].push(_e));
+                }
+                return this;
+              }
+            }, fixResourceStatus: function(K) {
+              var Y, se, le = V.performance;
+              return le && typeof le.getEntriesByName == "function" ? (Y = this[re], K.src && oe.checkAPI(K.src, !1) && (se = K.timeStamp || le.now(), le = le.getEntriesByName(K.src, "resource"), oe.each(le, function(pe) {
+                Y.has(pe) || se - pe.responseEnd < 100 && Y.set(pe, { success: 0 });
+              })), this) : null;
+            }, resourceComboReport: function() {
+              var K, Y, se = this[Z] || {}, le = this._conf.resourceSlow || 2e3, pe = this[re], ye = (this[Z] = {}, Object.keys(se));
+              ye.length !== 0 && (K = [], oe.each(ye, function(_e) {
+                var _e = se[_e], he = { domain: "", res_type: "", src_type: "", size: 0, duration: 0, count: 0, err_count: 0, err_duration: 0, slow_count: 0, slow_duration: 0, timings: [] };
+                oe.each(_e, function(we) {
+                  var ve = we.timing || {}, Te = pe.get(we.timing), Te = Te ? Te.success : 1, W = we.duration > le ? 1 : 0;
+                  he.domain = we.domain, he.res_type = we.res_type, he.src_type = we.src_type, he.count += 1, he.duration += we.duration, he.size += we.size, Te || (he.err_count += 1, he.err_duration += we.duration), W && (he.slow_count += 1, he.slow_duration += we.duration);
+                  try {
+                    var z = JSON.parse(JSON.stringify(ve));
+                    z.success = Te, z.resourceSlow = le, z.isSlow = W, he.timings.push(z);
+                  } catch {
+                  }
+                }), he.count && (he.size = Math.round(he.size / he.count), he.duration = Math.round(he.duration / he.count)), he.slow_count && (he.slow_duration = Math.round(he.slow_duration / he.slow_count)), he.err_count && (he.err_duration = Math.round(he.err_duration / he.err_count)), 20 < he.timings.length && (he.timings.sort(function(we, ve) {
+                  return ve.duration - we.duration;
+                }), he.timings.length = 20), he.timings = encodeURIComponent(JSON.stringify(he.timings)), K.push(he);
+              }), ye = { _combo: 1, resource: JSON.stringify(K) }, Y = V.navigator.connection, ye.ct = Y ? Y.effectiveType || Y.type : "", (Y = 999 < (Y = Y && (Y.downlink || Y.downlinkMax || Y.bandwidth) || null) ? 999 : Y) && (ye.bandwidth = Y), this._lg("resource", ye, this.getConfig("sample")));
+            } });
+          }), ie;
+        }
+        function Ve() {
+          var oe, ce, ge, V, Z, re, K, Y, se, le, pe, ye, Se, _e, he, we, ve, Te;
+          return G || (G = 1, oe = g(), b || (b = 1, _e = g(), he = T(), we = ["api", "success", "time", "code", "msg", "trace", "traceId", "begin", "pv_id", "sid", "seq", "domain", "flag", "apiSnapshot", "tag", "c1", "c2", "c3"], ve = function(W) {
+            var z = (W.key || "default").split("::");
+            return 1 < z.length ? _e.ext(W, { group: z[0], key: z[1] }) : _e.ext(W, { group: "default_group", key: z[0] });
+          }, (Te = function(W) {
+            var z;
+            he.call(this, W);
+            try {
+              z = typeof performance == "object" ? performance.timing.fetchStart : Date.now();
+            } catch {
+              z = Date.now();
+            }
+            return this._startTime = z, this;
+          }).prototype = _e.createObject(he.prototype), _e.ext(he.dftCon, { startTime: null }), _e.ext(Te.prototype, { constructor: Te, _super: he, sum: function(W, z, ee) {
+            try {
+              var ue = _e.dealParam(W, z, 1);
+              return this._lg("sum", ve(ue), ee);
+            } catch (fe) {
+              _e.warn("[retcode] can not get parseStatData: " + fe);
+            }
+          }, avg: function(W, z, ee) {
+            try {
+              var ue = _e.dealParam(W, z, 0);
+              return this._lg("avg", ve(ue), ee);
+            } catch (fe) {
+              _e.warn("[retcode] can not get parseStatData: " + fe);
+            }
+          }, percent: function(W, z, ee, ue) {
+            try {
+              return this._lg("percent", ve({ key: W, subkey: z, val: ee || 0, begin: Date.now() }), ue);
+            } catch (fe) {
+              _e.warn("[retcode] can not get parseStatData: " + fe);
+            }
+          }, msg: function(W, z) {
+            if (W && !(180 < W.length)) return this.custom({ msg: W }, z);
+          }, error: function(W, z) {
+            if (!W) return _e.warn("[retcode] invalid param e: " + W), this;
+            arguments.length === 1 ? (typeof W == "string" && (W = { message: W }, z = {}), typeof W == "object" && (z = W = W.error || W)) : (typeof W == "string" && (W = { message: W }), typeof z != "object" && (z = {}));
+            var ee, ue = W.name || "CustomError", fe = W.message || "", Ee = W.stack || "", Ae = (z = z || {}, typeof location == "object" && typeof location.href == "string" && location.href.substring(0, 500) || "");
+            if (_e.checkSDKError(fe, z.filename)) return ee = W.msg || W.message, _e.ignoreByRule(ee, $e = /^Script error\.?$/) || _e.ignoreByRule(_e.decode(ee), $e) ? this : (ee = { msg: _e.selfErrKey, err: { msg_raw: _e.encode(W.msg || W.message) } }, this._self("error", ee, 1));
+            for (var Pe = { begin: Date.now(), cate: ue, msg: fe && fe.substring(0, 1e3), stack: Ee && Ee.substring(0, 1e3), file: _e.removeUrlSearch(z.filename || ""), line: z.lineno || "", col: z.colno || "", err: { msg_raw: _e.encode(fe), stack_raw: _e.encode(Ee) }, dl: Ae }, Ie = ["tag", "c1", "c2", "c3"], xe = 0; xe < Ie.length; xe++) {
+              var Ue = Ie[xe];
+              z[Ue] && (Pe[Ue] = z[Ue]);
+            }
+            var $e = (this.getConfig("ignore") || {}).ignoreErrors;
+            return _e.ignoreByRule(Pe.msg, $e) || _e.ignoreByRule(_e.decode(Pe.msg), $e) ? this : (this.beforeSend && this.beforeSend("error", Pe), this._lg("error", Pe, 1));
+          }, behavior: function(W) {
+            if (W) return W = typeof W == "object" && W.behavior ? W : { behavior: W }, this.beforeSend && this.beforeSend("behavior", W), this._lg("behavior", W, 1);
+          }, api: function(W, z, ee, ue, fe, Ee, Ae, Pe, Ie, xe, Ue, $e, Je, ot, ze, Re) {
+            return W ? (W = typeof W == "string" ? { api: W, success: z, time: ee, code: ue, msg: fe, begin: Ee, traceId: Ae, pv_id: Pe, apiSnapshot: Ie, domain: xe, flag: $e, tag: Je, c1: ot, c2: ze, c3: Re } : _e.sub(W, we), _e.checkAPI(W.api, !0) ? (W.code = W.code || "", z = W.msg || "", z = typeof z == "string" ? z.substring(0, 1e3) : z, W.msg = z, W.success = W.success ? 1 : 0, W.time = +W.time, W.begin = W.begin, W.traceId = W.traceId || "", W.pv_id = W.pv_id || "", W.domain = W.domain || "", W.flag = W.flag, W.dl = typeof location == "object" && typeof location.href == "string" && location.href.substring(0, 500) || "", W.apiSnapshot && (typeof W.apiSnapshot == "object" && (W.apiSnapshot = JSON.stringify(W.apiSnapshot)), typeof W.apiSnapshot != "string" && delete W.apiSnapshot, 2e3 < W.apiSnapshot.length) && (W.apiSnapshot = W.apiSnapshot.substring(0, 2e3)), Ue && (W.traceOrigin = Ue), !W.api || isNaN(W.time) ? (_e.warn("[retcode] invalid time or api"), this) : (ee = (this.getConfig("ignore") || {}).ignoreApis, _e.ignoreByRule(W.api, ee) || _e.ignoreByRule(_e.decode(W.api), ee) || W.time < 0 ? this : (this.beforeSend && this.beforeSend("api", W), this._lg("api", W, W.success && this.getConfig("sample"), W.flag)))) : this) : (_e.warn("[retcode] api is null"), this);
+          }, speed: function(W, z, ee) {
+            var ue = this, fe = this.getConfig("startTime") || this._startTime;
+            return /^s(\d|1[0])$/.test(W) ? (z = typeof z != "number" ? Date.now() - fe : fe <= z ? z - fe : z, ue.speedCache = ue.speedCache || {}, ue.speedCache[W] = z, ue.speedCache.begin = fe, clearTimeout(ue.speedTimmer), ue.speedTimmer = setTimeout(function() {
+              ee || (ue.speedCache.page = ue.getPage(!0)), ue._lg("speed", ue.speedCache), ue.speedCache = null;
+            }, 5e3)) : _e.warn("[retcode] invalid point: " + W), ue;
+          }, performance: function(W) {
+            if (W && typeof W == "object" && !this.hasSendPerf) {
+              var z, ee = {}, ue = {}, fe = this.getConfig("autoSendPerf");
+              if (W.autoSend && fe) return ue = _e.ext(this.perfData || {}, W), this.hasSendPerf = !0, this._lg("perf", ue, this.getConfig("sample"));
+              if (W.autoSend && !fe) return delete W.autoSend, this.perfData ? (ue = _e.ext(this.perfData || {}, W), this.hasSendPerf = !0, this._lg("perf", ue, this.getConfig("sample"))) : void (this.perfData = W);
+              for (z in W) !/^t([1-9]|1[0])$/.test(z) && z !== "ctti" && z !== "cfpt" || (ee[z] = W[z]);
+              if (W.autoSend === !0 || !fe && this.perfData) return W.autoSend !== !0 && fe === !1 && this.perfData ? (ee = _e.ext(this.perfData || {}, ee), this.hasSendPerf = !0, this._lg("perf", ee, this.getConfig("sample"))) : void 0;
+              this.perfData = _e.ext(this.perfData || {}, ee);
+            }
+          }, resource: function(W, z) {
+            if (!W || !_e.isPlainObject(W)) return _e.warn("[arms] invalid param data: " + W), this;
+            var ee, ue = Object.keys(W), fe = ["begin", "dom", "load", "res", "dl"], Ee = !1;
+            for (ee in fe) if (ue.indexOf(fe[ee]) < 0) {
+              Ee = !0;
+              break;
+            }
+            return Ee ? (_e.warn("[arms] lack param data: " + W), this) : (W = { begin: W.begin || Date.now(), dom: W.dom || "", load: W.load || "", res: _e.isArray(W.res) ? JSON.stringify(W.res) : JSON.stringify([]), dl: W.dl || "" }, this._lg("res", W, z));
+          }, event: function(W, z) {
+            if (typeof W == "object" && W && W.key) {
+              var ee, ue = {}, fe = ["key", "success", "time", "c1", "c2", "c3"];
+              for (ee in W) -1 < fe.indexOf(ee) && (ue[ee] = W[ee]);
+              ue.success = W.success === !1 ? 0 : 1, this._lg("event", ue, z);
+            }
+          } }), Te._super = he, (Te._root = he).Reporter = Te, S.exports = Te), ce = S.exports, R || (R = 1, pe = g(), ye = typeof window == "object" ? window : {}, Se = typeof (Se = ye.__oFetch_ || ye.fetch) == "function" ? Se : void 0, P.exports = function(W, fe) {
+            var ee, ue = -1, fe = (typeof W == "object" && (ue = W.z, W = pe.serialize(W)), fe + W);
+            if (Se) return Se(fe, { method: "HEAD", mode: "no-cors" }).catch(pe.noop);
+            ye.document && ye.document.createElement && ((W = ye[ee = "__request_hold_" + ue] = new Image()).onload = W.onerror = function() {
+              ye[ee] = void 0;
+            }, W.src = fe);
+          }), ge = P.exports, E || (E = 1, se = g(), Te = typeof window == "object" ? window : {}, le = typeof (le = Te.__oXMLHttpRequest_ || Te.XMLHttpRequest) == "function" ? le : void 0, M.exports = function(W, z) {
+            try {
+              var ee = new le();
+              ee.open("POST", z, !0), ee.setRequestHeader("Content-Type", "text/plain"), ee.send(JSON.stringify(W));
+            } catch (ue) {
+              se.warn(`[retcode] Failed to log, exception is :
+` + ue);
+            }
+          }), V = M.exports, Z = oe.win, re = Z.document, K = /^(error|api|speed|sum|avg|percent|custom|msg|setPage|setConfig|behavior|performance)$/, (Y = function(W) {
+            var z = this;
+            return ce.call(z, W), z._initialPage = W.page && oe.safetyCall(W.page, [], W.page + "") || null, z._isRobot = oe.isRobot(), z._health = { errcount: 0, apisucc: 0, apifail: 0 }, !(z.beforeSend = function(ee, ue) {
+              ee === "error" ? z._health.errcount++ : ee === "api" && z._health[ue.success ? "apisucc" : "apifail"]++;
+            }) !== W.enableInstanceAutoSend && (z.initHandler(), z.initHook(), z.initFmpObserver(1e4), z._conf && z._conf.behavior && typeof z.initBehavior == "function" && z.initBehavior(), z._conf) && z._conf.enableResource && typeof z.initResource == "function" && z.initResource(), Object.defineProperty && Z.addEventListener && Object.defineProperty(z, "pipe", { set: z.sendPipe }), z;
+          }).prototype = oe.createObject(ce.prototype), oe.ext(ce._root.dftCon, { uid: null, setUsername: null, ignoreUrlPath: null, ignoreApiPath: null, urlHelper: [{ rule: /\/([a-z\-_]+)?\d{2,20}/g, target: "/$1**" }, /\/$/], resourceHelper: [], apiHelper: { rule: /\/([a-z\-_]+)?\d{2,20}/g, target: "/$1**" }, ignoreUrlCase: !0, imgUrl: "https://arms-retcode.aliyuncs.com/r.png?", cdnHostList: [], resourceTypes: ["css", "script", "img", "font"], resourceSlow: 2e3, disableHook: !1, autoSendPv: !0, autoSendPerf: !0, enableSPA: !1, enableLinkTrace: !1, linkType: "arms", enableApiCors: !1, sendResource: !0, behavior: !0, enableConsole: !1, parseHash: function(W) {
+            return (W ? oe.cutUrlSearch(W.replace(/^#\/?/, "")) : "") || "[index]";
+          }, parseResponse: function(W) {
+            var z;
+            return W && typeof W == "object" ? (z = W.code, typeof (W = W.msg || W.message || W.subMsg || W.errorMsg || W.ret || W.errorResponse || "") == "object" && (z = z || W.code, W = W.msg || W.message || W.info || W.ret || JSON.stringify(W)), { msg: W, code: z, success: !0 }) : {};
+          } }), oe.ext(Y.prototype, { constructor: Y, _super: ce, onReady: function(W) {
+            var z = this;
+            if (z.hasReady) return W();
+            re.readyState === "complete" ? (z.hasReady = !0, W()) : oe.on(Z, "load", function() {
+              z.hasReady = !0, W();
+            }, !0);
+          }, getPage: function(W) {
+            var z = this._conf, ee = z.page, ue = location, fe = ue.host + ue.pathname;
+            return ee && !W ? oe.safetyCall(ee, [], ee + "") : this._initialPage || oe.filterByRule(z.ignoreUrlCase ? fe.toLowerCase() : fe, ue.href, z.ignoreUrlPath || z.urlHelper);
+          }, setPage: function(W, z) {
+            var ee = this, ue = ee.prevPage;
+            if (z !== !1) {
+              if (!W || W === ue) return ee;
+              ee.prevPage = W, clearTimeout(ee.sendPVTimmer), ee.handleUnload(1), ee.resetPageview(), ee.sendPVTimmer = setTimeout(function() {
+                ee.sendPV();
+              }, 10);
+            } else ee.prevPage = W;
+            return ee._conf.page = W, ee;
+          }, setConfig: function(W, z) {
+            var ee;
+            W && typeof W == "object" && (oe.verifyConfig(W), W = this.setImgUrl(W), ee = this._conf, this._conf = oe.ext({}, ee, W), z || ((z = "disableHook") in W && ee[z] !== W[z] && (W[z] ? this.removeHook() : this.addHook()), (z = "enableSPA") in W && ee[z] !== W[z] && this.bindHashChange(W[z])));
+          }, sendRequest: function(W) {
+            ge(W, this.getConfig("imgUrl"));
+          }, postData: function(W, ue) {
+            var ee = {}, ue = (ee[ue] = W[ue], delete W[ue], "");
+            typeof W == "object" && (ue = oe.serialize(W)), V(ee, this.getConfig("imgUrl") + ue + "&post_res=");
+          }, sendPipe: function(W) {
+            var z, ee = this;
+            if (!W || !W.length) return ee;
+            try {
+              return oe.T(W[0]) === "Array" ? oe.each(W, function(ue) {
+                return ee.sendPipe(ue);
+              }) : oe.T(W) === "Array" && (z = W.shift(), K.test(z)) ? void ee[z].apply(ee, W) : ee;
+            } catch (ue) {
+              return oe.warn("[retcode] error in sendPipe", ue), ee;
+            }
+          }, sendHealth: function() {
+            var W = oe.ext({}, this._health), z = (W.healthy = 0 < W.errcount ? 0 : 1, W.begin = Date.now(), W.begin - this.sBegin);
+            W.stay = z, this._lg("health", W, 1), this._health = { errcount: 0, apisucc: 0, apifail: 0 };
+          }, createInstance: function(W) {
+            W = oe.ext({ pid: this._conf.pid }, W);
+            var z = this.__proto__.constructor(W);
+            return W.page && z.sendPV(), z;
+          } }), O()(Y, Z), de()(Y, Z, re), me()(Y, Z, re), ke()(Y, Z), Le()(Y, Z), je()(Y, Z), Y._super = ce, Y._root = ce._root, ce.Browser = Y, d.exports = Y), d.exports;
+        }
+        var Qe = { getArmsLogger: function() {
+          return F || (F = 1, ce = window, ge = ce.BrowserLogger = Ve(), V = g().key, Z = "__hasInitBlSdk", ge.singleton = function(Y, se) {
+            return ce[Z] ? ce[V] : oe(Y, se);
+          }, ge.createExtraInstance = function(se) {
+            se && typeof se == "object" && se.enableInstanceAutoSend !== !0 && (se.enableInstanceAutoSend = !1);
+            var se = new ge(se), le = se._conf;
+            return le.enableInstanceAutoSend && (le.autoSendPv !== !1 && se.sendPV(), le && le.useFmp || se.sendPerformance(), le) && le.sendResource && se.sendResources(), se;
+          }, typeof window == "object" && window.navigator && ce[V] && (ge.bl = ce[Z] ? ce[V] : (re = {}, K = [], V in ce && (re = ce[V].config || {}, K = ce[V].pipe || []), oe(re, K))), p.exports = ge), p.exports;
+          function oe(Y, se) {
+            return Y = ce[V] = new ge(Y), Y.sendPipe(se), se = Y._conf, se.autoSendPv !== !1 && Y.sendPV(), se && se.useFmp || Y.sendPerformance(), se && se.sendResource && Y.sendResources(), ce[Z] = !0, Y;
+          }
+          var ce, ge, V, Z, re, K;
+        } };
+        let be = "https://arms-retcode.aliyuncs.com/r.png?", Ce = "https://arms-retcode-sg.aliyuncs.com/r.png?", De = "https://retcode-us-west-1.arms.aliyuncs.com/r.png?", Oe = "e1iftji1w7@7ec1cef2cc88733", Ne = "e1iftji1w7@10a06d1ec260adc", Xe = "e1iftji1w7@10a06d1ec260adc", Me = { cn: { reportUrl: be, pid: Oe }, "cn-hangzhou": { reportUrl: be, pid: Oe }, sg: { reportUrl: Ce, pid: Ne }, "ap-southeast-1": { reportUrl: Ce, pid: Ne }, usw: { reportUrl: De, pid: Xe }, "us-west-1": { reportUrl: De, pid: Xe } }, Ye = (oe) => oe !== null && typeof oe == "object", Ke = (oe) => Object.prototype.toString.call(oe).slice(8, -1), at = (oe) => !!Object.isExtensible(oe) && Ke(oe) === "Object";
+        function tt(oe, ce) {
+          if (typeof oe == "string" && (ce = oe.indexOf(ce), !(ce < 0)))
+            return (oe = oe.indexOf(`
+`)) < 0 || ce < oe;
+        }
+        function Fe(oe, ce, ge) {
+          {
+            if (typeof oe == "function") return Y = ce + 1, se = ge, le = { MediaboxWrapperFunctionApply(pe, ye, Se) {
+              let _e;
+              try {
+                _e = Reflect.apply(pe, ye, Se);
+              } catch (he) {
+                throw se(he), he;
+              }
+              return Fe(_e, Y, se);
+            }, MediaboxWrapperFunctionGet(pe, ye) {
+              var Se = Object.getOwnPropertyDescriptor(pe, ye);
+              return !Se || Se.writable || Se.configurable ? Fe(pe[ye], Y, se) : pe[ye];
+            }, MediaboxWrapperClassConstructor(pe, ye) {
+              let Se;
+              try {
+                Se = new pe(...ye);
+              } catch (_e) {
+                throw se(_e), _e;
+              }
+              return Fe(Se, Y, se);
+            } }, new Proxy(oe, { apply: le.MediaboxWrapperFunctionApply, get: le.MediaboxWrapperFunctionGet, construct: le.MediaboxWrapperClassConstructor });
+            if (oe instanceof Promise) return oe.then((pe) => Fe(pe, ce + 1, ge)).catch((pe) => (ge(pe), Promise.reject(pe)));
+            if (Array.isArray(oe)) oe.forEach((pe, ye) => {
+              oe[ye] = Fe(pe, ce + 1, ge);
+            });
+            else if (Ye(oe) && at(oe)) {
+              le = oe;
+              var V = ce + 1, Z = ge, re;
+              if (Reflect.get(le, "__v_skip") === !0) return le;
+              let pe = [], ye = typeof Object.getOwnPropertyDescriptors == "function" ? Object.getOwnPropertyDescriptors((K = Object.getPrototypeOf(le)) != null ? K : {}) : {};
+              for (re of Object.keys(ye)) ye[re].get && pe.push(re);
+              var K = { MediaboxWrapperObjectGetter(Se, _e) {
+                if (typeof _e == "string" && -1 < pe.indexOf(_e)) {
+                  let we;
+                  try {
+                    we = Se[_e];
+                  } catch (ve) {
+                    throw Z(ve), ve;
+                  }
+                  return Fe(we, V, Z);
+                }
+                var he;
+                return !(10 < V) && (!(he = Reflect.getOwnPropertyDescriptor(Se, _e)) || he.writable || he.configurable) ? Fe(Se[_e], V, Z) : Se[_e];
+              }, MediaboxWrapperObjectSetter(Se, _e, he) {
+                return Se[_e] = Fe(he, V, Z), !0;
+              } };
+              return Object.defineProperty(le, "__v_skip", { configurable: !0, enumerable: !1, writable: !1, value: !0 }), new Proxy(le, { get: K.MediaboxWrapperObjectGetter, set: K.MediaboxWrapperObjectSetter });
+            }
+            return oe;
+          }
+          var Y, se, le;
+        }
+        function nt(oe) {
+          return typeof oe == "string" && (-1 < oe.indexOf("g.alicdn.com/apsara-media-") || -1 < oe.indexOf("g.alicdn.com/thor-server") || -1 < oe.indexOf("MediaboxWrapper"));
+        }
+        class et extends Error {
+          constructor(ce) {
+            super(ce), this.name = "MQTError";
+          }
+        }
+        let He = 1;
+        class qe {
+          constructor(ce) {
+            var ge, V;
+            y(this, "armsLogger"), y(this, "isReady", !1), y(this, "isDestroyed", !1), y(this, "options"), y(this, "queue", []), y(this, "marker"), y(this, "helper", { MediaboxWrapperQueue(Z) {
+              return new et(Z);
+            }, MediaboxWrapperInitiative(Z) {
+              return new et(Z);
+            } }), this.options = (V = h({}, ce), ce = { region: ce.deferRegionSet ? void 0 : (ge = ce.region) != null ? ge : "cn", env: (ge = ce.env) != null ? ge : "prod" }, a(V, s(ce))), this.marker = `-${He++}-`, this.initArmsLogger();
+          }
+          static get version() {
+            return "0.26.0";
+          }
+          initArmsLogger(ce) {
+            var { region: ge, env: V, disabled: Z } = this.options;
+            if (!Z && !this.armsLogger) {
+              if (ce && !ge) throw new Error("region is required");
+              if (ge) {
+                if (!Me[ge]) throw new Error(`region ${ge} is not supported`);
+                Z = Qe.getArmsLogger(), this.armsLogger = Z.createExtraInstance({ enableInstanceAutoSend: !0, pid: Me[ge].pid, tag: this.options.businessName, release: this.options.businessName + "_" + this.options.version, imgUrl: Me[ge].reportUrl, behavior: !0, sample: 1, disableHook: !0, environment: V, beforeReport: (re) => {
+                  var K;
+                  if (!(this.isDestroyed || tt(re.stack, this.marker) || re.t !== "pv" && re.t !== "error" && re.t !== "health")) {
+                    if (re.c1 = (K = this.options.cid) != null ? K : window.location.host, re.c2 = qe.version, this.options.customData && (re.c3 = new URLSearchParams(this.options.customData).toString()), re.t !== "error") return re;
+                    if (typeof (K = re.file) == "string" && (-1 < K.indexOf("g.alicdn.com/apsara-media-") || -1 < K.indexOf("g.alicdn.com/thor-server")) || nt(re.stack)) {
+                      let Y = re;
+                      return this.options.beforeSend && (Y = this.options.beforeSend(re)), this.isReady ? Y : (Y && this.queue.push(Y), !1);
+                    }
+                  }
+                  return !1;
+                } });
+              }
+            }
+          }
+          wrap(ce) {
+            return this.options.disabled || typeof Proxy > "u" ? ce : Fe(ce, 0, (ge) => {
+              var V, Z;
+              ge instanceof Error && typeof ge.stack == "string" && nt(ge.stack) && ((V = this.armsLogger) != null && V.error(ge), ge.stack = (V = ge.stack, ge = this.marker, typeof V != "string" ? ge : tt(V, ge) ? V : (Z = V.indexOf(`
+`)) < 0 ? "" + V + ge : "" + V.slice(0, Z) + ge + V.slice(Z)));
+            });
+          }
+          updateOptions(ce) {
+            this.options = h(h({}, this.options), ce);
+          }
+          setReady() {
+            this.initArmsLogger(!0), this.isReady = !0, this.queue.length && this.queue.forEach((ce) => {
+              var ge;
+              (ge = this.armsLogger) != null && ge.error(this.helper.MediaboxWrapperQueue(ce.msg), { filename: ce.file, lineno: ce.line, colno: ce.col });
+            });
+          }
+          report(ce, ge) {
+            var V;
+            (V = this.armsLogger) != null && V.error(this.helper.MediaboxWrapperInitiative(ce), ge);
+          }
+          destroy() {
+            this.isDestroyed = !0;
+          }
+        }
+        x.MediaboxQualityTracer = qe, x.default = qe;
+      }, {}], 2: [function(c, o, x) {
+      }, {}], 3: [function(c, o, x) {
+        (function(_) {
+          (function() {
+            var l, u;
+            l = this, u = function() {
+              var a, s = Math;
+              if (typeof window < "u" && window.crypto && (a = window.crypto), typeof self < "u" && self.crypto && (a = self.crypto), !(a = !(a = !(a = typeof globalThis < "u" && globalThis.crypto ? globalThis.crypto : a) && typeof window < "u" && window.msCrypto ? window.msCrypto : a) && _ !== void 0 && _.crypto ? _.crypto : a) && typeof c == "function") try {
+                a = c("crypto");
+              } catch {
+              }
+              var t = Object.create || function(b) {
+                return e.prototype = b, b = new e(), e.prototype = null, b;
+              };
+              function e() {
+              }
+              var n = {}, r = n.lib = {}, h = r.Base = { extend: function(b) {
+                var S = t(this);
+                return b && S.mixIn(b), S.hasOwnProperty("init") && this.init !== S.init || (S.init = function() {
+                  S.$super.init.apply(this, arguments);
+                }), (S.init.prototype = S).$super = this, S;
+              }, create: function() {
+                var b = this.extend();
+                return b.init.apply(b, arguments), b;
+              }, init: function() {
+              }, mixIn: function(b) {
+                for (var S in b) b.hasOwnProperty(S) && (this[S] = b[S]);
+                b.hasOwnProperty("toString") && (this.toString = b.toString);
+              }, clone: function() {
+                return this.init.prototype.extend(this);
+              } }, y = r.WordArray = h.extend({ init: function(b, S) {
+                b = this.words = b || [], this.sigBytes = S ?? 4 * b.length;
+              }, toString: function(b) {
+                return (b || d).stringify(this);
+              }, concat: function(b) {
+                var S = this.words, w = b.words, T = this.sigBytes, R = b.sigBytes;
+                if (this.clamp(), T % 4) for (var P = 0; P < R; P++) {
+                  var E = w[P >>> 2] >>> 24 - P % 4 * 8 & 255;
+                  S[T + P >>> 2] |= E << 24 - (T + P) % 4 * 8;
+                }
+                else for (var A = 0; A < R; A += 4) S[T + A >>> 2] = w[A >>> 2];
+                return this.sigBytes += R, this;
+              }, clamp: function() {
+                var b = this.words, S = this.sigBytes;
+                b[S >>> 2] &= 4294967295 << 32 - S % 4 * 8, b.length = s.ceil(S / 4);
+              }, clone: function() {
+                var b = h.clone.call(this);
+                return b.words = this.words.slice(0), b;
+              }, random: function(b) {
+                for (var S = [], w = 0; w < b; w += 4) S.push((() => {
+                  if (a) {
+                    if (typeof a.getRandomValues == "function") try {
+                      return a.getRandomValues(new Uint32Array(1))[0];
+                    } catch {
+                    }
+                    if (typeof a.randomBytes == "function") try {
+                      return a.randomBytes(4).readInt32LE();
+                    } catch {
+                    }
+                  }
+                  throw new Error("Native crypto module could not be used to get secure random number.");
+                })());
+                return new y.init(S, b);
+              } }), p = n.enc = {}, d = p.Hex = { stringify: function(b) {
+                for (var S = b.words, w = b.sigBytes, T = [], R = 0; R < w; R++) {
+                  var P = S[R >>> 2] >>> 24 - R % 4 * 8 & 255;
+                  T.push((P >>> 4).toString(16)), T.push((15 & P).toString(16));
+                }
+                return T.join("");
+              }, parse: function(b) {
+                for (var S = b.length, w = [], T = 0; T < S; T += 2) w[T >>> 3] |= parseInt(b.substr(T, 2), 16) << 24 - T % 8 * 4;
+                return new y.init(w, S / 2);
+              } }, g = p.Latin1 = { stringify: function(b) {
+                for (var S = b.words, w = b.sigBytes, T = [], R = 0; R < w; R++) {
+                  var P = S[R >>> 2] >>> 24 - R % 4 * 8 & 255;
+                  T.push(String.fromCharCode(P));
+                }
+                return T.join("");
+              }, parse: function(b) {
+                for (var S = b.length, w = [], T = 0; T < S; T++) w[T >>> 2] |= (255 & b.charCodeAt(T)) << 24 - T % 4 * 8;
+                return new y.init(w, S);
+              } }, m = p.Utf8 = { stringify: function(b) {
+                try {
+                  return decodeURIComponent(escape(g.stringify(b)));
+                } catch {
+                  throw new Error("Malformed UTF-8 data");
+                }
+              }, parse: function(b) {
+                return g.parse(unescape(encodeURIComponent(b)));
+              } }, v = r.BufferedBlockAlgorithm = h.extend({ reset: function() {
+                this._data = new y.init(), this._nDataBytes = 0;
+              }, _append: function(b) {
+                typeof b == "string" && (b = m.parse(b)), this._data.concat(b), this._nDataBytes += b.sigBytes;
+              }, _process: function(H) {
+                var S, w = this._data, T = w.words, R = w.sigBytes, P = this.blockSize, E = R / (4 * P), A = (E = H ? s.ceil(E) : s.max((0 | E) - this._minBufferSize, 0)) * P, H = s.min(4 * A, R);
+                if (A) {
+                  for (var M = 0; M < A; M += P) this._doProcessBlock(T, M);
+                  S = T.splice(0, A), w.sigBytes -= H;
+                }
+                return new y.init(S, H);
+              }, clone: function() {
+                var b = h.clone.call(this);
+                return b._data = this._data.clone(), b;
+              }, _minBufferSize: 0 }), f = (r.Hasher = v.extend({ cfg: h.extend(), init: function(b) {
+                this.cfg = this.cfg.extend(b), this.reset();
+              }, reset: function() {
+                v.reset.call(this), this._doReset();
+              }, update: function(b) {
+                return this._append(b), this._process(), this;
+              }, finalize: function(b) {
+                return b && this._append(b), this._doFinalize();
+              }, blockSize: 16, _createHelper: function(b) {
+                return function(S, w) {
+                  return new b.init(w).finalize(S);
+                };
+              }, _createHmacHelper: function(b) {
+                return function(S, w) {
+                  return new f.HMAC.init(b, w).finalize(S);
+                };
+              } }), n.algo = {});
+              return n;
+            }, typeof x == "object" ? o.exports = x = u() : l.CryptoJS = u();
+          }).call(this);
+        }).call(this, typeof commonjsGlobal < "u" ? commonjsGlobal : typeof self < "u" ? self : typeof window < "u" ? window : {});
+      }, { crypto: 2 }], 4: [function(c, o, x) {
+        var _, l;
+        _ = this, l = function(u) {
+          var a;
+          return a = u.lib.WordArray, u.enc.Base64 = { stringify: function(s) {
+            for (var t = s.words, e = s.sigBytes, n = this._map, r = (s.clamp(), []), h = 0; h < e; h += 3) for (var y = (t[h >>> 2] >>> 24 - h % 4 * 8 & 255) << 16 | (t[h + 1 >>> 2] >>> 24 - (h + 1) % 4 * 8 & 255) << 8 | t[h + 2 >>> 2] >>> 24 - (h + 2) % 4 * 8 & 255, p = 0; p < 4 && h + 0.75 * p < e; p++) r.push(n.charAt(y >>> 6 * (3 - p) & 63));
+            var d = n.charAt(64);
+            if (d) for (; r.length % 4; ) r.push(d);
+            return r.join("");
+          }, parse: function(s) {
+            var t = s.length, e = this._map;
+            if (!(n = this._reverseMap)) for (var n = this._reverseMap = [], r = 0; r < e.length; r++) n[e.charCodeAt(r)] = r;
+            for (var h, y, p = e.charAt(64), d = (p && (p = s.indexOf(p)) !== -1 && (t = p), s), g = t, m = n, v = [], f = 0, b = 0; b < g; b++) b % 4 && (h = m[d.charCodeAt(b - 1)] << b % 4 * 2, y = m[d.charCodeAt(b)] >>> 6 - b % 4 * 2, v[f >>> 2] |= (h | y) << 24 - f % 4 * 8, f++);
+            return a.create(v, f);
+          }, _map: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=" }, u.enc.Base64;
+        }, typeof x == "object" ? o.exports = x = l(c("crypto-js/core")) : l(_.CryptoJS);
+      }, { "crypto-js/core": 3 }], 5: [function(c, o, x) {
+        var _, l;
+        _ = this, l = function(u) {
+          return u.enc.Utf8;
+        }, typeof x == "object" ? o.exports = x = l(c("crypto-js/core")) : l(_.CryptoJS);
+      }, { "crypto-js/core": 3 }], 6: [function(c, o, x) {
+        var _, l;
+        _ = this, l = function(u) {
+          return u.HmacSHA1;
+        }, typeof x == "object" ? o.exports = x = l(c("crypto-js/core"), c("crypto-js/sha1"), c("crypto-js/hmac")) : l(_.CryptoJS);
+      }, { "crypto-js/core": 3, "crypto-js/hmac": 7, "crypto-js/sha1": 8 }], 7: [function(c, o, x) {
+        var _, l;
+        _ = this, l = function(u) {
+          var a, s;
+          a = u.lib.Base, s = u.enc.Utf8, u.algo.HMAC = a.extend({ init: function(t, e) {
+            t = this._hasher = new t.init(), typeof e == "string" && (e = s.parse(e));
+            for (var n = t.blockSize, r = 4 * n, t = ((e = e.sigBytes > r ? t.finalize(e) : e).clamp(), this._oKey = e.clone()), e = this._iKey = e.clone(), h = t.words, y = e.words, p = 0; p < n; p++) h[p] ^= 1549556828, y[p] ^= 909522486;
+            t.sigBytes = e.sigBytes = r, this.reset();
+          }, reset: function() {
+            var t = this._hasher;
+            t.reset(), t.update(this._iKey);
+          }, update: function(t) {
+            return this._hasher.update(t), this;
+          }, finalize: function(n) {
+            var e = this._hasher, n = e.finalize(n);
+            return e.reset(), e.finalize(this._oKey.clone().concat(n));
+          } });
+        }, typeof x == "object" ? o.exports = x = l(c("crypto-js/core")) : l(_.CryptoJS);
+      }, { "crypto-js/core": 3 }], 8: [function(c, o, x) {
+        var _, l;
+        _ = this, l = function(u) {
+          var a, s, t, e, n;
+          return s = (a = u).lib, t = s.WordArray, e = s.Hasher, n = [], s = a.algo.SHA1 = e.extend({ _doReset: function() {
+            this._hash = new t.init([1732584193, 4023233417, 2562383102, 271733878, 3285377520]);
+          }, _doProcessBlock: function(r, h) {
+            for (var y = this._hash.words, p = y[0], d = y[1], g = y[2], m = y[3], v = y[4], f = 0; f < 80; f++) {
+              n[f] = f < 16 ? 0 | r[h + f] : (b = n[f - 3] ^ n[f - 8] ^ n[f - 14] ^ n[f - 16]) << 1 | b >>> 31;
+              var b = (p << 5 | p >>> 27) + v + n[f];
+              b += f < 20 ? 1518500249 + (d & g | ~d & m) : f < 40 ? 1859775393 + (d ^ g ^ m) : f < 60 ? (d & g | d & m | g & m) - 1894007588 : (d ^ g ^ m) - 899497514, v = m, m = g, g = d << 30 | d >>> 2, d = p, p = b;
+            }
+            y[0] = y[0] + p | 0, y[1] = y[1] + d | 0, y[2] = y[2] + g | 0, y[3] = y[3] + m | 0, y[4] = y[4] + v | 0;
+          }, _doFinalize: function() {
+            var r = this._data, h = r.words, y = 8 * this._nDataBytes, p = 8 * r.sigBytes;
+            return h[p >>> 5] |= 128 << 24 - p % 32, h[14 + (64 + p >>> 9 << 4)] = Math.floor(y / 4294967296), h[15 + (64 + p >>> 9 << 4)] = y, r.sigBytes = 4 * h.length, this._process(), this._hash;
+          }, clone: function() {
+            var r = e.clone.call(this);
+            return r._hash = this._hash.clone(), r;
+          } }), a.SHA1 = e._createHelper(s), a.HmacSHA1 = e._createHmacHelper(s), u.SHA1;
+        }, typeof x == "object" ? o.exports = x = l(c("crypto-js/core")) : l(_.CryptoJS);
+      }, { "crypto-js/core": 3 }], 9: [function(c, o, x) {
+        (function(_, l) {
+          (function() {
+            var u, a;
+            u = this, a = function() {
+              function s(F) {
+                return typeof F == "function";
+              }
+              var t = Array.isArray || function(F) {
+                return Object.prototype.toString.call(F) === "[object Array]";
+              }, e = 0, n = void 0, r = void 0, h = function(F, J) {
+                v[e] = F, v[e + 1] = J, (e += 2) === 2 && (r ? r(f) : E());
+              }, y = typeof window < "u" ? window : void 0, p = y || {}, p = p.MutationObserver || p.WebKitMutationObserver, d = typeof self > "u" && _ !== void 0 && {}.toString.call(_) === "[object process]", g = typeof Uint8ClampedArray < "u" && typeof importScripts < "u" && typeof MessageChannel < "u";
+              function m() {
+                var F = setTimeout;
+                return function() {
+                  return F(f, 1);
+                };
+              }
+              var v = new Array(1e3);
+              function f() {
+                for (var F = 0; F < e; F += 2) (0, v[F])(v[F + 1]), v[F] = void 0, v[F + 1] = void 0;
+                e = 0;
+              }
+              function b() {
+                try {
+                  var F = Function("return this")().require("vertx");
+                  return (n = F.runOnLoop || F.runOnContext) !== void 0 ? function() {
+                    n(f);
+                  } : m();
+                } catch {
+                  return m();
+                }
+              }
+              var S, w, T, E = void 0;
+              function R(F, J) {
+                var ae, de = this, me = new this.constructor(H), ke = (me[A] === void 0 && X(me), de._state);
+                return ke ? (ae = arguments[ke - 1], h(function() {
+                  return k(ke, me, ae, de._result);
+                })) : Q(de, me, F, J), me;
+              }
+              function P(F) {
+                var J;
+                return F && typeof F == "object" && F.constructor === this ? F : (C(J = new this(H), F), J);
+              }
+              var E = d ? function() {
+                return _.nextTick(f);
+              } : p ? (w = 0, d = new p(f), T = document.createTextNode(""), d.observe(T, { characterData: !0 }), function() {
+                T.data = w = ++w % 2;
+              }) : g ? ((S = new MessageChannel()).port1.onmessage = f, function() {
+                return S.port2.postMessage(0);
+              }) : (y === void 0 && typeof c == "function" ? b : m)(), A = Math.random().toString(36).substring(2);
+              function H() {
+              }
+              var M = void 0, O = 1, j = 2;
+              function U(F, J, ae) {
+                h(function(de) {
+                  var me = !1, ke = ((Le, je, Ve, Qe) => {
+                    try {
+                      Le.call(je, Ve, Qe);
+                    } catch (be) {
+                      return be;
+                    }
+                  })(ae, J, function(Le) {
+                    me || (me = !0, (J !== Le ? C : L)(de, Le));
+                  }, function(Le) {
+                    me || (me = !0, q(de, Le));
+                  }, de._label);
+                  !me && ke && (me = !0, q(de, ke));
+                }, F);
+              }
+              function N(F, J, ae) {
+                var de, me;
+                J.constructor === F.constructor && ae === R && J.constructor.resolve === P ? (de = F, (me = J)._state === O ? L(de, me._result) : me._state === j ? q(de, me._result) : Q(me, void 0, function(ke) {
+                  return C(de, ke);
+                }, function(ke) {
+                  return q(de, ke);
+                })) : ae !== void 0 && s(ae) ? U(F, J, ae) : L(F, J);
+              }
+              function C(F, J) {
+                if (F === J) q(F, new TypeError("You cannot resolve a promise with itself"));
+                else if (ae = typeof J, J === null || ae != "object" && ae != "function") L(F, J);
+                else {
+                  ae = void 0;
+                  try {
+                    ae = J.then;
+                  } catch (de) {
+                    return void q(F, de);
+                  }
+                  N(F, J, ae);
+                }
+                var ae;
+              }
+              function I(F) {
+                F._onerror && F._onerror(F._result), B(F);
+              }
+              function L(F, J) {
+                F._state === M && (F._result = J, F._state = O, F._subscribers.length !== 0) && h(B, F);
+              }
+              function q(F, J) {
+                F._state === M && (F._state = j, F._result = J, h(I, F));
+              }
+              function Q(F, J, ae, de) {
+                var me = F._subscribers, ke = me.length;
+                F._onerror = null, me[ke] = J, me[ke + O] = ae, me[ke + j] = de, ke === 0 && F._state && h(B, F);
+              }
+              function B(F) {
+                var J = F._subscribers, ae = F._state;
+                if (J.length !== 0) {
+                  for (var de, me = void 0, ke = F._result, Le = 0; Le < J.length; Le += 3) de = J[Le], me = J[Le + ae], de ? k(ae, de, me, ke) : me(ke);
+                  F._subscribers.length = 0;
+                }
+              }
+              function k(F, J, ae, de) {
+                var me = s(ae), ke = void 0, Le = void 0, je = !0;
+                if (me) {
+                  try {
+                    ke = ae(de);
+                  } catch (Ve) {
+                    je = !1, Le = Ve;
+                  }
+                  if (J === ke) return void q(J, new TypeError("A promises callback cannot return that same promise."));
+                } else ke = de;
+                J._state === M && (me && je ? C(J, ke) : je === !1 ? q(J, Le) : F === O ? L(J, ke) : F === j && q(J, ke));
+              }
+              var D = 0;
+              function X(F) {
+                F[A] = D++, F._state = void 0, F._result = void 0, F._subscribers = [];
+              }
+              ie.prototype._enumerate = function(F) {
+                for (var J = 0; this._state === M && J < F.length; J++) this._eachEntry(F[J], J);
+              }, ie.prototype._eachEntry = function(F, J) {
+                var ae = this._instanceConstructor, de = ae.resolve;
+                if (de === P) {
+                  var me, ke = void 0, Le = void 0, je = !1;
+                  try {
+                    ke = F.then;
+                  } catch (Ve) {
+                    je = !0, Le = Ve;
+                  }
+                  ke === R && F._state !== M ? this._settledAt(F._state, J, F._result) : typeof ke != "function" ? (this._remaining--, this._result[J] = F) : ae === ne ? (me = new ae(H), je ? q(me, Le) : N(me, F, ke), this._willSettleAt(me, J)) : this._willSettleAt(new ae(function(Ve) {
+                    return Ve(F);
+                  }), J);
+                } else this._willSettleAt(de(F), J);
+              }, ie.prototype._settledAt = function(F, J, ae) {
+                var de = this.promise;
+                de._state === M && (this._remaining--, F === j ? q(de, ae) : this._result[J] = ae), this._remaining === 0 && L(de, this._result);
+              }, ie.prototype._willSettleAt = function(F, J) {
+                var ae = this;
+                Q(F, void 0, function(de) {
+                  return ae._settledAt(O, J, de);
+                }, function(de) {
+                  return ae._settledAt(j, J, de);
+                });
+              };
+              var te = ie;
+              function ie(F, J) {
+                this._instanceConstructor = F, this.promise = new F(H), this.promise[A] || X(this.promise), t(J) ? (this.length = J.length, this._remaining = J.length, this._result = new Array(this.length), this.length !== 0 && (this.length = this.length || 0, this._enumerate(J), this._remaining !== 0) || L(this.promise, this._result)) : q(this.promise, new Error("Array Methods must be provided an Array"));
+              }
+              G.prototype.catch = function(F) {
+                return this.then(null, F);
+              }, G.prototype.finally = function(F) {
+                var J = this.constructor;
+                return s(F) ? this.then(function(ae) {
+                  return J.resolve(F()).then(function() {
+                    return ae;
+                  });
+                }, function(ae) {
+                  return J.resolve(F()).then(function() {
+                    throw ae;
+                  });
+                }) : this.then(F, F);
+              };
+              var ne = G;
+              function G(F) {
+                if (this[A] = D++, this._result = this._state = void 0, this._subscribers = [], H !== F) {
+                  if (typeof F != "function") throw new TypeError("You must pass a resolver function as the first argument to the promise constructor");
+                  if (!(this instanceof G)) throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
+                  var J = this;
+                  try {
+                    F(function(ae) {
+                      C(J, ae);
+                    }, function(ae) {
+                      q(J, ae);
+                    });
+                  } catch (ae) {
+                    q(J, ae);
+                  }
+                }
+              }
+              return ne.prototype.then = R, ne.all = function(F) {
+                return new te(this, F).promise;
+              }, ne.race = function(F) {
+                var J = this;
+                return t(F) ? new J(function(ae, de) {
+                  for (var me = F.length, ke = 0; ke < me; ke++) J.resolve(F[ke]).then(ae, de);
+                }) : new J(function(ae, de) {
+                  return de(new TypeError("You must pass an array to race."));
+                });
+              }, ne.resolve = P, ne.reject = function(F) {
+                var J = new this(H);
+                return q(J, F), J;
+              }, ne._setScheduler = function(F) {
+                r = F;
+              }, ne._setAsap = function(F) {
+                h = F;
+              }, ne._asap = h, ne.polyfill = function() {
+                var F = void 0;
+                if (l !== void 0) F = l;
+                else if (typeof self < "u") F = self;
+                else try {
+                  F = Function("return this")();
+                } catch {
+                  throw new Error("polyfill failed because global object is unavailable in this environment");
+                }
+                var J = F.Promise;
+                if (J) {
+                  var ae = null;
+                  try {
+                    ae = Object.prototype.toString.call(J.resolve());
+                  } catch {
+                  }
+                  if (ae === "[object Promise]" && !J.cast) return;
+                }
+                F.Promise = ne;
+              }, ne.Promise = ne;
+            }, typeof x == "object" && o !== void 0 ? o.exports = a() : u.ES6Promise = a();
+          }).call(this);
+        }).call(this, c("_process"), typeof commonjsGlobal < "u" ? commonjsGlobal : typeof self < "u" ? self : typeof window < "u" ? window : {});
+      }, { _process: 10 }], 10: [function(c, u, x) {
+        var _, l, u = u.exports = {};
+        function a() {
+          throw new Error("setTimeout has not been defined");
+        }
+        function s() {
+          throw new Error("clearTimeout has not been defined");
+        }
+        try {
+          _ = typeof setTimeout == "function" ? setTimeout : a;
+        } catch {
+          _ = a;
+        }
+        try {
+          l = typeof clearTimeout == "function" ? clearTimeout : s;
+        } catch {
+          l = s;
+        }
+        function t(m) {
+          if (_ === setTimeout) return setTimeout(m, 0);
+          if ((_ === a || !_) && setTimeout) return (_ = setTimeout)(m, 0);
+          try {
+            return _(m, 0);
+          } catch {
+            try {
+              return _.call(null, m, 0);
+            } catch {
+              return _.call(this, m, 0);
+            }
+          }
+        }
+        var e, n = [], r = !1, h = -1;
+        function y() {
+          r && e && (r = !1, e.length ? n = e.concat(n) : h = -1, n.length) && p();
+        }
+        function p() {
+          if (!r) {
+            for (var m = t(y), v = (r = !0, n.length); v; ) {
+              for (e = n, n = []; ++h < v; ) e && e[h].run();
+              h = -1, v = n.length;
+            }
+            e = null, r = !1, function(f) {
+              if (l === clearTimeout) return clearTimeout(f);
+              if ((l === s || !l) && clearTimeout) return (l = clearTimeout)(f);
+              try {
+                l(f);
+              } catch {
+                try {
+                  return l.call(null, f);
+                } catch {
+                  return l.call(this, f);
+                }
+              }
+            }(m);
+          }
+        }
+        function d(m, v) {
+          this.fun = m, this.array = v;
+        }
+        function g() {
+        }
+        u.nextTick = function(m) {
+          var v = new Array(arguments.length - 1);
+          if (1 < arguments.length) for (var f = 1; f < arguments.length; f++) v[f - 1] = arguments[f];
+          n.push(new d(m, v)), n.length !== 1 || r || t(p);
+        }, d.prototype.run = function() {
+          this.fun.apply(null, this.array);
+        }, u.title = "browser", u.browser = !0, u.env = {}, u.argv = [], u.version = "", u.versions = {}, u.on = g, u.addListener = g, u.once = g, u.off = g, u.removeListener = g, u.removeAllListeners = g, u.emit = g, u.prependListener = g, u.prependOnceListener = g, u.listeners = function(m) {
+          return [];
+        }, u.binding = function(m) {
+          throw new Error("process.binding is not supported");
+        }, u.cwd = function() {
+          return "/";
+        }, u.chdir = function(m) {
+          throw new Error("process.chdir is not supported");
+        }, u.umask = function() {
+          return 0;
+        };
+      }, {}], 11: [function(c, o, x) {
+        o.exports = { name: "aliyun-aliplayer", version: "2.30.4", description: "阿里云 Web 播放器", main: "./build/aliplayer-min", style: "./build/skins/default/aliplayer-min.css", files: ["build"], repository: { type: "git", url: "" }, keywords: ["aliyun", "aliplayer"], scripts: { start: "npx grunt live", "start:hls": "npx grunt live --hls=true", "start:flv": "npx grunt live --flv=true", build: "npx grunt build", release: "commit-and-tag-version", prepublishOnly: "npm run build", "test:unit": "karma start", "test:unit:watch": "karma start --no-single-run" }, devDependencies: { "@ali/mediabox-quality-tracer": "^0.26.0", "@babel/core": "^7.26.0", "@babel/preset-env": "^7.26.0", "@types/chai": "^5.0.1", "@types/mocha": "^10.0.10", "babel-loader": "^9.2.1", "babel-plugin-es6-promise": "^1.1.1", "babel-plugin-istanbul": "^7.0.0", babelify: "^10.0.0", chai: "^5.1.2", "commit-and-tag-version": "^11.2.1", "es6-promise": "^4.2.8", grunt: "^1.0.4", "grunt-autoprefixer": "^3.0.4", "grunt-babel": "^8.0.0", "grunt-browserify": "^5.3.0", "grunt-contrib-clean": "^2.0.0", "grunt-contrib-connect": "^3.0.0", "grunt-contrib-copy": "^1.0.0", "grunt-contrib-cssmin": "^3.0.0", "grunt-contrib-less": "^2.0.0", "grunt-contrib-uglify": "^4.0.1", "grunt-contrib-watch": "^1.1.0", "grunt-run": "^0.8.1", "grunt-text-replace": "^0.4.0", karma: "^6.4.4", "karma-chrome-launcher": "^3.2.0", "karma-coverage": "^2.2.1", "karma-mocha": "^2.0.1", "karma-mocha-reporter": "^2.2.5", "karma-webpack": "^5.0.1", mocha: "^11.0.1", "node-args": "^2.1.8", sinon: "^19.0.2", "sinon-chai": "^4.0.0", webpack: "^5.97.1" }, dependencies: { "crypto-js": "^4.1.1" }, optionalDependencies: { puppeteer: "^23.11.1" } };
+      }, {}], 12: [function(t, o, x) {
+        var _ = t("../ui/component"), l = (t("../lib/util"), t("../lib/dom")), u = t("../lib/event"), a = (t("../lib/ua"), t("../lang/index")), s = t("../player/base/event/eventtype"), t = _.extend({ init: function(e, n) {
+          _.call(this, e, n), this.className = n.className || "prism-auto-stream-selector", this.addClass(this.className);
+        }, createEl: function() {
+          var e = _.prototype.createEl.call(this, "div");
+          return e.innerHTML = "<div><p class='tip-text'></p></div><div class='operators'><a class='prism-button prism-button-ok' type='button'>" + a.get("OK_Text") + "</a><a class='prism-button prism-button-cancel'  target='_blank'>" + a.get("Cancel_Text") + "</a></div>", e;
+        }, bindEvent: function() {
+          var e = this, n = (e._player.on(s.Private.AutoStreamShow, function(r) {
+            var h, y = document.querySelector("#" + e.getId() + " .tip-text");
+            e._player._getLowerQualityLevel && (h = e._player._getLowerQualityLevel()) && (e._switchUrl = h, y.innerText = a.get("Auto_Stream_Tip_Text").replace("$$", h.item.desc), l.css(e.el(), "display", "block"));
+          }), e._player.on(s.Private.AutoStreamHide, function(r) {
+            document.querySelector("#" + e.getId() + " .tip-text"), l.css(e.el(), "display", "none");
+          }), document.querySelector("#" + e.getId() + " .prism-button-ok")), n = (u.on(n, "click", function() {
+            e._player._changeStream && e._switchUrl && (e._player._changeStream(e._switchUrl.index, a.get("Quality_Change_Text")), e._player.trigger(s.Private.SettingListHide)), l.css(e.el(), "display", "none");
+          }), document.querySelector("#" + e.getId() + " .prism-button-cancel"));
+          u.on(n, "click", function() {
+            l.css(e.el(), "display", "none"), e._player.trigger(s.Private.SettingListHide);
+          });
+        } });
+        o.exports = t;
+      }, { "../lang/index": 24, "../lib/dom": 33, "../lib/event": 34, "../lib/ua": 49, "../lib/util": 51, "../player/base/event/eventtype": 68, "../ui/component": 132 }], 13: [function(h, o, x) {
+        var _ = h("../ui/component"), l = h("../lib/dom"), u = h("../lib/event"), a = h("../lib/ua"), s = h("../lib/function"), t = (h("../lang/index"), h("../lib/util")), e = h("../config"), n = h("../lib/playerutil"), r = h("../player/base/event/eventtype"), h = _.extend({ init: function(y, p) {
+          _.call(this, y, p), this.className = p.className || "prism-liveshift-progress", this.addClass(this.className), this._liveshiftService = y._liveshiftService;
+        }, createEl: function() {
+          var y = _.prototype.createEl.call(this);
+          return y.innerHTML = '<div class="prism-enable-liveshift"><div class="prism-progress-loaded"></div><div class="prism-progress-played"></div><div class="prism-progress-cursor"><img></img></div><p class="prism-progress-time"></p><div class="prism-liveshift-seperator"></div></div><div class="prism-disable-liveshift"></div>', y;
+        }, bindEvent: function() {
+          function y(m) {
+            p._progressDown = m;
+          }
+          var p = this, d = (this.loadedNode = document.querySelector("#" + this.id() + " .prism-progress-loaded"), this.playedNode = document.querySelector("#" + this.id() + " .prism-progress-played"), this.cursorNode = document.querySelector("#" + this.id() + " .prism-progress-cursor"), this.timeNode = document.querySelector("#" + this.id() + " .prism-progress-time"), this.controlNode = document.querySelector("#" + this._player._options.id + " .prism-controlbar"), this.seperatorNode = document.querySelector("#" + this.id() + " .prism-liveshift-seperator"), this.progressNode = document.querySelector("#" + this.id() + " .prism-enable-liveshift"), document.querySelector("#" + this.id() + " .prism-progress-cursor img")), g = "//" + e.domain + e.path + e.h5Version + "/skins/default/img/dragcursor.png";
+          this._player._options.skinsDomain = this._player._options.assetPrefix || this._player._options.skinsDomain, this._player._options.skinsDomain ? g = this._player._options.skinsDomain + "/skins/default/img/dragcursor.png" : e.domain ? -1 < e.domain.indexOf("localhost") && (g = "//" + e.domain + "/build/skins/default/img/dragcursor.png") : g = this._player && this._player._options && this._player._options.sdkDomain ? this._player._options.sdkDomain + e.path + e.h5Version + "/skins/default/img/dragcursor.png" : (e.path || "").substring(1) + e.h5Version + "/skins/default/img/dragcursor.png", d.src = g, u.on(this.cursorNode, "mousedown", function(m) {
+            p._onMouseDown(m);
+          }), u.on(this.cursorNode, "touchstart", function(m) {
+            p._onMouseDown(m);
+          }), u.on(this.progressNode, "mousemove", function(m) {
+            p._progressMove(m);
+          }), u.on(this.progressNode, "touchmove", function(m) {
+            p._progressMove(m);
+          }), u.on(this.progressNode, "mousedown", function(m) {
+            y(!0);
+          }), u.on(this.progressNode, "touchstart", function(m) {
+            y(!0);
+          }), u.on(this.progressNode, "mouseup", function(m) {
+            y(!1);
+          }), u.on(this.progressNode, "touchend", function(m) {
+            y(!1);
+          }), u.on(this._el, "click", function(m) {
+            p._onMouseClick(m);
+          }), this._player.on(r.Private.HideProgress, function(m) {
+            p._hideProgress(m);
+          }), this._player.on(r.Private.CancelHideProgress, function(m) {
+            p._cancelHideProgress(m);
+          }), this._player.on(r.Private.ShowBar, function() {
+            p._updateLayout();
+          }), u.on(this.progressNode, r.Private.MouseOver, function(m) {
+            p._onMouseOver(m);
+          }), u.on(this.progressNode, r.Private.MouseOut, function(m) {
+            p._onMouseOut(m);
+          }), this.bindTimeupdate = s.bind(this, this._onTimeupdate), this._player.on(r.Player.TimeUpdate, this.bindTimeupdate), n.isLiveShift(this._player._options) && p._liveshiftService.start(6e4, function(m) {
+            m = { mediaId: p._player._options.vid || "", error_code: m.Code, error_msg: m.Message }, p._player.logError(m), p._player.trigger(r.Player.Error, m);
+          }), this._player.on(r.Private.LiveShiftQueryCompleted, function() {
+            p._updateSeperator(), p._updateLayout();
+          }), this._player.on(r.Private.LiveShiftSwitchToLive, function() {
+            p._updateCursorPosition();
+          }), this._player.on(r.Player.Pause, function() {
+            p._liveshiftService.stop();
+          }), a.IS_IPAD ? this.interval = setInterval(function() {
+            p._onProgress();
+          }, 500) : this._player.on(r.Video.Progress, function() {
+            p._onProgress();
+          });
+        }, _updateSeperator: function() {
+          this._liveshiftService.currentTimeDisplay && (this.seperatorNode.innerText = this._liveshiftService.currentTimeDisplay);
+        }, _updateLayout: function() {
+          var y = this.seperatorNode.offsetWidth, p = this.el().offsetWidth, d = p - y;
+          y != 0 && d != 0 && (l.css(this.progressNode, "width", 100 * (d - 10) / p + "%"), l.css(this.seperatorNode, "right", -1 * (y + 10) + "px"));
+        }, _progressMove: function(y) {
+          var p = this._getSeconds(y), d = this._liveshiftService.availableLiveShiftTime, p = (this.timeNode.innerText = "-" + t.formatTime(d - p), d ? p / d : 0), d = 1 - this.timeNode.clientWidth / this.el().clientWidth, g = (d < p && (p = d), this.timeNode && (l.css(this.timeNode, "display", "block"), l.css(this.timeNode, "left", 100 * p + "%")), this);
+          !a.IS_PC && g._progressDown && (g.progressSeekTimer && clearTimeout(g.progressSeekTimer), g.progressSeekTimer = setTimeout(function() {
+            g._progressDown || g._onMouseClick(y);
+          }, 200));
+        }, _hideProgress: function(y) {
+          u.off(this.cursorNode, "mousedown"), u.off(this.cursorNode, "touchstart");
+        }, _cancelHideProgress: function(y) {
+          var p = this;
+          u.on(this.cursorNode, "mousedown", function(d) {
+            p._onMouseDown(d);
+          }), u.on(this.cursorNode, "touchstart", function(d) {
+            p._onMouseDown(d);
+          });
+        }, _canSeekable: function(y) {
+          var p = !0;
+          return p = typeof this._player.canSeekable == "function" ? this._player.canSeekable(y) : p;
+        }, _onMouseOver: function(y) {
+          this._updateCursorPosition(this._getCurrentTime()), l.css(this.timeNode, "display", "block");
+        }, _onMouseOut: function(y) {
+          l.css(this.timeNode, "display", "none");
+        }, _getSeconds: function(v) {
+          if (v.touches && v.touches[0]) {
+            for (var p, d = this.el().offsetLeft, g = this.el(); g.offsetParent; ) {
+              var g = g.offsetParent, m = l.getTranslateX(g);
+              d += g.offsetLeft + m;
+            }
+            g.tagName && g.tagName.toLowerCase() === "body" && (d += document.getElementsByTagName("html")[0].offsetLeft), (p = (v.touches ? v.touches[0] : v).pageX - d) < 0 && (p = 0);
+          } else p = v.offsetX, v.target !== this.cursorNode && v.target.offsetParent !== this.cursorNode || (p += this.cursorNode.offsetLeft), v.target !== this._el && (v.target.offsetParent, this._el);
+          var v = this.progressNode.offsetWidth, f = this._liveshiftService.availableLiveShiftTime;
+          return sec = (sec = (sec = f ? p / v * f : 0) < 0 ? 0 : sec) > f ? f : sec;
+        }, _onMouseClick: function(d) {
+          var p = this, d = this._getSeconds(d), m = this._liveshiftService.availableLiveShiftTime, g = m - d, v = this._player._options, m = (g <= v.liveShiftMinOffset && (d = m - (g = v.liveShiftMinOffset)), this._player.trigger(r.Private.SeekStart, { fromTime: this._getCurrentTime() }), this._liveshiftService.getSourceUrl(g)), v = n.isHls(p._player._options.source);
+          p._player._loadByUrlInner(m, d, !0), p._player.trigger(r.Private.Play_Btn_Hide), p._liveshiftService.seekTime = d, p._player.trigger(r.Private.EndStart, { toTime: d }), p._updateProgressBar(this.playedNode, d), p._updateCursorPosition(d), setTimeout(function() {
+            p._progressDown || p._onMouseOut();
+          }, 500), v && setTimeout(function() {
+            p._player.play();
+          });
+        }, _onMouseDown: function(y) {
+          var p = this;
+          y.preventDefault(), this._player.trigger(r.Private.SeekStart, { fromTime: this._getCurrentTime() }), u.on(this.controlNode, "mousemove", function(d) {
+            p._onMouseMove(d);
+          }), u.on(this.controlNode, "touchmove", function(d) {
+            p._onMouseMove(d);
+          }), u.on(this.controlNode, "mouseup", function(d) {
+            p._onMouseUp(d);
+          }), u.on(this.controlNode, "touchend", function(d) {
+            p._onMouseUp(d);
+          });
+        }, _onMouseUp: function(y) {
+          y.preventDefault(), u.off(this.controlNode, "mousemove"), u.off(this.controlNode, "touchmove"), u.off(this._player.tag, "mouseup"), u.off(this._player.tag, "touchend"), u.off(this.controlNode, "mouseup"), u.off(this.controlNode, "touchend"), this._onMouseClick(y);
+        }, _onMouseMove: function(y) {
+          y.preventDefault();
+        }, _onTimeupdate: function(y) {
+          this._player._seeking || (a.IS_ANDROID && a.IS_UC && (this._hasResetFlagUC && this._player.getCurrentTime() && (this._hasResetFlagUC = !1, this._basePtsUC = this._player.getCurrentTime()), this._player.getCurrentTime() || (this._hasResetFlagUC = !0, this._basePtsUC = 0)), this._updateProgressBar(this.playedNode, this._getCurrentTime()), this._updateCursorPosition(this._getCurrentTime()), this._player.trigger(r.Private.UpdateProgressBar, { time: this._getCurrentTime() }));
+        }, _getCurrentTime: function() {
+          var y = this._liveshiftService.seekTime, y = (y == -1 && (y = 0), this._player.getCurrentTime() + y);
+          return a.IS_ANDROID && a.IS_UC && (y -= this._basePtsUC || 0), y;
+        }, _onProgress: function(y) {
+          this._player.getDuration() && 1 <= this._player.getBuffered().length && this._updateProgressBar(this.loadedNode, this._player.getBuffered().end(this._player.getBuffered().length - 1));
+        }, _updateProgressBar: function(y, p) {
+          var d, g;
+          this._player._switchSourcing != 1 && (g = 0, this._liveshiftService.seekTime == -1 ? g = 1 : 1 < (g = (d = this._liveshiftService.availableLiveShiftTime) ? p / d : 0) && (this._liveshiftService.seekTime = -(g = 1)), this.liveShiftStartDisplay, y) && l.css(y, "width", 100 * g + "%");
+        }, _updateCursorPosition: function(y) {
+          var p, d, g, m;
+          this._player.el() && this._player._switchSourcing != 1 && (g = 0, m = 1, p = this._player.el().clientWidth, this._liveshiftService.seekTime == -1 ? g = 1 : 1 < (g = (d = this._liveshiftService.availableLiveShiftTime) ? y / d : 0) && (this._liveshiftService.seekTime = -1), p != 0 && (m = 1 - (y = 10 / p), g -= y), g = g < 0 ? 0 : g, this.cursorNode) && (m < g ? (l.css(this.cursorNode, "right", "0px"), l.css(this.cursorNode, "left", "auto")) : (l.css(this.cursorNode, "right", "auto"), l.css(this.cursorNode, "left", 100 * g + "%")));
+        } });
+        o.exports = h;
+      }, { "../config": 15, "../lang/index": 24, "../lib/dom": 33, "../lib/event": 34, "../lib/function": 36, "../lib/playerutil": 46, "../lib/ua": 49, "../lib/util": 51, "../player/base/event/eventtype": 68, "../ui/component": 132 }], 14: [function(a, o, x) {
+        var _ = a("../ui/component"), l = a("../lib/util"), u = a("../player/base/event/eventtype"), a = _.extend({ init: function(s, t) {
+          _.call(this, s, t), this.className = t.className || "prism-live-time-display", this.addClass(this.className), this._liveshiftService = s._liveshiftService;
+        }, createEl: function() {
+          var s = _.prototype.createEl.call(this, "div");
+          return s.innerHTML = '<span class="current-time">00:00</span> <span class="time-bound">/</span> <span class="end-time">00:00</span><span class="live-text">Live: </span><span class="live-time"></span>', s;
+        }, bindEvent: function() {
+          var s = this;
+          this._player.on(u.Video.TimeUpdate, function() {
+            var t, e = s._liveshiftService, n = document.querySelector("#" + s.id() + " .current-time");
+            e.liveShiftStartDisplay && e.availableLiveShiftTime > e.seekTime && e.seekTime != -1 ? (t = s._liveshiftService.getBaseTime(), t = l.formatTime(t + s._player.getCurrentTime()), n.innerText = t) : e.currentTimeDisplay && (n.innerText = e.currentTimeDisplay);
+          }), this._player.on(u.Private.LiveShiftQueryCompleted, function() {
+            s.updateTime();
+          });
+        }, updateTime: function() {
+          document.querySelector("#" + this.id() + " .end-time").innerText = this._liveshiftService.liveTimeRange.endDisplay, document.querySelector("#" + this.id() + " .live-time").innerText = this._liveshiftService.currentTimeDisplay;
+        } });
+        o.exports = a;
+      }, { "../lib/util": 51, "../player/base/event/eventtype": 68, "../ui/component": 132 }], 15: [function(c, o, x) {
+        c = c("../package.json"), o.exports = { domain: "g.alicdn.com", path: "/apsara-media-box/imp-web-player/", flashVersion: "2.8.2", h5Version: c.version.split("-")[0], rtsVersion: "2.9.1", cityBrain: !0, logDuration: 3, logCount: 100, logReportTo: "https://videocloud.cn-hangzhou.log.aliyuncs.com/logstores/newplayer/track", dumpLogReportTo: "https://web-video.cn-hangzhou.log.aliyuncs.com/logstores/player-dump/track" };
+      }, { "../package.json": 11 }], 16: [function(c, o, x) {
+        (function(_) {
+          (function() {
+            var l, u, a, s, t, e, r = c("../node_modules/@ali/mediabox-quality-tracer/dist/index.cjs").MediaboxQualityTracer, n = (c("./lib/patch-ssr").isSSR || (u = function(h) {
+              var y = window && window.location.host || "";
+              if (!(-1 < y.indexOf("localhost") || /(?:\d{1,3}\.){3}\d{1,3}/.test(y))) {
+                if (h && h.msg && (["没有为播放器指定容器", "playauth property is required"].some(function(p) {
+                  return -1 < h.msg.indexOf(p);
+                }) || /code:(\d+);msg:(.+)/.test(h.msg)))
+                  return void console.log("ignore error report");
+                if (!(h.stack && -1 < h.stack.indexOf("alivc-im.iife.js") || h.file && -1 < h.file.indexOf("imp-interaction"))) return h;
+              }
+              console.log("ignore error report");
+            }, c("./lang/index").load(), a = c("./player/adaptiveplayer"), s = c("./lib/reloadInstanceUtil"), n = c("./lib/componentutil"), t = c("./config"), (e = function(h, y) {
+              l && (l.updateOptions({ cid: h.license && h.license.key, region: h.env === "SEA" ? "ap-southeast-1" : "cn-hangzhou", beforeSend: u }), l.setReady());
+              var p = a.create(h, y);
+              return l && l.updateOptions({ beforeSend: function(d) {
+                if (d = u(d)) return d.c3 = "likely_ri=" + (p._monitor && p._monitor.sessionId), d;
+              } }), s.storeUserEvents(p), p;
+            }).getVersion = function() {
+              return t.h5Version;
+            }, n.register(e), e.players = {}, e.reloadInstance = s.reloadInstance, typeof Uint8Array > "u") || Uint8Array.prototype.slice || Object.defineProperty(Uint8Array.prototype, "slice", { value: Array.prototype.slice }), (l = new r({ businessName: "imp-web-player", version: t.h5Version || "unknown", deferRegionSet: !0, env: _ !== "dev" ? "prod" : "local", disabled: window.AliplayerDisableTracer === !0 })).wrap(e)), r = window.Aliplayer = n;
+            r.tracer = l, o.exports = r;
+          }).call(this);
+        }).call(this, "prod");
+      }, { "../node_modules/@ali/mediabox-quality-tracer/dist/index.cjs": 1, "./config": 15, "./lang/index": 24, "./lib/componentutil": 28, "./lib/patch-ssr": 45, "./lib/reloadInstanceUtil": 47, "./player/adaptiveplayer": 65 }], 17: [function(c, o, x) {
+        var _ = c("../player/base/event/eventtype"), l = c("../lib/constants"), u = c("../lang/index");
+        o.exports = (() => {
+          function a(t) {
+            var e = this;
+            t === void 0 && (t = {}), this.interval = 3e3, this.player = null, this.timer = null, this.playerInitDone = !1, this.player = t.player, this.player.on(_.Player.Init, function() {
+              e.playerInitDone = !0;
+            });
+          }
+          var s = a.prototype;
+          return s.start = function() {
+            var t = this;
+            this.stop(), this.player && this.player._options && !this.player._options.preventRecord || (this.timer = setInterval(function() {
+              t.playerInitDone && t.check();
+            }, this.interval));
+          }, s.stop = function() {
+            this.clearTimer();
+          }, s.check = function() {
+            var t = !1, e = this.detectPrototype() || this.detectNativeFn();
+            return (e || this.detectDeperateVideo()) && (console.log("isMediaSourceModified", e), this.clearTimer(), this.displayError(), this.setupErrorStyle(), this.destroyVideo(), localStorage.setItem("_intercept_mediastream_", ""), t = !0), t;
+          }, s.dispose = function() {
+            this.stop(), this.player = null, this.playerInitDone = !1;
+          }, s.clearTimer = function() {
+            this.timer && (clearInterval(this.timer), this.timer = null);
+          }, s.displayError = function() {
+            var t = this.player, e = { mediaId: t._options && t._options.vid ? t._options.vid : "", error_code: l.ErrorCode.RecordNotAllowed, error_msg: u.get("Record_Not_Allowed") };
+            t.logError(e), t.trigger(_.Player.Error, e);
+          }, s.setupErrorStyle = function() {
+            this.hideRetry();
+            var t = document.querySelector(".prism-ErrorMessage");
+            t && (t.style.opacity = "1", t.style.visibility = "visible");
+          }, s.hideRetry = function() {
+            var t = document.querySelector("#" + this.player.id() + " .prism-button-retry");
+            t && (t.style.display = "none");
+          }, s.destroyVideo = function() {
+            this.player._drm && this.player.destroy();
+            var t = this.player.tag;
+            t && t.parentNode && t.parentNode.removeChild(t);
+          }, s.detectPrototype = function() {
+            var t = window, e = t.MediaSource;
+            return e && t.EventTarget && e.__proto__.__proto__ === t.EventTarget;
+          }, s.detectNativeFn = function() {
+            var t = window.MediaSource;
+            return t && !this.isNativeFn(t.prototype.addSourceBuffer);
+          }, s.isNativeFn = function(t) {
+            var e = RegExp("^".concat(Function.prototype.toString.call(Object.prototype.hasOwnProperty).replace(/[\\^$.*+?()[\]{}|]/g, "\\$&").replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, "$1.*?"), "$")), n = typeof t;
+            return t !== null && (n == "object" || n == "function") && e.test(t);
+          }, s.detectDeperateVideo = function() {
+            var t = this.player.tag;
+            if (t) return (t.getAttribute("id") || "").indexOf("360") !== -1;
+          }, a;
+        })();
+      }, { "../lang/index": 24, "../lib/constants": 29, "../player/base/event/eventtype": 68 }], 18: [function(u, o, x) {
+        var _ = u("../lib/oo"), l = u("../lang/index"), u = _.extend({ init: function(s, t) {
+          this._player = s, this._options = s.options();
+        } }), a = (u.prototype.handle = function(s) {
+          var t, e;
+          this._options.autoPlayDelay && (t = (t = this._options.autoPlayDelayDisplayText) || l.get("AutoPlayDelayDisplayText").replace("$$", this._options.autoPlayDelay), this._player.trigger("info_show", t), this._player.trigger("h5_loading_hide"), this._player.trigger("play_btn_hide"), (e = this)._timeHandler = setTimeout(function() {
+            e._player.trigger("info_hide"), e._options.autoPlayDelay = 0, s && s();
+          }, 1e3 * this._options.autoPlayDelay), this._player.on("play", function() {
+            a(e);
+          }), this._player.on("pause", function() {
+            a(e);
+          }));
+        }, u.prototype.dispose = function() {
+          a(this), this._player = null;
+        }, function(s) {
+          s._timeHandler && (clearTimeout(s._timeHandler), s._timeHandler = null);
+        });
+        o.exports = u;
+      }, { "../lang/index": 24, "../lib/oo": 44 }], 19: [function(s, o, x) {
+        var _ = s("../lib/event"), l = s("../lib/data"), u = s("../player/base/event/eventtype"), a = l.guid(), s = {};
+        function t(r) {
+          var h, y, p = this._options.keyFastForwardStep, d = this._options.isLive;
+          switch (r && r.keyCode) {
+            case 39:
+              d || (r.preventDefault(), h = this.getDuration(), y = this.getCurrentTime() + p, this.seek(y = h < y ? h : y), e.call(this, y), n.call(this, y));
+              break;
+            case 37:
+              d || (r.preventDefault(), y = this.getCurrentTime() - p, this.seek(y = y < 0 ? 0 : y), e.call(this, y), n.call(this, y));
+              break;
+            case 38:
+              r.preventDefault(), this.getVolume() < 1 && 0 <= this.getVolume() && this.setVolume(Number((this.getVolume() + 0.1).toFixed(1)));
+              break;
+            case 40:
+              r.preventDefault(), 0 < this.getVolume() && this.getVolume() <= 1 && this.setVolume(Number((this.getVolume() - 0.1).toFixed(1)));
+              break;
+            case 32:
+              if (d) return;
+              r.preventDefault(), this.tag.paused ? this.play(!0) : this.pause(!0);
+          }
+        }
+        function e(r) {
+          this.trigger(u.Private.UpdateProgress, { targetTime: r });
+        }
+        function n(r) {
+          this.trigger(u.Private.UpdateCursorPosition, { targetTime: r });
+        }
+        s.init = function() {
+          var r;
+          this._options.keyShortCuts && ((r = t.bind(this)).guid = a, _.on(window.document, "keydown", r));
+        }, s.dispose = function() {
+          var r;
+          this._options.keyShortCuts && ((r = t.bind(this)).guid = a, _.off(window.document, "keydown", r));
+        }, o.exports = s;
+      }, { "../lib/data": 31, "../lib/event": 34, "../player/base/event/eventtype": 68 }], 20: [function(s, o, x) {
+        var _ = typeof Promise > "u" ? s("es6-promise").Promise : Promise, l = s("../lib/constants").LicenseResultCode, u = s("../lib/io"), a = ((s = {})[l.ResourceIncorrect] = "license resource init error", s[l.LicenseKeyInvalid] = "invalid license key", s[l.DomainInvalid] = "invalid domain", s[l.CertInvalid] = "invalid cert content", s[l.NotFound] = "license not found", s[l.Expired] = "license expired", s), s = (() => {
+          function t() {
+          }
+          return t.getLicense = function(e, n, r) {
+            var h = this;
+            return this.isWasmSupported() ? n ? e ? this.instance ? _.resolve(this.instance) : new _(function(y, p) {
+              h.resolvers.push(y), h.rejecters.push(p), h.resolvers.length === 1 && u.loadJS("https://g.alicdn.com/apsara-media-components/amcom-web-license/0.5.1/index.js", function() {
+                window.loadLicenseSource().then(function(d) {
+                  var g = new d({ business_id: 2, domain_identity: e, license_key: n, region: r });
+                  return g.update().then(function() {
+                    h.instance = g, h.resolvers.forEach(function(m) {
+                      m(g);
+                    });
+                  }).catch(function(m) {
+                    h.rejecters.forEach(function(v) {
+                      v(l.CertInvalid + "#" + (m || "").trim().split(":")[0]);
+                    });
+                  });
+                }).catch(function() {
+                  h.rejecters.forEach(function(d) {
+                    d(l.ResourceIncorrect);
+                  });
+                }).finally(function() {
+                  h.resolvers = [], h.rejecters = [];
+                });
+              }, function() {
+                h.rejecters.forEach(function(d) {
+                  d(l.ResourceIncorrect);
+                });
+              });
+            }) : _.reject(l.DomainInvalid) : _.reject(l.LicenseKeyInvalid) : _.reject(l.WasmNotSupported);
+          }, t.isWasmSupported = function() {
+            return typeof WebAssembly == "object" && typeof WebAssembly.instantiate == "function";
+          }, t.logError = function(e) {
+            a[e] && console.error(a[e]);
+          }, t;
+        })();
+        s.instance = void 0, s.resolvers = [], s.rejecters = [], o.exports = s;
+      }, { "../lib/constants": 29, "../lib/io": 41, "es6-promise": 9 }], 21: [function(y, o, x) {
+        function _() {
+          return (_ = Object.assign ? Object.assign.bind() : function(d) {
+            for (var g = 1; g < arguments.length; g++) {
+              var m, v = arguments[g];
+              for (m in v) !{}.hasOwnProperty.call(v, m) || (d[m] = v[m]);
+            }
+            return d;
+          }).apply(null, arguments);
+        }
+        function l(d, g) {
+          for (var m = 0; m < g.length; m++) {
+            var v = g[m];
+            v.enumerable = v.enumerable || !1, v.configurable = !0, "value" in v && (v.writable = !0), Object.defineProperty(d, ((f) => typeof (f = ((b, S) => {
+              if (typeof b != "object" || !b) return b;
+              var w = b[Symbol.toPrimitive];
+              if (w === void 0) return (S === "string" ? String : Number)(b);
+              if (typeof (w = w.call(b, S)) != "object") return w;
+              throw new TypeError("@@toPrimitive must return a primitive value.");
+            })(f, "string")) == "symbol" ? f : f + "")(v.key), v);
+          }
+        }
+        var u = y("../lib/event"), a = "box", s = "content", t = "top-left", e = "top-right", n = "bottom-left", r = "bottom-right", h = "percentage", y = (() => {
+          function d(v) {
+            this._container = void 0, this._video = void 0, this._logoList = [], this._resizeDone = !0, this._observer = void 0, this._observer = new p(), this._handleVideoResize = this._handleVideoResize.bind(this), this._handleWindowResize = this._handleWindowResize.bind(this), this._setLogo(v.logo), this._setElements(v.container, v.video);
+          }
+          var g, m = d.prototype;
+          return m.dispose = function() {
+            this._observer.dispose(), this._observer = void 0, u.off(this._video, "resize", this._handleVideoResize), u.off(document, "fullscreenchange", this._handleWindowResize), this._logoList.forEach(function(v) {
+              v.logo && v.logo.remove();
+            }), this._logoList = [], this._container = void 0, this._video = void 0, this._resizeDone = !0;
+          }, m._setElements = function(v, f) {
+            this._container = v, this._video = f, this.loadedMeta ? this._logoList.forEach(this._setupLogo.bind(this)) : u.on(f, "resize", this._handleVideoResize), this._observer.observe(this._container, this._handleWindowResize), u.on(document, "fullscreenchange", this._handleWindowResize);
+          }, m._handleVideoResize = function() {
+            !this._video.videoWidth || this._logoList.some(function(v) {
+              return v.logo;
+            }) || this._logoList.forEach(this._setupLogo.bind(this));
+          }, m._handleWindowResize = function() {
+            var v = this;
+            this._container && this._resizeDone && this.loadedMeta && (this._resizeDone = !1, window.requestAnimationFrame(function() {
+              v._resizeDone = !0, v._logoList.forEach(v._placeLogo.bind(v));
+            }));
+          }, m._setLogo = function(v) {
+            this._logoList = v.map(this._defauleValue);
+          }, m._setupLogo = function(v) {
+            var f = this, b = this._createLogo(v);
+            (v.logo = b).onload = function() {
+              f._placeLogo(v);
+            };
+          }, m._createLogo = function(v) {
+            var f = document.createElement("img");
+            return f.setAttribute("class", "prism-logo"), f.src = v.src, f;
+          }, m._placeLogo = function(v) {
+            var f = v.logo, b = this._calcSize(v), S = (b.width && f.setAttribute("width", b.width + "px"), b.height && f.setAttribute("height", b.height + "px"), this._calcMatrix(v));
+            f.style.position = "absolute", Object.keys(S).forEach(function(w) {
+              f.style[w] = S[w] + "px";
+            }), this._container.appendChild(v.logo);
+          }, m._calcSize = function(v) {
+            return this._getPixel(v);
+          }, m._calcMatrix = function(v) {
+            var f = this._getPosition(v), b = this._getPixel(v, { width: v.offsetX, height: v.offsetY });
+            return Object.keys(f).forEach(function(S) {
+              switch (S) {
+                case "top":
+                  f[S] += b.height;
+                  break;
+                case "bottom":
+                  f[S] -= b.height;
+                  break;
+                case "left":
+                  f[S] += b.width;
+                  break;
+                case "right":
+                  f[S] -= b.width;
+              }
+            }), f;
+          }, m._getPosition = function(b) {
+            var f = b.origin, b = b.position, S = 0, w = 0;
+            switch (f === s && (S = Math.abs(this.videoSize.height - this.contentSize.height) / 2, w = Math.abs(this.videoSize.width - this.contentSize.width) / 2), b) {
+              case t:
+                return { top: 0 + S, left: 0 + w };
+              case e:
+                return { top: 0 + S, right: 0 + w };
+              case n:
+                return { bottom: 0 + S, left: 0 + w };
+              case r:
+                return { bottom: 0 + S, right: 0 + w };
+              default:
+                return { top: 0, left: 0 };
+            }
+          }, m._formalize = function(v, f) {
+            var b = 1, b = v.width / v.height > f.width / f.height ? f.width / v.width : f.height / v.height;
+            return { width: v.width * b, height: v.height * b };
+          }, m._getPixel = function(v, S) {
+            var S = S === void 0 ? {} : S, b = S.width, S = S.height, w = v.unit, T = v.origin;
+            return isNaN(b) && (b = v.width), isNaN(S) && (S = v.height), w === h ? { width: (v = T === a ? this.videoSize : this.contentSize).width * b / 100, height: v.height * S / 100 } : { width: b, height: S };
+          }, m._defauleValue = function(v) {
+            return _({}, v, { position: v.position || t, offsetX: v.offsetX || 0, offsetY: v.offsetY || 0, origin: v.origin || a, unit: v.unit || h });
+          }, m = d, (g = [{ key: "videoSize", get: function() {
+            return this._video ? { width: this._video.offsetWidth, height: this._video.offsetHeight } : {};
+          } }, { key: "contentSize", get: function() {
+            var v;
+            return this._video ? (v = { width: this._video.videoWidth, height: this._video.videoHeight }, { width: (v = this._formalize(v, this.videoSize)).width, height: v.height }) : {};
+          } }, { key: "loadedMeta", get: function() {
+            return !!this._video.videoWidth;
+          } }]) && l(m.prototype, g), Object.defineProperty(m, "prototype", { writable: !1 }), m;
+        })(), p = (o.exports = y, (() => {
+          function d() {
+            this._frame = void 0;
+          }
+          var g = d.prototype;
+          return g.observe = function(m, v) {
+            var f = document.createElement("iframe");
+            return f.style.cssText = "position:absolute;left:0;top:-100%;width:100%;height:100%;margin:1px 0 0;border:none;opacity:0;visibility:hidden;pointer-events:none;", f.onload = function() {
+              f.contentWindow.onresize = function() {
+                v(m);
+              };
+            }, m.appendChild(f), this._frame = f;
+          }, g.dispose = function() {
+            this._frame && (this._frame.contentWindow.onresize = null, this._frame.remove(), this._frame = void 0);
+          }, d;
+        })());
+      }, { "../lib/event": 34 }], 22: [function(c, o, x) {
+        var _ = c("../lib/event"), l = c("../player/base/event/eventtype");
+        o.exports = (() => {
+          function u() {
+            this.player = void 0, this.ratio = void 0, this.resize = void 0, this.target = void 0, this.resize = this._resize.bind(this);
+          }
+          var a = u.prototype;
+          return a.autoResize = function(s, t, e) {
+            e === void 0 && (e = "height"), typeof s != "number" ? console.warn("Parameter [ratio] should be a number, like 16/9") : (this.target = e, this.ratio = s, this.player = t, _.on(window, "resize", this.resize), this.resize());
+          }, a._resize = function() {
+            var s, t, e;
+            (s = this.player.fullscreenService) != null && s.isFullScreen || (s = (s = this.player) == null ? void 0 : s.el()) && (this.target === "height" ? (e = (t = s.offsetWidth) / this.ratio, s.style.height = e + "px") : (t = (e = s.offsetHeight) * this.ratio, s.style.width = t + "px"), (s = this.player) != null) && s.trigger(l.Player.AutoResize, { width: t, height: e });
+          }, a.dispose = function() {
+            _.off(window, "resize", this.resize), this.player = void 0, this.ratio = void 0, this.resize = void 0, this.target = void 0;
+          }, u;
+        })();
+      }, { "../lib/event": 34, "../player/base/event/eventtype": 68 }], 23: [function(c, o, x) {
+        o.exports = { OD: "OD", FD: "360p", LD: "540p", SD: "720p", HD: "1080p", "2K": "2K", "4K": "4K", FHD: "FHD", XLD: "XLD", SQ: "SQ", HQ: "HQ", Speed: "Speed", Speed_05X_Text: "0.5X", Speed_1X_Text: "Normal", Speed_125X_Text: "1.25X", Speed_15X_Text: "1.5X", Speed_2X_Text: "2X", Speed_Long_Press: "2x speed", Refresh_Text: "Refresh", Cancel: "Cancel", Mute: "Mute", Click_To_Unmute: "Click to unmute", Snapshot: "Snapshot", Detection_Text: "Diagnose", Play_DateTime: "Time", Default: "Default", Quality_Change_Fail_Switch_Text: "Cannot play, switch to ", Quality_Change_Text: "Switching to ", Quality_Change_Result: "Switched to ", Quality_The_Url: "The url", AutoPlayDelayDisplayText: "Play in $$ seconds", Error_Load_Abort_Text: "Data abort erro", Error_Network_Text: "Loading failed due to network error", Error_Decode_Text: "Decode error", Error_No_Decoder_Text: "Unsupported codec", Error_Server_Network_NotSupport_Text: "Network error or  the format of video is unsupported", Error_Offline_Text: "The network is unreachable, please click Refresh", Error_Play_Text: "Error occured while playing", Error_Retry_Text: " Please close or refresh", Error_AuthKey_Text: "Authentication expired or the domain is not in white list", Error_H5_Not_Support_Text: "The format/codec of video is not supported", Error_Not_Support_M3U8_Text: "The format of m3u8 is not supported by this explorer", Error_Not_Support_MP4_Text: "The format of mp4 is not supported by this explorer", Error_Not_Support_encrypt_Text: "To play the encrypted video,please set encryptType to 1", Error_Encrypt_Fetch_Failed_Text: "Failed to fetch the encrypted video", Error_Vod_URL_Is_Empty_Text: "The url is empty", Error_Vod_Fetch_Urls_Text: "Error occured when fetch urls from vod service，please close or refresh", Fetch_Playauth_Error: "Error occured when fetch playauth close or refresh", Error_Playauth_Decode_Text: "PlayAuth parse failed", Error_Vid_Not_Same_Text: "Cannot renew url due to vid changed", Error_Playauth_Expired_Text: "Playauth expired, please close or refresh", Error_MTS_Fetch_Urls_Text: "Error occurred while requesting mst server", Error_Load_M3U8_Failed_Text: "The m3u8 file loaded failed,possibly due to HTTPS certificate issues, cross-origin problems, or DNS resolution failures", Error_Load_M3U8_Timeout_Text: "Timeout error occored when the m3u8 file loaded", Error_Liveshift_M3U8_Not_Found_Text: "No more liveshift video avaliable", Error_M3U8_Decode_Text: "The m3u8 file decoded failed", Error_TX_Decode_Text: "Video decoded failed", Error_Manifest_Decode_Text: "Failed to parse manifest", Error_Waiting_Timeout_Text: "Buffering timeout, please close or refresh", Error_Invalidate_Source: "Video shoud be mp4、mp3、m3u8、mpd or flv", Error_Empty_Source: "Video URL shouldn't be empty", Error_Vid_Empty_Source: "vid's video URL hasn't been fetched", Error_Mediaauth_Empty_Source: "mediaAuth's video URL hasn't been fetched", Error_Fetch_NotStream: "The vid has no stream to play", Error_Fetch_Media_Not_Found: "Data is not found", Error_Not_Found: "Url is not found", Error_Drm_License_Request_Failed: "DRM license request failed", Error_Drm_Not_Supported: "DRM in not supported", Error_Drm_Load: "DRM load error", Error_Drm_No_Sts: "STS(accessKeyId/accessKeySecret/securityToken) is required for DRM playback", Error_Drm_Params_Missing: "Parameters for drm.widevine/fairplay, etc. are missing", Error_Region_Block_Text: "This video is not available in your region", Error_SW_Conflict: "Service Worker conflict. Please try disabling browser extensions, restarting the browser, and closing other tabs.", Error_SW_Register_Failed: "Service Worker registration failed.", Error_SW_ScriptURL_Empty: "Please provide the swScriptURL parameter.", Error_SW_ScriptURL_Https: "The swScriptURL parameter must use an absolute address with https:// protocol.", Error_SW_ScriptURL_Scope: "The swScriptURL (subpath: @scope1@) and the current webpage (subpath: @scope2@) must be under the same subpath.", Error_SW_Version_Not_Match: "The version number of swScriptURL (@swVersion@) must match the player version (@playerVersion@).", Error_SW_ScriptURL_ILlegal: "Please provide a valid swScriptURL(@detail@).", Error_SW_Https_required: "Https is required when playing Vod's encription video", Tip_Err_Common: "please contact us for support, the error detail is:<br />", Tip_Err_Common_Short: "the error detail is:<br />", Tip_Drm_Request_Err: "The request failed with an error, please check the browser console to check whether it is caused by DNS, HTTPS certificates, or network problems. <br/> If the above tests are fine,", Tip_Drm_Secure_Context: "DRM can only be accessed under https, localhost, 127.0.0.1 web pages, and manifest and media segments must also use https.", Tip_Drm_Key_System_Unavailable: "1. This browser does not support Widevine or the current Widevine configuration<br/>2. The request that pops up in the browser was rejected by the user<br/>3. Please open the browser settings, look for the [Protected Content] setting and allow", Tip_Drm_File_Not_Allowed: "Do not use the file:// to open the file directly, you need to use a https:// to access the file", Tip_Drm_Playlist_Hierarchy: "HLS playlist level error, the main list needs to be master playlist", Tip_Drm_Info_Missing: "Please make sure the parameters of drm.widevine/fairplay you provided are valid", Tip_Drm_Unsupported: "Your browser does not currently support Widevine. If you are using Chrome, you can visit the URL chrome://components/ to locate the 'Widevine Content Decryption Module' and click on 'Update'. If this module is not present, the browser will be unable to play DRM-protected videos.", Tip_Err_Decode: "The decoding error refers to the current audio/video frame is not compatible with the browser, you can try the following methods: <br />1.chrome/edge browser open the chrome://flags, search for Hardware-accelerated video decode, select disabled<br />2.If the decoding error persists, please transcode the video to fix the problem frame", Tip_Err_Rts_Http_Failed: "The error indicates that the RTS streaming request encountered an HTTP error, which is usually related to HTTPS certificate, DNS resolution, or network connectivity issues. Due to browser restrictions on JavaScript, the player cannot obtain detailed error information. If you need further information, you can follow these steps:<br>Right-click on a blank area of the browser and select 'Inspect'.<br>2.In the newly opened interface, select 'Console'.<br>3.Check for any red error messages:<br>If you see 'SSL', it means that you have not correctly configured the HTTPS certificate for the streaming domain.<br>If you see 'NOT RESOLVED', it means that the DNS resolution for your domain has failed.<br>You can also use the <a style='color:white;text-decoration:underline;' href='https://live.console.aliyun.com/#/tool/url' target='_blank'>ApsaraVideo Live Diagnostic Tool</a> for self-diagnosis.", Tip_Err_Not_found: "For live streams, this might be due to the broadcast not starting yet, having ended, or being disrupted. For on-demand videos, it could indicate the video is unavailable.", Tip_Err_Blocked: "If you have a network proxy enabled, please try disabling it and then retrying.", Tip_Err_Splayer: "For best practices regarding playback of H.265/H.266 encoded videos, please refer to", Tip_Err_Splayer_Doc: " this document.", Tip_SW_Register: "1.Please access the webpage using HTTPS<br>2.Please ensure that the provided swScriptURL is a complete address starting with https:// and is accessible.", Tip_License_Required: "Starting 2024-12-01, the new version of the player must be configured with a license to use. The license for the basic functions of the player can be applied for free and is valid for 1 year. Please apply in advance to avoid any disruption in usage ", Tip_License_Params: "After completing the application, please refer to this document to pass the license information into the SDK ", Tip_License_Check: "Please ensure that the provided license key/domain parameters match exactly with what were obtained from the VOD/LIVE console.", Tip_License_Domain: "The current website domain does not match with your licensed domain", Tip_License_Feature: "The feature is not authorized by your license:", Tip_License_Reason: "The playback failed because your license verification was unsuccessful. Specific reason:", Live_End: "Live has finished", Play_Before_Fullscreen: "Please play before fullscreen", Can_Not_Seekable: "Can not seek to this position", Cancel_Text: "Cancel", OK_Text: "OK", Auto_Stream_Tip_Text: "Internet is slow, does switch to $$", Request_Block_Text: "This request is blocked, the video Url should be over https", Open_Html_By_File: "Html page should be on the server", Maybe_Cors_Error: "there is a network error, possibly due to HTTPS certificate issues, cross-origin problems, or DNS resolution failures", Speed_Switch_To: "Speed switch to ", Curent_Volume: "Current volume:", Volume_Mute: "set to mute", Volume_UnMute: "set to unmute", ShiftLiveTime_Error: "Live start time should not be greater than over time", Error_Not_Support_Format_On_Mobile: "flv、rmtp can't be supported on mobile，please use m3u8", Error_Not_Support_Mse_Flv: "Flv is not supported by this browser.", Error_Not_Support_Mse_Dash: "Dash is not supported by this browser.", Error_Not_Support_RTMP: "RTMP is not supported by this browser.", SessionId_Ticket_Invalid: "please assign value for sessionId and ticket properties", Http_Error: " An HTTP network request failed with an error, but not from the server.", Http_Timeout: "A network request timed out", DRM_License_Expired: "DRM license is expired, please refresh", Not_Support_DRM: "Browser doesn't support DRM", CC_Switch_To: "Subtitle switch to ", AudioTrack_Switch_To: "Audio tracks switch to ", Subtitle: "Subtitle/CC", AudioTrack: "Audio Track", Quality: "Quality", Auto: "Auto", Quality_Switch_To: "Quality switching to ", Fullscreen: "Full Screen", Setting: "Settings", Volume: "Volume", Play: "Play", Pause: "Pause", CloseSubtitle: "Close CC", OpenSubtitle: "Open CC", ExistFullScreen: "Exit Full Screen", Muted: "Muted", Retry: "Retry", SwitchToLive: "Return to live", iOSNotSupportVodEncription: "Versions of iOS below 17.1 doesn't support Vod's private encription video", iOSVodEncriptionBlacklist: "Please use Safari/Chrome browser to play Vod's private encription video", UseChromeForVodEncription: "This browser desn't suport Vod's encription video, please use latest Chrome/Edge", Record_Not_Allowed: "Recording or playing in seperated window is not allowed, please disable related plugins or switch browser.", License_Empty: "License params are required", License_Not_Found: "Unregistered license", License_Expired: "Expired license", License_License_Key_Invalid: "Invalid license key", License_Domain_Invalid: "Unexpected domain", License_Feature_Unauthorized: "Unauthorized feature", Rts_Err_Http_Signal_Error: "(RTS)http signal error", Rts_Err_Play_Failed: "(RTS)play faild error", Rts_Err_No_Data_For: "s received no data", Rts_Err_Browser_Not_Support: "(RTS)browser not support", Rts_Err_Not_Support_Webrtc: "(RTS)not support webrtc", Rts_Err_Browser_Version_Too_Low: "(RTS)browser version too low", Rts_Err_Not_Support_H264: "(RTS)not support h264", Rts_Err_Create_Offer_Error: "(RTS)create offer error", Rts_Err_Play_Url_Error: "(RTS)play url error", Rts_Err_Subscribe_Nonthing: "(RTS)subscribe nonthing", Rts_Err_Http_Request_Failed: "(RTS)HTTP request failed", Rts_Err_Http_Answer_Failed: "(RTS)answer failed", Rts_Err_PeerConnection_Unknown: "(RTS)Unknown PeerConnection", Splayer_Err_Env_Check: "(SP)This browser can't play this media", Splayer_Err_Coroutine: "(SP)Coroutine error", Splayer_Err_Decoder: "(SP)Decode error", Splayer_Err_Buffering: "(SP)Buffering error", Splayer_Err_Parser_Not_Found: "(SP)Media container is not supported" };
+      }, {}], 24: [function(c, o, x) {
+        function _(h, y, p) {
+          var d = r(h), m = "", g = n(), m = g == "en-us" ? c("./en-us") : g == "zh-cn" ? c("./zh-cn") : y[g];
+          p && (m = Object.assign({}, m, p[g])), u.set(d, JSON.stringify(m)), e(h, m), p && c("../lib/constants").updateByLanguage();
+        }
+        var l = c("../config"), u = c("../lib/storage"), a = (c("../lib/io"), "aliplayer_lang_data"), s = "aliplayer_lang", t = function() {
+          var h;
+          return window[s] !== void 0 && window[s] || (h = (h = (navigator.language || navigator.browserLanguage).toLowerCase()) && -1 < h.indexOf("zh") ? "zh-cn" : "en-us", window[s] = h), window[s];
+        }, e = function(h, y) {
+          h = r(h), window[h] = y;
+        }, n = function() {
+          return t();
+        }, r = function(h) {
+          var y = n();
+          return a + "_" + (h = h || "h5") + "_" + l.h5Version.replace(/\./g, "_") + "_" + y;
+        };
+        o.exports.setCurrentLanguage = function(h, y, p, d) {
+          var g = window[s];
+          (h = h !== void 0 && h ? h : t()) == "en-us" || h == "zh-cn" || p && p[h] || (console.warn("There is no language resource for " + h + ", please specify the language resource by languageTexts property"), h = "zh-cn"), window[s] = h, _(y, p, d), h != g && c("../lib/constants").updateByLanguage();
+        }, o.exports.getCurrentLanguage = t, o.exports.getLanguageData = function(h, y) {
+          return h = r(h), window[h];
+        }, o.exports.load = _, o.exports.get = function(h, y, p) {
+          if (y = r(y = y || "h5"), y = window[y], y) {
+            var d = y[h];
+            if (p) for (var g in p) d = d.replace(new RegExp("@" + g + "@", "g"), p[g]);
+            return d;
+          }
+        };
+      }, { "../config": 15, "../lib/constants": 29, "../lib/io": 41, "../lib/storage": 48, "./en-us": 23, "./zh-cn": 25 }], 25: [function(c, o, x) {
+        o.exports = { OD: "原画", FD: "流畅", LD: "标清", SD: "高清", HD: "超清", "2K": "2K", "4K": "4K", FHD: "全高清", XLD: "极速", SQ: "普通音质", HQ: "高音质", Speed: "倍速", Speed_05X_Text: "0.5X", Speed_1X_Text: "正常", Speed_125X_Text: "1.25X", Speed_15X_Text: "1.5X", Speed_2X_Text: "2X", Speed_Long_Press: "倍速播放中", Quality_Change_Fail_Switch_Text: "不能播放，切换为", Quality_Change_Text: "正在为您切换到 ", Quality_Change_Result: "已切换到 ", Quality_The_Url: "此地址", Refresh_Text: "刷新", Detection_Text: "查看建议", Cancel: "取消", Mute: "静音", Click_To_Unmute: "点击取消静音", Snapshot: "截图", Play_DateTime: "播放时间", Default: "默认", AutoPlayDelayDisplayText: "$$秒以后开始播放", Error_Load_Abort_Text: "获取数据过程被中止", Error_Network_Text: "网络错误加载数据失败", Error_Decode_Text: "解码错误", Error_No_Decoder_Text: "不支持此编码格式", Error_Server_Network_NotSupport_Text: "服务器、网络错误或格式不支持", Error_Offline_Text: "网络不可用，请确定", Error_Play_Text: "播放出错啦", Error_Retry_Text: "请尝试退出重试或刷新", Error_AuthKey_Text: "可能鉴权过期、域名不在白名单或请求被拦截", Error_H5_Not_Support_Text: "不支持此格式的视频", Error_Not_Support_M3U8_Text: "浏览器不支持m3u8视频播放", Error_Not_Support_MP4_Text: "浏览器不支持mp4视频播放", Error_Not_Support_encrypt_Text: "播放私有加密视频，请设置属性encryptType为1", Error_Encrypt_Fetch_Failed_Text: "请求加密地址失败", Error_Vod_URL_Is_Empty_Text: "获取播放地址为空", Error_Vod_Fetch_Urls_Text: "点播接口异常，请尝试退出重试或刷新", Fetch_Playauth_Error: "获取播放凭证出错啦，请尝试退出重试或刷新", Error_Playauth_Decode_Text: "playauth解析错误", Error_Vid_Not_Same_Text: "不能更新地址，vid和播放中的不一致", Error_Playauth_Expired_Text: "凭证已过期，请尝试退出重试或刷新", Error_MTS_Fetch_Urls_Text: "MTS获取取数失败", Error_Load_M3U8_Failed_Text: "获取m3u8文件失败,可能是https证书、跨域问题或DNS解析失败", Error_Load_M3U8_Timeout_Text: "获取m3u8文件超时", Error_Liveshift_M3U8_Not_Found_Text: "没有更多时移视频了", Error_M3U8_Decode_Text: "获取m3u8文件解析失败", Error_TX_Decode_Text: "解析数据出错", Error_Manifest_Decode_Text: "Manifest解析出错", Error_Waiting_Timeout_Text: "缓冲数据超时，请尝试退出重试或刷新", Error_Invalidate_Source: "播放地址格式需要为mp4、mp3、m3u8、mpd或flv", Error_Empty_Source: "播放地址不能为空", Error_Vid_Empty_Source: "vid对应的视频地址还未获取到", Error_Mediaauth_Empty_Source: "mediaAuth对应的视频地址还未获取到", Error_Fetch_NotStream: "此vid没有可播放视频", Error_Fetch_Media_Not_Found: "数据不存在或已被删除", Error_Not_Found: "播放地址不存在", Error_Drm_License_Request_Failed: "DRM License 请求失败", Error_Drm_Not_Supported: "当前浏览器不支持 DRM 播放", Error_Drm_Load: "DRM 播放错误", Error_Drm_No_Sts: "DRM 播放需要使用STS(accessKeyId/accessKeySecret/securityToken)", Error_Drm_Params_Missing: "缺少drm.widevine/fairplay等参数", Error_Region_Block_Text: "您所在的地区无法观看该视频", Error_SW_Conflict: "ServiceWorker冲突，请尝试禁用浏览器插件、重启浏览器并关闭其他网页", Error_SW_Register_Failed: "Service Worker注册失败", Error_SW_ScriptURL_Empty: "请传入 swScriptURL 参数", Error_SW_ScriptURL_Https: "swScriptURL参数请使用 https:// 协议的绝对地址", Error_SW_ScriptURL_Scope: "swScriptURL(子路径:@scope1@)和当前网页(子路径:@scope2@)必须在同一个子路径下", Error_SW_Version_Not_Match: "swScriptURL的版本号(@swVersion@)必须和播放器版本(@playerVersion@)号一致", Error_SW_ScriptURL_ILlegal: "请传入合法的swScriptURL(@detail@)", Error_SW_Https_required: "私有加密播放需要使用 https 环境", Tip_Err_Common: "您可联系售后支持，错误详情:<br />", Tip_Err_Common_Short: "错误详情:<br />", Tip_Drm_Request_Err: "请求出错，请先查看浏览器控制台，检查是否由域名解析、https证书、或网络问题引起。<br />若以上检查没问题，", Tip_Drm_Secure_Context: "DRM仅可以在https、localhost、127.0.0.1网页下访问，同时manifest和切片也必须使用https。", Tip_Drm_Key_System_Unavailable: "1.此浏览器不支持Widevine或者当前的Widevine配置<br />2.浏览器弹出的请求被用户拒绝了<br />3.请打开浏览器设置，查找关于【受保护的内容】设置并允许", Tip_Drm_File_Not_Allowed: "请不要使用file://直接打开文件，需要使用https://访问文件", Tip_Drm_Playlist_Hierarchy: "HLS播放列表层级错误，主列表需要是 master playlist", Tip_Drm_Info_Missing: "请检查传入的drm.widevine/fairplay等参数是否有效", Tip_Drm_Unsupported: "您的浏览器不支持 Widevine，如果是 Chrome，可以访问 chrome://components/，查找 Widevine Content Decryption Module，并点击更新。如果没有此模块，则该浏览器无法播放 DRM 视频。", Tip_Err_Decode: "解码错误指的是当前音/视频帧与浏览器不兼容，可以尝试以下方式：<br />1.chrome/edge 浏览器打开chrome://flags，搜索 Hardware-accelerated video decode，选择 disabled<br />2.如果解码错误仍然存在，请对视频进行转码处理，以修复问题帧<br />3.firefox浏览器请打开about:support，下拉找到【解码器支持信息】，如果没有AAC字样，代表不支持音频解码，请更换浏览器", Tip_Err_Rts_Http_Failed: "该错误指的是RTS拉流请求遇到了一个http错误，一般来说是https证书、DNS解析或者网络连通性问题，由于浏览器对JS的限制，播放器无法取得详细的错误信息，需要进一步排查，您可按照以下操作：<br>1.右键浏览器空白处，选择【检查】2.在新打开的界面中选择【控制台】3.查看红色报错：<br>如果有SSL字样，则代表您没有为拉流域名正确地配置https证书<br>如果有NOT RESOLVED字样，则代表您的域名DNS解析失败<br>您也使用<a style='color:white;text-decoration:underline;' href='https://live.console.aliyun.com/#/tool/url' target='_blank'>阿里云直播诊断工具</a>进行自助排查", Tip_Err_Not_found: "如果是直播，可能是直播未开始/已停止/已断流；如果是点播，可能是视频不存在。", Tip_Err_Blocked: "如果您开启了网络代理，请关闭后重试。", Tip_Err_Splayer: "关于 H.265/H.266 播放的最佳实践，请参考", Tip_Err_Splayer_Doc: "此文档。", Tip_SW_Register: "1.请使用https访问网页<br>2.请确保传入的swScriptURL是以https://开头的完整地址，且可以正常访问", Tip_License_Required: "2024年12月1日起，新版本播放器需要配置License才可以使用，播放器基础功能License免费申请，有效期 1 年，请提前申请以避免无法使用", Tip_License_Params: "申请完成后，请参考此文档将License信息传入SDK", Tip_License_Check: "请确保传入的 license key/domain 参数和点播/直播控制台上获取的完全一致", Tip_License_Domain: "当前网页域名和您的 license 授权域名不一致", Tip_License_Feature: "您的license未授权功能：", Tip_License_Reason: "播放失败，因为您的 License 校验未通过，具体原因：", Live_End: "亲，直播已结束", Play_Before_Fullscreen: "播放后再全屏", Can_Not_Seekable: "不能seek到这里", Cancel_Text: "取消", OK_Text: "确认", Auto_Stream_Tip_Text: "网络不给力，是否切换到$$", Request_Block_Text: "浏览器安全策略视频地址不能为http协议，与网站https协议不一致", Open_Html_By_File: "不能直接在浏览器打开html文件，请部署到服务端", Maybe_Cors_Error: "网络请求失败，可能是https证书、跨域问题或DNS解析失败", Speed_Switch_To: "倍速切换到 ", Curent_Volume: "当前音量：", Volume_Mute: "设置为静音", Volume_UnMute: "设置为非静音", ShiftLiveTime_Error: "直播开始时间不能大于直播结束时间", Error_Not_Support_Format_On_Mobile: "移动端不支持flv、rmtp视频，请使用m3u8", Error_Not_Support_Mse_Flv: "当前浏览器不支持 flv 视频", Error_Not_Support_Mse_Dash: "当前浏览器不支持 dash 视频", Error_Not_Support_RTMP: "浏览器不支持 rtmp 视频", SessionId_Ticket_Invalid: "DRM视频播放，sessionId和ticket属性不能为空", Http_Error: "Http网络请求失败", Http_Timeout: "http请求超时", DRM_License_Expired: "DRM license超时，请刷新", Not_Support_DRM: "浏览器不支持DRM视频的播放或未受到用户许可", CC_Switch_To: "字幕切换到 ", AudioTrack_Switch_To: "音轨切换到 ", Subtitle: "字幕", AudioTrack: "音轨", Quality: "清晰度", Auto: "自动", Quality_Switch_To: "正在切换清晰度至 ", Fullscreen: "全屏", Setting: "设置", Volume: "音量", Play: "播放", Pause: "暂停", CloseSubtitle: "关闭字幕", OpenSubtitle: "打开字幕", ExistFullScreen: "退出全屏", Muted: "静音", Retry: "重试", SwitchToLive: "返回直播", iOSNotSupportVodEncription: "iOS17.1以下不支持阿里云视频私有加密播放", iOSVodEncriptionBlacklist: "请使用Safari/Chrome浏览器播放加密视频", UseChromeForVodEncription: "浏览器不支持点播加密播放，请使用最新Chrome/Edge浏览器", Record_Not_Allowed: "禁止录屏或小窗口播放，请关闭插件或更换浏览器", License_Empty: "未配置License", License_Not_Found: "License未注册", License_Expired: "License已过期", License_License_Key_Invalid: "LicenseKey无效", License_Domain_Invalid: "域名不匹配", License_Feature_Unauthorized: "功能未授权", Rts_Err_Http_Signal_Error: "(RTS)信令请求失败", Rts_Err_Play_Failed: "(RTS)播放失败", Rts_Err_No_Data_For: "秒没有数据", Rts_Err_Browser_Not_Support: "(RTS)不支持此浏览器", Rts_Err_Not_Support_Webrtc: "(RTS)不支持webrtc", Rts_Err_Browser_Version_Too_Low: "(RTS)浏览器版本过低", Rts_Err_Not_Support_H264: "(RTS)不支持H264", Rts_Err_Create_Offer_Error: "(RTS)create offer失败", Rts_Err_Play_Url_Error: "(RTS)播放url协议错误", Rts_Err_Subscribe_Nonthing: "(RTS)参数设置错误", Rts_Err_Http_Request_Failed: "(RTS)HTTP请求失败", Rts_Err_Http_Answer_Failed: "(RTS)answer失败", Rts_Err_PeerConnection_Unknown: "(RTS)PeerConnection异常", Splayer_Err_Env_Check: "(SP)当前环境不支持播放该视频", Splayer_Err_Coroutine: "(SP)Coroutine 错误", Splayer_Err_Decode: "(SP)解码错误", Splayer_Err_Buffering: "(SP)缓冲区错误", Splayer_Err_Parser_Not_Found: "(SP)不支持的媒体容器" };
+      }, {}], 26: [function(c, o, x) {
+        var _ = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        if (window.Uint8Array) for (var l = new Uint8Array(256), u = 0; u < _.length; u++) l[_.charCodeAt(u)] = u;
+        var a = function(s) {
+          for (var t = "", e = 0; e < s.length; e += 16e3) {
+            var n = s.subarray(e, e + 16e3);
+            t += String.fromCharCode.apply(null, n);
+          }
+          return t;
+        };
+        o.exports = { decode: function(s) {
+          for (var t, e, n, r, p = 0.75 * s.length, h = s.length, y = 0, p = (s[s.length - 1] === "=" && (p--, s[s.length - 2] === "=") && p--, new ArrayBuffer(p)), d = new Uint8Array(p), g = 0; g < h; g += 4) t = l[s.charCodeAt(g)], e = l[s.charCodeAt(g + 1)], n = l[s.charCodeAt(g + 2)], r = l[s.charCodeAt(g + 3)], d[y++] = t << 2 | e >> 4, d[y++] = (15 & e) << 4 | n >> 2, d[y++] = (3 & n) << 6 | 63 & r;
+          return p;
+        }, encode: function(s) {
+          for (var t = new Uint8Array(s), e = t.length, n = "", r = 0; r < e; r += 3) n = (n = (n = (n += _[t[r] >> 2]) + _[(3 & t[r]) << 4 | t[r + 1] >> 4]) + _[(15 & t[r + 1]) << 2 | t[r + 2] >> 6]) + _[63 & t[r + 2]];
+          return e % 3 == 2 ? n = n.substring(0, n.length - 1) + "=" : e % 3 == 1 && (n = n.substring(0, n.length - 2) + "=="), n;
+        }, unpackPlayReady: function(s) {
+          if (s = ((y, p, d) => {
+            if (!y) return "";
+            d || y.byteLength % 2 == 0 || console.log("Data has an incorrect length, must be even."), d = y instanceof ArrayBuffer ? y : ((d = new Uint8Array(y.byteLength)).set(new Uint8Array(y)), d.buffer);
+            for (var g = Math.floor(y.byteLength / 2), m = new Uint16Array(g), v = new DataView(d), f = 0; f < g; f++) m[f] = v.getUint16(2 * f, p);
+            return a(m);
+          })(s, !0, !0), s.indexOf("PlayReadyKeyMessage") != -1) {
+            for (var s = new DOMParser().parseFromString(s, "application/xml"), t = s.getElementsByTagName("HttpHeader"), e = {}, n = 0; n < t.length; ++n) {
+              var r = t[n].querySelector("name"), h = t[n].querySelector("value");
+              e[r.textContent] = h.textContent;
+            }
+            return { header: e, changange: s.querySelector("Challenge").textContent };
+          }
+          console.log("PlayReady request is already unwrapped.");
+        } };
+      }, {}], 27: [function(c, o, x) {
+        function _() {
+          _ = function() {
+            return r;
+          };
+          var n, r = {}, h = Object.prototype, y = h.hasOwnProperty, R = typeof Symbol == "function" ? Symbol : {}, p = R.iterator || "@@iterator", d = R.asyncIterator || "@@asyncIterator", g = R.toStringTag || "@@toStringTag";
+          function m(N, C, I, L) {
+            Object.defineProperty(N, C, { value: I, enumerable: !L, configurable: !L, writable: !L });
+          }
+          try {
+            m({}, "");
+          } catch {
+            m = function(C, I, L) {
+              return C[I] = L;
+            };
+          }
+          function v(N, D, I, L) {
+            var q, Q, B, k, D = D && D.prototype instanceof S ? D : S, D = Object.create(D.prototype);
+            return m(D, "_invoke", (q = N, Q = I, B = new j(L || []), k = 1, function(X, te) {
+              if (k === 3) throw Error("Generator is already running");
+              if (k === 4) {
+                if (X === "throw") throw te;
+                return { value: n, done: !0 };
+              }
+              for (B.method = X, B.arg = te; ; ) {
+                var ie = B.delegate;
+                if (ie && (ie = function ne(G, F) {
+                  var J = F.method, ae = G.i[J];
+                  return ae === n ? (F.delegate = null, J === "throw" && G.i.return && (F.method = "return", F.arg = n, ne(G, F), F.method === "throw") || J !== "return" && (F.method = "throw", F.arg = new TypeError("The iterator does not provide a '" + J + "' method")), b) : (J = f(ae, G.i, F.arg), J.type === "throw" ? (F.method = "throw", F.arg = J.arg, F.delegate = null, b) : (ae = J.arg, ae ? ae.done ? (F[G.r] = ae.value, F.next = G.n, F.method !== "return" && (F.method = "next", F.arg = n), F.delegate = null, b) : ae : (F.method = "throw", F.arg = new TypeError("iterator result is not an object"), F.delegate = null, b)));
+                }(ie, B), ie)) {
+                  if (ie === b) continue;
+                  return ie;
+                }
+                if (B.method === "next") B.sent = B._sent = B.arg;
+                else if (B.method === "throw") {
+                  if (k === 1) throw k = 4, B.arg;
+                  B.dispatchException(B.arg);
+                } else B.method === "return" && B.abrupt("return", B.arg);
+                if (k = 3, ie = f(q, Q, B), ie.type === "normal") {
+                  if (k = B.done ? 4 : 2, ie.arg === b) continue;
+                  return { value: ie.arg, done: B.done };
+                }
+                ie.type === "throw" && (k = 4, B.method = "throw", B.arg = ie.arg);
+              }
+            }), !0), D;
+          }
+          function f(N, C, I) {
+            try {
+              return { type: "normal", arg: N.call(C, I) };
+            } catch (L) {
+              return { type: "throw", arg: L };
+            }
+          }
+          r.wrap = v;
+          var b = {};
+          function S() {
+          }
+          function w() {
+          }
+          function T() {
+          }
+          var R = {}, P = (m(R, p, function() {
+            return this;
+          }), Object.getPrototypeOf), P = P && P(P(U([]))), E = (P && P !== h && y.call(P, p) && (R = P), T.prototype = S.prototype = Object.create(R));
+          function A(N) {
+            ["next", "throw", "return"].forEach(function(C) {
+              m(N, C, function(I) {
+                return this._invoke(C, I);
+              });
+            });
+          }
+          function H(N, C) {
+            var I;
+            m(this, "_invoke", function(L, q) {
+              function Q() {
+                return new C(function(B, k) {
+                  (function D(F, te, ie, ne) {
+                    var G, F = f(N[F], N, te);
+                    if (F.type !== "throw") return (te = (G = F.arg).value) && typeof te == "object" && y.call(te, "__await") ? C.resolve(te.__await).then(function(J) {
+                      D("next", J, ie, ne);
+                    }, function(J) {
+                      D("throw", J, ie, ne);
+                    }) : C.resolve(te).then(function(J) {
+                      G.value = J, ie(G);
+                    }, function(J) {
+                      return D("throw", J, ie, ne);
+                    });
+                    ne(F.arg);
+                  })(L, q, B, k);
+                });
+              }
+              return I = I ? I.then(Q, Q) : Q();
+            }, !0);
+          }
+          function M(N) {
+            this.tryEntries.push(N);
+          }
+          function O(N) {
+            var C = N[4] || {};
+            C.type = "normal", C.arg = n, N[4] = C;
+          }
+          function j(N) {
+            this.tryEntries = [[-1]], N.forEach(M, this), this.reset(!0);
+          }
+          function U(N) {
+            if (N != null) {
+              var C, I = N[p];
+              if (I) return I.call(N);
+              if (typeof N.next == "function") return N;
+              if (!isNaN(N.length)) return C = -1, (I = function L() {
+                for (; ++C < N.length; ) if (y.call(N, C)) return L.value = N[C], L.done = !1, L;
+                return L.value = n, L.done = !0, L;
+              }).next = I;
+            }
+            throw new TypeError(typeof N + " is not iterable");
+          }
+          return m(E, "constructor", w.prototype = T), m(T, "constructor", w), m(T, g, w.displayName = "GeneratorFunction"), r.isGeneratorFunction = function(N) {
+            return N = typeof N == "function" && N.constructor, !!N && (N === w || (N.displayName || N.name) === "GeneratorFunction");
+          }, r.mark = function(N) {
+            return Object.setPrototypeOf ? Object.setPrototypeOf(N, T) : (N.__proto__ = T, m(N, g, "GeneratorFunction")), N.prototype = Object.create(E), N;
+          }, r.awrap = function(N) {
+            return { __await: N };
+          }, A(H.prototype), m(H.prototype, d, function() {
+            return this;
+          }), r.AsyncIterator = H, r.async = function(N, C, I, L, q) {
+            q === void 0 && (q = Promise);
+            var Q = new H(v(N, C, I, L), q);
+            return r.isGeneratorFunction(C) ? Q : Q.next().then(function(B) {
+              return B.done ? B.value : Q.next();
+            });
+          }, A(E), m(E, g, "Generator"), m(E, p, function() {
+            return this;
+          }), m(E, "toString", function() {
+            return "[object Generator]";
+          }), r.keys = function(N) {
+            var C, I = Object(N), L = [];
+            for (C in I) L.unshift(C);
+            return function q() {
+              for (; L.length; ) if ((C = L.pop()) in I) return q.value = C, q.done = !1, q;
+              return q.done = !0, q;
+            };
+          }, r.values = U, j.prototype = { constructor: j, reset: function(N) {
+            if (this.prev = this.next = 0, this.sent = this._sent = n, this.done = !1, this.delegate = null, this.method = "next", this.arg = n, this.tryEntries.forEach(O), !N) for (var C in this) C.charAt(0) === "t" && y.call(this, C) && !isNaN(+C.slice(1)) && (this[C] = n);
+          }, stop: function() {
+            this.done = !0;
+            var N = this.tryEntries[0][4];
+            if (N.type === "throw") throw N.arg;
+            return this.rval;
+          }, dispatchException: function(N) {
+            if (this.done) throw N;
+            var C = this;
+            function I(X) {
+              Q.type = "throw", Q.arg = N, C.next = X;
+            }
+            for (var L = C.tryEntries.length - 1; 0 <= L; --L) {
+              var q = this.tryEntries[L], Q = q[4], B = this.prev, k = q[1], D = q[2];
+              if (q[0] === -1) return I("end"), !1;
+              if (!k && !D) throw Error("try statement without catch or finally");
+              if (q[0] != null && q[0] <= B) {
+                if (B < k) return this.method = "next", this.arg = n, I(k), !0;
+                if (B < D) return I(D), !1;
+              }
+            }
+          }, abrupt: function(N, C) {
+            for (var I = this.tryEntries.length - 1; 0 <= I; --I) {
+              var L = this.tryEntries[I];
+              if (-1 < L[0] && L[0] <= this.prev && this.prev < L[2]) {
+                var q = L;
+                break;
+              }
+            }
+            var Q = (q = q && (N === "break" || N === "continue") && q[0] <= C && C <= q[2] ? null : q) ? q[4] : {};
+            return Q.type = N, Q.arg = C, q ? (this.method = "next", this.next = q[2], b) : this.complete(Q);
+          }, complete: function(N, C) {
+            if (N.type === "throw") throw N.arg;
+            return N.type === "break" || N.type === "continue" ? this.next = N.arg : N.type === "return" ? (this.rval = this.arg = N.arg, this.method = "return", this.next = "end") : N.type === "normal" && C && (this.next = C), b;
+          }, finish: function(N) {
+            for (var C = this.tryEntries.length - 1; 0 <= C; --C) {
+              var I = this.tryEntries[C];
+              if (I[2] === N) return this.complete(I[4], I[3]), O(I), b;
+            }
+          }, catch: function(N) {
+            for (var C = this.tryEntries.length - 1; 0 <= C; --C) {
+              var I, L, q = this.tryEntries[C];
+              if (q[0] === N) return (I = q[4]).type === "throw" && (L = I.arg, O(q)), L;
+            }
+            throw Error("illegal catch attempt");
+          }, delegateYield: function(N, C, I) {
+            return this.delegate = { i: U(N), r: C, n: I }, this.method === "next" && (this.arg = n), b;
+          } }, r;
+        }
+        function l(n, r, h, y, p, d, g) {
+          try {
+            var m = n[d](g), v = m.value;
+          } catch (f) {
+            return h(f);
+          }
+          m.done ? r(v) : Promise.resolve(v).then(y, p);
+        }
+        var u = typeof Promise > "u" ? c("es6-promise").Promise : Promise, a = c("./io"), s = c("../config");
+        function t() {
+        }
+        function e() {
+          var n;
+          return n = _().mark(function r(h, y, p, d) {
+            var g, m;
+            return _().wrap(function(v) {
+              for (; ; ) switch (v.prev = v.next) {
+                case 0:
+                  if (y === void 0 && (y = {}), p === void 0 && (p = t), d === void 0 && (d = t), window.VideoxMuxer) {
+                    v.next = 14;
+                    break;
+                  }
+                  v.prev = 4, v.next = 7;
+                  var f = y;
+                  return new u(function(b, S) {
+                    var w = "videox-muxer.min.js", T = "https://" + s.domain + s.path + s.h5Version + "/splayer/" + w;
+                    f.assetPrefix && (T = f.assetPrefix + "/splayer/" + w), a.loadJS(T, function() {
+                      b();
+                    }, function() {
+                      S();
+                    });
+                  });
+                case 7:
+                  v.next = 14;
+                  break;
+                case 9:
+                  return v.prev = 9, v.t0 = v.catch(4), console.error("load videox-demuxer failed"), d("load videox-demuxer failed"), v.abrupt("return");
+                case 14:
+                  g = window.VideoxMuxer.Demuxer, (m = new g({ progressive: !0 })).on("loadedmetadata", function(b) {
+                    b === void 0 && (b = {}), m.suspend(), m.destroy(), m = null, p(b);
+                  }), m.on("error", function(b) {
+                    d(b), m.suspend(), m.destroy(), m = null;
+                  }), m.load(h);
+                case 19:
+                case "end":
+                  return v.stop();
+              }
+            }, r, null, [[4, 9]]);
+          }), (e = function() {
+            var r = this, h = arguments;
+            return new Promise(function(y, p) {
+              var d = n.apply(r, h);
+              function g(v) {
+                l(d, y, p, g, m, "next", v);
+              }
+              function m(v) {
+                l(d, y, p, g, m, "throw", v);
+              }
+              g(void 0);
+            });
+          }).apply(this, arguments);
+        }
+        o.exports = function(n, r, h, y) {
+          return e.apply(this, arguments);
+        };
+      }, { "../config": 15, "./io": 41, "es6-promise": 9 }], 28: [function(c, o, x) {
+        var _ = c("./oo"), l = c("../player/base/event/eventtype");
+        o.exports.stopPropagation = function(u) {
+          window.event ? window.event.cancelBubble = !0 : u.stopPropagation();
+        }, o.exports.register = function(u) {
+          u.util = { stopPropagation: o.exports.stopPropagation }, u.Component = _.extend, u.EventType = l.Player;
+        };
+      }, { "../player/base/event/eventtype": 68, "./oo": 44 }], 29: [function(c, o, x) {
+        function _() {
+          o.exports.VideoErrorCodeText = { 1: l.get("Error_Load_Abort_Text"), 2: l.get("Error_Network_Text"), 3: l.get("Error_Decode_Text"), 4: l.get("Error_Server_Network_NotSupport_Text") }, o.exports.VideoLevels = { 0: l.get("OD"), 640: l.get("FD"), 960: l.get("LD"), 1280: l.get("SD"), 1920: l.get("HD"), 2580: l.get("2K"), 3840: l.get("4K") }, o.exports.QualityLevels = { OD: l.get("OD"), LD: l.get("LD"), FD: l.get("FD"), SD: l.get("SD"), HD: l.get("HD"), "2K": l.get("2K"), "4K": l.get("4K"), XLD: l.get("XLD"), FHD: l.get("FHD"), SQ: l.get("SQ"), HQ: l.get("HQ") }, o.exports.SpeedLevels = [{ key: 0.5, text: l.get("Speed_05X_Text") }, { key: 1, text: l.get("Speed_1X_Text") }, { key: 1.25, text: l.get("Speed_125X_Text") }, { key: 1.5, text: l.get("Speed_15X_Text") }, { key: 2, text: l.get("Speed_2X_Text") }];
+        }
+        var l = c("../lang/index");
+        o.exports.LOAD_START = "loadstart", o.exports.LOADED_METADATA = "loadedmetadata", o.exports.LOADED_DATA = "loadeddata", o.exports.PROGRESS = "progress", o.exports.CAN_PLAY = "canplay", o.exports.CAN_PLYA_THROUGH = "canplaythrough", o.exports.PLAY = "play", o.exports.PAUSE = "pause", o.exports.ENDED = "ended", o.exports.PLAYING = "playing", o.exports.WAITING = "waiting", o.exports.ERROR = "error", o.exports.SUSPEND = "suspend", o.exports.STALLED = "stalled", o.exports.DASH_QUALITY_PROTOCOL = "quality_index://", o.exports.AuthKeyExpiredEvent = "authkeyexpired", o.exports.USER_EVENT_NAME = "__user_events__", o.exports.PLAYER_SCOPE = "__aliplayerMessage__", o.exports.SW_MSG_EVT = { SETUP: "setup", SETUP_ACK: "setupAck", DISPOSE: "dispose", ENC_SEGMENT: "encSegment", DEC_SEGMENT: "decSegment", ABORT_SEGMENT: "abortSegment" }, o.exports.DM_MSG_EVT = { SETUP: "setup", DEMUX: "demux", RESULT: "result", FLUSH: "flush", DISPOSE: "dispose", DISPOSED: "disposed", ERROR: "error" }, o.exports.PLAYER_SDK_CODE_LEGACY = 9201, o.exports.PLAYER_SDK_CODE = 9203, o.exports.FEATURE_ID_H265 = 30001, o.exports.FEATURE_ID_H266 = 30002, o.exports.LicenseResultCode = { Success: 0, NotFound: 1, Expired: 2, CertInvalid: 3, WasmNotSupported: 4, ResourceIncorrect: 5, LicenseKeyInvalid: 6, DomainInvalid: 7 }, o.exports.LicenseErrorKey = { Empty: "License_Empty", NotFound: "License_Not_Found", Expired: "License_Expired", CertInvalid: "License_Cert_Invalid", LicenseKeyInvalid: "License_License_Key_Invalid", DomainInvalid: "License_Domain_Invalid", Unauthorized: "License_Feature_Unauthorized" }, o.exports.DRMKeySystem = { 4: "com.microsoft.playready", 5: "com.widevine.alpha" }, o.exports.EncryptionType = { Private: 1, Standard: 2, ChinaDRM: 3, PlayReady: 4, Widevine: 5 }, o.exports.VodEncryptionType = { AliyunVoDEncryption: 1, HLSEncryption: 2, Widevine: 5, "Widevine-FairPlay": 5 }, o.exports.DRMType = { Widevine: "Widevine", PlayReady: "PlayReady" }, o.exports.ErrorCode = { InvalidParameter: 4001, AuthKeyExpired: 4002, InvalidSourceURL: 4003, NotFoundSourceURL: 4004, StartLoadData: 4005, LoadedMetadata: 4006, PlayingError: 4007, LoadingTimeout: 4008, RequestDataError: 4009, EncrptyVideoNotSupport: 4010, FormatNotSupport: 4011, PlayauthDecode: 4012, PlayDataDecode: 4013, NetworkUnavaiable: 4014, UserAbort: 4015, NetworkError: 4016, URLsIsEmpty: 4017, DrmLicenseRequestFailed: 4018, RecordNotAllowed: 4019, MediaNotFound: 4020, DrmNotSupported: 4021, DrmLoadError: 4022, RegionBlock: 4023, ModuleLoadError: 4034, LicenseError: 4035, CrossDomain: 4027, OtherError: 4400, ServerAPIError: 4500, FlashNotInstalled: 4600, RtsSignalError: 4100, RtsPlayFailedError: 4200, RtsNotSupportWebRtc: 4110, RtsBrowserNotSupport: 4111, RtsBrowserVersionTooLow: 4112, RtsNotSupportH264: 4113, RtsCreateOfferError: 4114, RtsAutoPLayFaild: 4115, RtsPlayUrlError: 4116, RtsSubscribeNonthing: 4117, RtsHtmlElementError: 4118, RtsHtmlElementNotMatch: 4119, RtsBrowserNotSupportRtc: 4120, RtsHttpRequestFaild: 4121, RtsHttpAnswerFaild: 4122, RtsPeerConnectionUnknown: 4123, SplayerEnvCheckError: 4300, SplayerCoroutineError: 4301, SplayerDecodeError: 4302, SplayerBufferingError: 4303, SplayerParserNotFound: 4304 }, o.exports.AuthKeyExpired = 7200, o.exports.AuthKeyRefreshExpired = 7e3, o.exports.AuthInfoExpired = 100, o.exports.VideoErrorCode = { 1: 4015, 2: 4016, 3: 4013, 4: 4400 }, o.exports.RegionBlockMessages = ["black location", "denied by region block"], o.exports.IconType = { FontClass: "fontclass", Symbol: "symbol", Sprite: "Sprite" }, o.exports.SelectedStreamLevel = "selectedStreamLevel", o.exports.SelectedCC = "selectedCC", o.exports.HWDetectHvc1 = "HWDetectHvc1", o.exports.HWDetectHvc1Hls = "HWDetectHvc1Hls", o.exports.HWDetectHev1 = "HWDetectHev1", o.exports.HWDetectHev1Hls = "HWDetectHev1Hls", o.exports.WidthMapToLevel = { 0: "OD", 640: "FD", 960: "LD", 1280: "SD", 1920: "HD", 2580: "2K", 3840: "4K" }, _(), o.exports.updateByLanguage = _;
+      }, { "../lang/index": 24 }], 30: [function(c, o, x) {
+        o.exports.get = function(_) {
+          for (var l = _ + "", u = document.cookie.split(";"), a = 0; a < u.length; a++) {
+            var s = u[a].trim();
+            if (s.indexOf(l) == 0) return unescape(s.substring(l.length + 1, s.length));
+          }
+          return "";
+        }, o.exports.set = function(_, l, s) {
+          var a = /* @__PURE__ */ new Date(), s = (a.setTime(a.getTime() + 24 * s * 60 * 60 * 1e3), "expires=" + a.toGMTString());
+          document.cookie = _ + "=" + escape(l) + "; " + s;
+        };
+      }, {}], 31: [function(c, o, x) {
+        var _ = c("./object");
+        o.exports.cache = {}, o.exports.guid = function(l, u) {
+          var a, s, t = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split(""), e = [];
+          if (u = u || t.length, l) for (a = 0; a < l; a++) e[a] = t[0 | Math.random() * u];
+          else for (e[8] = e[13] = e[18] = e[23] = "-", e[14] = "4", a = 0; a < 36; a++) e[a] || (s = 0 | 16 * Math.random(), e[a] = t[a == 19 ? 3 & s | 8 : s]);
+          return e.join("");
+        }, o.exports.expando = "vdata" + (/* @__PURE__ */ new Date()).getTime(), o.exports.getData = function(l) {
+          var u = l[o.exports.expando];
+          return u || (u = l[o.exports.expando] = o.exports.guid(), o.exports.cache[u] = {}), o.exports.cache[u];
+        }, o.exports.hasData = function(l) {
+          var u = "";
+          return !(!(u = l ? l[o.exports.expando] : u) || _.isEmpty(o.exports.cache[u]));
+        }, o.exports.removeData = function(l) {
+          var u = "";
+          if (u = l ? l[o.exports.expando] : u) {
+            delete o.exports.cache[u];
+            try {
+              delete l[o.exports.expando];
+            } catch {
+              l.removeAttribute ? l.removeAttribute(o.exports.expando) : l[o.exports.expando] = null;
+            }
+          }
+        };
+      }, { "./object": 43 }], 32: [function(c, o, x) {
+        var _, l = typeof Promise > "u" ? c("es6-promise").Promise : Promise;
+        c = typeof self < "u" ? self : this, _ = function() {
+          return a = [function(t, e, n) {
+            (function(r) {
+              e.b = function(p) {
+                for (var d = (p = p === void 0 ? {} : p).includes, p = p.excludes, p = p === void 0 ? [] : p, g = !1, m = !1, v = 0, f = d === void 0 ? [] : d; v < f.length; v++) if (f[v] === !0) {
+                  g = !0;
+                  break;
+                }
+                for (var b = 0, S = p; b < S.length; b++) if (S[b] === !0) {
+                  m = !0;
+                  break;
+                }
+                return g && !m;
+              }, e.c = function(p, d, g) {
+                return p = y.a[p], p !== void 0 && Object(h.compare)(p, d, g);
+              }, e.a = function() {
+                return typeof self < "u" ? self : typeof window < "u" ? window : r !== void 0 ? r : this;
+              };
+              var h = n(11), y = (n.n(h), n(4));
+            }).call(e, n(10));
+          }, function(t, h, y) {
+            y.d(h, "c", function() {
+              return p;
+            }), y.d(h, "d", function() {
+              return d;
+            }), y.d(h, "b", function() {
+              return g;
+            }), y.d(h, "f", function() {
+              return m;
+            }), y.d(h, "a", function() {
+              return v;
+            }), y.d(h, "e", function() {
+              return f;
+            });
+            var r, h = y(3), y = y(0), y = Object(y.a)(), p = "InstallTrigger" in ((y == null ? void 0 : y.window) || {}) || /firefox/i.test(h.b), d = /trident/i.test(h.b) || /msie/i.test(h.b), g = /edge/i.test(h.b), m = /webkit/i.test(h.b) && !g, v = ((r = y == null ? void 0 : y.window) == null ? void 0 : r.chrome) !== void 0 || /chrome/i.test(h.b), f = (((y = (r = y == null ? void 0 : y.window) == null ? void 0 : r.safari) == null ? void 0 : y.pushNotification) || !1).toString() === "[object SafariRemoteNotification]" || /safari/i.test(h.b) && !v;
+          }, function(t, e, n) {
+            n.d(e, "b", function() {
+              return y;
+            }), n.d(e, "c", function() {
+              return p;
+            }), n.d(e, "a", function() {
+              return d;
+            });
+            var r = n(1);
+            function h(g) {
+              if (console) {
+                if (!r.d && !r.b) return console[g];
+                if (g === "log" || g === "clear") return function() {
+                  for (var m = [], v = 0; v < arguments.length; v++) m[v] = arguments[v];
+                  console[g].apply(console, m);
+                };
+              }
+              return function() {
+              };
+            }
+            var y = h("log"), p = h("table"), d = h("clear");
+          }, function(t, r, n) {
+            r.a = function() {
+              for (var p, d = [], g = 0; g < arguments.length; g++) d[g] = arguments[g];
+              return h != null && h.document ? (p = h.document).createElement.apply(p, d) : {};
+            }, n.d(r, "b", function() {
+              return y;
+            });
+            var r = n(0), h = Object(r.a)(), y = ((n = h == null ? void 0 : h.navigator) == null ? void 0 : n.userAgent) || "xxxxx";
+          }, function(t, e, n) {
+            n.d(e, "a", function() {
+              return r;
+            });
+            for (var r = {}, h = 0, y = (n(3).b || "").match(/\w+\/(\d|\.)+(\s|$)/gi) || []; h < y.length; h++) {
+              var p = y[h].split("/"), d = p[0];
+              r[d] = p[1];
+            }
+          }, function(t, r, n) {
+            n.d(r, "b", function() {
+              return h;
+            }), n.d(r, "d", function() {
+              return y;
+            }), n.d(r, "c", function() {
+              return p;
+            }), n.d(r, "a", function() {
+              return d;
+            }), n.d(r, "e", function() {
+              return g;
+            });
+            var r = n(3), h = /ipad/i.test(r.b), y = /macintosh/i.test(r.b), p = /iphone/i.test(r.b), d = /android/i.test(r.b), g = /windows/i.test(r.b);
+          }, function(t, e, n) {
+            Object.defineProperty(e, "__esModule", { value: !0 }), e.addListener = function(b) {
+              f.addListener(b);
+            }, e.removeListener = function(b) {
+              f.removeListener(b);
+            }, e.isLaunch = function() {
+              return f.isLaunch();
+            }, e.launch = function() {
+              f.launch();
+            }, e.stop = function() {
+              f.stop();
+            }, e.setDetectDelay = function(b) {
+              f.setDetectDelay(b);
+            };
+            var r = n(7), h = n(8), y = (n.d(e, "DevtoolsDetector", function() {
+              return r.a;
+            }), n.d(e, "checkers", function() {
+              return h;
+            }), n(0)), p = (n.d(e, "match", function() {
+              return y.b;
+            }), n.d(e, "specificVersionMatch", function() {
+              return y.c;
+            }), n(1)), d = (n.d(e, "isFirefox", function() {
+              return p.c;
+            }), n.d(e, "isIE", function() {
+              return p.d;
+            }), n.d(e, "isEdge", function() {
+              return p.b;
+            }), n.d(e, "isWebkit", function() {
+              return p.f;
+            }), n.d(e, "isChrome", function() {
+              return p.a;
+            }), n.d(e, "isSafari", function() {
+              return p.e;
+            }), n(2)), g = (n.d(e, "log", function() {
+              return d.b;
+            }), n.d(e, "table", function() {
+              return d.c;
+            }), n.d(e, "clear", function() {
+              return d.a;
+            }), n(17)), m = (n.d(e, "isMobile", function() {
+              return g.a;
+            }), n(4)), v = (n.d(e, "versionMap", function() {
+              return m.a;
+            }), n(5)), f = (n.d(e, "isIpad", function() {
+              return v.b;
+            }), n.d(e, "isMac", function() {
+              return v.d;
+            }), n.d(e, "isIphone", function() {
+              return v.c;
+            }), n.d(e, "isAndroid", function() {
+              return v.a;
+            }), n.d(e, "isWindows", function() {
+              return v.e;
+            }), new r.a({ checkers: [h.elementIdChecker, h.regToStringChecker, h.functionToStringChecker, h.depRegToStringChecker, h.dateToStringChecker, h.debuggerChecker] }));
+            e.default = f;
+          }, function(t, e, n) {
+            n.d(e, "a", function() {
+              return y;
+            });
+            var r = this && this.__awaiter || function(d, g, m, v) {
+              return new (m = m || l)(function(f, b) {
+                function S(R) {
+                  try {
+                    T(v.next(R));
+                  } catch (P) {
+                    b(P);
+                  }
+                }
+                function w(R) {
+                  try {
+                    T(v.throw(R));
+                  } catch (P) {
+                    b(P);
+                  }
+                }
+                function T(R) {
+                  var P;
+                  R.done ? f(R.value) : ((P = R.value) instanceof m ? P : new m(function(E) {
+                    E(P);
+                  })).then(S, w);
+                }
+                T((v = v.apply(d, g || [])).next());
+              });
+            }, h = this && this.__generator || function(d, g) {
+              var m, v, f, b = { label: 0, sent: function() {
+                if (1 & f[0]) throw f[1];
+                return f[1];
+              }, trys: [], ops: [] }, S = { next: w(0), throw: w(1), return: w(2) };
+              return typeof Symbol == "function" && (S[Symbol.iterator] = function() {
+                return this;
+              }), S;
+              function w(T) {
+                return function(R) {
+                  var P = [T, R];
+                  if (m) throw new TypeError("Generator is already executing.");
+                  for (; b; ) try {
+                    if (m = 1, v && (f = 2 & P[0] ? v.return : P[0] ? v.throw || ((f = v.return) && f.call(v), 0) : v.next) && !(f = f.call(v, P[1])).done) return f;
+                    switch (v = 0, (P = f ? [2 & P[0], f.value] : P)[0]) {
+                      case 0:
+                      case 1:
+                        f = P;
+                        break;
+                      case 4:
+                        return b.label++, { value: P[1], done: !1 };
+                      case 5:
+                        b.label++, v = P[1], P = [0];
+                        continue;
+                      case 7:
+                        P = b.ops.pop(), b.trys.pop();
+                        continue;
+                      default:
+                        if (!(f = 0 < (f = b.trys).length && f[f.length - 1]) && (P[0] === 6 || P[0] === 2)) {
+                          b = 0;
+                          continue;
+                        }
+                        if (P[0] === 3 && (!f || P[1] > f[0] && P[1] < f[3])) b.label = P[1];
+                        else if (P[0] === 6 && b.label < f[1]) b.label = f[1], f = P;
+                        else {
+                          if (!(f && b.label < f[2])) {
+                            f[2] && b.ops.pop(), b.trys.pop();
+                            continue;
+                          }
+                          b.label = f[2], b.ops.push(P);
+                        }
+                    }
+                    P = g.call(d, b);
+                  } catch (E) {
+                    P = [6, E], v = 0;
+                  } finally {
+                    m = f = 0;
+                  }
+                  if (5 & P[0]) throw P[1];
+                  return { value: P[0] ? P[1] : void 0, done: !0 };
+                };
+              }
+            }, y = (p.prototype.launch = function() {
+              this._detectLoopDelay <= 0 && this.setDetectDelay(500), this._detectLoopStopped && (this._detectLoopStopped = !1, this._detectLoop());
+            }, p.prototype.stop = function() {
+              this._detectLoopStopped || (this._detectLoopStopped = !0, clearTimeout(this._timer));
+            }, p.prototype.isLaunch = function() {
+              return !this._detectLoopStopped;
+            }, p.prototype.setDetectDelay = function(d) {
+              this._detectLoopDelay = d;
+            }, p.prototype.addListener = function(d) {
+              this._listeners.push(d);
+            }, p.prototype.removeListener = function(d) {
+              this._listeners = this._listeners.filter(function(g) {
+                return g !== d;
+              });
+            }, p.prototype._broadcast = function(d) {
+              for (var g = 0, m = this._listeners; g < m.length; g++) {
+                var v = m[g];
+                try {
+                  v(d.isOpen, d);
+                } catch {
+                }
+              }
+            }, p.prototype._detectLoop = function() {
+              return r(this, void 0, void 0, function() {
+                var d, g, m, v, f, b = this;
+                return h(this, function(S) {
+                  switch (S.label) {
+                    case 0:
+                      d = !1, g = "", m = 0, v = this._checkers, S.label = 1;
+                    case 1:
+                      return m < v.length ? [4, (f = v[m]).isEnable()] : [3, 6];
+                    case 2:
+                      return S.sent() ? (g = f.name, [4, f.isOpen()]) : [3, 4];
+                    case 3:
+                      d = S.sent(), S.label = 4;
+                    case 4:
+                      if (d) return [3, 6];
+                      S.label = 5;
+                    case 5:
+                      return m++, [3, 1];
+                    case 6:
+                      return d != this._isOpen && (this._isOpen = d, this._broadcast({ isOpen: d, checkerName: g })), 0 < this._detectLoopDelay ? this._timer = setTimeout(function() {
+                        return b._detectLoop();
+                      }, this._detectLoopDelay) : this.stop(), [2];
+                  }
+                });
+              });
+            }, p);
+            function p(d) {
+              d = d.checkers, this._listeners = [], this._isOpen = !1, this._detectLoopStopped = !0, this._detectLoopDelay = 500, this._checkers = d.slice();
+            }
+          }, function(t, e, n) {
+            Object.defineProperty(e, "__esModule", { value: !0 });
+            var r = n(9), h = (n.d(e, "depRegToStringChecker", function() {
+              return r.a;
+            }), n(12)), y = (n.d(e, "elementIdChecker", function() {
+              return h.a;
+            }), n(13)), p = (n.d(e, "functionToStringChecker", function() {
+              return y.a;
+            }), n(14)), d = (n.d(e, "regToStringChecker", function() {
+              return p.a;
+            }), n(15)), g = (n.d(e, "debuggerChecker", function() {
+              return d.a;
+            }), n(16));
+            n.d(e, "dateToStringChecker", function() {
+              return g.a;
+            });
+          }, function(t, e, n) {
+            n.d(e, "a", function() {
+              return v;
+            });
+            var r = n(1), h = n(2), y = n(0), p = this && this.__awaiter || function(f, b, S, w) {
+              return new (S = S || l)(function(T, R) {
+                function P(H) {
+                  try {
+                    A(w.next(H));
+                  } catch (M) {
+                    R(M);
+                  }
+                }
+                function E(H) {
+                  try {
+                    A(w.throw(H));
+                  } catch (M) {
+                    R(M);
+                  }
+                }
+                function A(H) {
+                  var M;
+                  H.done ? T(H.value) : ((M = H.value) instanceof S ? M : new S(function(O) {
+                    O(M);
+                  })).then(P, E);
+                }
+                A((w = w.apply(f, b || [])).next());
+              });
+            }, d = this && this.__generator || function(f, b) {
+              var S, w, T, R = { label: 0, sent: function() {
+                if (1 & T[0]) throw T[1];
+                return T[1];
+              }, trys: [], ops: [] }, P = { next: E(0), throw: E(1), return: E(2) };
+              return typeof Symbol == "function" && (P[Symbol.iterator] = function() {
+                return this;
+              }), P;
+              function E(A) {
+                return function(H) {
+                  var M = [A, H];
+                  if (S) throw new TypeError("Generator is already executing.");
+                  for (; R; ) try {
+                    if (S = 1, w && (T = 2 & M[0] ? w.return : M[0] ? w.throw || ((T = w.return) && T.call(w), 0) : w.next) && !(T = T.call(w, M[1])).done) return T;
+                    switch (w = 0, (M = T ? [2 & M[0], T.value] : M)[0]) {
+                      case 0:
+                      case 1:
+                        T = M;
+                        break;
+                      case 4:
+                        return R.label++, { value: M[1], done: !1 };
+                      case 5:
+                        R.label++, w = M[1], M = [0];
+                        continue;
+                      case 7:
+                        M = R.ops.pop(), R.trys.pop();
+                        continue;
+                      default:
+                        if (!(T = 0 < (T = R.trys).length && T[T.length - 1]) && (M[0] === 6 || M[0] === 2)) {
+                          R = 0;
+                          continue;
+                        }
+                        if (M[0] === 3 && (!T || M[1] > T[0] && M[1] < T[3])) R.label = M[1];
+                        else if (M[0] === 6 && R.label < T[1]) R.label = T[1], T = M;
+                        else {
+                          if (!(T && R.label < T[2])) {
+                            T[2] && R.ops.pop(), R.trys.pop();
+                            continue;
+                          }
+                          R.label = T[2], R.ops.push(M);
+                        }
+                    }
+                    M = b.call(f, R);
+                  } catch (O) {
+                    M = [6, O], w = 0;
+                  } finally {
+                    S = T = 0;
+                  }
+                  if (5 & M[0]) throw M[1];
+                  return { value: M[0] ? M[1] : void 0, done: !0 };
+                };
+              }
+            }, g = / /, m = !1, v = (g.toString = function() {
+              return m = !0, v.name;
+            }, { name: "dep-reg-to-string", isOpen: function() {
+              return p(this, void 0, void 0, function() {
+                return d(this, function(f) {
+                  return m = !1, Object(h.c)({ dep: g }), Object(h.a)(), [2, m];
+                });
+              });
+            }, isEnable: function() {
+              return p(this, void 0, void 0, function() {
+                return d(this, function(f) {
+                  return [2, Object(y.b)({ includes: [!0], excludes: [r.c, r.d] })];
+                });
+              });
+            } });
+          }, function(t, e) {
+            var n = /* @__PURE__ */ function() {
+              return this;
+            }();
+            try {
+              n = n || Function("return this")() || (0, eval)("this");
+            } catch {
+              typeof window == "object" && (n = window);
+            }
+            t.exports = n;
+          }, function(t, e, n) {
+            var r;
+            (e = typeof (r = function() {
+              var h = /^v?(?:\d+)(\.(?:[x*]|\d+)(\.(?:[x*]|\d+)(\.(?:[x*]|\d+))?(?:-[\da-z\-]+(?:\.[\da-z\-]+)*)?(?:\+[\da-z\-]+(?:\.[\da-z\-]+)*)?)?)?$/i;
+              function y(f) {
+                var b = f.replace(/^v/, "").replace(/\+.*$/, ""), S = function(T, R) {
+                  return T.indexOf(R) === -1 ? T.length : T.indexOf(R);
+                }(b, "-"), w = b.substring(0, S).split(".");
+                return w.push(b.substring(S + 1)), w;
+              }
+              function p(f) {
+                return isNaN(Number(f)) ? f : Number(f);
+              }
+              function d(f) {
+                if (typeof f != "string") throw new TypeError("Invalid argument expected string");
+                if (!h.test(f)) throw new Error("Invalid argument not valid semver ('" + f + "' received)");
+              }
+              function g(f, b) {
+                [f, b].forEach(d);
+                for (var S = y(f), w = y(b), T = 0; T < Math.max(S.length - 1, w.length - 1); T++) {
+                  var R = parseInt(S[T] || 0, 10), P = parseInt(w[T] || 0, 10);
+                  if (R > P) return 1;
+                  if (P > R) return -1;
+                }
+                var E = S[S.length - 1], A = w[w.length - 1];
+                if (E && A) {
+                  var H = E.split(".").map(p), M = A.split(".").map(p);
+                  for (T = 0; T < Math.max(H.length, M.length); T++) {
+                    if (H[T] === void 0 || typeof M[T] == "string" && typeof H[T] == "number") return -1;
+                    if (M[T] === void 0 || typeof H[T] == "string" && typeof M[T] == "number" || H[T] > M[T]) return 1;
+                    if (M[T] > H[T]) return -1;
+                  }
+                } else if (E || A) return E ? -1 : 1;
+                return 0;
+              }
+              var m = [">", ">=", "=", "<", "<="], v = { ">": [1], ">=": [0, 1], "=": [0], "<=": [-1, 0], "<": [-1] };
+              return g.validate = function(f) {
+                return typeof f == "string" && h.test(f);
+              }, g.compare = function(f, b, S) {
+                (function(T) {
+                  if (typeof T != "string") throw new TypeError("Invalid operator type, expected string but got " + typeof T);
+                  if (m.indexOf(T) === -1) throw new TypeError("Invalid operator, expected one of " + m.join("|"));
+                })(S);
+                var w = g(f, b);
+                return v[S].indexOf(w) > -1;
+              }, g;
+            }) == "function" ? r.apply(e, []) : r) !== void 0 && (t.exports = e);
+          }, function(t, p, n) {
+            n.d(p, "a", function() {
+              return f;
+            });
+            var r = n(1), h = n(2), y = n(0), p = n(3), d = this && this.__awaiter || function(b, S, w, T) {
+              return new (w = w || l)(function(R, P) {
+                function E(M) {
+                  try {
+                    H(T.next(M));
+                  } catch (O) {
+                    P(O);
+                  }
+                }
+                function A(M) {
+                  try {
+                    H(T.throw(M));
+                  } catch (O) {
+                    P(O);
+                  }
+                }
+                function H(M) {
+                  var O;
+                  M.done ? R(M.value) : ((O = M.value) instanceof w ? O : new w(function(j) {
+                    j(O);
+                  })).then(E, A);
+                }
+                H((T = T.apply(b, S || [])).next());
+              });
+            }, g = this && this.__generator || function(b, S) {
+              var w, T, R, P = { label: 0, sent: function() {
+                if (1 & R[0]) throw R[1];
+                return R[1];
+              }, trys: [], ops: [] }, E = { next: A(0), throw: A(1), return: A(2) };
+              return typeof Symbol == "function" && (E[Symbol.iterator] = function() {
+                return this;
+              }), E;
+              function A(H) {
+                return function(M) {
+                  var O = [H, M];
+                  if (w) throw new TypeError("Generator is already executing.");
+                  for (; P; ) try {
+                    if (w = 1, T && (R = 2 & O[0] ? T.return : O[0] ? T.throw || ((R = T.return) && R.call(T), 0) : T.next) && !(R = R.call(T, O[1])).done) return R;
+                    switch (T = 0, (O = R ? [2 & O[0], R.value] : O)[0]) {
+                      case 0:
+                      case 1:
+                        R = O;
+                        break;
+                      case 4:
+                        return P.label++, { value: O[1], done: !1 };
+                      case 5:
+                        P.label++, T = O[1], O = [0];
+                        continue;
+                      case 7:
+                        O = P.ops.pop(), P.trys.pop();
+                        continue;
+                      default:
+                        if (!(R = 0 < (R = P.trys).length && R[R.length - 1]) && (O[0] === 6 || O[0] === 2)) {
+                          P = 0;
+                          continue;
+                        }
+                        if (O[0] === 3 && (!R || O[1] > R[0] && O[1] < R[3])) P.label = O[1];
+                        else if (O[0] === 6 && P.label < R[1]) P.label = R[1], R = O;
+                        else {
+                          if (!(R && P.label < R[2])) {
+                            R[2] && P.ops.pop(), P.trys.pop();
+                            continue;
+                          }
+                          P.label = R[2], P.ops.push(O);
+                        }
+                    }
+                    O = S.call(b, P);
+                  } catch (j) {
+                    O = [6, j], T = 0;
+                  } finally {
+                    w = R = 0;
+                  }
+                  if (5 & O[0]) throw O[1];
+                  return { value: O[0] ? O[1] : void 0, done: !0 };
+                };
+              }
+            }, m = Object(p.a)("div"), v = !1, f = (Object.defineProperty(m, "id", { get: function() {
+              return v = !0, f.name;
+            }, configurable: !0 }), { name: "element-id", isOpen: function() {
+              return d(this, void 0, void 0, function() {
+                return g(this, function(b) {
+                  return v = !1, Object(h.b)(m), Object(h.a)(), [2, v];
+                });
+              });
+            }, isEnable: function() {
+              return d(this, void 0, void 0, function() {
+                return g(this, function(b) {
+                  return [2, Object(y.b)({ includes: [!0], excludes: [r.d, r.b, r.c] })];
+                });
+              });
+            } });
+          }, function(t, e, n) {
+            n.d(e, "a", function() {
+              return f;
+            });
+            var r = n(1), h = n(2), y = n(5), p = n(0), d = this && this.__awaiter || function(b, S, w, T) {
+              return new (w = w || l)(function(R, P) {
+                function E(M) {
+                  try {
+                    H(T.next(M));
+                  } catch (O) {
+                    P(O);
+                  }
+                }
+                function A(M) {
+                  try {
+                    H(T.throw(M));
+                  } catch (O) {
+                    P(O);
+                  }
+                }
+                function H(M) {
+                  var O;
+                  M.done ? R(M.value) : ((O = M.value) instanceof w ? O : new w(function(j) {
+                    j(O);
+                  })).then(E, A);
+                }
+                H((T = T.apply(b, S || [])).next());
+              });
+            }, g = this && this.__generator || function(b, S) {
+              var w, T, R, P = { label: 0, sent: function() {
+                if (1 & R[0]) throw R[1];
+                return R[1];
+              }, trys: [], ops: [] }, E = { next: A(0), throw: A(1), return: A(2) };
+              return typeof Symbol == "function" && (E[Symbol.iterator] = function() {
+                return this;
+              }), E;
+              function A(H) {
+                return function(M) {
+                  var O = [H, M];
+                  if (w) throw new TypeError("Generator is already executing.");
+                  for (; P; ) try {
+                    if (w = 1, T && (R = 2 & O[0] ? T.return : O[0] ? T.throw || ((R = T.return) && R.call(T), 0) : T.next) && !(R = R.call(T, O[1])).done) return R;
+                    switch (T = 0, (O = R ? [2 & O[0], R.value] : O)[0]) {
+                      case 0:
+                      case 1:
+                        R = O;
+                        break;
+                      case 4:
+                        return P.label++, { value: O[1], done: !1 };
+                      case 5:
+                        P.label++, T = O[1], O = [0];
+                        continue;
+                      case 7:
+                        O = P.ops.pop(), P.trys.pop();
+                        continue;
+                      default:
+                        if (!(R = 0 < (R = P.trys).length && R[R.length - 1]) && (O[0] === 6 || O[0] === 2)) {
+                          P = 0;
+                          continue;
+                        }
+                        if (O[0] === 3 && (!R || O[1] > R[0] && O[1] < R[3])) P.label = O[1];
+                        else if (O[0] === 6 && P.label < R[1]) P.label = R[1], R = O;
+                        else {
+                          if (!(R && P.label < R[2])) {
+                            R[2] && P.ops.pop(), P.trys.pop();
+                            continue;
+                          }
+                          P.label = R[2], P.ops.push(O);
+                        }
+                    }
+                    O = S.call(b, P);
+                  } catch (j) {
+                    O = [6, j], T = 0;
+                  } finally {
+                    w = R = 0;
+                  }
+                  if (5 & O[0]) throw O[1];
+                  return { value: O[0] ? O[1] : void 0, done: !0 };
+                };
+              }
+            };
+            function m() {
+            }
+            var v = 0, f = (m.toString = function() {
+              return v++, "";
+            }, { name: "function-to-string", isOpen: function() {
+              return d(this, void 0, void 0, function() {
+                return g(this, function(b) {
+                  return v = 0, Object(h.b)(m), Object(h.a)(), [2, v === 2];
+                });
+              });
+            }, isEnable: function() {
+              return d(this, void 0, void 0, function() {
+                return g(this, function(b) {
+                  return [2, Object(p.b)({ includes: [!0], excludes: [r.c, (y.b || y.c) && r.a] })];
+                });
+              });
+            } });
+          }, function(t, e, n) {
+            n.d(e, "a", function() {
+              return v;
+            });
+            var r = n(2), h = n(1), y = n(0), p = this && this.__awaiter || function(f, b, S, w) {
+              return new (S = S || l)(function(T, R) {
+                function P(H) {
+                  try {
+                    A(w.next(H));
+                  } catch (M) {
+                    R(M);
+                  }
+                }
+                function E(H) {
+                  try {
+                    A(w.throw(H));
+                  } catch (M) {
+                    R(M);
+                  }
+                }
+                function A(H) {
+                  var M;
+                  H.done ? T(H.value) : ((M = H.value) instanceof S ? M : new S(function(O) {
+                    O(M);
+                  })).then(P, E);
+                }
+                A((w = w.apply(f, b || [])).next());
+              });
+            }, d = this && this.__generator || function(f, b) {
+              var S, w, T, R = { label: 0, sent: function() {
+                if (1 & T[0]) throw T[1];
+                return T[1];
+              }, trys: [], ops: [] }, P = { next: E(0), throw: E(1), return: E(2) };
+              return typeof Symbol == "function" && (P[Symbol.iterator] = function() {
+                return this;
+              }), P;
+              function E(A) {
+                return function(H) {
+                  var M = [A, H];
+                  if (S) throw new TypeError("Generator is already executing.");
+                  for (; R; ) try {
+                    if (S = 1, w && (T = 2 & M[0] ? w.return : M[0] ? w.throw || ((T = w.return) && T.call(w), 0) : w.next) && !(T = T.call(w, M[1])).done) return T;
+                    switch (w = 0, (M = T ? [2 & M[0], T.value] : M)[0]) {
+                      case 0:
+                      case 1:
+                        T = M;
+                        break;
+                      case 4:
+                        return R.label++, { value: M[1], done: !1 };
+                      case 5:
+                        R.label++, w = M[1], M = [0];
+                        continue;
+                      case 7:
+                        M = R.ops.pop(), R.trys.pop();
+                        continue;
+                      default:
+                        if (!(T = 0 < (T = R.trys).length && T[T.length - 1]) && (M[0] === 6 || M[0] === 2)) {
+                          R = 0;
+                          continue;
+                        }
+                        if (M[0] === 3 && (!T || M[1] > T[0] && M[1] < T[3])) R.label = M[1];
+                        else if (M[0] === 6 && R.label < T[1]) R.label = T[1], T = M;
+                        else {
+                          if (!(T && R.label < T[2])) {
+                            T[2] && R.ops.pop(), R.trys.pop();
+                            continue;
+                          }
+                          R.label = T[2], R.ops.push(M);
+                        }
+                    }
+                    M = b.call(f, R);
+                  } catch (O) {
+                    M = [6, O], w = 0;
+                  } finally {
+                    S = T = 0;
+                  }
+                  if (5 & M[0]) throw M[1];
+                  return { value: M[0] ? M[1] : void 0, done: !0 };
+                };
+              }
+            }, g = / /, m = !1, v = (g.toString = function() {
+              return m = !0, v.name;
+            }, { name: "reg-to-string", isOpen: function() {
+              return p(this, void 0, void 0, function() {
+                return d(this, function(f) {
+                  return m = !1, Object(r.b)(g), Object(r.a)(), [2, m];
+                });
+              });
+            }, isEnable: function() {
+              return p(this, void 0, void 0, function() {
+                return d(this, function(f) {
+                  return [2, Object(y.b)({ includes: [!0], excludes: [h.f] })];
+                });
+              });
+            } });
+          }, function(t, e, n) {
+            n.d(e, "a", function() {
+              return p;
+            });
+            var r = this && this.__awaiter || function(d, g, m, v) {
+              return new (m = m || l)(function(f, b) {
+                function S(R) {
+                  try {
+                    T(v.next(R));
+                  } catch (P) {
+                    b(P);
+                  }
+                }
+                function w(R) {
+                  try {
+                    T(v.throw(R));
+                  } catch (P) {
+                    b(P);
+                  }
+                }
+                function T(R) {
+                  var P;
+                  R.done ? f(R.value) : ((P = R.value) instanceof m ? P : new m(function(E) {
+                    E(P);
+                  })).then(S, w);
+                }
+                T((v = v.apply(d, g || [])).next());
+              });
+            }, h = this && this.__generator || function(d, g) {
+              var m, v, f, b = { label: 0, sent: function() {
+                if (1 & f[0]) throw f[1];
+                return f[1];
+              }, trys: [], ops: [] }, S = { next: w(0), throw: w(1), return: w(2) };
+              return typeof Symbol == "function" && (S[Symbol.iterator] = function() {
+                return this;
+              }), S;
+              function w(T) {
+                return function(R) {
+                  var P = [T, R];
+                  if (m) throw new TypeError("Generator is already executing.");
+                  for (; b; ) try {
+                    if (m = 1, v && (f = 2 & P[0] ? v.return : P[0] ? v.throw || ((f = v.return) && f.call(v), 0) : v.next) && !(f = f.call(v, P[1])).done) return f;
+                    switch (v = 0, (P = f ? [2 & P[0], f.value] : P)[0]) {
+                      case 0:
+                      case 1:
+                        f = P;
+                        break;
+                      case 4:
+                        return b.label++, { value: P[1], done: !1 };
+                      case 5:
+                        b.label++, v = P[1], P = [0];
+                        continue;
+                      case 7:
+                        P = b.ops.pop(), b.trys.pop();
+                        continue;
+                      default:
+                        if (!(f = 0 < (f = b.trys).length && f[f.length - 1]) && (P[0] === 6 || P[0] === 2)) {
+                          b = 0;
+                          continue;
+                        }
+                        if (P[0] === 3 && (!f || P[1] > f[0] && P[1] < f[3])) b.label = P[1];
+                        else if (P[0] === 6 && b.label < f[1]) b.label = f[1], f = P;
+                        else {
+                          if (!(f && b.label < f[2])) {
+                            f[2] && b.ops.pop(), b.trys.pop();
+                            continue;
+                          }
+                          b.label = f[2], b.ops.push(P);
+                        }
+                    }
+                    P = g.call(d, b);
+                  } catch (E) {
+                    P = [6, E], v = 0;
+                  } finally {
+                    m = f = 0;
+                  }
+                  if (5 & P[0]) throw P[1];
+                  return { value: P[0] ? P[1] : void 0, done: !0 };
+                };
+              }
+            };
+            function y() {
+              return (performance || Date).now();
+            }
+            var p = { name: "debugger-checker", isOpen: function() {
+              return r(this, void 0, void 0, function() {
+                var d;
+                return h(this, function(g) {
+                  return d = y(), (function() {
+                  }).constructor("debugger")(), [2, 100 < y() - d];
+                });
+              });
+            }, isEnable: function() {
+              return r(this, void 0, void 0, function() {
+                return h(this, function(d) {
+                  return [2, !0];
+                });
+              });
+            } };
+          }, function(t, e, n) {
+            n.d(e, "a", function() {
+              return v;
+            });
+            var r = n(1), h = n(2), y = n(0), p = this && this.__awaiter || function(f, b, S, w) {
+              return new (S = S || l)(function(T, R) {
+                function P(H) {
+                  try {
+                    A(w.next(H));
+                  } catch (M) {
+                    R(M);
+                  }
+                }
+                function E(H) {
+                  try {
+                    A(w.throw(H));
+                  } catch (M) {
+                    R(M);
+                  }
+                }
+                function A(H) {
+                  var M;
+                  H.done ? T(H.value) : ((M = H.value) instanceof S ? M : new S(function(O) {
+                    O(M);
+                  })).then(P, E);
+                }
+                A((w = w.apply(f, b || [])).next());
+              });
+            }, d = this && this.__generator || function(f, b) {
+              var S, w, T, R = { label: 0, sent: function() {
+                if (1 & T[0]) throw T[1];
+                return T[1];
+              }, trys: [], ops: [] }, P = { next: E(0), throw: E(1), return: E(2) };
+              return typeof Symbol == "function" && (P[Symbol.iterator] = function() {
+                return this;
+              }), P;
+              function E(A) {
+                return function(H) {
+                  var M = [A, H];
+                  if (S) throw new TypeError("Generator is already executing.");
+                  for (; R; ) try {
+                    if (S = 1, w && (T = 2 & M[0] ? w.return : M[0] ? w.throw || ((T = w.return) && T.call(w), 0) : w.next) && !(T = T.call(w, M[1])).done) return T;
+                    switch (w = 0, (M = T ? [2 & M[0], T.value] : M)[0]) {
+                      case 0:
+                      case 1:
+                        T = M;
+                        break;
+                      case 4:
+                        return R.label++, { value: M[1], done: !1 };
+                      case 5:
+                        R.label++, w = M[1], M = [0];
+                        continue;
+                      case 7:
+                        M = R.ops.pop(), R.trys.pop();
+                        continue;
+                      default:
+                        if (!(T = 0 < (T = R.trys).length && T[T.length - 1]) && (M[0] === 6 || M[0] === 2)) {
+                          R = 0;
+                          continue;
+                        }
+                        if (M[0] === 3 && (!T || M[1] > T[0] && M[1] < T[3])) R.label = M[1];
+                        else if (M[0] === 6 && R.label < T[1]) R.label = T[1], T = M;
+                        else {
+                          if (!(T && R.label < T[2])) {
+                            T[2] && R.ops.pop(), R.trys.pop();
+                            continue;
+                          }
+                          R.label = T[2], R.ops.push(M);
+                        }
+                    }
+                    M = b.call(f, R);
+                  } catch (O) {
+                    M = [6, O], w = 0;
+                  } finally {
+                    S = T = 0;
+                  }
+                  if (5 & M[0]) throw M[1];
+                  return { value: M[0] ? M[1] : void 0, done: !0 };
+                };
+              }
+            }, g = /* @__PURE__ */ new Date(), m = 0, v = (g.toString = function() {
+              return m++, "";
+            }, { name: "date-to-string", isOpen: function() {
+              return p(this, void 0, void 0, function() {
+                return d(this, function(f) {
+                  return m = 0, Object(h.b)(g), Object(h.a)(), [2, m === 2];
+                });
+              });
+            }, isEnable: function() {
+              return p(this, void 0, void 0, function() {
+                return d(this, function(f) {
+                  return [2, Object(y.b)({ includes: [r.a], excludes: [] })];
+                });
+              });
+            } });
+          }, function(t, r, n) {
+            n.d(r, "a", function() {
+              return h;
+            });
+            var r = n(3), h = /mobile/i.test(r.b);
+          }], s = {}, u.m = a, u.c = s, u.d = function(t, e, n) {
+            u.o(t, e) || Object.defineProperty(t, e, { configurable: !1, enumerable: !0, get: n });
+          }, u.n = function(t) {
+            var e = t && t.__esModule ? function() {
+              return t.default;
+            } : function() {
+              return t;
+            };
+            return u.d(e, "a", e), e;
+          }, u.o = function(t, e) {
+            return Object.prototype.hasOwnProperty.call(t, e);
+          }, u.p = "", u(u.s = 6);
+          function u(t) {
+            var e;
+            return (s[t] || (e = s[t] = { i: t, l: !1, exports: {} }, a[t].call(e.exports, e, e.exports, u), e.l = !0, e)).exports;
+          }
+          var a, s;
+        }, typeof x == "object" && typeof o == "object" ? o.exports = _() : typeof x == "object" ? x.devtoolsDetector = _() : c.devtoolsDetector = _();
+      }, { "es6-promise": 9 }], 33: [function(c, o, x) {
+        var _ = c("./object");
+        o.exports.el = function(l) {
+          return document.getElementById(l);
+        }, o.exports.createEl = function(l, u) {
+          var a;
+          return l = l || "div", u = u || {}, a = document.createElement(l), _.each(u, function(s, t) {
+            s.indexOf("aria-") !== -1 || s == "role" ? a.setAttribute(s, t) : a[s] = t;
+          }), a;
+        }, o.exports.addClass = function(l, u) {
+          l && (" " + l.className + " ").indexOf(" " + u + " ") == -1 && (l.className = l.className === "" ? u : l.className + " " + u);
+        }, o.exports.removeClass = function(l, u) {
+          var a, s;
+          if (l.className.indexOf(u) != -1) {
+            for (s = (a = l.className.split(" ")).length - 1; 0 <= s; s--) a[s] === u && a.splice(s, 1);
+            l.className = a.join(" ");
+          }
+        }, o.exports.hasClass = function(l, u) {
+          return l.className.indexOf(u) != -1;
+        }, o.exports.getClasses = function(l) {
+          return l.className ? l.className.split(" ") : [];
+        }, o.exports.getElementAttributes = function(l) {
+          var u, a, s = {};
+          if (l && l.attributes && 0 < l.attributes.length) for (var t, e = (t = l.attributes).length - 1; 0 <= e; e--) u = t[e].name, a = t[e].value, typeof l[u] != "boolean" && ",autoplay,controls,loop,muted,default,".indexOf("," + u + ",") === -1 || (a = a !== null), s[u] = a;
+          return s;
+        }, o.exports.insertFirst = function(l, u) {
+          u.firstChild ? u.insertBefore(l, u.firstChild) : u.appendChild(l);
+        }, o.exports.blockTextSelection = function() {
+          document.body.focus(), document.onselectstart = function() {
+            return !1;
+          };
+        }, o.exports.unblockTextSelection = function() {
+          document.onselectstart = function() {
+            return !0;
+          };
+        }, o.exports.css = function(l, u, a) {
+          return !(!l || !l.style) && (u && a ? (l.style[u] = a, !0) : a || typeof u != "string" ? !a && typeof u == "object" && (_.each(u, function(s, t) {
+            l.style[s] = t;
+          }), !0) : l.style[u]);
+        }, o.exports.getTransformName = function(l) {
+          for (var u = ["transform", "WebkitTransform", "MozTransform", "msTransform", "OTransform"], a = u[0], s = 0, t = u.length; s < t; s++) if (l.style[u[s]] !== void 0) {
+            a = u[s];
+            break;
+          }
+          return a;
+        }, o.exports.getTransformEventName = function(l, u) {
+          for (var a = ["", "Webkit", "Moz", "ms", "O"], s = u.toLowerCase(), t = ["transform", "WebkitTransform", "MozTransform", "msTransform", "OTransform"], e = 0, n = t.length; e < n; e++) if (l.style[t[e]] !== void 0) {
+            e != 0 && (s = a[e] + u);
+            break;
+          }
+          return s;
+        }, o.exports.addCssByStyle = function(s) {
+          var u = document, a = u.createElement("style"), s = (a.setAttribute("type", "text/css"), a.styleSheet ? a.styleSheet.cssText = s : (s = u.createTextNode(s), a.appendChild(s)), u.getElementsByTagName("head"));
+          (s.length ? s[0] : u.documentElement).appendChild(a);
+        }, o.exports.getTranslateX = function(l) {
+          var u = 0;
+          if (l) try {
+            var a = window.getComputedStyle(l), s = o.exports.getTransformName(l), u = new (window.DOMMatrix || window.WebKitCSSMatrix || window.CSSMatrix || window.MSCSSMatrix)(a[s]).m41;
+          } catch (t) {
+            console.log(t);
+          }
+          return u;
+        }, o.exports.getPointerPosition = function(t, u) {
+          var a = {}, n = o.exports.findPosition(t), s = t.offsetWidth, t = t.offsetHeight, e = n.top, n = n.left, r = u.pageY, h = u.pageX;
+          return u.changedTouches && (h = u.changedTouches[0].pageX, r = u.changedTouches[0].pageY), a.y = Math.max(0, Math.min(1, (e - r + t) / t)), a.x = Math.max(0, Math.min(1, (h - n) / s)), a;
+        }, o.exports.findPosition = function(l) {
+          var u, a, s, t;
+          return (u = l.getBoundingClientRect && l.parentNode ? l.getBoundingClientRect() : u) ? (l = document.documentElement, t = document.body, s = l.clientLeft || t.clientLeft || 0, a = window.pageXOffset || t.scrollLeft, a = u.left + a - s, s = l.clientTop || t.clientTop || 0, l = window.pageYOffset || t.scrollTop, t = u.top + l - s, { left: Math.round(a), top: Math.round(t) }) : { left: 0, top: 0 };
+        };
+      }, { "./object": 43 }], 34: [function(c, o, x) {
+        var _ = c("./object"), l = c("./data"), u = c("./ua"), a = c("./fastclick");
+        function s(t, e, n, r) {
+          _.each(n, function(h) {
+            t(e, h, r);
+          });
+        }
+        o.exports.on = function(t, e, n) {
+          if (t) {
+            if (_.isArray(e)) return s(o.exports.on, t, e, n);
+            u.IS_MOBILE && e == "click" && a.attach(t);
+            var r = l.getData(t);
+            r.handlers || (r.handlers = {}), r.handlers[e] || (r.handlers[e] = []), n.guid || (n.guid = l.guid()), r.handlers[e].push(n), r.dispatcher || (r.disabled = !1, r.dispatcher = function(h) {
+              if (!r.disabled) {
+                h = o.exports.fixEvent(h);
+                var y = r.handlers[h.type];
+                if (y) for (var p = y.slice(0), d = 0, g = p.length; d < g && !h.isImmediatePropagationStopped(); d++) p[d].call(t, h);
+              }
+            }), r.handlers[e].length == 1 && (t.addEventListener ? t.addEventListener(e, r.dispatcher, !1) : t.attachEvent && t.attachEvent("on" + e, r.dispatcher));
+          }
+        }, o.exports.off = function(t, e, n) {
+          if (t && l.hasData(t)) {
+            var r = l.getData(t);
+            if (r.handlers) {
+              if (_.isArray(e)) return s(o.exports.off, t, e, n);
+              var h = function(g) {
+                r.handlers[g] = [], o.exports.cleanUpEvents(t, g);
+              };
+              if (e) {
+                var y = r.handlers[e];
+                if (y) if (n) {
+                  if (n.guid) for (var p = 0; p < y.length; p++) y[p].guid === n.guid && y.splice(p--, 1);
+                  o.exports.cleanUpEvents(t, e);
+                } else h(e);
+              } else for (var d in r.handlers) h(d);
+            }
+          }
+        }, o.exports.cleanUpEvents = function(t, e) {
+          var n = l.getData(t);
+          n.handlers[e].length === 0 && (delete n.handlers[e], t.removeEventListener ? t.removeEventListener(e, n.dispatcher, !1) : t.detachEvent && t.detachEvent("on" + e, n.dispatcher)), _.isEmpty(n.handlers) && (delete n.handlers, delete n.dispatcher, delete n.disabled), _.isEmpty(n) && l.removeData(t);
+        }, o.exports.fixEvent = function(t) {
+          function e() {
+            return !0;
+          }
+          function n() {
+            return !1;
+          }
+          if (!t || !t.isPropagationStopped) {
+            var r, h, y, p = t || window.event;
+            for (r in t = {}, p) r === "layerX" || r === "layerY" || r === "keyboardEvent.keyLocation" || r == "returnValue" && p.preventDefault || (t[r] = p[r]);
+            t.target || (t.target = t.srcElement || document), t.relatedTarget = t.fromElement === t.target ? t.toElement : t.fromElement, t.preventDefault = function() {
+              p.preventDefault && p.preventDefault(), t.returnValue = !1, t.isDefaultPrevented = e, t.defaultPrevented = !0;
+            }, t.isDefaultPrevented = n, t.defaultPrevented = !1, t.stopPropagation = function() {
+              p.stopPropagation && p.stopPropagation(), t.cancelBubble = !0, t.isPropagationStopped = e;
+            }, t.isPropagationStopped = n, t.stopImmediatePropagation = function() {
+              p.stopImmediatePropagation && p.stopImmediatePropagation(), t.isImmediatePropagationStopped = e, t.stopPropagation();
+            }, t.isImmediatePropagationStopped = n, t.clientX != null && (h = document.documentElement, y = document.body, t.pageX = t.clientX + (h && h.scrollLeft || y && y.scrollLeft || 0) - (h && h.clientLeft || y && y.clientLeft || 0), t.pageY = t.clientY + (h && h.scrollTop || y && y.scrollTop || 0) - (h && h.clientTop || y && y.clientTop || 0)), t.which = t.charCode || t.keyCode, t.button != null && (t.button = 1 & t.button ? 0 : 4 & t.button ? 1 : 2 & t.button ? 2 : 0);
+          }
+          return t;
+        }, o.exports.trigger = function(t, e) {
+          var n, r, h;
+          if (t) return n = l.hasData(t) ? l.getData(t) : {}, r = t.parentNode || t.ownerDocument, typeof e == "string" && (h = null, !t.paramData && t.paramData != 0 || (h = t.paramData, t.paramData = null, t.removeAttribute(h)), e = { type: e, target: t, paramData: h }), e = o.exports.fixEvent(e), n.dispatcher && n.dispatcher.call(t, e), r && !e.isPropagationStopped() && e.bubbles !== !1 ? o.exports.trigger(r, e) : r || e.defaultPrevented || (h = l.getData(e.target), e.target[e.type] && (h.disabled = !0, typeof e.target[e.type] == "function" && e.target[e.type](), h.disabled = !1)), !e.defaultPrevented;
+        }, o.exports.one = function(t, e, n) {
+          if (t) {
+            if (_.isArray(e)) return s(o.exports.one, t, e, n);
+            var r = function() {
+              o.exports.off(t, e, r), n.apply(this, arguments);
+            };
+            r.guid = n.guid = n.guid || l.guid(), o.exports.on(t, e, r);
+          }
+        };
+      }, { "./data": 31, "./fastclick": 35, "./object": 43, "./ua": 49 }], 35: [function(c, o, x) {
+        function _(n, r) {
+          var h;
+          if (r = r || {}, this.trackingClick = !1, this.trackingClickStart = 0, this.targetElement = null, this.touchStartX = 0, this.touchStartY = 0, this.lastTouchIdentifier = 0, this.touchBoundary = r.touchBoundary || 10, this.layer = n, this.tapDelay = r.tapDelay || 200, this.tapTimeout = r.tapTimeout || 700, !_.notNeeded(n)) {
+            for (var y = ["onMouse", "onClick", "onTouchStart", "onTouchMove", "onTouchEnd", "onTouchCancel"], p = 0, d = y.length; p < d; p++) this[y[p]] = /* @__PURE__ */ ((g, m) => function() {
+              return g.apply(m, arguments);
+            })(this[y[p]], this);
+            u && (n.addEventListener("mouseover", this.onMouse, !0), n.addEventListener("mousedown", this.onMouse, !0), n.addEventListener("mouseup", this.onMouse, !0)), n.addEventListener("click", this.onClick, !0), n.addEventListener("touchstart", this.onTouchStart, !1), n.addEventListener("touchmove", this.onTouchMove, !1), n.addEventListener("touchend", this.onTouchEnd, !1), n.addEventListener("touchcancel", this.onTouchCancel, !1), Event.prototype.stopImmediatePropagation || (n.removeEventListener = function(g, m, v) {
+              var f = Node.prototype.removeEventListener;
+              g === "click" ? f.call(n, g, m.hijacked || m, v) : f.call(n, g, m, v);
+            }, n.addEventListener = function(g, m, v) {
+              var f = Node.prototype.addEventListener;
+              g === "click" ? f.call(n, g, m.hijacked || (m.hijacked = function(b) {
+                b.propagationStopped || m(b);
+              }), v) : f.call(n, g, m, v);
+            }), typeof n.onclick == "function" && (h = n.onclick, n.addEventListener("click", function(g) {
+              h(g);
+            }, !1), n.onclick = null);
+          }
+        }
+        var l = 0 <= navigator.userAgent.indexOf("Windows Phone"), u = 0 < navigator.userAgent.indexOf("Android") && !l, a = /iP(ad|hone|od)/.test(navigator.userAgent) && !l, s = a && /OS 4_\d(_\d)?/.test(navigator.userAgent), t = a && /OS [6-7]_\d/.test(navigator.userAgent), e = 0 < navigator.userAgent.indexOf("BB10");
+        _.prototype.needsClick = function(n) {
+          switch (n.nodeName.toLowerCase()) {
+            case "button":
+            case "select":
+            case "textarea":
+              if (n.disabled) return !0;
+              break;
+            case "input":
+              if (a && n.type === "file" || n.disabled) return !0;
+              break;
+            case "label":
+            case "iframe":
+            case "video":
+              return !0;
+          }
+          return /\bneedsclick\b/.test(n.className);
+        }, _.prototype.needsFocus = function(n) {
+          switch (n.nodeName.toLowerCase()) {
+            case "textarea":
+              return !0;
+            case "select":
+              return !u;
+            case "input":
+              switch (n.type) {
+                case "button":
+                case "checkbox":
+                case "file":
+                case "image":
+                case "radio":
+                case "submit":
+                  return !1;
+              }
+              return !n.disabled && !n.readOnly;
+            default:
+              return /\bneedsfocus\b/.test(n.className);
+          }
+        }, _.prototype.sendClick = function(n, r) {
+          var h;
+          document.activeElement && document.activeElement !== n && document.activeElement.blur(), r = r.changedTouches[0], (h = document.createEvent("MouseEvents")).initMouseEvent(this.determineEventType(n), !0, !0, window, 1, r.screenX, r.screenY, r.clientX, r.clientY, !1, !1, !1, !1, 0, null), h.forwardedTouchEvent = !0, n.dispatchEvent(h);
+        }, _.prototype.determineEventType = function(n) {
+          return u && n.tagName.toLowerCase() === "select" ? "mousedown" : "click";
+        }, _.prototype.focus = function(n) {
+          var r;
+          a && n.setSelectionRange && n.type.indexOf("date") !== 0 && n.type !== "time" && n.type !== "month" && n.type !== "email" ? (r = n.value.length, n.setSelectionRange(r, r)) : n.focus();
+        }, _.prototype.updateScrollParent = function(n) {
+          var r, h = n.fastClickScrollParent;
+          if (!h || !h.contains(n)) {
+            r = n;
+            do
+              if (r.scrollHeight > r.offsetHeight) {
+                h = r, n.fastClickScrollParent = r;
+                break;
+              }
+            while (r = r.parentElement);
+          }
+          h && (h.fastClickLastScrollTop = h.scrollTop);
+        }, _.prototype.getTargetElementFromEventTarget = function(n) {
+          return n.nodeType === Node.TEXT_NODE ? n.parentNode : n;
+        }, _.prototype.onTouchStart = function(n) {
+          var r, h, y;
+          if (!(1 < n.targetTouches.length)) {
+            if (r = this.getTargetElementFromEventTarget(n.target), h = n.targetTouches[0], a) {
+              if ((y = window.getSelection()).rangeCount && !y.isCollapsed) return !0;
+              if (!s) {
+                if (h.identifier && h.identifier === this.lastTouchIdentifier) return n.preventDefault(), !1;
+                this.lastTouchIdentifier = h.identifier, this.updateScrollParent(r);
+              }
+            }
+            this.trackingClick = !0, this.trackingClickStart = n.timeStamp, this.targetElement = r, this.touchStartX = h.pageX, this.touchStartY = h.pageY, n.timeStamp - this.lastClickTime < this.tapDelay && n.preventDefault();
+          }
+          return !0;
+        }, _.prototype.touchHasMoved = function(r) {
+          var r = r.changedTouches[0], h = this.touchBoundary;
+          return Math.abs(r.pageX - this.touchStartX) > h || Math.abs(r.pageY - this.touchStartY) > h;
+        }, _.prototype.onTouchMove = function(n) {
+          return this.trackingClick && (this.targetElement !== this.getTargetElementFromEventTarget(n.target) || this.touchHasMoved(n)) && (this.trackingClick = !1, this.targetElement = null), !0;
+        }, _.prototype.findControl = function(n) {
+          return n.control !== void 0 ? n.control : n.htmlFor ? document.getElementById(n.htmlFor) : n.querySelector("button, input:not([type=hidden]), keygen, meter, output, progress, select, textarea");
+        }, _.prototype.onTouchEnd = function(n) {
+          var r, h, y, p = this.targetElement;
+          if (!this.trackingClick) return !0;
+          if (n.timeStamp - this.lastClickTime < this.tapDelay) return this.cancelNextClick = !0;
+          if (n.timeStamp - this.trackingClickStart > this.tapTimeout) return !0;
+          if (this.cancelNextClick = !1, this.lastClickTime = n.timeStamp, r = this.trackingClickStart, this.trackingClick = !1, this.trackingClickStart = 0, t && (y = n.changedTouches[0], (p = document.elementFromPoint(y.pageX - window.pageXOffset, y.pageY - window.pageYOffset) || p).fastClickScrollParent = this.targetElement.fastClickScrollParent), (y = p.tagName.toLowerCase()) === "label") {
+            if (h = this.findControl(p)) {
+              if (this.focus(p), u) return !1;
+              p = h;
+            }
+          } else if (this.needsFocus(p)) return 100 < n.timeStamp - r || a && window.top !== window && y === "input" ? this.targetElement = null : (this.focus(p), this.sendClick(p, n), a && y === "select" || (this.targetElement = null, n.preventDefault())), !1;
+          return !(!a || s || !(h = p.fastClickScrollParent) || h.fastClickLastScrollTop === h.scrollTop) || (this.needsClick(p) || (n.preventDefault(), this.sendClick(p, n)), !1);
+        }, _.prototype.onTouchCancel = function() {
+          this.trackingClick = !1, this.targetElement = null;
+        }, _.prototype.onMouse = function(n) {
+          return !this.targetElement || !(!n.forwardedTouchEvent && n.cancelable && (!this.needsClick(this.targetElement) || this.cancelNextClick) && (n.stopImmediatePropagation ? n.stopImmediatePropagation() : n.propagationStopped = !0, n.stopPropagation(), n.preventDefault(), 1));
+        }, _.prototype.onClick = function(n) {
+          return this.trackingClick ? (this.targetElement = null, !(this.trackingClick = !1)) : n.target.type === "submit" && n.detail === 0 || ((n = this.onMouse(n)) || (this.targetElement = null), n);
+        }, _.prototype.destroy = function() {
+          var n = this.layer;
+          u && (n.removeEventListener("mouseover", this.onMouse, !0), n.removeEventListener("mousedown", this.onMouse, !0), n.removeEventListener("mouseup", this.onMouse, !0)), n.removeEventListener("click", this.onClick, !0), n.removeEventListener("touchstart", this.onTouchStart, !1), n.removeEventListener("touchmove", this.onTouchMove, !1), n.removeEventListener("touchend", this.onTouchEnd, !1), n.removeEventListener("touchcancel", this.onTouchCancel, !1);
+        }, _.notNeeded = function(n) {
+          var r, h;
+          return window.ontouchstart === void 0 || (h = +(/Chrome\/([0-9]+)/.exec(navigator.userAgent) || [, 0])[1]) && (!u || (r = document.querySelector("meta[name=viewport]")) && (r.content.indexOf("user-scalable=no") !== -1 || 31 < h && document.documentElement.scrollWidth <= window.outerWidth)) || e && 10 <= (h = navigator.userAgent.match(/Version\/([0-9]*)\.([0-9]*)/))[1] && 3 <= h[2] && (r = document.querySelector("meta[name=viewport]")) && (r.content.indexOf("user-scalable=no") !== -1 || document.documentElement.scrollWidth <= window.outerWidth) ? !0 : n.style.msTouchAction === "none" || n.style.touchAction === "manipulation" || !!(27 <= +(/Firefox\/([0-9]+)/.exec(navigator.userAgent) || [, 0])[1] && (r = document.querySelector("meta[name=viewport]")) && (r.content.indexOf("user-scalable=no") !== -1 || document.documentElement.scrollWidth <= window.outerWidth)) || n.style.touchAction === "none" || n.style.touchAction === "manipulation";
+        }, _.attach = function(n, r) {
+          return new _(n, r);
+        }, o.exports = _;
+      }, {}], 36: [function(c, o, x) {
+        var _ = c("./data");
+        o.exports.bind = function(l, u, a) {
+          u.guid || (u.guid = _.guid());
+          function s() {
+            return u.apply(l, arguments);
+          }
+          return s.guid = a ? a + "_" + u.guid : u.guid, s;
+        };
+      }, { "./data": 31 }], 37: [function(c, o, x) {
+        function _() {
+          _ = function() {
+            return e;
+          };
+          var t, e = {}, n = Object.prototype, r = n.hasOwnProperty, w = typeof Symbol == "function" ? Symbol : {}, h = w.iterator || "@@iterator", y = w.asyncIterator || "@@asyncIterator", p = w.toStringTag || "@@toStringTag";
+          function d(j, U, N, C) {
+            Object.defineProperty(j, U, { value: N, enumerable: !C, configurable: !C, writable: !C });
+          }
+          try {
+            d({}, "");
+          } catch {
+            d = function(U, N, C) {
+              return U[N] = C;
+            };
+          }
+          function g(j, B, N, C) {
+            var I, L, q, Q, B = B && B.prototype instanceof f ? B : f, B = Object.create(B.prototype);
+            return d(B, "_invoke", (I = j, L = N, q = new M(C || []), Q = 1, function(k, D) {
+              if (Q === 3) throw Error("Generator is already running");
+              if (Q === 4) {
+                if (k === "throw") throw D;
+                return { value: t, done: !0 };
+              }
+              for (q.method = k, q.arg = D; ; ) {
+                var X = q.delegate;
+                if (X && (X = function te(ie, ne) {
+                  var G = ne.method, F = ie.i[G];
+                  return F === t ? (ne.delegate = null, G === "throw" && ie.i.return && (ne.method = "return", ne.arg = t, te(ie, ne), ne.method === "throw") || G !== "return" && (ne.method = "throw", ne.arg = new TypeError("The iterator does not provide a '" + G + "' method")), v) : (G = m(F, ie.i, ne.arg), G.type === "throw" ? (ne.method = "throw", ne.arg = G.arg, ne.delegate = null, v) : (F = G.arg, F ? F.done ? (ne[ie.r] = F.value, ne.next = ie.n, ne.method !== "return" && (ne.method = "next", ne.arg = t), ne.delegate = null, v) : F : (ne.method = "throw", ne.arg = new TypeError("iterator result is not an object"), ne.delegate = null, v)));
+                }(X, q), X)) {
+                  if (X === v) continue;
+                  return X;
+                }
+                if (q.method === "next") q.sent = q._sent = q.arg;
+                else if (q.method === "throw") {
+                  if (Q === 1) throw Q = 4, q.arg;
+                  q.dispatchException(q.arg);
+                } else q.method === "return" && q.abrupt("return", q.arg);
+                if (Q = 3, X = m(I, L, q), X.type === "normal") {
+                  if (Q = q.done ? 4 : 2, X.arg === v) continue;
+                  return { value: X.arg, done: q.done };
+                }
+                X.type === "throw" && (Q = 4, q.method = "throw", q.arg = X.arg);
+              }
+            }), !0), B;
+          }
+          function m(j, U, N) {
+            try {
+              return { type: "normal", arg: j.call(U, N) };
+            } catch (C) {
+              return { type: "throw", arg: C };
+            }
+          }
+          e.wrap = g;
+          var v = {};
+          function f() {
+          }
+          function b() {
+          }
+          function S() {
+          }
+          var w = {}, T = (d(w, h, function() {
+            return this;
+          }), Object.getPrototypeOf), T = T && T(T(O([]))), R = (T && T !== n && r.call(T, h) && (w = T), S.prototype = f.prototype = Object.create(w));
+          function P(j) {
+            ["next", "throw", "return"].forEach(function(U) {
+              d(j, U, function(N) {
+                return this._invoke(U, N);
+              });
+            });
+          }
+          function E(j, U) {
+            var N;
+            d(this, "_invoke", function(C, I) {
+              function L() {
+                return new U(function(q, Q) {
+                  (function B(ne, D, X, te) {
+                    var ie, ne = m(j[ne], j, D);
+                    if (ne.type !== "throw") return (D = (ie = ne.arg).value) && typeof D == "object" && r.call(D, "__await") ? U.resolve(D.__await).then(function(G) {
+                      B("next", G, X, te);
+                    }, function(G) {
+                      B("throw", G, X, te);
+                    }) : U.resolve(D).then(function(G) {
+                      ie.value = G, X(ie);
+                    }, function(G) {
+                      return B("throw", G, X, te);
+                    });
+                    te(ne.arg);
+                  })(C, I, q, Q);
+                });
+              }
+              return N = N ? N.then(L, L) : L();
+            }, !0);
+          }
+          function A(j) {
+            this.tryEntries.push(j);
+          }
+          function H(j) {
+            var U = j[4] || {};
+            U.type = "normal", U.arg = t, j[4] = U;
+          }
+          function M(j) {
+            this.tryEntries = [[-1]], j.forEach(A, this), this.reset(!0);
+          }
+          function O(j) {
+            if (j != null) {
+              var U, N = j[h];
+              if (N) return N.call(j);
+              if (typeof j.next == "function") return j;
+              if (!isNaN(j.length)) return U = -1, (N = function C() {
+                for (; ++U < j.length; ) if (r.call(j, U)) return C.value = j[U], C.done = !1, C;
+                return C.value = t, C.done = !0, C;
+              }).next = N;
+            }
+            throw new TypeError(typeof j + " is not iterable");
+          }
+          return d(R, "constructor", b.prototype = S), d(S, "constructor", b), d(S, p, b.displayName = "GeneratorFunction"), e.isGeneratorFunction = function(j) {
+            return j = typeof j == "function" && j.constructor, !!j && (j === b || (j.displayName || j.name) === "GeneratorFunction");
+          }, e.mark = function(j) {
+            return Object.setPrototypeOf ? Object.setPrototypeOf(j, S) : (j.__proto__ = S, d(j, p, "GeneratorFunction")), j.prototype = Object.create(R), j;
+          }, e.awrap = function(j) {
+            return { __await: j };
+          }, P(E.prototype), d(E.prototype, y, function() {
+            return this;
+          }), e.AsyncIterator = E, e.async = function(j, U, N, C, I) {
+            I === void 0 && (I = Promise);
+            var L = new E(g(j, U, N, C), I);
+            return e.isGeneratorFunction(U) ? L : L.next().then(function(q) {
+              return q.done ? q.value : L.next();
+            });
+          }, P(R), d(R, p, "Generator"), d(R, h, function() {
+            return this;
+          }), d(R, "toString", function() {
+            return "[object Generator]";
+          }), e.keys = function(j) {
+            var U, N = Object(j), C = [];
+            for (U in N) C.unshift(U);
+            return function I() {
+              for (; C.length; ) if ((U = C.pop()) in N) return I.value = U, I.done = !1, I;
+              return I.done = !0, I;
+            };
+          }, e.values = O, M.prototype = { constructor: M, reset: function(j) {
+            if (this.prev = this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(H), !j) for (var U in this) U.charAt(0) === "t" && r.call(this, U) && !isNaN(+U.slice(1)) && (this[U] = t);
+          }, stop: function() {
+            this.done = !0;
+            var j = this.tryEntries[0][4];
+            if (j.type === "throw") throw j.arg;
+            return this.rval;
+          }, dispatchException: function(j) {
+            if (this.done) throw j;
+            var U = this;
+            function N(k) {
+              L.type = "throw", L.arg = j, U.next = k;
+            }
+            for (var C = U.tryEntries.length - 1; 0 <= C; --C) {
+              var I = this.tryEntries[C], L = I[4], q = this.prev, Q = I[1], B = I[2];
+              if (I[0] === -1) return N("end"), !1;
+              if (!Q && !B) throw Error("try statement without catch or finally");
+              if (I[0] != null && I[0] <= q) {
+                if (q < Q) return this.method = "next", this.arg = t, N(Q), !0;
+                if (q < B) return N(B), !1;
+              }
+            }
+          }, abrupt: function(j, U) {
+            for (var N = this.tryEntries.length - 1; 0 <= N; --N) {
+              var C = this.tryEntries[N];
+              if (-1 < C[0] && C[0] <= this.prev && this.prev < C[2]) {
+                var I = C;
+                break;
+              }
+            }
+            var L = (I = I && (j === "break" || j === "continue") && I[0] <= U && U <= I[2] ? null : I) ? I[4] : {};
+            return L.type = j, L.arg = U, I ? (this.method = "next", this.next = I[2], v) : this.complete(L);
+          }, complete: function(j, U) {
+            if (j.type === "throw") throw j.arg;
+            return j.type === "break" || j.type === "continue" ? this.next = j.arg : j.type === "return" ? (this.rval = this.arg = j.arg, this.method = "return", this.next = "end") : j.type === "normal" && U && (this.next = U), v;
+          }, finish: function(j) {
+            for (var U = this.tryEntries.length - 1; 0 <= U; --U) {
+              var N = this.tryEntries[U];
+              if (N[2] === j) return this.complete(N[4], N[3]), H(N), v;
+            }
+          }, catch: function(j) {
+            for (var U = this.tryEntries.length - 1; 0 <= U; --U) {
+              var N, C, I = this.tryEntries[U];
+              if (I[0] === j) return (N = I[4]).type === "throw" && (C = N.arg, H(I)), C;
+            }
+            throw Error("illegal catch attempt");
+          }, delegateYield: function(j, U, N) {
+            return this.delegate = { i: O(j), r: U, n: N }, this.method === "next" && (this.arg = t), v;
+          } }, e;
+        }
+        function l(t, e, n, r, h, y, p) {
+          try {
+            var d = t[y](p), g = d.value;
+          } catch (m) {
+            return n(m);
+          }
+          d.done ? e(g) : Promise.resolve(g).then(r, h);
+        }
+        function u(t) {
+          return function() {
+            var e = this, n = arguments;
+            return new Promise(function(r, h) {
+              var y = t.apply(e, n);
+              function p(g) {
+                l(y, r, h, p, d, "next", g);
+              }
+              function d(g) {
+                l(y, r, h, p, d, "throw", g);
+              }
+              p(void 0);
+            });
+          };
+        }
+        var a, s = typeof Promise > "u" ? c("es6-promise").Promise : Promise;
+        c = self, a = function() {
+          return (n = { d: function(b, S) {
+            for (var w in S) n.o(S, w) && !n.o(b, w) && Object.defineProperty(b, w, { enumerable: !0, get: S[w] });
+          }, o: function(b, S) {
+            return Object.prototype.hasOwnProperty.call(b, S);
+          } }).d(r = {}, { default: function() {
+            return f;
+          } }), h = navigator.userAgent, y = /qqbrowser/i.test(h.toLowerCase()), p = /Edge/i.test(h), p = /Chrome/i.test(h) && !p && !y, d = /Safari/i.test(h) && !p, y = h.match(/Version\/([\d.]+)([^S](Safari)|[^M]*(Mobile)[^S]*(Safari))/), p = y && y[1], g = p && Number(p.split(".")[0]), m = (() => {
+            var b = u(_().mark(function S(w) {
+              var T;
+              return _().wrap(function(R) {
+                for (; ; ) switch (R.prev = R.next) {
+                  case 0:
+                    return R.next = 2, fetch(w);
+                  case 2:
+                    return T = R.sent, R.next = 5, T.blob();
+                  case 5:
+                    return T = R.sent, R.abrupt("return", URL.createObjectURL(T));
+                  case 7:
+                  case "end":
+                    return R.stop();
+                }
+              }, S);
+            }));
+            return function(S) {
+              return b.apply(this, arguments);
+            };
+          })(), v = { includeSystemHijack: !0, showVideo: !1, format: "mp4", codecTags: ["hev1", "hvc1"], timeout: 2e3 }, f = function(b) {
+            return b === void 0 && (b = {}), new s((() => {
+              var S = u(_().mark(function w(T) {
+                var R, P, E, A, H, M, O, j, U, N, C, I, L;
+                return _().wrap(function(q) {
+                  for (; ; ) switch (q.prev = q.next) {
+                    case 0:
+                      if (A = Object.assign({}, v, b), R = A.includeSystemHijack, P = A.showVideo, O = A.codecTags, E = A.format, A = A.timeout, H = performance.now(), M = -1 < O.indexOf("hvc1"), O = -1 < O.indexOf("hev1"), U = j = !1, !(d && g && 11 <= g)) {
+                        q.next = 14;
+                        break;
+                      }
+                      if (N = t("hvc1", E), q.t0 = R, q.t0) {
+                        q.next = 9;
+                        break;
+                      }
+                      return q.next = 8, m(N);
+                    case 8:
+                      N = q.sent;
+                    case 9:
+                      return q.next = 11, e(N, P, "hvc1", A);
+                    case 11:
+                      j = q.sent, q.next = 34;
+                      break;
+                    case 14:
+                      if (!M) {
+                        q.next = 24;
+                        break;
+                      }
+                      if (C = t("hvc1", E), q.t1 = R, q.t1) {
+                        q.next = 21;
+                        break;
+                      }
+                      return q.next = 20, m(C);
+                    case 20:
+                      C = q.sent;
+                    case 21:
+                      return q.next = 23, e(C, P, "hvc1", A);
+                    case 23:
+                      j = q.sent;
+                    case 24:
+                      if (!O) {
+                        q.next = 34;
+                        break;
+                      }
+                      if (I = t("hev1", E), q.t2 = R, q.t2) {
+                        q.next = 31;
+                        break;
+                      }
+                      return q.next = 30, m(I);
+                    case 30:
+                      I = q.sent;
+                    case 31:
+                      return q.next = 33, e(I, P, "hev1", A);
+                    case 33:
+                      U = q.sent;
+                    case 34:
+                      L = performance.now(), T({ isHvc1Supported: j, isHev1Supported: U, time: Math.ceil(L - H) });
+                    case 36:
+                    case "end":
+                      return q.stop();
+                  }
+                }, w);
+              }));
+              return function(w) {
+                return S.apply(this, arguments);
+              };
+            })());
+          }, r.default;
+          function t(b, S) {
+            var w = (S = S === void 0 ? "mp4" : S) === "hls", T = "";
+            switch (b = b === void 0 ? "" : b) {
+              case "hvc1":
+                T = w ? "https://player.alicdn.com/lib/detect-assets/01s_20x20_hvc1.m3u8" : "https://ice-pub-media.myalicdn.com/vod-demo/hevc/01s_20x20_hvc1.mp4";
+                break;
+              case "hev1":
+                T = w ? "https://player.alicdn.com/lib/detect-assets/01s_20x20_hev1.m3u8" : "https://ice-pub-media.myalicdn.com/vod-demo/hevc/01s_20x20_hev1.mp4";
+                break;
+              default:
+                T = "";
+            }
+            return T;
+          }
+          function e(b, S, w, T) {
+            S === void 0 && (S = !1), w === void 0 && (w = "");
+            var R = performance.now(), P = T;
+            return new s(function(E) {
+              A = b, (H = S ? 100 : 0) === void 0 && (H = 100), (M = document.createElement("video")).setAttribute("width", "" + H), M.setAttribute("height", "" + H), M.setAttribute("muted", "muted"), M.setAttribute("crossorigin", "anonymous"), M.setAttribute("preload", "preload"), M.setAttribute("autoplay", "autoplay"), M.setAttribute("webkit-playsinline", "webkit-playsinline"), M.setAttribute("playsinline", "playsinline"), M.setAttribute("x-webkit-airplay", "x-webkit-airplay"), M.setAttribute("playsinline", "playsinline"), M.src = A;
+              var A, H, M, O = M, j = setInterval(function() {
+                var U, N, C, I, L;
+                (performance.now() - R > P || O.videoWidth !== 0) && (clearInterval(j), U = O.videoWidth !== 0, S ? (O.setAttribute("controls", "controls"), N = O, (C = w) === void 0 && (C = ""), I = document.createElement("dv"), (L = document.createElement("h3")).innerText = C, I.appendChild(N), I.appendChild(L), document.body.appendChild(I)) : (O.pause(), O = null), E(U));
+              });
+            });
+          }
+          var n, r, h, y, p, d, g, m, v, f;
+        }, typeof x == "object" && typeof o == "object" ? o.exports = a() : typeof x == "object" ? x.hevcDetector = a() : c.hevcDetector = a();
+      }, { "es6-promise": 9 }], 38: [function(c, o, x) {
+        function _(a) {
+          for (var s in a = typeof a == "string" ? this.parseAttrList(a) : a) a.hasOwnProperty(s) && (this[s] = a[s]);
+        }
+        var l = /^(\d+)x(\d+)$/, u = /\s*(.+?)\s*=((?:\".*?\")|.*?)(?:,|$)/g;
+        _.prototype = { decimalInteger: function(a) {
+          return a = parseInt(this[a], 10), a > Number.MAX_SAFE_INTEGER ? 1 / 0 : a;
+        }, hexadecimalInteger: function(a) {
+          if (this[a]) {
+            for (var s = (1 & (s = (this[a] || "0x").slice(2)).length ? "0" : "") + s, t = new Uint8Array(s.length / 2), e = 0; e < s.length / 2; e++) t[e] = parseInt(s.slice(2 * e, 2 * e + 2), 16);
+            return t;
+          }
+          return null;
+        }, hexadecimalIntegerAsNumber: function(a) {
+          return a = parseInt(this[a], 16), a > Number.MAX_SAFE_INTEGER ? 1 / 0 : a;
+        }, decimalFloatingPoint: function(a) {
+          return parseFloat(this[a]);
+        }, enumeratedString: function(a) {
+          return this[a];
+        }, decimalResolution: function(a) {
+          if (a = l.exec(this[a]), a !== null) return { width: parseInt(a[1], 10), height: parseInt(a[2], 10) };
+        }, parseAttrList: function(a) {
+          var s, t = {};
+          for (u.lastIndex = 0; (s = u.exec(a)) !== null; ) {
+            var e = s[2];
+            e.indexOf('"') === 0 && e.lastIndexOf('"') === e.length - 1 && (e = e.slice(1, -1)), t[s[1]] = e;
+          }
+          return t;
+        } }, o.exports = _;
+      }, {}], 39: [function(c, o, x) {
+        function _() {
+          this._url = null, this._byteRange = null, this._decryptdata = null, this.tagList = [];
+        }
+        function l() {
+          this.loaders = {};
+        }
+        var u = c("../constants"), a = c("../playerutil"), s = c("./attrlist"), t = c("../io"), e = c("./urltoolkit"), n = /#EXT-X-STREAM-INF:([^\n\r]*)[\r\n]+([^\r\n]+)/g, r = /#EXT-X-MEDIA:(.*)/g, h = new RegExp([/#EXTINF:(\d*(?:\.\d+)?)(?:,(.*)\s+)?/.source, /|(?!#)(\S+)/.source, /|#EXT-X-BYTERANGE:*(.+)/.source, /|#EXT-X-PROGRAM-DATE-TIME:(.+)/.source, /|#.*/.source].join(""), "g"), y = /(?:(?:#(EXTM3U))|(?:#EXT-X-(PLAYLIST-TYPE):(.+))|(?:#EXT-X-(PART-INF):(.+))|(?:#EXT-X-(MEDIA-SEQUENCE): *(\d+))|(?:#EXT-X-(TARGETDURATION): *(\d+))|(?:#EXT-X-(KEY):(.+))|(?:#EXT-X-(START):(.+))|(?:#EXT-X-(ENDLIST))|(?:#EXT-X-(DISCONTINUITY-SEQ)UENCE:(\d+))|(?:#EXT-X-(DIS)CONTINUITY))|(?:#EXT-X-(VERSION):(\d+))|(?:#EXT-X-(MAP):(.+))|(?:(#)(.*):(.*))|(?:(#)(.*))(?:.*)\r?\n?/, p = "RegionBlock", d = function() {
+          this.method = null, this.key = null, this.iv = null, this._uri = null;
+        };
+        _.prototype.getUrl = function() {
+          return !this._url && this.relurl && (this._url = e.buildAbsoluteURL(this.baseurl, this.relurl, { alwaysNormalize: !0 })), this._url;
+        }, _.prototype.Seturl = function(g) {
+          this._url = g;
+        }, _.prototype.getProgramDateTime = function() {
+          return !this._programDateTime && this.rawProgramDateTime && (this._programDateTime = new Date(Date.parse(this.rawProgramDateTime))), this._programDateTime;
+        }, _.prototype.GetbyteRange = function() {
+          var g, m, v;
+          return this._byteRange || (g = this._byteRange = [], this.rawByteRange && ((m = this.rawByteRange.split("@", 2)).length === 1 ? (v = this.lastByteRangeEndOffset, g[0] = v || 0) : g[0] = parseInt(m[1]), g[1] = parseInt(m[0]) + g[0])), this._byteRange;
+        }, _.prototype.getByteRangeStartOffset = function() {
+          return this.byteRange[0];
+        }, _.prototype.getByteRangeEndOffset = function() {
+          return this.byteRange[1];
+        }, _.prototype.getDecryptdata = function() {
+          return this._decryptdata || (this._decryptdata = this.fragmentDecryptdataFromLevelkey(this.levelkey, this.sn)), this._decryptdata;
+        }, l.prototype = ((c = { parseMasterPlaylist: function(g, m) {
+          var v = [];
+          for (n.lastIndex = 0; (S = n.exec(g)) != null; ) {
+            var f = {}, b = f.attrs = new s(S[1]), S = (f.url = this.resolve(S[2], m), b.decimalResolution("RESOLUTION"));
+            if (S && (f.width = S.width, f.height = S.height), f.bitrate = b.decimalInteger("AVERAGE-BANDWIDTH") || b.decimalInteger("BANDWIDTH"), f.name = b.NAME, w = b.CODECS) for (var w = w.split(/[ ,]+/), T = 0; T < w.length; T++) {
+              var R = w[T];
+              R.indexOf("avc1") !== -1 ? f.videoCodec = this.avc1toavcoti(R) : R.indexOf("hvc1") !== -1 ? f.videoCodec = R : f.audioCodec = R;
+            }
+            v.push(f);
+          }
+          return v;
+        }, parseMasterPlaylistMedia: function(g, m, v, f) {
+          var b = [], S = 0;
+          for (r.lastIndex = 0; (T = r.exec(g)) != null; ) {
+            var w = {}, T = new s(T[1]);
+            T.TYPE === v && (w.groupId = T["GROUP-ID"], w.name = T.NAME, w.type = v, w.default = T.DEFAULT === "YES", w.autoselect = T.AUTOSELECT === "YES", w.forced = T.FORCED === "YES", T.URI && (w.url = this.resolve(T.URI, m)), w.lang = T.LANGUAGE, w.name || (w.name = w.lang), f && (w.audioCodec = f), w.id = S++, b.push(w));
+          }
+          return b;
+        }, avc1toavcoti: function(g) {
+          var m = g.split("."), v = 2 < m.length ? (v = m.shift() + ".", (v += parseInt(m.shift()).toString(16)) + ("000" + parseInt(m.shift()).toString(16)).substr(-4)) : g;
+          return v;
+        }, load: function(g, m, v) {
+          var f = this;
+          t.get(g, function(b) {
+            var S, w, T, R = f.parseMasterPlaylist(b, g);
+            R.length && (S = f.parseMasterPlaylistMedia(b, g, "AUDIO", R[0].audioCodec), w = f.parseMasterPlaylistMedia(b, g, "SUBTITLES"), S.length) && (T = !1, S.forEach(function(P) {
+              P.url || (T = !0);
+            }), T === !1) && R[0].audioCodec && !R[0].attrs.AUDIO && (console.log("audio codec signaled in quality level, but no embedded audio track signaled, create one"), S.unshift({ type: "main", name: "main" })), m({ levels: R, audioTracks: S, subtitles: w, url: g, string: b });
+          }, function(b, S, w) {
+            v && ((w = a.parseHttpHeaders(w)["x-tengine-error"]) && -1 < u.RegionBlockMessages.indexOf(w) && (b = p), v(b, S));
+          });
+        }, loadMediaPlaylist: function(g, m, v) {
+          var f = this, b = (g = g || {}).string, S = g.url;
+          b ? (g = f.parseLevelPlaylist(b, S), m(g)) : t.get(S, function(w) {
+            w = f.parseLevelPlaylist(w, S), m(w);
+          }, function(w) {
+            v && v(w);
+          });
+        }, resolve: function(g, m) {
+          return e.buildAbsoluteURL(m, g, { alwaysNormalize: !0 });
+        } }).parseMasterPlaylist = function(g, m) {
+          var v = [];
+          for (n.lastIndex = 0; (S = n.exec(g)) != null; ) {
+            var f = {}, b = f.attrs = new s(S[1]), S = (f.url = this.resolve(S[2], m), b.decimalResolution("RESOLUTION"));
+            if (S && (f.width = S.width, f.height = S.height), f.bitrate = b.decimalInteger("AVERAGE-BANDWIDTH") || b.decimalInteger("BANDWIDTH"), f.name = b.NAME, w = b.CODECS) for (var w = w.split(/[ ,]+/), T = 0; T < w.length; T++) {
+              var R = w[T];
+              R.indexOf("avc1") !== -1 ? f.videoCodec = this.avc1toavcoti(R) : R.indexOf("hvc1") !== -1 ? f.videoCodec = R : f.audioCodec = R;
+            }
+            v.push(f);
+          }
+          return v;
+        }, c.parseMasterPlaylistMedia = function(g, m, v, f) {
+          var b = [], S = 0;
+          for (r.lastIndex = 0; (T = r.exec(g)) != null; ) {
+            var w = {}, T = new s(T[1]);
+            T.TYPE === v && (w.groupId = T["GROUP-ID"], w.name = T.NAME, w.type = v, w.default = T.DEFAULT === "YES", w.autoselect = T.AUTOSELECT === "YES", w.forced = T.FORCED === "YES", T.URI && (w.url = this.resolve(T.URI, m)), w.lang = T.LANGUAGE, w.name || (w.name = w.lang), f && (w.audioCodec = f), w.id = S++, b.push(w));
+          }
+          return b;
+        }, c.avc1toavcoti = function(g) {
+          var m = g.split("."), v = 2 < m.length ? (v = m.shift() + ".", (v += parseInt(m.shift()).toString(16)) + ("000" + parseInt(m.shift()).toString(16)).substr(-4)) : g;
+          return v;
+        }, c.parseLevelPlaylist = function(g, m, v, f) {
+          var b, S, w = 0, T = 0, R = { type: null, version: null, url: m, fragments: [], live: !0, startSN: 0 }, P = new d(), E = 0, A = null, H = new _();
+          for (h.lastIndex = 0; (b = h.exec(g)) !== null; ) {
+            var M = b[1];
+            if (M) {
+              H.duration = parseFloat(M);
+              var O = (" " + b[2]).slice(1);
+              H.title = O || null, H.tagList.push(O ? ["INF", M, O] : ["INF", M]);
+            } else if (b[3]) isNaN(H.duration) || (O = w++, H.type = f, H.start = T, H.levelkey = P, H.sn = O, H.level = v, H.cc = E, H.baseurl = m, H.relurl = (" " + b[3]).slice(1), R.fragments.push(H), T += (A = H).duration, H = new _());
+            else if (b[4]) H.rawByteRange = (" " + b[4]).slice(1), A && (M = A.byteRangeEndOffset) && (H.lastByteRangeEndOffset = M);
+            else if (b[5]) H.rawProgramDateTime = (" " + b[5]).slice(1), H.tagList.push(["PROGRAM-DATE-TIME", H.rawProgramDateTime]), R.programDateTime === void 0 && (R.programDateTime = new Date(new Date(Date.parse(b[5])) - 1e3 * T));
+            else {
+              for (b = b[0].match(y), S = 1; S < b.length && b[S] === void 0; S++) ;
+              var j = (" " + b[S + 1]).slice(1), U = (" " + b[S + 2]).slice(1);
+              switch (b[S]) {
+                case "#":
+                  H.tagList.push(U ? [j, U] : [j]);
+                  break;
+                case "PLAYLIST-TYPE":
+                  R.type = j.toUpperCase();
+                  break;
+                case "MEDIA-SEQUENCE":
+                  w = R.startSN = parseInt(j);
+                  break;
+                case "TARGETDURATION":
+                  R.targetduration = parseFloat(j);
+                  break;
+                case "VERSION":
+                  R.version = parseInt(j);
+                  break;
+                case "EXTM3U":
+                  break;
+                case "ENDLIST":
+                  R.live = !1;
+                  break;
+                case "DIS":
+                  E++, H.tagList.push(["DIS"]);
+                  break;
+                case "DISCONTINUITY-SEQ":
+                  E = parseInt(j);
+                  break;
+                case "KEY":
+                  var I = new s(j), N = I.enumeratedString("METHOD"), C = I.URI, I = I.hexadecimalInteger("IV");
+                  N && (P = new d(), C) && 0 <= ["AES-128", "SAMPLE-AES"].indexOf(N) && (P.method = N, P.baseuri = m, P.reluri = C, P.key = null, P.iv = I);
+                  break;
+                case "START":
+                  N = new s(j).decimalFloatingPoint("TIME-OFFSET"), isNaN(N) || (R.startTimeOffset = N);
+                  break;
+                case "MAP":
+                  C = new s(j), H.relurl = C.URI, H.rawByteRange = C.BYTERANGE, H.baseurl = m, H.level = v, H.type = f, H.sn = "initSegment", R.initSegment = H, H = new _();
+                  break;
+                case "PART-INF":
+                  I = new s(j), R.partTarget = I.decimalFloatingPoint("PART-TARGET");
+                  break;
+                default:
+                  console.log("line parsed but not handled: " + b);
+              }
+            }
+          }
+          return (H = A) && !H.relurl && (R.fragments.pop(), T -= H.duration), R.totalduration = T, R.averagetargetduration = T / R.fragments.length, R.endSN = w - 1, R;
+        }, c), l.ERROR_REGION_BLOCK = p, o.exports = l;
+      }, { "../constants": 29, "../io": 41, "../playerutil": 46, "./attrlist": 38, "./urltoolkit": 40 }], 40: [function(c, o, x) {
+        var _ = /^((?:[a-zA-Z0-9+\-.]+:)?)(\/\/[^\/\;?#]*)?(.*?)??(;.*?)?(\?.*?)?(#.*?)?$/, l = /^([^\/;?#]*)(.*)$/, u = /(?:\/|^)\.(?=\/)/g, a = /(?:\/|^)\.\.\/(?!\.\.\/).*?(?=\/)/g, s = { buildAbsoluteURL: function(y, e, n) {
+          if (n = n || {}, y = y.trim(), !(e = e.trim())) {
+            if (!n.alwaysNormalize) return y;
+            var r = s.parseURL(y);
+            if (r) return r.path = s.normalizePath(r.path), s.buildURLFromParts(r);
+            throw new Error("Error trying to parse base URL.");
+          }
+          if (r = s.parseURL(e), !r) throw new Error("Error trying to parse relative URL.");
+          if (r.scheme) return n.alwaysNormalize ? (r.path = s.normalizePath(r.path), s.buildURLFromParts(r)) : e;
+          if (e = s.parseURL(y), !e) throw new Error("Error trying to parse base URL.");
+          !e.netLoc && e.path && e.path[0] !== "/" && (y = l.exec(e.path), e.netLoc = y[1], e.path = y[2]), e.netLoc && !e.path && (e.path = "/");
+          var h, y = { scheme: e.scheme, netLoc: r.netLoc, path: null, params: r.params, query: r.query, fragment: r.fragment };
+          return r.netLoc || (y.netLoc = e.netLoc, r.path[0] !== "/" && (r.path ? (h = (h = e.path).substring(0, h.lastIndexOf("/") + 1) + r.path, y.path = s.normalizePath(h)) : (y.path = e.path, r.params || (y.params = e.params, r.query) || (y.query = e.query)))), y.path === null && (y.path = n.alwaysNormalize ? s.normalizePath(r.path) : r.path), s.buildURLFromParts(y);
+        }, parseURL: function(t) {
+          return t = _.exec(t), t ? { scheme: t[1] || "", netLoc: t[2] || "", path: t[3] || "", params: t[4] || "", query: t[5] || "", fragment: t[6] || "" } : null;
+        }, normalizePath: function(t) {
+          for (t = t.split("").reverse().join("").replace(u, ""); t.length !== (t = t.replace(a, "")).length; ) ;
+          return t.split("").reverse().join("");
+        }, buildURLFromParts: function(t) {
+          return t.scheme + t.netLoc + t.path + t.params + t.query + t.fragment;
+        } };
+        o.exports = s;
+      }, {}], 41: [function(c, o, x) {
+        var _ = c("./url");
+        o.exports.get = function(l, u, a, s, t, e) {
+          o.exports.ajax.call(this, "GET", l, {}, u, a, s, t, void 0, e);
+        }, o.exports.post = function(l, u, a, s, t, e) {
+          var n = { "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8", Accept: "application/json" };
+          o.exports.ajax("POST", l, u, a, s, t, e, n);
+        }, o.exports.postWithHeader = function(l, u, a, s, t) {
+          o.exports.ajax("POST", l, u, s, t, !0, !1, a);
+        }, o.exports.ajax = function(l, u, a, s, t, e, n, r, h) {
+          var y, p, d;
+          t = t || function() {
+          }, typeof XMLHttpRequest > "u" && (window.XMLHttpRequest = function() {
+            try {
+              return new window.ActiveXObject("Msxml2.XMLHTTP.6.0");
+            } catch {
+            }
+            try {
+              return new window.ActiveXObject("Msxml2.XMLHTTP.3.0");
+            } catch {
+            }
+            try {
+              return new window.ActiveXObject("Msxml2.XMLHTTP");
+            } catch {
+            }
+            throw new Error("This browser does not support XMLHttpRequest.");
+          }), p = new XMLHttpRequest(), h && (p.timeout = h), h = _.parseUrl(u), d = window.location, h.protocol + h.host === d.protocol + d.host || !window.XDomainRequest || "withCredentials" in p ? (y = h.protocol == "file:" || d.protocol == "file:", p.onreadystatechange = function() {
+            p.readyState === 4 && (p.status === 200 || y && p.status === 0 ? s(p.responseText) : t(p.responseText, p.status, p));
+          }) : ((p = new window.XDomainRequest()).onload = function() {
+            s(p.responseText);
+          }, p.onerror = t, p.onprogress = function() {
+          }, p.ontimeout = t);
+          try {
+            if (e === void 0 && (e = !0), p.open(l, u, e), n && (p.withCredentials = !0), r) for (var g in r) r.hasOwnProperty(g) && p.setRequestHeader(g, r[g]);
+          } catch (m) {
+            return void t(m);
+          }
+          try {
+            p.send(a);
+          } catch (m) {
+            t(m);
+          }
+        }, o.exports.jsonp = function(l, u, a) {
+          var s = "jsonp_callback_" + Math.round(1e5 * Math.random()), t = document.createElement("script");
+          l && (t.src = l + (0 <= l.indexOf("?") ? "&" : "?") + "callback=" + s + "&cb=" + s, t.onerror = function() {
+            delete window[s], document.body.removeChild(t), a();
+          }, t.onload = function() {
+            setTimeout(function() {
+              window[s] && (delete window[s], document.body.removeChild(t));
+            }, 0);
+          }, window[s] = function(e) {
+            delete window[s], document.body.removeChild(t), u(e);
+          }, document.body.appendChild(t));
+        }, o.exports.loadJS = function(l, u, a) {
+          var s = document.getElementsByTagName("HEAD").item(0), t = document.createElement("script");
+          t.setAttribute("crossorigin", "anonymous"), l && l.toLowerCase().indexOf("https://") < 0 && l.toLowerCase().indexOf("http://") < 0 && (l = document.URL.replace(/(\/[^\/]*?)$/i, "") + l), t.type = "text/javascript", t.src = l, t.onload = function() {
+            u && u();
+          }, t.onerror = function() {
+            a && a();
+          }, s.appendChild(t);
+        };
+      }, { "./url": 50 }], 42: [function(c, o, x) {
+        var _ = c("./dom");
+        o.exports.render = function(l, t) {
+          var a = t.align || (t.className ? "" : "tl"), s = t.x || 0, t = t.y || 0, e = s.indexOf && 0 < s.indexOf("%") ? "" : "px", n = t.indexOf && 0 < t.indexOf("%") ? "" : "px";
+          a === "tl" ? _.css(l, { float: "left", "margin-left": s + e, "margin-top": t + n }) : a === "tr" ? _.css(l, { float: "right", "margin-right": s + e, "margin-top": t + n }) : a === "tlabs" ? _.css(l, { position: "absolute", left: s + e, top: t + n }) : a === "trabs" ? _.css(l, { position: "absolute", right: s + e, top: t + n }) : a === "blabs" ? _.css(l, { position: "absolute", left: s + e, bottom: t + n }) : a === "brabs" ? _.css(l, { position: "absolute", right: s + e, bottom: t + n }) : a === "cc" && _.addClass(l, "loading-center");
+        };
+      }, { "./dom": 33 }], 43: [function(c, o, x) {
+        var _ = Object.prototype.hasOwnProperty;
+        o.exports.create = Object.create || function(l) {
+          function u() {
+          }
+          return u.prototype = l, new u();
+        }, o.exports.isArray = function(l) {
+          return Object.prototype.toString.call(arg) === "[object Array]";
+        }, o.exports.isEmpty = function(l) {
+          for (var u in l) if (l[u] !== null) return !1;
+          return !0;
+        }, o.exports.each = function(l, u, a) {
+          if (o.exports.isArray(l)) for (var s = 0, t = l.length; s < t && u.call(a || this, l[s], s) !== !1; ++s) ;
+          else for (var e in l) if (_.call(l, e) && u.call(a || this, e, l[e]) === !1) break;
+          return l;
+        }, o.exports.merge = function(l, u) {
+          if (u) for (var a in u) _.call(u, a) && (l[a] = u[a]);
+          return l;
+        }, o.exports.deepMerge = function(l, u) {
+          var a, s, t;
+          for (a in l = o.exports.copy(l), u) _.call(u, a) && (s = l[a], t = u[a], o.exports.isPlain(s) && o.exports.isPlain(t) ? l[a] = o.exports.deepMerge(s, t) : l[a] = u[a]);
+          return l;
+        }, o.exports.copy = function(l) {
+          return o.exports.merge({}, l);
+        }, o.exports.isPlain = function(l) {
+          return !!l && typeof l == "object" && l.toString() === "[object Object]" && l.constructor === Object;
+        }, o.exports.isArray = Array.isArray || function(l) {
+          return Object.prototype.toString.call(l) === "[object Array]";
+        }, o.exports.unescape = function(l) {
+          return l.replace(/&([^;]+);/g, function(u, a) {
+            return { amp: "&", lt: "<", gt: ">", quot: '"', "#x27": "'", "#x60": "`" }[a.toLowerCase()] || u;
+          });
+        };
+      }, {}], 44: [function(c, o, x) {
+        var _, l = c("./object");
+        (_ = function() {
+        }).extend = function(u) {
+          var a, s, t = (u = u || {}).init || this.prototype.init || function() {
+          };
+          for (s in (((a = function() {
+            t.apply(this, arguments);
+          }).prototype = l.create(this.prototype)).constructor = a).extend = _.extend, a.create = _.create, u) u.hasOwnProperty(s) && (a.prototype[s] = u[s]);
+          return a;
+        }, _.create = function() {
+          var u = l.create(this.prototype);
+          return this.apply(u, arguments), u;
+        }, o.exports = _;
+      }, { "./object": 43 }], 45: [function(c, o, x) {
+        var _ = !new Function("try {return this===window;}catch(e){ return false;}")();
+        o.exports.isSSR = _;
+      }, {}], 46: [function(c, o, x) {
+        var _ = c("./object"), l = c("../config"), u = c("./dom"), a = c("./cookie"), s = c("./constants"), t = c("../lang/index"), e = c("./ua"), n = c("./io"), r = c("../player/base/plugin/defaultemptycomponent"), h = c("./hardware-decoding-detector"), y = { preload: !0, autoplay: !0, autoplayPolicy: { fallbackToMute: !1, showUnmuteBtn: !0 }, useNativeControls: !1, width: "100%", height: "300px", cover: "", from: "", trackLog: !0, logBatched: !0, logReportTo: void 0, heartHeatInterval: 30, isLive: !1, playsinline: !0, showBarTime: 5e3, rePlay: !1, mute: !1, liveRetry: 5, liveRetryInterval: 1, liveRetryStep: 0, disableVodHalfRetry: !1, disableLiveHalfRetry: !1, keyShortCuts: !1, keyFastForwardStep: 10, isVBR: !1, vodRetry: 3, format: "", definition: "", defaultDefinition: "", loadDataTimeout: 20, waitingTimeout: 60, waitingBufferedTime: 3, delayLoadingShow: 1, controlBarForOver: !1, controlBarVisibility: "hover", enableSystemMenu: !1, qualitySort: "asc", x5_video_position: "normal", x5_type: "", x5_fullscreen: !1, x5_orientation: "landscape|portrait", x5LandscapeAsFullScreen: !0, license: {}, autoPlayDelay: 0, autoPlayDelayDisplayText: "", useHlsPluginForSafari: !1, enableMSEForAndroid: !0, encryptType: 0, language: "zh-cn", languageTexts: {}, extLanguageTexts: {}, mediaType: "video", outputType: "", playConfig: {}, reAuthInfo: {}, components: [], liveTimeShiftUrl: "", liveShiftSource: "", liveShiftTime: "", liveShiftMinOffset: 30, videoHeight: "100%", videoWidth: "100%", enableWorker: !0, authTimeout: "", enableMockFullscreen: !1, region: "cn-shanghai", debug: !1, progressMarkers: [], ratio: void 0, snapshotWatermark: { left: "500", top: "100", text: "", font: "16px 宋体", fillColor: "#FFFFFF", strokeColor: "#FFFFFF" }, liveStartTime: "", liveOverTime: "", enableStashBufferForFlv: !1, flvOption: {}, hlsOption: { stopLoadAsPaused: !1 }, drmOption: {}, hlsLoadingTimeOut: 2e4, useHlsPlugOnMobile: !0, useFlvPlugOnMobile: !0, lowLatencyMode: !1, useHls2: !0, useDrm2: void 0, skipRtsSupportCheck: !1, rtsLoadDataTimeout: 6e3, rtsOption: {}, rtsFallback: !1, rtsFallbackSource: void 0, rtsFallbackType: void 0, rtsVersion: "", rtsSdkUrl: "", nudgeMaxRetry: 5, tracks: [], recreatePlayer: function() {
+        }, diagnosisButtonVisible: !0, enableH265: !1, forceH265: !1, enableH266: !1, forceH266: !1, h265Threads: !0, h265Simd: !0, preventRecord: !1, traceId: "", mediaAuth: void 0, textTracks: void 0, _native: !0, hlsUriToken: "", thumbnailUrl: "", refreshAccessInfo: function() {
+        }, drmSessionTimeout: 5e3, skinRes: "//" + l.domain + "/de/prismplayer-flash/" + l.flashVersion + "/atlas/defaultSkin", splayerUrl: null, splayerWasmDomain: null, logo: [], disablePip: !1, assetPrefix: null, clickPause: e.IS_PC, clickPauseDelay: 200, statisticsReportInterval: 5e3, skinLayoutIgnore: [], disableSeek: !1, dashjsUrl: null, dashOption: {}, disableDumpBuffer: !1, useSW: !1, swScriptURL: void 0, env: "", autoSize: "", watchStartTime: void 0, watchEndTime: void 0, start: void 0, end: void 0, dbClickFullscreen: e.IS_PC, dbClickFullscreenDelay: 200, enableHlsH265: !1, bitrateDisplayHandler: void 0, longPressFastForward: !e.IS_PC, dbClickSkip: !e.IS_PC }, p = (o.exports.getDefaultH5Layout = function() {
+          return [{ name: "bigPlayButton", align: "blabs", x: 30, y: 80 }, { name: "unmuteButton", align: "cc" }, { name: "H5Loading", align: "cc" }, { name: "errorDisplay", align: "tlabs", x: 0, y: 0 }, { name: "infoDisplay" }, { name: "tooltip", align: "blabs", x: 0, y: 50 }, { name: "thumbnail" }, { name: "controlBar", align: "blabs", x: 0, y: 0, children: [{ name: "progress", align: "blabs", x: 0, y: 44 }, { name: "playButton", align: "tl", x: 15, y: 12 }, { name: "timeDisplay", align: "tl", x: 10, y: 5 }, { name: "fullScreenButton", align: "tr", x: 10, y: 12 }, { name: "subtitle", align: "tr", x: 15, y: 12 }, { name: "setting", align: "tr", x: 15, y: 12 }, { name: "volume", align: "tr", x: 5, y: 10 }] }];
+        }, o.exports.getDefaultAudioLayout = function() {
+          return [{ name: "controlBar", align: "blabs", x: 0, y: 0, children: [{ name: "progress", align: "blabs", x: 0, y: 44 }, { name: "playButton", align: "tl", x: 15, y: 12 }, { name: "timeDisplay", align: "tl", x: 10, y: 5 }, { name: "volume", align: "tr", x: 5, y: 10 }] }];
+        }, o.exports.getDefaultFlashLayout = function() {
+          return [{ name: "bigPlayButton", align: "blabs", x: 30, y: 80 }, { name: "controlBar", align: "blabs", x: 0, y: 0, children: [{ name: "progress", align: "tlabs", x: 0, y: 0 }, { name: "playButton", align: "tl", x: 15, y: 26 }, { name: "nextButton", align: "tl", x: 10, y: 26 }, { name: "timeDisplay", align: "tl", x: 10, y: 24 }, { name: "fullScreenButton", align: "tr", x: 10, y: 25 }, { name: "streamButton", align: "tr", x: 10, y: 23 }, { name: "volume", align: "tr", x: 10, y: 25 }] }, { name: "fullControlBar", align: "tlabs", x: 0, y: 0, children: [{ name: "fullTitle", align: "tl", x: 25, y: 6 }, { name: "fullNormalScreenButton", align: "tr", x: 24, y: 13 }, { name: "fullTimeDisplay", align: "tr", x: 10, y: 12 }, { name: "fullZoom", align: "cc" }] }];
+        }, o.exports.canPlayType = function(d) {
+          var g = document.createElement("video");
+          return g.canPlayType ? g.canPlayType(d) : "";
+        }, o.exports.canPlayHls = function() {
+          return o.exports.canPlayType("application/x-mpegURL") != "";
+        }, o.exports.isUsedHlsPluginOnMobile = function(d) {
+          return !!(e.IS_MOBILE && (e.IS_CHROME || e.IS_FIREFOX || e.IS_X5 || e.IS_EDGE_NEW) && o.exports.isSupportHls());
+        }, o.exports.isSafariUsedHlsPlugin = function(d) {
+          return !!(e.os.pc && e.browser.safari && d);
+        }, o.exports.validateSource = function(d) {
+          return !0;
+        }, o.exports.supportH5Video = function() {
+          return document.createElement("video").canPlayType !== void 0;
+        }, o.exports.createWrapper = function(d) {
+          var g = d.id, g = typeof g == "string" ? (g.indexOf("#") === 0 && (g = g.slice(1)), u.el(g)) : g;
+          if (g && g.nodeName) return o.exports.adjustContainerLayout(g, d), g;
+          throw new TypeError("没有为播放器指定容器");
+        }, o.exports.adjustContainerLayout = function(d, g) {
+          g.width && !d.style.width && (d.style.width = g.width), g.height && !d.style.height && (d.style.height = g.height);
+        }, o.exports.isSupportHls = function() {
+          var d = window.MediaSource = window.MediaSource || window.WebKitMediaSource, g = window.SourceBuffer = window.SourceBuffer || window.WebKitSourceBuffer, d = d && typeof d.isTypeSupported == "function" && d.isTypeSupported('video/mp4; codecs="avc1.42E01E,mp4a.40.2"'), g = (e.IS_ANDROID && e.is_X5 && (d = !0), !g || g.prototype && typeof g.prototype.appendBuffer == "function" && typeof g.prototype.remove == "function");
+          return d && g;
+        }, o.exports.isSupportMMS = function() {
+          return !!window.ManagedMediaSource;
+        }, o.exports.isSupportFlv = function() {
+          return o.exports.isSupportHls();
+        }, o.exports.isSupportMSE = function() {
+          return o.exports.isSupportHls() || o.exports.isSupportMMS();
+        }, o.exports.isSupportedMediaSource = function() {
+          return !!window.MediaSource && !!MediaSource.isTypeSupported;
+        }, o.exports.isSupportedDrm = function() {
+          return !!(window.MediaKeys && window.navigator && window.navigator.requestMediaKeySystemAccess && window.MediaKeySystemAccess && window.MediaKeySystemAccess.prototype.getConfiguration) && o.exports.isSupportMSE();
+        }, o.exports.isAudio = function(d, g) {
+          if (g) return o.exports.isMp3Format(g);
+          g = !1;
+          try {
+            g = d && new URL("http:" + d).pathname.split(".").pop().toLowerCase() === "mp3";
+          } catch {
+            return d && 0 < d.toLowerCase().indexOf(".mp3");
+          }
+          return g;
+        }, o.exports.isLiveShift = function(d) {
+          return d.isLive && d.liveStartTime && d.liveOverTime;
+        }, o.exports.isHls = function(d, g) {
+          if (g) return o.exports.isHlsFormat(g);
+          g = !1;
+          try {
+            g = d && new URL("http:" + d).pathname.split(".").pop().toLowerCase() === "m3u8";
+          } catch {
+            return d && 0 < d.toLowerCase().indexOf(".m3u8");
+          }
+          return g;
+        }, o.exports.isDash = function(d, g) {
+          if (g) return o.exports.isDashFormat(g);
+          g = !1;
+          try {
+            g = d && new URL("http:" + d).pathname.split(".").pop().toLowerCase() === "mpd";
+          } catch {
+            return d && 0 < d.toLowerCase().indexOf(".mpd");
+          }
+          return g;
+        }, o.exports.isFlv = function(d, g) {
+          if (g) return o.exports.isFlvFormat(g);
+          g = !1;
+          try {
+            g = d && new URL("http:" + d).pathname.split(".").pop().toLowerCase() === "flv";
+          } catch {
+            return d && 0 < d.toLowerCase().indexOf(".flv");
+          }
+          return g;
+        }, o.exports.isRTMP = function(d) {
+          return d && -1 < d.toLowerCase().indexOf("rtmp:");
+        }, o.exports.isRts = function(d) {
+          return d && -1 < d.toLowerCase().indexOf("artc:");
+        }, o.exports.isMp4 = function(d, g) {
+          if (g) return o.exports.isMp4Format(g);
+          g = !1;
+          try {
+            g = d && new URL("http:" + d).pathname.split(".").pop().toLowerCase() === "mp4";
+          } catch {
+            return d && -1 < d.toLowerCase().indexOf(".mp4");
+          }
+          return g;
+        }, o.exports.isSupportedFormat = function(d) {
+          if (!d) return !1;
+          try {
+            var g = d.toLowerCase();
+            return ~["mp3", "mp4", "mpd", "hls", "m3u8", "flv"].indexOf(g);
+          } catch {
+            return !1;
+          }
+        }, o.exports.isMp3Format = function(d) {
+          if (!d) return !1;
+          try {
+            var g = d.toLowerCase();
+            return ~["mp3"].indexOf(g);
+          } catch {
+            return !1;
+          }
+        }, o.exports.isMp4Format = function(d) {
+          if (!d) return !1;
+          try {
+            var g = d.toLowerCase();
+            return ~["mp4"].indexOf(g);
+          } catch {
+            return !1;
+          }
+        }, o.exports.isFlvFormat = function(d) {
+          if (!d) return !1;
+          try {
+            var g = d.toLowerCase();
+            return ~["flv"].indexOf(g);
+          } catch {
+            return !1;
+          }
+        }, o.exports.isHlsFormat = function(d) {
+          if (!d) return !1;
+          try {
+            var g = d.toLowerCase();
+            return ~["hls", "m3u8"].indexOf(g);
+          } catch {
+            return !1;
+          }
+        }, o.exports.isDashFormat = function(d) {
+          if (!d) return !1;
+          try {
+            var g = d.toLowerCase();
+            return ~["mpd"].indexOf(g);
+          } catch {
+            return !1;
+          }
+        }, o.exports.getFormat = function(m) {
+          var g = { artc: "rts", m3u8: "hls" }, m = (m = /\.(mp4)|\.(mp3)|\.(m3u8)|\.(flv)|(artc):/.exec(m)) == null ? void 0 : m[0];
+          return m = m && m.replace(/\.|:|artc|m3u8/gi, function(v) {
+            return g[v] || "";
+          });
+        }, o.exports.checkSecuritSupport = function() {
+          return o.exports.isSupportMSE() ? e.IS_IOS && (e.IS_UC || e.IS_QUARK || e.IS_BAIDU) ? t.get("iOSVodEncriptionBlacklist") : "" : "serviceWorker" in navigator ? void 0 : location.protocol === "http:" ? t.get("Error_SW_Https_required") : t.get("UseChromeForVodEncription") + "(SW not found)";
+        }, o.exports.nativeSupportH265 = function() {
+          return e.IS_IOS || e.IS_MAC_SAFARI;
+        }, o.exports.findSelectedStreamLevel = function(d, g) {
+          var m = g;
+          if (m || (m = a.get(s.SelectedStreamLevel))) {
+            for (var v = 0; v < d.length; v++) if (d[v].definition == m) return v;
+          } else a.set(s.SelectedStreamLevel, d[0].definition, 365);
+          return 0;
+        }, o.exports.getHistoryDetectResult = function(d, g) {
+          if (d) return g = g === "hls", d === "hvc1" ? g ? a.get(s.HWDetectHvc1Hls) : a.get(s.HWDetectHvc1) : d === "hev1" ? g ? a.get(s.HWDetectHev1Hls) : a.get(s.HWDetectHev1) : void 0;
+        }, o.exports.setHistoryDetectResult = function(d, f, m) {
+          var v = "unknownCodec", f = f === "hls";
+          d === "hvc1" ? v = f ? s.HWDetectHvc1Hls : s.HWDetectHvc1 : d === "hev1" && (v = f ? s.HWDetectHev1Hls : s.HWDetectHev1), a.set(v, m);
+        }, o.exports.handleOption = function(d, g) {
+          o.exports.isRts(d.source) && (d.isLive = !0);
+          var m, v = _.merge(_.copy(y), d), f = (d.autoplayPolicy && (v.autoplayPolicy = _.merge(y.autoplayPolicy, d.autoplayPolicy)), [{ name: "fullScreenButton", align: "tr", x: 20, y: 12 }, { name: "subtitle", align: "tr", x: 15, y: 12 }, { name: "setting", align: "tr", x: 15, y: 12 }, { name: "volume", align: "tr", x: 5, y: 10 }]), b = !1;
+          if (d.useFlashPrism || o.exports.isRTMP(d.source) ? (b = !0, f = [{ name: "liveIco", align: "tlabs", x: 15, y: 25 }, { name: "fullScreenButton", align: "tr", x: 10, y: 25 }, { name: "volume", align: "tr", x: 10, y: 25 }]) : (m = o.exports.isLiveShift(v)) ? (f.push({ name: "liveShiftProgress", align: "tlabs", x: 0, y: 0 }), f.push({ name: "playButton", align: "tl", x: 15, y: 12 }), f.push({ name: "liveDisplay", align: "tl", x: 15, y: 6 })) : f.push({ name: "liveDisplay", align: "tlabs", x: 15, y: 6 }), d.isLive) {
+            if (d.skinLayout === void 0) v.skinLayout = [{ name: "errorDisplay", align: "tlabs", x: 0, y: 0 }, { name: "infoDisplay" }, { name: "bigPlayButton", align: "blabs", x: 30, y: 80 }, { name: "unmuteButton", align: "cc" }, { name: "tooltip", align: "blabs", x: 0, y: 56 }, { name: "H5Loading", align: "cc" }, { name: "controlBar", align: "blabs", x: 0, y: 0, children: o.exports.isRts(d.source) ? [{ name: "fullScreenButton", align: "tr", x: 20, y: 12 }, { name: "volume", align: "tr", x: 5, y: 10 }, { name: "liveDisplay", align: "tlabs", x: 15, y: 6 }] : f }];
+            else if (d.skinLayout != 0) {
+              for (var S = d.skinLayout.length, w = [], T = -1, R = 0; R < S; R++) if (v.skinLayout[R].name == "controlBar") {
+                for (var T = R, P = v.skinLayout[R].children.length, E = 0; E < P; E++) {
+                  var A, H = v.skinLayout[R].children[E].name;
+                  H != "liveDisplay" && H != "liveIco" && H != "fullScreenButton" && H != "volume" && H != "snapshot" && H != "setting" && H != "subtitle" && (!m || H != "progress" && H != "playButton" && H != "timeDisplay") || (A = v.skinLayout[R].children[E], H == "progress" ? A.name = "liveShiftProgress" : H == "timeDisplay" ? A.name = "liveShiftTimeDisplay" : b && H == "liveDisplay" && (A.name = "liveIco"), w.push(A));
+                }
+                break;
+              }
+              T != -1 && (v.skinLayout[T].children = w);
+            }
+          }
+          return (d.components === void 0 || !d.components || _.isArray(d.components) && d.components.length == 0) && d.components != "false" && (v.components = [r]), v;
+        }, o.exports.ignoreSkinLayouts = function(d, g) {
+          var m;
+          if (g != null && g.length && d != null && d.length) return m = d, g.forEach(function(v) {
+            var f, b, S;
+            -1 < v.indexOf(".") ? (S = v.split("."), f = S[0], b = S[1], (S = m.find(function(w) {
+              return w.name === f;
+            })) && (S.children = S.children.filter(function(w) {
+              return w.name !== b;
+            }))) : m = m.filter(function(w) {
+              return w.name !== v;
+            });
+          }), m;
+        }, o.exports.getLiveHostByRegion = function(d) {
+          var g = "live.aliyuncs.com";
+          return d && -1 < ["ap-southeast-1", "eu-central-1"].indexOf(d) ? "live." + d + ".aliyuncs.com" : g;
+        }, o.exports.isVideoTag = function(d) {
+          return d && typeof d.nodeName == "string" && d.nodeName.toLowerCase() === "video";
+        }, o.exports.unqiueTextTracks = function(d) {
+          var g = [], g = (d = d === void 0 ? [] : d).reduce(function(v, f) {
+            var b;
+            return v.some(function(S) {
+              return S.srclang === f.srclang;
+            }) ? v : ((b = f).label = f.label || f.srclang, [].concat(v, [b]));
+          }, []), m = {};
+          return g.forEach(function(v, f) {
+            m[v.label] ? m[v.label].push(f) : m[v.label] = [f];
+          }), Object.keys(m).forEach(function(v) {
+            v = m[v] || [], 1 < v.length && v.forEach(function(f) {
+              g[f].label = g[f].label + "(" + g[f].srclang + ")";
+            });
+          }), g;
+        }, o.exports.isHvc1Codec = function(d) {
+          return -1 < (d = d === void 0 ? "" : d).indexOf("hvc1");
+        }, o.exports.isHev1Codec = function(d) {
+          return -1 < (d = d === void 0 ? "" : d).indexOf("hev1");
+        }, o.exports.isVvccCodec = function(d) {
+          return -1 < (d = d === void 0 ? "" : d).indexOf("vvcC");
+        }, o.exports.isVvc1Codec = function(d) {
+          return -1 < (d = d === void 0 ? "" : d).indexOf("vvc1");
+        }, o.exports.isVvi1Codec = function(d) {
+          return -1 < (d = d === void 0 ? "" : d).indexOf("vvi1");
+        }, o.exports.isH265Codec = function(d) {
+          return o.exports.isHvc1Codec(d = d === void 0 ? "" : d) || o.exports.isHev1Codec(d);
+        }, o.exports.isH266Codec = function(d) {
+          return o.exports.isVvccCodec(d = d === void 0 ? "" : d) || o.exports.isVvc1Codec(d) || o.exports.isVvi1Codec(d);
+        }, o.exports.isH264Codec = function(d) {
+          return -1 < (d = d === void 0 ? "" : d).indexOf("avc1");
+        }, o.exports.getVideoTrack = function(d) {
+          var g;
+          return (d = d === void 0 ? [] : d).forEach(function(m) {
+            Number(m.type) === 1 && (g = m);
+          }), g;
+        }, e.IS_ANDROID && (e.dingTalk() || e.IS_UC || e.is_X5 || e.IS_HUAWEI || e.IS_XIAOMI || e.IS_OPPO || e.IS_VIVO || e.IS_MEIZU || e.IS_SAMSUNG || e.IS_WEBVIEW) || e.os && e.os.name === "windows" && e.IS_UC);
+        o.exports.shouldUseBasePlayer = function(S, g) {
+          var m, v, f, b = S.codecTag, S = S.url, w = "unsupported";
+          return !b || (f = o.exports.isHvc1Codec(b), m = o.exports.isMp4(S), S = o.exports.isHls(S), m && o.exports.nativeSupportH265() && f) || m && (() => {
+            if (!(!p && (e.IS_CHROME || e.IS_EDGE_NEW))) return !1;
+            var T = 0;
+            try {
+              T = e.USER_AGENT.match(/Chrome\/(\d+)/i)[1];
+            } catch {
+              T = 0;
+            }
+            return !(parseInt(T) < 104 || !window.MediaSource || !window.MediaSource.isTypeSupported('video/mp4;codecs="hvc1.1.6.L120.90"'));
+          })() ? g(!0) : p ? (f = o.exports.getHistoryDetectResult(b, v = S ? "hls" : "mp4")) === "supported" ? g(!0) : f === w ? g(!1) : void h({ codecTags: [b], format: v, timeout: 2e3 }).then(function(T) {
+            if (T = T.isHev1Supported || T.isHvc1Supported, o.exports.setHistoryDetectResult(b, v, T ? "supported" : w), T) return g(!0);
+            g(!1);
+          }).catch(function(T) {
+            console.log("hevcDetector ERROR", T), g(!1);
+          }) : g(!1);
+        }, o.exports.parseHttpHeaders = function(d) {
+          if (d) {
+            var g = {};
+            try {
+              d instanceof Response ? d.headers.forEach(function(m, v) {
+                g[v] = m;
+              }) : d.getAllResponseHeaders().trim().split(/[\r\n]+/).forEach(function(f) {
+                var f = f.split(": "), v = f.shift(), f = f.join(": ");
+                g[v] = f;
+              });
+            } catch {
+            }
+            return g;
+          }
+        }, o.exports.detectRegionBlock = function(d, g) {
+          n.get(d, function() {
+            g(!1);
+          }, function(m, v, f) {
+            f = o.exports.parseHttpHeaders(f)["x-tengine-error"], v === 403 && f && -1 < s.RegionBlockMessages.indexOf(f) ? g(!0) : g(!1);
+          });
+        }, o.exports.enableDbClickSkip = function(d) {
+          return d.dbClickSkip && !d.dbClickFullscreen;
+        }, o.exports.drawSnapshotText = function(d, g) {
+          g = g.snapshotWatermark, g && g.text && (d.font = g.font, g.fillColor && (d.fillStyle = g.fillColor, d.fillText(g.text, g.left, g.top)), g.strokeColor && (d.strokeStyle = g.strokeColor, d.strokeText(g.text, g.left, g.top)), d.stroke());
+        }, o.exports.hasValue = function(d) {
+          return d != null && d !== "";
+        };
+      }, { "../config": 15, "../lang/index": 24, "../player/base/plugin/defaultemptycomponent": 92, "./constants": 29, "./cookie": 30, "./dom": 33, "./hardware-decoding-detector": 37, "./io": 41, "./object": 43, "./ua": 49 }], 47: [function(c, o, x) {
+        var _ = c("./object"), l = c("../player/adaptiveplayer"), u = c("./constants").USER_EVENT_NAME;
+        o.exports.reloadInstance = function(h, s, t) {
+          var e = t, n = (e.dispose(), h.readyCallback), r = h._readyCallbackCalled, h = l.create(h, function(y) {
+            s(y), r || n(y);
+          });
+          o.exports.restoreUserEvents(t, h), o.exports.removeAllProps(e), (e.__proto__ = h)[u] = e[u];
+        }, o.exports.storeUserEvents = function(a) {
+          var s = a, t = s.__proto__.on, e = {};
+          s.on = function(n, r) {
+            typeof r == "function" && (e[n] ? e[n].push(r) : e[n] = [r], this._el) && (r.binded = !0, t.call(s, n, r));
+          }, s[u] = e;
+        }, o.exports.restoreUserEvents = function(a, s) {
+          var t = a[u];
+          t && _.each(t, function(e) {
+            t[e].forEach(function(n) {
+              s.on(e, n);
+            });
+          });
+        }, o.exports.removeAllProps = function(a, s) {
+          for (var t in s = [].concat(s = s || [], [u]), a) a.hasOwnProperty(t) && s.indexOf(t) === -1 && delete a[t];
+        };
+      }, { "../player/adaptiveplayer": 65, "./constants": 29, "./object": 43 }], 48: [function(c, o, x) {
+        o.exports.set = function(_, l) {
+          try {
+            window.localStorage && localStorage.setItem(_, l);
+          } catch {
+            window[_ + "_localStorage"] = l;
+          }
+        }, o.exports.get = function(_) {
+          try {
+            if (window.localStorage) return localStorage.getItem(_);
+          } catch {
+            return window[_ + "_localStorage"];
+          }
+          return "";
+        };
+      }, {}], 49: [function(c, o, x) {
+        var _, l, u;
+        if (o.exports.USER_AGENT = navigator.userAgent, o.exports.IS_IPHONE = /iPhone/i.test(o.exports.USER_AGENT), o.exports.IS_IPAD = /iPad/i.test(o.exports.USER_AGENT), o.exports.IS_IPOD = /iPod/i.test(o.exports.USER_AGENT), o.exports.IS_MAC = /mac/i.test(o.exports.USER_AGENT), o.exports.IS_EDGE = /Edge/i.test(o.exports.USER_AGENT), o.exports.IS_EDGE_NEW = /Edg/i.test(o.exports.USER_AGENT) && !o.exports.IS_EDGE, o.exports.IS_IE11 = /Trident\/7.0/i.test(o.exports.USER_AGENT), o.exports.IS_X5 = /qqbrowser/i.test(o.exports.USER_AGENT.toLowerCase()), o.exports.IS_CHROME = /Chrome/i.test(o.exports.USER_AGENT) && !o.exports.IS_EDGE && !o.exports.IS_EDGE_NEW && !o.exports.IS_X5, o.exports.IS_SAFARI = /Safari/i.test(o.exports.USER_AGENT) && !o.exports.IS_CHROME && !o.exports.IS_EDGE_NEW, o.exports.IS_FIREFOX = /Firefox/i.test(o.exports.USER_AGENT), o.exports.IS_UC = /ucweb|UCBrowser|UBrowser/i.test(o.exports.USER_AGENT), o.exports.IS_QUARK = /Quark/i.test(o.exports.USER_AGENT), o.exports.IS_HUAWEI = /HuaweiBrowser/i.test(o.exports.USER_AGENT), o.exports.IS_XIAOMI = /MiuiBrowser/i.test(o.exports.USER_AGENT), o.exports.IS_OPPO = /HeyTapBrowser/i.test(o.exports.USER_AGENT), o.exports.IS_VIVO = /VivoBrowser/i.test(o.exports.USER_AGENT), o.exports.IS_MEIZU = /MZBrowser/i.test(o.exports.USER_AGENT), o.exports.IS_SAMSUNG = /samsungbrowser/i.test(o.exports.USER_AGENT), o.exports.IS_BAIDU = /baiduboxapp/i.test(o.exports.USER_AGENT), document.all) try {
+          var a = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+          o.exports.HAS_FLASH = !!a;
+        } catch {
+          o.exports.HAS_FLASH = !1;
+        }
+        else navigator.plugins && 0 < navigator.plugins.length ? (a = navigator.plugins["Shockwave Flash"], o.exports.HAS_FLASH = !!a) : o.exports.HAS_FLASH = !1;
+        o.exports.IS_MAC_SAFARI = o.exports.IS_MAC && o.exports.IS_SAFARI && !o.exports.IS_CHROME && !o.exports.HAS_FLASH, o.exports.IS_IOS = o.exports.IS_IPHONE || o.exports.IS_IPAD || o.exports.IS_IPOD, o.exports.IOS_VERSION = (() => {
+          var s = o.exports.USER_AGENT.match(/OS (\d+)_/i);
+          if (s && s[1]) return s[1];
+        })(), o.exports.IOS_FULL_VERSION = (() => {
+          var s = o.exports.USER_AGENT.match(/OS (\d+)_(\d+)_?/i);
+          if (s && s[1] && s[2]) return s[1] + "." + s[2];
+        })(), o.exports.IS_HARMONY = /OpenHarmony/i.test(o.exports.USER_AGENT), o.exports.IS_ANDROID = /Android/i.test(o.exports.USER_AGENT) || o.exports.IS_HARMONY, o.exports.ANDROID_VERSION = (a = o.exports.USER_AGENT.match(/Android (\d+)(?:\.(\d+))?(?:\.(\d+))*/i)) ? (l = a[1] && parseFloat(a[1]), _ = a[2] && parseFloat(a[2]), l && _ ? parseFloat(a[1] + "." + a[2]) : l || null) : null, o.exports.IS_OLD_ANDROID = o.exports.IS_ANDROID && /webkit/i.test(o.exports.USER_AGENT) && o.exports.ANDROID_VERSION < 2.3, o.exports.TOUCH_ENABLED = !!("ontouchstart" in window || window.DocumentTouch && document instanceof window.DocumentTouch), o.exports.IS_MOBILE = o.exports.IS_IOS || o.exports.IS_ANDROID, o.exports.IS_H5 = o.exports.IS_MOBILE || !o.exports.HAS_FLASH, o.exports.IS_PC = !o.exports.IS_MOBILE, o.exports.is_X5 = /micromessenger/i.test(o.exports.USER_AGENT) || /qqbrowser/i.test(o.exports.USER_AGENT), o.exports.IS_ANDROID_FIREFOX = o.exports.IS_ANDROID && o.exports.IS_FIREFOX, o.exports.CHROME_VERSION = o.exports.IS_CHROME && o.exports.USER_AGENT.match(/Chrome\/(\d+)/i)[1], o.exports.getHost = function(s) {
+          var t, e, n = "";
+          return s === void 0 || s == null || s == "" ? "" : (t = s.indexOf("//"), e = s, n = e = -1 < t ? s.substring(t + 2) : e, (s = (n = (s = e.split("/")) && 0 < s.length ? s[0] : n).split(":")) && 0 < s.length ? s[0] : n);
+        }, o.exports.dingTalk = function() {
+          var s = o.exports.USER_AGENT.toLowerCase();
+          return /dingtalk/i.test(s);
+        }, o.exports.IS_DINGTALK = o.exports.dingTalk(), o.exports.wechat = function() {
+          var s = o.exports.USER_AGENT.toLowerCase();
+          return /micromessenger/i.test(s);
+        }, o.exports.inIFrame = function() {
+          return self != top;
+        }, o.exports.getReferer = function() {
+          var s = document.referrer;
+          if (o.exports.inIFrame()) try {
+            s = top.document.referrer;
+          } catch {
+            s = document.referrer;
+          }
+          return s;
+        }, o.exports.getHref = function() {
+          if (o.exports.inIFrame()) try {
+            top.location.href;
+          } catch {
+          }
+          return location.href;
+        }, o.exports.check360 = function() {
+          return navigator.userAgent.indexOf("Safari") != -1 ? (() => {
+            var s = navigator.userAgent.split(" ");
+            if (s[s.length - 1].indexOf("Safari") != -1) {
+              for (var t in navigator.plugins) if (navigator.plugins[t].filename == "np-mswmp.dll") return !0;
+            }
+            return !1;
+          })() : (navigator.msPointerEnabled == null || navigator.msPointerEnabled) && (navigator.msDoNotTrack == 1 || window.doNotTrack == 1) && (!!Number(window.screenX) && window.screenLeft - window.screenX != 8 || (navigator.userAgent.indexOf("MSIE 7.0") != -1 || navigator.userAgent.indexOf("MSIE 8.0") != -1) && console.count == null);
+        }, (function(s, v) {
+          var e = this.os = {}, n = this.browser = {}, r = s.match(/Web[kK]it[\/]{0,1}([\d.]+)/), h = s.match(/(Android);?[\s\/]+([\d.]+)?/), y = !!s.match(/\(Macintosh\; Intel /), p = s.match(/(iPad).*OS\s([\d_]+)/), d = s.match(/(iPod)(.*OS\s([\d_]+))?/), g = !p && s.match(/(iPhone\sOS)\s([\d_]+)/), m = s.match(/(webOS|hpwOS)[\s\/]([\d.]+)/), v = /Win\d{2}|Windows/.test(v), f = s.match(/Windows Phone ([\d.]+)/), b = m && s.match(/TouchPad/), S = s.match(/Kindle\/([\d.]+)/), w = s.match(/Silk\/([\d._]+)/), T = s.match(/(BlackBerry).*Version\/([\d.]+)/), R = s.match(/(BB10).*Version\/([\d.]+)/), P = s.match(/(RIM\sTablet\sOS)\s([\d.]+)/), E = s.match(/PlayBook/), A = s.match(/Chrome\/([\d.]+)/) || s.match(/CriOS\/([\d.]+)/), H = s.match(/Firefox\/([\d.]+)/), M = s.match(/\((?:Mobile|Tablet); rv:([\d.]+)\).*Firefox\/[\d.]+/), O = s.match(/MSIE\s([\d.]+)/) || s.match(/Trident\/[\d](?=[^\?]+).*rv:([0-9.].)/), j = !A && s.match(/(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/), U = j || s.match(/Version\/([\d.]+)([^S](Safari)|[^M]*(Mobile)[^S]*(Safari))/);
+          (n.webkit = !!r) && (n.version = r[1]), h && (e.android = !0, e.version = h[2]), g && !d && (e.ios = e.iphone = !0, e.version = g[2].replace(/_/g, ".")), p && (e.ios = e.ipad = !0, e.version = p[2].replace(/_/g, ".")), d && (e.ios = e.ipod = !0, e.version = d[3] ? d[3].replace(/_/g, ".") : null), f && (e.wp = !0, e.version = f[1]), m && (e.webos = !0, e.version = m[2]), b && (e.touchpad = !0), T && (e.blackberry = !0, e.version = T[2]), R && (e.bb10 = !0, e.version = R[2]), P && (e.rimtabletos = !0, e.version = P[2]), E && (n.playbook = !0), S && (e.kindle = !0, e.version = S[1]), w && (n.silk = !0, n.version = w[1]), !w && e.android && s.match(/Kindle Fire/) && (n.silk = !0), A && (n.chrome = !0, n.version = A[1]), H && (n.firefox = !0, n.version = H[1]), M && (e.firefoxos = !0, e.version = M[1]), O && (n.ie = !0, n.version = O[1]), U && (y || e.ios || v || h) && (n.safari = !0, e.ios || e.android || (n.version = U[1])), e.ios && (n.version = e.version), j && (n.webview = !0), y && ((r = s.match(/[\d]*_[\d]*_[\d]*/)) && 0 < r.length && r[0] && (e.version = r[0].replace(/_/g, ".")), /MQBHD/.test(s)) && (n.version = ((s.match(/.*OS\s([\d_]+)/) || [])[1] || "").replace(/_/g, ".")), e.tablet = !!(p || E || h && !s.match(/Mobile/) || H && s.match(/Tablet/) || O && !s.match(/Phone/) && s.match(/Touch/)), e.phone = !(e.tablet || e.ipod || !(h || g || m || T || R || A && s.match(/Android/) || A && s.match(/CriOS\/([\d.]+)/) || H && s.match(/Mobile/) || O && s.match(/Touch/))), e.pc = !e.tablet && !e.phone, y ? e.name = "macOS" : v ? (e.name = "windows", e.version = (() => {
+            var N = navigator.userAgent, C = "";
+            return (-1 < N.indexOf("Windows NT 5.0") || -1 < N.indexOf("Windows 2000")) && (C = "2000"), (-1 < N.indexOf("Windows NT 5.1") || -1 < N.indexOf("Windows XP")) && (C = "XP"), (-1 < N.indexOf("Windows NT 5.2") || -1 < N.indexOf("Windows 2003")) && (C = "2003"), (-1 < N.indexOf("Windows NT 6.0") || -1 < N.indexOf("Windows Vista")) && (C = "Vista"), (-1 < N.indexOf("Windows NT 6.1") || -1 < N.indexOf("Windows 7")) && (C = "7"), (-1 < N.indexOf("Windows NT 6.2") || -1 < N.indexOf("Windows 8")) && (C = "8"), (-1 < N.indexOf("Windows NT 6.3") || -1 < N.indexOf("Windows 8.1")) && (C = "8.1"), C = -1 < N.indexOf("Windows NT 10") || -1 < N.indexOf("Windows 10") ? "10" : C;
+          })()) : e.name = (() => {
+            var N = navigator.userAgent, C = "other", I = o.exports.os;
+            return I.ios ? "iOS" : I.android ? "android" : -1 < N.indexOf("Baiduspider") ? "Baiduspider" : -1 < N.indexOf("PlayStation") ? "PS4" : (I = navigator.platform == "Win32" || navigator.platform == "Windows" || -1 < N.indexOf("Windows"), (N = navigator.platform == "Mac68K" || navigator.platform == "MacPPC" || navigator.platform == "Macintosh" || navigator.platform == "MacIntel") && (C = "macOS"), navigator.platform != "X11" || I || N || (C = "Unix"), -1 < String(navigator.platform).indexOf("Linux") && (C = "Linux"), I ? "windows" : C);
+          })(), n.name = (d = navigator.userAgent.toLowerCase(), (f = o.exports.browser).firefox ? "Firefox" : f.ie ? /edge/.test(d) ? "Edge" : "IE" : o.exports.IS_EDGE_NEW ? "EdgeChromium" : /micromessenger/.test(d) ? "微信内置浏览器" : /qqbrowser/.test(d) ? "QQ浏览器" : o.exports.IS_UC ? "UC" : o.exports.IS_QUARK ? "Quark" : o.exports.IS_DINGTALK ? "Dingtalk" : o.exports.IS_HUAWEI ? "HuaweiBrowser" : o.exports.IS_XIAOMI ? "MiBrowser" : o.exports.IS_OPPO ? "OppoBrowser" : o.exports.IS_VIVO ? "VivoBrowser" : o.exports.IS_MEIZU ? "MeizuBrowser" : o.exports.IS_SAMSUNG ? "SamsungBrowser" : o.exports.IS_WEBVIEW || /MQBHD/.test(d) ? "webview" : f.chrome ? "Chrome" : f.safari ? "Safari" : /baiduspider/.test(d) ? "Baiduspider" : /opera/.test(d) ? "Opera" : /360se/.test(d) ? "360浏览器" : /bidubrowser/.test(d) ? "百度浏览器" : /metasr/.test(d) ? "搜狗浏览器" : /lbbrowser/.test(d) ? "猎豹浏览器" : /playstation/.test(d) ? "PS4浏览器" : void 0);
+        }).call(o.exports, navigator.userAgent, navigator.platform), o.exports.IS_WEBVIEW = (_ = o.exports.USER_AGENT, l = new RegExp("(" + ["WebView", "(iPhone|iPod|iPad)(?!.*Safari)", "Android.*(Version).*(wv|.0.0.0)", "Linux; U; Android"].join("|") + ")", "ig"), u = new RegExp("(" + ["VivoBrowser", "MZBrowser", "MiuiBrowser"].join("|") + ")", "ig"), !!_.match(l) && !_.match(u));
+      }, {}], 50: [function(c, o, x) {
+        var _ = c("./dom");
+        o.exports.getAbsoluteURL = function(l) {
+          return l = l.match(/^https?:\/\//) ? l : _.createEl("div", { innerHTML: '<a href="' + l + '">x</a>' }).firstChild.href;
+        }, o.exports.parseUrl = function(l) {
+          var u, a = ["protocol", "hostname", "port", "pathname", "search", "hash", "host"], s = _.createEl("a", { href: l }), t = s.host === "" && s.protocol !== "file:";
+          t && ((u = _.createEl("div")).innerHTML = '<a href="' + l + '"></a>', s = u.firstChild, u.setAttribute("style", "display:none; position:absolute;"), document.body.appendChild(u));
+          for (var e = {}, n = 0; n < a.length; n++) e[a[n]] = s[a[n]];
+          return e.segments = s.pathname.replace(/^\//, "").split("/"), t && document.body.removeChild(u), e;
+        };
+      }, { "./dom": 33 }], 51: [function(c, o, x) {
+        var _ = c("./dom"), l = c("./ua"), u = c("./playerutil");
+        o.exports.formatTime = function(t) {
+          t = Math.max(0, t || 0);
+          var s, t = Math.floor(t), e = Math.floor(t / 3600);
+          return t %= 3600, s = Math.floor(t / 60), t = t % 60, !(e === 1 / 0 || isNaN(e) || s === 1 / 0 || isNaN(s) || t == 1 / 0 || isNaN(t)) && ((e = 10 <= e ? e : "0" + e) === "00" ? "" : e + ":") + (10 <= s ? s : "0" + s) + ":" + (10 <= t ? t : "0" + t);
+        }, o.exports.extractTime = function(a) {
+          var s;
+          return a ? ((s = 10 <= (s = parseInt(a.getHours())) ? s : "0" + s) === "00" ? "" : s + ":") + (s = 10 <= (s = parseInt(a.getMinutes())) ? s : "0" + s) + ":" + (s = 10 <= (s = parseInt(a.getSeconds())) ? s : "0" + s) : "";
+        }, o.exports.convertToTimestamp = function(a, s) {
+          var t = "";
+          return a && (s ? t = a.gettime() : (t = Date.parse(a), t /= 1e3)), t;
+        }, o.exports.convertToDate = function(a, s) {
+          var t = "";
+          return a && (t = /* @__PURE__ */ new Date()).setTime(1e3 * a), t;
+        }, o.exports.parseTime = function(a) {
+          var s, t, e;
+          return a ? (e = t = s = 0, (a = a.split(":")).length === 3 ? (s = a[0], t = a[1], e = a[2]) : a.length === 2 ? (t = a[0], e = a[1]) : a.length === 1 && (e = a[0]), 3600 * (s = parseInt(s, 10)) + 60 * (t = parseInt(t, 10)) + (e = Math.ceil(parseFloat(e)))) : "00:00:00";
+        }, o.exports.formatDate = function(a, s) {
+          var t, e = { "M+": a.getMonth() + 1, "d+": a.getDate(), "H+": a.getHours(), "m+": a.getMinutes(), "s+": a.getSeconds(), "q+": Math.floor((a.getMonth() + 3) / 3), S: a.getMilliseconds() };
+          for (t in /(y+)/.test(s) && (s = s.replace(RegExp.$1, (a.getFullYear() + "").substr(4 - RegExp.$1.length))), e) new RegExp("(" + t + ")").test(s) && (s = s.replace(RegExp.$1, RegExp.$1.length == 1 ? e[t] : ("00" + e[t]).substr(("" + e[t]).length)));
+          return s;
+        }, o.exports.sleep = function(a) {
+        }, o.exports.htmlEncodeAll = function(a) {
+          return a == null ? "" : a.replace(/\</g, "&lt;").replace(/\>/g, "&gt;").replace(/\&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+        }, o.exports.toBinary = function(a) {
+          if (!window.atob) return "";
+          for (var s = atob(a), t = s.length, e = new Uint8Array(t), n = 0; n < t; n++) e[n] = s.charCodeAt(n);
+          return e;
+        }, o.exports.readyBinary = function(a) {
+          for (var s = new Uint8Array(a), t = s.length, e = "", n = 0; n < t; n++) e += s[n];
+          return e;
+        }, o.exports.delayHide = function(a, s) {
+          a && (s === void 0 && (s = 1e3), a.delayHanlder && clearTimeout(a.delayHanlder), a.delayHanlder = setTimeout(function() {
+            _.css(a, "display", "none");
+          }, s));
+        }, o.exports.openInFile = function() {
+          return window.location.protocol.toLowerCase().indexOf("file") != -1;
+        }, o.exports.contentProtocolMixed = function(a, s, t) {
+          return !!((l.os.pc && (u.isHls(a, t) && !l.browser.safari || u.isFlv(a, t)) || s) && window.location.protocol.toLowerCase() == "https:" && a && -1 < a.toLowerCase().indexOf("http://"));
+        }, o.exports.queryString = function(a) {
+          var s, t, e;
+          return (a = (a = decodeURIComponent(a)).split("?")).length === 2 && (s = a[1].split("&")) ? (t = {}, e = 0, $(s).each(function() {
+            var n = s[e].split("=");
+            n.length === 2 && (t[n[0]] = n[1].replace(/\+/g, " ")), e++;
+          }), t) : {};
+        }, o.exports.log = function(a) {
+          var s = window.location.href, s = o.exports.queryString(s);
+          s && s.debug == 1 && console.log(a);
+        }, o.exports.arrayBufferToB64 = function(a) {
+          for (var s = "", t = new Uint8Array(a), e = t.byteLength, n = 0; n < e; n++) s += String.fromCharCode(t[n]);
+          return window.btoa(s);
+        }, o.exports.b64ToArrayBuffer = function(a) {
+          for (var s = atob(a), t = new Uint8Array(s.length), e = 0; e < s.length; e++) t[e] = s.charCodeAt(e);
+          return t.buffer;
+        }, o.exports.throttle = function(a, s) {
+          var t = null, e = 0;
+          return function() {
+            for (var n = this, r = arguments.length, h = new Array(r), y = 0; y < r; y++) h[y] = arguments[y];
+            var p = Date.now(), d = s - (p - e);
+            d <= 0 ? (a.apply(this, h), e = p) : (clearTimeout(t), t = setTimeout(function() {
+              a.apply(n, h), e = Date.now();
+            }, d));
+          };
+        };
+      }, { "./dom": 33, "./playerutil": 46, "./ua": 49 }], 52: [function(c, o, x) {
+        function _(u) {
+          for (var a = 5381, s = u.length; s; ) a = 33 * a ^ u.charCodeAt(--s);
+          return (a >>> 0).toString();
+        }
+        var l = c("./vttparse");
+        o.exports = { parse: function(e, a, s) {
+          var t, e = e.trim().replace(/\r\n|\n\r|\n|\r/g, `
+`).split(`
+`), n = [], r = new l();
+          r.oncue = function(h) {
+            h.id = _(h.startTime) + _(h.endTime) + _(h.text), h.text = decodeURIComponent(escape(h.text)), h.isBig = !1;
+            var y = h.text.split("#xywh=");
+            y.length == 2 && (y = y[1].split(","), h.x = y[0], h.y = y[1], h.w = y[2], h.h = y[3], h.isBig = !0), 0 < h.endTime && n.push(h);
+          }, r.onparsingerror = function(h) {
+            t = h;
+          }, r.onflush = function() {
+            t && s ? (s(t), console.log(t)) : a(n);
+          }, e.forEach(function(h) {
+            r.parse(h + `
+`);
+          }), r.flush();
+        } };
+      }, { "./vttparse": 54 }], 53: [function(c, o, x) {
+        function _(t) {
+          return typeof t == "string" && !!s[t.toLowerCase()] && t.toLowerCase();
+        }
+        function l(t) {
+          for (var e = 1; e < arguments.length; e++) {
+            var n, r = arguments[e];
+            for (n in r) t[n] = r[n];
+          }
+          return t;
+        }
+        function u(t, e, n) {
+          var r = this, h = (() => {
+            if (typeof navigator < "u") return /MSIE\s8\.0/.test(navigator.userAgent);
+          })(), y = {}, p = (h ? r = document.createElement("custom") : y.enumerable = !0, r.hasBeenReset = !1, ""), d = !1, g = t, m = e, v = n, f = null, b = "", S = !0, w = "auto", T = "start", R = 50, P = "middle", E = 50, A = "middle";
+          if (Object.defineProperty(r, "id", l({}, y, { get: function() {
+            return p;
+          }, set: function(H) {
+            p = "" + H;
+          } })), Object.defineProperty(r, "pauseOnExit", l({}, y, { get: function() {
+            return d;
+          }, set: function(H) {
+            d = !!H;
+          } })), Object.defineProperty(r, "startTime", l({}, y, { get: function() {
+            return g;
+          }, set: function(H) {
+            if (typeof H != "number") throw new TypeError("Start time must be set to a number.");
+            g = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "endTime", l({}, y, { get: function() {
+            return m;
+          }, set: function(H) {
+            if (typeof H != "number") throw new TypeError("End time must be set to a number.");
+            m = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "text", l({}, y, { get: function() {
+            return v;
+          }, set: function(H) {
+            v = "" + H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "region", l({}, y, { get: function() {
+            return f;
+          }, set: function(H) {
+            f = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "vertical", l({}, y, { get: function() {
+            return b;
+          }, set: function(H) {
+            if (H = typeof (H = H) == "string" && !!a[H.toLowerCase()] && H.toLowerCase(), H === !1) throw new SyntaxError("An invalid or illegal string was specified.");
+            b = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "snapToLines", l({}, y, { get: function() {
+            return S;
+          }, set: function(H) {
+            S = !!H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "line", l({}, y, { get: function() {
+            return w;
+          }, set: function(H) {
+            if (typeof H != "number" && H !== "auto") throw new SyntaxError("An invalid number or illegal string was specified.");
+            w = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "lineAlign", l({}, y, { get: function() {
+            return T;
+          }, set: function(H) {
+            if (H = _(H), !H) throw new SyntaxError("An invalid or illegal string was specified.");
+            T = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "position", l({}, y, { get: function() {
+            return R;
+          }, set: function(H) {
+            if (H < 0 || 100 < H) throw new Error("Position must be between 0 and 100.");
+            R = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "positionAlign", l({}, y, { get: function() {
+            return P;
+          }, set: function(H) {
+            if (H = _(H), !H) throw new SyntaxError("An invalid or illegal string was specified.");
+            P = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "size", l({}, y, { get: function() {
+            return E;
+          }, set: function(H) {
+            if (H < 0 || 100 < H) throw new Error("Size must be between 0 and 100.");
+            E = H, this.hasBeenReset = !0;
+          } })), Object.defineProperty(r, "align", l({}, y, { get: function() {
+            return A;
+          }, set: function(H) {
+            if (H = _(H), !H) throw new SyntaxError("An invalid or illegal string was specified.");
+            A = H, this.hasBeenReset = !0;
+          } })), r.displayState = void 0, h) return r;
+        }
+        var a, s;
+        o.exports = typeof window < "u" && window.VTTCue ? window.VTTCue : (a = { "": !0, lr: !0, rl: !0 }, s = { start: !0, middle: !0, end: !0, left: !0, right: !0 }, u.prototype.getCueAsHTML = function() {
+          return window.WebVTT.convertCueToDOMTree(window, this.text);
+        }, u);
+      }, {}], 54: [function(c, o, x) {
+        function _() {
+          return { decode: function(r) {
+            if (!r) return "";
+            if (typeof r != "string") throw new Error("Error - expected string data.");
+            return decodeURIComponent(encodeURIComponent(r));
+          } };
+        }
+        var l = c("./vttcue");
+        function u() {
+          this.window = window, this.state = "INITIAL", this.buffer = "", this.decoder = new _(), this.regionList = [];
+        }
+        function a() {
+          this.values = /* @__PURE__ */ Object.create(null);
+        }
+        function s(r, h, y, p) {
+          var d, g, m = p ? r.split(p) : [r];
+          for (d in m) typeof m[d] == "string" && (g = m[d].split(y)).length === 2 && h(g[0], g[1]);
+        }
+        a.prototype = { set: function(r, h) {
+          this.get(r) || h === "" || (this.values[r] = h);
+        }, get: function(r, h, y) {
+          return y ? this.has(r) ? this.values[r] : h[y] : this.has(r) ? this.values[r] : h;
+        }, has: function(r) {
+          return r in this.values;
+        }, alt: function(r, h, y) {
+          for (var p = 0; p < y.length; ++p) if (h === y[p]) {
+            this.set(r, h);
+            break;
+          }
+        }, integer: function(r, h) {
+          /^-?\d+$/.test(h) && this.set(r, parseInt(h, 10));
+        }, percent: function(r, h) {
+          return !!(h.match(/^([\d]{1,3})(\.[\d]*)?%$/) && 0 <= (h = parseFloat(h)) && h <= 100) && (this.set(r, h), !0);
+        } };
+        var t = new l(0, 0, 0), e = t.align === "middle" ? "middle" : "center";
+        function n(r, h, y) {
+          var p, d, g = r;
+          function m() {
+            var f, b = (b = (b = r).match(/^(\d+):(\d{2})(:\d{2})?(\.\d{3})?/)) ? (f = (f = b[4]) && f.replace(".", ""), b[3] ? S(b[1], b[2], b[3].replace(":", ""), f) : 59 < b[1] ? S(b[1], b[2], 0, f) : S(0, b[1], b[2], f)) : null;
+            function S(w, T, R, P) {
+              return 3600 * (0 | w) + 60 * (0 | T) + (0 | R) + (0 | P) / 1e3;
+            }
+            if (b === null) throw new Error("Malformed timestamp: " + g);
+            return r = r.replace(/^[^\sa-zA-Z-]+/, ""), b;
+          }
+          function v() {
+            r = r.replace(/^\s+/, "");
+          }
+          if (v(), h.startTime = m(), v(), r.substr(0, 3) !== "-->") throw new Error("Malformed time stamp (time stamps must be separated by '-->'): " + g);
+          r = r.substr(3), v(), h.endTime = m(), v(), p = r, h = h, d = new a(), s(p, function(f, b) {
+            switch (f) {
+              case "region":
+                for (var S = y.length - 1; 0 <= S; S--) if (y[S].id === b) {
+                  d.set(f, y[S].region);
+                  break;
+                }
+                break;
+              case "vertical":
+                d.alt(f, b, ["rl", "lr"]);
+                break;
+              case "line":
+                var w = b.split(","), T = w[0];
+                d.integer(f, T), d.percent(f, T) && d.set("snapToLines", !1), d.alt(f, T, ["auto"]), w.length === 2 && d.alt("lineAlign", w[1], ["start", e, "end"]);
+                break;
+              case "position":
+                w = b.split(","), d.percent(f, w[0]), w.length === 2 && d.alt("positionAlign", w[1], ["start", e, "end", "line-left", "line-right", "auto"]);
+                break;
+              case "size":
+                d.percent(f, b);
+                break;
+              case "align":
+                d.alt(f, b, ["start", e, "end", "left", "right"]);
+            }
+          }, /:/, /\s/), h.region = d.get("region", null), h.vertical = d.get("vertical", ""), (p = d.get("line", "auto")) === "auto" && t.line === -1 && (p = -1), h.line = p, h.lineAlign = d.get("lineAlign", "start"), h.snapToLines = d.get("snapToLines", !0), h.size = d.get("size", 100), h.align = d.get("align", e), (p = d.get("position", "auto")) === "auto" && t.position === 50 && (p = h.align === "start" || h.align === "left" ? 0 : h.align === "end" || h.align === "right" ? 100 : 50), h.position = p;
+        }
+        u.prototype = { parse: function(r) {
+          var h = this;
+          function y() {
+            for (var v = 0, f = (f = h.buffer).replace(/<br(?: \/)?>/gi, `
+`); v < f.length && f[v] !== "\r" && f[v] !== `
+`; ) ++v;
+            var b = f.substr(0, v);
+            return f[v] === "\r" && ++v, f[v] === `
+` && ++v, h.buffer = f.substr(v), b;
+          }
+          r && (h.buffer += h.decoder.decode(r, { stream: !0 }));
+          try {
+            if (h.state === "INITIAL") {
+              if (!/\r\n|\n/.test(h.buffer)) return this;
+              var p, d = (p = y()).match(/^WEBVTT([ \t].*)?$/);
+              if (!d || !d[0]) throw new Error("Malformed WebVTT signature.");
+              h.state = "HEADER";
+            }
+            for (var g = !1; h.buffer; ) {
+              if (!/\r\n|\n/.test(h.buffer)) return this;
+              switch (g ? g = !1 : p = y(), h.state) {
+                case "HEADER":
+                  /:/.test(p) ? s(p, function(v, f) {
+                    v === "Region" && console.log("parse region", f);
+                  }, /:/) : p || (h.state = "ID");
+                  continue;
+                case "NOTE":
+                  p || (h.state = "ID");
+                  continue;
+                case "ID":
+                  if (/^NOTE($|[ \t])/.test(p)) {
+                    h.state = "NOTE";
+                    break;
+                  }
+                  if (!p) continue;
+                  if (h.cue = new l(0, 0, ""), h.state = "CUE", p.indexOf("-->") === -1) {
+                    h.cue.id = p;
+                    continue;
+                  }
+                case "CUE":
+                  try {
+                    n(p, h.cue, h.regionList);
+                  } catch {
+                    h.cue = null, h.state = "BADCUE";
+                    continue;
+                  }
+                  h.state = "CUETEXT";
+                  continue;
+                case "CUETEXT":
+                  var m = p.indexOf("-->") !== -1;
+                  if (!p || m && (g = !0)) {
+                    h.oncue && h.oncue(h.cue), h.cue = null, h.state = "ID";
+                    continue;
+                  }
+                  h.cue.text && (h.cue.text += `
+`), h.cue.text += p;
+                  continue;
+                case "BADCUE":
+                  p || (h.state = "ID");
+                  continue;
+              }
+            }
+          } catch {
+            h.state === "CUETEXT" && h.cue && h.oncue && h.oncue(h.cue), h.cue = null, h.state = h.state === "INITIAL" ? "BADWEBVTT" : "BADCUE";
+          }
+          return this;
+        }, flush: function() {
+          try {
+            if (this.buffer += this.decoder.decode(), !this.cue && this.state !== "HEADER" || (this.buffer += `
+
+`, this.parse()), this.state === "INITIAL") throw new Error("Malformed WebVTT signature.");
+          } catch (r) {
+            throw r;
+          }
+          return this.onflush && this.onflush(), this;
+        } }, o.exports = u;
+      }, { "./vttcue": 53 }], 55: [function(p, o, x) {
+        function _() {
+          return (_ = Object.assign ? Object.assign.bind() : function(g) {
+            for (var m = 1; m < arguments.length; m++) {
+              var v, f = arguments[m];
+              for (v in f) !{}.hasOwnProperty.call(f, v) || (g[v] = f[v]);
+            }
+            return g;
+          }).apply(null, arguments);
+        }
+        function l(g, m) {
+          for (var v = 0; v < m.length; v++) {
+            var f = m[v];
+            f.enumerable = f.enumerable || !1, f.configurable = !0, "value" in f && (f.writable = !0), Object.defineProperty(g, ((b) => typeof (b = ((S, w) => {
+              if (typeof S != "object" || !S) return S;
+              var T = S[Symbol.toPrimitive];
+              if (T === void 0) return (w === "string" ? String : Number)(S);
+              if (typeof (T = T.call(S, w)) != "object") return T;
+              throw new TypeError("@@toPrimitive must return a primitive value.");
+            })(b, "string")) == "symbol" ? b : b + "")(f.key), f);
+          }
+        }
+        function u(g, m, v) {
+          return m && l(g.prototype, m), Object.defineProperty(g, "prototype", { writable: !1 }), g;
+        }
+        var a = p("./vtt-parser"), s = p("./vtt-renderer"), t = p("./vtt-loader"), e = p("../../player/base/event/eventtype"), n = p("../../lib/ua"), r = p("../../lib/event"), h = p("../../ui/component/util"), y = s.CTR_BAR_HEIGHT, p = (() => {
+          function g(v) {
+            this.parser = null, this.activeRenderer = null, this.trackConfigs = null, this.hasUserTracks = !1, this.vttText = {}, this.tickTimer = null, this.prevPosition = null, this._enabled = !1, this._isShow = !1, this.sleeper = new d(), this.player = (v = v || {}).player, this.loader = new t(), this.parser = new a(), this.createRendererInstance(), this.bindEvents();
+          }
+          var m = g.prototype;
+          return m.bindEvents = function() {
+            function v(R) {
+              R.paramData.splayer && b.switchRenderer(s.VttBasicRenderer.RENDER_TYPE_CUSTOM);
+            }
+            var f, b = this, S = this, w = this.player, T = (w.on(e.Private.TextTrackFounded, function(R) {
+              if (R.paramData.from === "user") b.hasUserTracks = !0;
+              else if (b.hasUserTracks) return;
+              R = R.paramData.textTracks, R && R.length && (b.enabled = !0, b.trackConfigs = R.map(function(P) {
+                return _({}, P, { label: P.label || P.srclang, language: P.srclang });
+              }), b.trackConfigs.forEach(function(P) {
+                b.activeRenderer.addTrack(P), w.getOptions().controlBarVisibility === "always" && b.activeRenderer.forceUpdateCuesStyle({ transform: "translateY(" + ("-" + y + "px") + ")" }, b.parser.cues);
+              }));
+            }), w.on(e.Private.UserTrackReset, function() {
+              b.hasUserTracks = !1;
+            }), w.on(e.Player.H265PlayInfo, v), w.on(e.Player.H266PlayInfo, v), n.IS_IOS ? (f = !1, w.on(e.Player.RequestFullScreen, function() {
+              f = !0;
+            }), r.on(w.tag, "webkitendfullscreen", function() {
+              f = !1;
+            }), r.on(w.tag.textTracks, "change", function() {
+              var R;
+              b.sleeper.isSleep || (b.sleeper.sleep(1e3), b.isCustomRenderer) || f && (R = w.tag.textTracks, (R = Array.from(R).find(function(P) {
+                return P.mode === "showing";
+              })) ? b.activeTrackConfig && b.activeTrackConfig.language === R.language || (b.switchTrack(R.language), w.trigger(e.Private.SelectorValueChange, { type: "cc", text: R.label })) : w.trigger(e.Private.CCStateChanged, { value: "off", lang: "" }));
+            })) : (w.on(e.Player.RequestFullScreen, this.adjustLayout.bind(this)), w.on(e.Player.CancelFullScreen, this.adjustLayout.bind(this)), T = h.debounce(function() {
+              S.isCustomRenderer && S.activeRenderer.resetCuesStyle(b.parser.cues);
+            }, 100), r.on(window, "resize", T)), h.throttle(function() {
+              S.isShow && (S.activeRenderer.forceUpdateCuesStyle({ transform: "translateY(" + ("-" + y + "px") + ")" }, S.parser.cues), S.isCustomRenderer) && S.player.paused() && (S.activeRenderer.hide(), S.activeRenderer.restore());
+            }, 100)), T = (w.on(e.Private.ShowBar, T), h.throttle(function() {
+              S.isShow && (S.activeRenderer.forceUpdateCuesStyle({ transform: "none" }, S.parser.cues), S.isCustomRenderer) && S.player.paused() && (S.activeRenderer.hide(), S.activeRenderer.restore());
+            }, 100));
+            w.on(e.Private.HideBar, T), w.on(e.Private.VttHide, function() {
+              b.hide();
+            }), w.on(e.Private.VttSwitchTrack, function(R) {
+              b.switchTrack(R.paramData);
+            }), w.on(e.Private.VttClearTracks, function() {
+              b.reset();
+            });
+          }, m.createRendererInstance = function(v) {
+            this.activeRenderer && this.activeRenderer.dispose();
+            var f = this.player.getOptions(), b = { player: this.player };
+            this.adaptPlatform(), v ? v === s.VttBasicRenderer.RENDER_TYPE_NATIVE ? this.activeRenderer = new s.NativeRenderer(b) : (b.overlayId = this.getOverlayId(), this.activeRenderer = new s.CustomRenderer(b)) : f.useNativeTextRenderer ? this.activeRenderer = new s.NativeRenderer(b) : (b.overlayId = this.getOverlayId(), this.activeRenderer = new s.CustomRenderer(b));
+          }, m.switchTrack = function(v) {
+            var f, b = this;
+            this.trackConfigs && this.trackConfigs.length && (this.activeTrackConfig && (this.parser.dispose(), this.parser = new a(), this.activeRenderer.clearTrack(this.activeTrackConfig.language), this.activeRenderer.hide()), this.activeTrackConfig = v, f = this.trackConfigs.find(function(S) {
+              return S.language === v;
+            })) && (f = f._loaded ? "" : (f || {}).src, this.loadVtt(f, function() {
+              b.parseVtt(), b.activeRenderer.addCues(b.parser.cues, b.activeTrackConfig.language), b.show();
+            }));
+          }, m.adaptPlatform = function() {
+            var v = this.player.getOptions();
+            n.IS_IOS && (v.useNativeTextRenderer = !0);
+          }, m.loadVtt = function(v, f) {
+            var b = this;
+            v ? this.loader.loadFromUrl(v, function(S) {
+              b.activeTrackConfig._loaded = !0, b.vttText[b.activeTrackConfig.language] = S, f && f();
+            }) : f && f();
+          }, m.show = function() {
+            this._isShow = !0, this.isCustomRenderer && this.startTickTimeListener(), this.activeRenderer.show(this.activeTrackConfig.language);
+            var v = this.player.el().getElementsByClassName("prism-controlbar")[0];
+            v && ((v = v.style) == null ? void 0 : v.display) === "block" && this.activeRenderer.forceUpdateCuesStyle({ transform: "translateY(" + ("-" + y + "px") + ")" }, this.parser.cues);
+          }, m.hide = function() {
+            this._isShow = !1, this.clearTicker(), this.activeRenderer.hide();
+          }, m.switchRenderer = function(v) {
+            var f = this, b = s.VttBasicRenderer.RENDER_TYPE_NATIVE, S = s.VttBasicRenderer.RENDER_TYPE_CUSTOM;
+            (v === b && this.activeRenderer.type !== b || v === S && this.activeRenderer.type !== S) && (this.createRendererInstance(v), this.trackConfigs.forEach(function(w) {
+              return f.activeRenderer.addTrack(w);
+            }), this.activeRenderer.addCues(this.parser.cues, this.activeTrackConfig.language), this.show());
+          }, m.parseVtt = function() {
+            this.parser.parse(this.vttText[this.activeTrackConfig.language]);
+          }, m.adjustLayout = function() {
+            var v = this;
+            this.isShow && this.isCustomRenderer && (this.activeRenderer.hide(), setTimeout(function() {
+              v.activeRenderer.restore();
+            }, 300));
+          }, m.startTickTimeListener = function() {
+            var v = this;
+            this.clearTicker(), this.tick(function() {
+              var f = v.player.getCurrentTime();
+              isNaN(f) || v.activeRenderer.renderCues(v.findTargetCues(f));
+            });
+          }, m.tick = function(v) {
+            var f = this;
+            this.tickTimer = requestAnimationFrame(function() {
+              try {
+                v();
+              } catch (b) {
+                console.log("e", b);
+              }
+              f.tick(v);
+            });
+          }, m.clearTicker = function() {
+            this.tickTimer && (cancelAnimationFrame(this.tickTimer), this.tickTimer = null);
+          }, m.getOverlayId = function() {
+            var v = (this.player.el().getElementsByClassName("prism-text-overlay") || [])[0];
+            if (v) return v.id;
+          }, m.findTargetCues = function(v) {
+            if (this.parser && v !== this.prevPosition) {
+              this.prevPosition = v;
+              for (var f = [], b = 0; b < this.parser.cues.length; b++) {
+                var S = this.parser.cues[b];
+                if (v >= S.startTime && v <= S.endTime) f.push(S);
+                else if (v < S.startTime) break;
+              }
+              return f;
+            }
+          }, m.reset = function() {
+            this.clearTicker(), this.parser && this.parser.reset(), this.activeRenderer && this.activeRenderer.reset();
+          }, m.dispose = function() {
+            this.clearTicker(), this.parser && (this.parser.dispose(), this.parser = null), this.activeRenderer && (this.activeRenderer.dispose(), this.activeRenderer = null), this.trackConfigs = null, this.hasUserTracks = !1, this.vttText = {}, this.prevPosition = null, this._enabled = !1, this._isShow = !1;
+          }, u(g, [{ key: "isShow", get: function() {
+            return this._isShow;
+          } }, { key: "enabled", get: function() {
+            return this._enabled;
+          }, set: function(v) {
+            this._enabled = v;
+          } }, { key: "isCustomRenderer", get: function() {
+            if (this.activeRenderer) return this.activeRenderer.type === s.VttBasicRenderer.RENDER_TYPE_CUSTOM;
+          } }, { key: "activeTrackConfig", get: function() {
+            var v;
+            return (v = this.trackConfigs) == null ? void 0 : v.find(function(f) {
+              return f._isActive;
+            });
+          }, set: function(v) {
+            this.trackConfigs.forEach(function(f) {
+              return f._isActive = f.language === v;
+            });
+          } }]);
+        })(), d = (() => {
+          function g() {
+            this.value = !1, this.timer = null;
+          }
+          return g.prototype.sleep = function(m) {
+            var v = this;
+            this.timer && clearTimeout(this.timer), this.value = !0, this.timer = setTimeout(function() {
+              v.value = !1;
+            }, m);
+          }, u(g, [{ key: "isSleep", get: function() {
+            return this.value;
+          } }]);
+        })();
+        o.exports = p;
+      }, { "../../lib/event": 34, "../../lib/ua": 49, "../../player/base/event/eventtype": 68, "../../ui/component/util": 162, "./vtt-loader": 57, "./vtt-parser": 58, "./vtt-renderer": 59 }], 56: [function(r, o, x) {
+        function _() {
+          return (_ = Object.assign ? Object.assign.bind() : function(y) {
+            for (var p = 1; p < arguments.length; p++) {
+              var d, g = arguments[p];
+              for (d in g) !{}.hasOwnProperty.call(g, d) || (y[d] = g[d]);
+            }
+            return y;
+          }).apply(null, arguments);
+        }
+        function l(y, p) {
+          y.prototype = Object.create(p.prototype), u(y.prototype.constructor = y, p);
+        }
+        function u(y, p) {
+          return (u = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(d, g) {
+            return d.__proto__ = g, d;
+          })(y, p);
+        }
+        function a(y, p) {
+          for (var d = 0; d < p.length; d++) {
+            var g = p[d];
+            g.enumerable = g.enumerable || !1, g.configurable = !0, "value" in g && (g.writable = !0), Object.defineProperty(y, ((m) => typeof (m = ((v, f) => {
+              if (typeof v != "object" || !v) return v;
+              var b = v[Symbol.toPrimitive];
+              if (b === void 0) return (f === "string" ? String : Number)(v);
+              if (typeof (b = b.call(v, f)) != "object") return b;
+              throw new TypeError("@@toPrimitive must return a primitive value.");
+            })(m, "string")) == "symbol" ? m : m + "")(g.key), g);
+          }
+        }
+        function s(y, p, d) {
+          return p && a(y.prototype, p), Object.defineProperty(y, "prototype", { writable: !1 }), y;
+        }
+        var t = r("../../lib/data"), e = { DISABLED: "disabled", SHOWING: "showing", HIDDEN: "hidden" }, n = { SUBTITLES: "subtitles", CAPTIONS: "captions", DESCRIPTIONS: "descriptions", METADATA: "metadata", CHAPTERS: "chapters" }, r = ((y) => {
+          function p(m) {
+            var m = _({}, m = m === void 0 ? {} : m, { kind: m.kind || n.SUBTITLES, language: m.language || m.srclang || "" }), v = m.mode || e.DISABLED;
+            return -1 < [n.METADATA, n.CHAPTERS].indexOf(m.kind) && (v = e.HIDDEN), m.mode = v, (v = y.call(this, m) || this)._cues = [], v._activeCues = [], v._settings = {}, v._nativeTrack = null, v._extData = {}, v._settings = m, v;
+          }
+          l(p, y);
+          var d = p.prototype;
+          return d.setExtData = function(g) {
+            this._extData = _({}, this._extData, g = g === void 0 ? {} : g);
+          }, d.addCue = function(g) {
+            this._cues.push(g), this.nativeTrack && this.nativeTrack.addCue(g);
+          }, d.removeCue = function(g) {
+            this._cues = this._cues.filter(function(m) {
+              return m !== g;
+            }), this.nativeTrack && this.nativeTrack.removeCue(g);
+          }, s(p, [{ key: "default", get: function() {
+            return this._settings.default;
+          } }, { key: "mode", get: function() {
+            return this._settings.mode;
+          }, set: function(g) {
+            this._settings.mode = g, this.nativeTrack && (this.nativeTrack.mode = g);
+          } }, { key: "language", get: function() {
+            return this._settings.language;
+          }, set: function(g) {
+            this._settings.language = g, this.nativeTrack && (this.nativeTrack.language = g);
+          } }, { key: "cues", get: function() {
+            return this._cues;
+          } }, { key: "activeCues", get: function() {
+            return this._activeCues;
+          } }, { key: "nativeTrack", get: function() {
+            return this._nativeTrack;
+          }, set: function(g) {
+            this._nativeTrack = g;
+          } }]);
+        })(s(function(y) {
+          this._id = (y = y === void 0 ? {} : y).id || "prism-track-" + t.guid(), this._kind = y.kind || "", this._language = y.language || "", this._label = y.label || "";
+        }, [{ key: "label", get: function() {
+          return this._label;
+        }, set: function(y) {
+          this._label = y;
+        } }, { key: "id", get: function() {
+          return this._id;
+        } }, { key: "kind", get: function() {
+          return this._kind;
+        } }, { key: "language", get: function() {
+          return this._language;
+        } }])), h = ((y) => {
+          function p() {
+            return y.call(this) || this;
+          }
+          return l(p, y), p;
+        })((() => {
+          function y() {
+            this._trackList = [];
+          }
+          return y.prototype.addTrack = function(p) {
+            var d = this.length;
+            "" + d in this || Object.defineProperty(this, d, { get: function() {
+              return this._trackList[d];
+            } }), this._trackList.indexOf(p) === -1 && this._trackList.push(p);
+          }, s(y, [{ key: "length", get: function() {
+            return this._trackList.length;
+          } }, { key: "list", get: function() {
+            return this._trackList;
+          } }]);
+        })());
+        o.exports.TextTrack = r, o.exports.TextTrackList = h, o.exports.TRACK_MODE = e, o.exports.TRACK_KIND = n;
+      }, { "../../lib/data": 31 }], 57: [function(c, o, x) {
+        var _ = c("../io");
+        o.exports = (() => {
+          function l() {
+          }
+          return l.prototype.loadFromUrl = function(u, a) {
+            _.get(u, function(s) {
+              a(s);
+            }, function(s, t) {
+              console.log("ERR", s, t);
+            });
+          }, l;
+        })();
+      }, { "../io": 41 }], 58: [function(u, o, x) {
+        function _(a, s) {
+          for (var t = 0; t < s.length; t++) {
+            var e = s[t];
+            e.enumerable = e.enumerable || !1, e.configurable = !0, "value" in e && (e.writable = !0), Object.defineProperty(a, ((n) => typeof (n = ((r, h) => {
+              if (typeof r != "object" || !r) return r;
+              var y = r[Symbol.toPrimitive];
+              if (y === void 0) return (h === "string" ? String : Number)(r);
+              if (typeof (y = y.call(r, h)) != "object") return y;
+              throw new TypeError("@@toPrimitive must return a primitive value.");
+            })(n, "string")) == "symbol" ? n : n + "")(e.key), e);
+          }
+        }
+        var l = u("./vttjs").WebVTT, u = (() => {
+          function a() {
+            var e = this;
+            this._cues = [], this._regions = [], this.parser = new l.Parser(window, l.StringDecoder()), this.parser.onregion = function(n) {
+              e._regions.push(n);
+            }, this.parser.oncue = function(n) {
+              e._cues.push(n);
+            }, this.parser.onflush = function() {
+            }, this.parser.onparsingerror = function(n) {
+            };
+          }
+          var s, t = a.prototype;
+          return t.parse = function(e) {
+            this.parser.parse(e), this.parser.flush();
+          }, t.reset = function() {
+            this.parser.flush(), this._cues = [], this._regions = [];
+          }, t.dispose = function() {
+            this.parser.flush(), this.parser = null, this._cues = [], this._regions = [];
+          }, t = a, (s = [{ key: "cues", get: function() {
+            return this._cues;
+          } }]) && _(t.prototype, s), Object.defineProperty(t, "prototype", { writable: !1 }), t;
+        })();
+        o.exports = u;
+      }, { "./vttjs": 60 }], 59: [function(y, o, x) {
+        function _(d, g) {
+          for (var m = 0; m < g.length; m++) {
+            var v = g[m];
+            v.enumerable = v.enumerable || !1, v.configurable = !0, "value" in v && (v.writable = !0), Object.defineProperty(d, ((f) => typeof (f = ((b, S) => {
+              if (typeof b != "object" || !b) return b;
+              var w = b[Symbol.toPrimitive];
+              if (w === void 0) return (S === "string" ? String : Number)(b);
+              if (typeof (w = w.call(b, S)) != "object") return w;
+              throw new TypeError("@@toPrimitive must return a primitive value.");
+            })(f, "string")) == "symbol" ? f : f + "")(v.key), v);
+          }
+        }
+        function l() {
+          return (l = Object.assign ? Object.assign.bind() : function(d) {
+            for (var g = 1; g < arguments.length; g++) {
+              var m, v = arguments[g];
+              for (m in v) !{}.hasOwnProperty.call(v, m) || (d[m] = v[m]);
+            }
+            return d;
+          }).apply(null, arguments);
+        }
+        function u(d, g) {
+          d.prototype = Object.create(g.prototype), a(d.prototype.constructor = d, g);
+        }
+        function a(d, g) {
+          return (a = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function(m, v) {
+            return m.__proto__ = v, m;
+          })(d, g);
+        }
+        y("../../player/base/event/eventtype");
+        var p = y("./text-track"), s = y("./vttjs").WebVTT, t = y("../../lib/dom"), e = p.TextTrack, n = p.TextTrackList, r = p.TRACK_MODE, h = (p.TRACK_KIND, (() => {
+          function d(m) {
+            this.player = null, this.type = null, this.trackList = null, this.overrideStyle = {}, this.player = (m = m || {}).player, this.defineTextTrackGetter(), this.trackList = new n();
+          }
+          var g = d.prototype;
+          return g.log = function() {
+            for (var m, v = arguments.length, f = new Array(v), b = 0; b < v; b++) f[b] = arguments[b];
+            (m = console).log.apply(m, ["[LOG:" + this.type + "]"].concat(f));
+          }, g.defineTextTrackGetter = function() {
+            var m = this;
+            this.player.getTextTracks = function() {
+              return m.trackList || [];
+            };
+          }, g.show = function(m) {
+            m = this.findTrackByLanguage(m), m && (m.mode = r.SHOWING);
+          }, g.findTrackByLanguage = function(m) {
+            return this.trackList.list.find(function(v) {
+              return v.language === m;
+            });
+          }, g.clearCurrentCues = function(m) {
+            if (m) {
+              var v = m.mode;
+              if (v === r.DISABLED && (m.mode = r.HIDDEN), m.cues) for (var f = m.cues.length; f--; ) m.removeCue(m.cues[f]);
+              v === r.DISABLED && (m.mode = v);
+            }
+          }, g.addTrack = function() {
+          }, g.addCues = function() {
+          }, g.restore = function() {
+          }, g.renderCues = function() {
+          }, g.updateCuesStyle = function() {
+          }, g.clearTrack = function(m) {
+            this.clearCurrentCues(this.findTrackByLanguage(m));
+          }, g.clearAllTracks = function() {
+            var m = this;
+            this.trackList && this.trackList.length && this.trackList.list.forEach(function(v) {
+              v.mode = r.DISABLED, m.clearCurrentCues(v);
+            }), this.trackList = new n();
+          }, g.reset = function() {
+            this.hide(), this.clearAllTracks();
+          }, g.dispose = function() {
+            this.hide(), this.clearAllTracks(), this.player && this.player.getTextTracks && (this.player.getTextTracks = null), this.player = null, this.type = null;
+          }, d;
+        })()), y = (h.RENDER_TYPE_CUSTOM = "CUSTOM", h.RENDER_TYPE_NATIVE = "NATIVE", ((d) => {
+          function g(v) {
+            var f = d.call(this, v) || this;
+            return f.overlayId = null, f.currentCues = null, v = v || {}, f.type = h.RENDER_TYPE_CUSTOM, f.overlayId = v.overlayId, f;
+          }
+          u(g, d);
+          var m = g.prototype;
+          return m.addTrack = function(v) {
+            var f = new e({ kind: v.kind, label: v.label, language: v.language, default: v.default });
+            f.mode = v.default ? r.SHOWING : r.DISABLED, this.trackList.addTrack(f);
+          }, m.hide = function() {
+            return s.processCues(window, [], document.getElementById(this.overlayId));
+          }, m.restore = function() {
+            this.currentCues && (this.currentCues.forEach(function(v) {
+              return v.displayState = null;
+            }), s.processCues(window, this.currentCues, this.overlayEl), this.updateCuesStyle(this.currentCues));
+          }, m.renderCues = function(v) {
+            v && (this.currentCues = v, this.overlayEl || (this.overlayEl = document.getElementById(this.overlayId)), s.processCues(window, v, this.overlayEl), this.updateCuesStyle(v));
+          }, m.updateCuesStyle = function(v) {
+            var f = this;
+            v.forEach(function(b) {
+              var S, w = b.displayState;
+              w._styleSetDone || w && (w.setAttribute("class", "prism-cue"), f.overlayEl || (f.overlayEl = document.getElementById(f.overlayId)), b = f.overlayEl.offsetWidth, S = f.overlayEl.offsetHeight, (b = Math.min(b, S)) && (w.style.fontSize = 0.05 * b + "px", w.style.height = "auto", w.style.top = "auto"), 44 < ((T, R) => (T = T.getBoundingClientRect(), R.getBoundingClientRect().bottom - T.bottom))(w, f.overlayEl) && (f.overrideStyle.transform = "none"), Object.keys(f.overrideStyle).forEach(function(T) {
+                f.tryUpdateStyle(w, T, f.overrideStyle[T]);
+              }), w._styleSetDone = !0);
+            });
+          }, m.updateOverrideStyle = function(v) {
+            this.overrideStyle = l({}, this.overrideStyle, v = v === void 0 ? {} : v);
+          }, m.forceUpdateCuesStyle = function(v, f) {
+            f === void 0 && (f = []), this.updateOverrideStyle(v = v === void 0 ? {} : v), this.resetCuesStyle(f);
+          }, m.tryUpdateStyle = function(v, f, b) {
+            try {
+              v.style[f] = b;
+            } catch {
+            }
+          }, m.resetCuesStyle = function(v) {
+            v && v.length && v.forEach(function(f) {
+              f.displayState && (f.displayState = null);
+            });
+          }, m.dispose = function() {
+            d.prototype.dispose.call(this), this.overlayId = null, this.currentCues = null;
+          }, g;
+        })(h)), p = ((d) => {
+          function g(f) {
+            return (f = d.call(this, f = f === void 0 ? {} : f) || this).type = h.RENDER_TYPE_NATIVE, f;
+          }
+          u(g, d);
+          var m, v = g.prototype;
+          return v.addTrack = function(f) {
+            var b = this.player.tag, S = Array.from(b.textTracks) || [], w = S.find(function(T) {
+              return T.language === f.language;
+            }), S = w ? (this.log("sameLangTrack", w, S), this.clearCurrentCues(w), w.kind = f.kind, w.label = f.label, w) : b.addTextTrack(f.kind, f.label, f.language), w = (S.mode = f.default ? r.SHOWING : r.DISABLED, new e(f));
+            w.nativeTrack = S, this.trackList.addTrack(w);
+          }, v.addCues = function(f, b) {
+            var S;
+            f && f.length && (S = this.trackList.list.find(function(w) {
+              return w.language === b;
+            })) && f.forEach(function(w) {
+              S.addCue(w);
+            });
+          }, v.hide = function() {
+            this.trackList.list.forEach(function(f) {
+              f.mode = f.mode === r.SHOWING ? r.HIDDEN : f.mode;
+            });
+          }, v.invalidAllTracks = function() {
+          }, v.forceUpdateCuesStyle = function(f, b) {
+            t.addCssByStyle("video::-webkit-media-text-track-container{transform: " + f.transform + ";}");
+          }, v.dispose = function() {
+            d.prototype.dispose.call(this);
+          }, v = g, (m = [{ key: "activeTrack", get: function() {
+            return this.trackList.list.find(function(f) {
+              return f.mode === r.SHOWING;
+            });
+          } }]) && _(v.prototype, m), Object.defineProperty(v, "prototype", { writable: !1 }), v;
+        })(h);
+        o.exports.VttBasicRenderer = h, o.exports.CustomRenderer = y, o.exports.NativeRenderer = p, o.exports.CTR_BAR_HEIGHT = 44;
+      }, { "../../lib/dom": 33, "../../player/base/event/eventtype": 68, "./text-track": 56, "./vttjs": 60 }], 60: [function(c, o, x) {
+        o.exports = { WebVTT: c("./vtt.js").WebVTT };
+      }, { "./vtt.js": 61 }], 61: [function(c, o, x) {
+        var _ = this;
+        function l(E, A) {
+          return A === void 0 && (A = 1), "rgba(" + [parseInt(E.substring(0, 2), 16), parseInt(E.substring(2, 4), 16), parseInt(E.substring(4, 6), 16), A].join(",") + ")";
+        }
+        var u, a = 1;
+        function s(E, A, H) {
+          switch (H) {
+            case "webvtt.font.color":
+            case "webvtt.font.opacity":
+              var M = Services.prefs.getCharPref("webvtt.font.color"), O = Services.prefs.getIntPref("webvtt.font.opacity") / 100;
+              u.fontSet = l(M, O);
+              break;
+            case "webvtt.font.scale":
+              a = Services.prefs.getIntPref("webvtt.font.scale") / 100;
+              break;
+            case "webvtt.bg.color":
+            case "webvtt.bg.opacity":
+              M = Services.prefs.getCharPref("webvtt.bg.color"), O = Services.prefs.getIntPref("webvtt.bg.opacity") / 100, u.backgroundSet = l(M, O);
+              break;
+            case "webvtt.edge.color":
+            case "webvtt.edge.type":
+              M = Services.prefs.getIntPref("webvtt.edge.type"), O = Services.prefs.getCharPref("webvtt.edge.color"), u.edgeSet = ["", "0px 0px ", "4px 4px 4px ", "-2px -2px ", "2px 2px "][M] + l(O);
+          }
+        }
+        typeof Services < "u" && (u = {}, ["webvtt.font.color", "webvtt.font.opacity", "webvtt.font.scale", "webvtt.bg.color", "webvtt.bg.opacity", "webvtt.edge.color", "webvtt.edge.type"].forEach(function(E) {
+          s(0, 0, E), Services.prefs.addObserver(E, s, !1);
+        }));
+        var t = Object.create || function(E) {
+          if (arguments.length !== 1) throw new Error("Object.create shim only accepts one parameter.");
+          return e.prototype = E, new e();
+        };
+        function e() {
+        }
+        function n(E, A) {
+          this.name = "ParsingError", this.code = E.code, this.message = A || E.message;
+        }
+        function r(E) {
+          function A(H, M, O, j) {
+            return 3600 * (0 | H) + 60 * (0 | M) + (0 | O) + (0 | j) / 1e3;
+          }
+          return E = E.match(/^(\d+):(\d{2})(:\d{2})?\.(\d{3})/), E ? E[3] ? A(E[1], E[2], E[3].replace(":", ""), E[4]) : 59 < E[1] ? A(E[1], E[2], 0, E[4]) : A(0, E[1], E[2], E[4]) : null;
+        }
+        function h() {
+          this.values = t(null);
+        }
+        function y(E, A, H, M) {
+          var O, j, U = M ? E.split(M) : [E];
+          for (O in U) typeof U[O] == "string" && (j = U[O].split(H)).length === 2 && A(j[0], j[1]);
+        }
+        ((n.prototype = t(Error.prototype)).constructor = n).Errors = { BadSignature: { code: 0, message: "Malformed WebVTT signature." }, BadTimeStamp: { code: 1, message: "Malformed time stamp." } }, h.prototype = { set: function(E, A) {
+          this.get(E) || A === "" || (this.values[E] = A);
+        }, get: function(E, A, H) {
+          return H ? this.has(E) ? this.values[E] : A[H] : this.has(E) ? this.values[E] : A;
+        }, has: function(E) {
+          return E in this.values;
+        }, alt: function(E, A, H) {
+          for (var M = 0; M < H.length; ++M) if (A === H[M]) {
+            this.set(E, A);
+            break;
+          }
+        }, integer: function(E, A) {
+          /^-?\d+$/.test(A) && this.set(E, parseInt(A, 10));
+        }, percent: function(E, A) {
+          return !!(A.match(/^([\d]{1,3})(\.[\d]*)?%$/) && 0 <= (A = parseFloat(A)) && A <= 100) && (this.set(E, A), !0);
+        } };
+        var p = { "&amp;": "&", "&lt;": "<", "&gt;": ">", "&lrm;": "‎", "&rlm;": "‏", "&nbsp;": " " }, d = { c: "span", i: "i", b: "b", u: "u", ruby: "ruby", rt: "rt", v: "span", lang: "span" }, g = { v: "title", lang: "lang" }, m = { rt: "ruby" };
+        function v(E, A) {
+          function H(B) {
+            return p[B];
+          }
+          for (var M, O, j, U, N, C, I, L = E.document.createElement("div"), q = L, Q = []; I = void 0, (I = A ? (I = (I = A.match(/^([^<]*)(<[^>]*>?)?/))[1] || I[2], A = A.substr(I.length), I) : null) !== null; ) I[0] === "<" ? I[1] === "/" ? Q.length && Q[Q.length - 1] === I.substr(2).replace(">", "") && (Q.pop(), q = q.parentNode) : (j = r(I.substr(1, I.length - 2))) ? (M = E.document.createProcessingInstruction("timestamp", j), q.appendChild(M)) : (O = I.match(/^<([^.\s/0-9>]+)(\.[^\s\\>]+)?([^>\\]+)?(\\?)>?$/)) && (j = O[1], U = O[3], C = N = void 0, C = d[j], M = C ? ((N = E.document.createElement(C)).localName = C, (C = g[j]) && U && (N[C] = U.trim()), N) : null) && (j = q, m[(C = M).localName] && m[C.localName] !== j.localName || (O[2] && (M.className = O[2].substr(1).replace(".", " ")), Q.push(O[1]), q.appendChild(M), q = M)) : q.appendChild(E.document.createTextNode(((B) => {
+            for (; O = B.match(/&(amp|lt|gt|lrm|rlm|nbsp);/); ) B = B.replace(O[0], H);
+            return B;
+          })(I)));
+          return L;
+        }
+        var f = [[1470, 1470], [1472, 1472], [1475, 1475], [1478, 1478], [1488, 1514], [1520, 1524], [1544, 1544], [1547, 1547], [1549, 1549], [1563, 1563], [1566, 1610], [1645, 1647], [1649, 1749], [1765, 1766], [1774, 1775], [1786, 1805], [1807, 1808], [1810, 1839], [1869, 1957], [1969, 1969], [1984, 2026], [2036, 2037], [2042, 2042], [2048, 2069], [2074, 2074], [2084, 2084], [2088, 2088], [2096, 2110], [2112, 2136], [2142, 2142], [2208, 2208], [2210, 2220], [8207, 8207], [64285, 64285], [64287, 64296], [64298, 64310], [64312, 64316], [64318, 64318], [64320, 64321], [64323, 64324], [64326, 64449], [64467, 64829], [64848, 64911], [64914, 64967], [65008, 65020], [65136, 65140], [65142, 65276], [67584, 67589], [67592, 67592], [67594, 67637], [67639, 67640], [67644, 67644], [67647, 67669], [67671, 67679], [67840, 67867], [67872, 67897], [67903, 67903], [67968, 68023], [68030, 68031], [68096, 68096], [68112, 68115], [68117, 68119], [68121, 68147], [68160, 68167], [68176, 68184], [68192, 68223], [68352, 68405], [68416, 68437], [68440, 68466], [68472, 68479], [68608, 68680], [126464, 126467], [126469, 126495], [126497, 126498], [126500, 126500], [126503, 126503], [126505, 126514], [126516, 126519], [126521, 126521], [126523, 126523], [126530, 126530], [126535, 126535], [126537, 126537], [126539, 126539], [126541, 126543], [126545, 126546], [126548, 126548], [126551, 126551], [126553, 126553], [126555, 126555], [126557, 126557], [126559, 126559], [126561, 126562], [126564, 126564], [126567, 126570], [126572, 126578], [126580, 126583], [126585, 126588], [126590, 126590], [126592, 126601], [126603, 126619], [126625, 126627], [126629, 126633], [126635, 126651], [1114109, 1114109]];
+        function b(E) {
+          var A = [], H = "";
+          if (E && E.childNodes) {
+            for (O(A, E); H = function j(U) {
+              var N, C, I;
+              return U && U.length ? (C = (N = U.pop()).textContent || N.innerText) ? (I = C.match(/^.*(\n|\r)/)) ? I[U.length = 0] : C : N.tagName === "ruby" ? j(U) : N.childNodes ? (O(U, N), j(U)) : void 0 : null;
+            }(A); ) for (var M = 0; M < H.length; M++) if (((j) => {
+              for (var U = 0; U < f.length; U++) {
+                var N = f[U];
+                if (j >= N[0] && j <= N[1]) return 1;
+              }
+            })(H.charCodeAt(M))) return "rtl";
+          }
+          return "ltr";
+          function O(j, U) {
+            for (var N = U.childNodes.length - 1; 0 <= N; N--) j.push(U.childNodes[N]);
+          }
+        }
+        function S() {
+        }
+        function w(E, A, H) {
+          var M = typeof navigator < "u" && /MSIE\s8\.0/.test(navigator.userAgent), U = "rgba(255, 255, 255, 1)", O = "rgba(0, 0, 0, 0.8)", j = "", U = (u !== void 0 && (U = u.fontSet, O = u.backgroundSet, j = u.edgeSet), M && (U = "rgb(255, 255, 255)", O = "rgb(0, 0, 0)"), S.call(this), this.cue = A, this.cueDiv = v(E, A.text), { color: U, backgroundColor: O, textShadow: j, position: "relative", left: 0, right: 0, top: 0, bottom: 0, display: "inline" }), N = (M || (U.writingMode = A.vertical === "" ? "horizontal-tb" : A.vertical === "lr" ? "vertical-lr" : "vertical-rl", U.unicodeBidi = "plaintext"), this.applyStyles(U, this.cueDiv), this.div = E.document.createElement("div"), U = { textAlign: A.align === "middle" ? "center" : A.align, font: H.font, whiteSpace: "pre-line", position: "absolute" }, M || (U.direction = b(this.cueDiv), U.writingMode = A.vertical === "" ? "horizontal-tb" : A.vertical === "lr" ? "vertical-lr" : "vertical-rl".stylesunicodeBidi = "plaintext"), this.applyStyles(U), this.div.appendChild(this.cueDiv), 0);
+          switch (A.positionAlign) {
+            case "start":
+              N = A.position;
+              break;
+            case "middle":
+              N = A.position - A.size / 2;
+              break;
+            case "end":
+              N = A.position - A.size;
+          }
+          A.vertical === "" ? this.applyStyles({ left: this.formatStyle(N, "%"), width: this.formatStyle(A.size, "%") }) : this.applyStyles({ top: this.formatStyle(N, "%"), height: this.formatStyle(A.size, "%") }), this.move = function(C) {
+            this.applyStyles({ top: this.formatStyle(C.top, "px"), bottom: this.formatStyle(C.bottom, "px"), left: this.formatStyle(C.left, "px"), right: this.formatStyle(C.right, "px"), height: this.formatStyle(C.height, "px"), width: this.formatStyle(C.width, "px") });
+          };
+        }
+        function T(E) {
+          var A, H, M, O, j = typeof navigator < "u" && /MSIE\s8\.0/.test(navigator.userAgent);
+          E.div && (A = E.div.offsetHeight, H = E.div.offsetWidth, M = E.div.offsetTop, O = (O = (O = E.div.childNodes) && O[0]) && O.getClientRects && O.getClientRects(), E = E.div.getBoundingClientRect(), O = O ? Math.max(O[0] && O[0].height || 0, E.height / O.length) : 0), this.left = E.left, this.right = E.right, this.top = E.top || M, this.height = E.height || A, this.bottom = E.bottom || M + (E.height || A), this.width = E.width || H, this.lineHeight = O !== void 0 ? O : E.lineHeight, j && !this.lineHeight && (this.lineHeight = 13);
+        }
+        function R(E, A, H, M) {
+          var O, j = new T(A), U = A.cue, N = ((k) => {
+            if (typeof k.line == "number" && (k.snapToLines || 0 <= k.line && k.line <= 100)) return k.line;
+            if (!k.track || !k.track.textTrackList || !k.track.textTrackList.mediaElement) return -1;
+            for (var D = k.track, X = D.textTrackList, te = 0, ie = 0; ie < X.length && X[ie] !== D; ie++) X[ie].mode === "showing" && te++;
+            return -1 * ++te;
+          })(U), C = [];
+          if (U.snapToLines) {
+            switch (U.vertical) {
+              case "":
+                C = ["+y", "-y"], O = "height";
+                break;
+              case "rl":
+                C = ["+x", "-x"], O = "width";
+                break;
+              case "lr":
+                C = ["-x", "+x"], O = "width";
+            }
+            var I = j.lineHeight, L = I * Math.round(N), q = H[O] + I, Q = C[0];
+            Math.abs(L) > q && (L = L < 0 ? -1 : 1, L *= Math.ceil(q / I) * I), N < 0 && (L += U.vertical === "" ? H.height : H.width, C = C.reverse()), j.move(Q, L);
+          } else {
+            var B = j.lineHeight / H.height * 100;
+            switch (U.lineAlign) {
+              case "middle":
+                N -= B / 2;
+                break;
+              case "end":
+                N -= B;
+            }
+            switch (U.vertical) {
+              case "":
+                A.applyStyles({ top: A.formatStyle(N, "%") });
+                break;
+              case "rl":
+                A.applyStyles({ left: A.formatStyle(N, "%") });
+                break;
+              case "lr":
+                A.applyStyles({ right: A.formatStyle(N, "%") });
+            }
+            C = ["+y", "-x", "+x", "-y"], j = new T(A);
+          }
+          q = ((k, D) => {
+            for (var X, te = new T(k), ie = 1, ne = 0; ne < D.length; ne++) {
+              for (; k.overlapsOppositeAxis(H, D[ne]) || k.within(H) && k.overlapsAny(M); ) k.move(D[ne]);
+              if (k.within(H)) return k;
+              var G = k.intersectPercentage(H);
+              G < ie && (X = new T(k), ie = G), k = new T(te);
+            }
+            return X || te;
+          })(j, C), A.move(q.toCSSCompatValues(H));
+        }
+        function P() {
+        }
+        S.prototype.applyStyles = function(E, A) {
+          for (var H in A = A || this.div, E) E.hasOwnProperty(H) && (A.style[H] = E[H]);
+        }, S.prototype.formatStyle = function(E, A) {
+          return E === 0 ? 0 : E + A;
+        }, (w.prototype = t(S.prototype)).constructor = w, T.prototype.move = function(E, A) {
+          switch (A = A !== void 0 ? A : this.lineHeight, E) {
+            case "+x":
+              this.left += A, this.right += A;
+              break;
+            case "-x":
+              this.left -= A, this.right -= A;
+              break;
+            case "+y":
+              this.top += A, this.bottom += A;
+              break;
+            case "-y":
+              this.top -= A, this.bottom -= A;
+          }
+        }, T.prototype.overlaps = function(E) {
+          return this.left < E.right && this.right > E.left && this.top < E.bottom && this.bottom > E.top;
+        }, T.prototype.overlapsAny = function(E) {
+          for (var A = 0; A < E.length; A++) if (this.overlaps(E[A])) return !0;
+          return !1;
+        }, T.prototype.within = function(E) {
+          return this.top >= E.top && this.bottom <= E.bottom && this.left >= E.left && this.right <= E.right;
+        }, T.prototype.overlapsOppositeAxis = function(E, A) {
+          switch (A) {
+            case "+x":
+              return this.left < E.left;
+            case "-x":
+              return this.right > E.right;
+            case "+y":
+              return this.top < E.top;
+            case "-y":
+              return this.bottom > E.bottom;
+          }
+        }, T.prototype.intersectPercentage = function(E) {
+          return Math.max(0, Math.min(this.right, E.right) - Math.max(this.left, E.left)) * Math.max(0, Math.min(this.bottom, E.bottom) - Math.max(this.top, E.top)) / (this.height * this.width);
+        }, T.prototype.toCSSCompatValues = function(E) {
+          return { top: this.top - E.top, bottom: E.bottom - this.bottom, left: this.left - E.left, right: E.right - this.right, height: this.height, width: this.width };
+        }, T.getSimpleBoxPosition = function(E) {
+          var A = E.div ? E.div.offsetHeight : E.tagName ? E.offsetHeight : 0, H = E.div ? E.div.offsetWidth : E.tagName ? E.offsetWidth : 0, M = E.div ? E.div.offsetTop : E.tagName ? E.offsetTop : 0;
+          return { left: (E = E.div ? E.div.getBoundingClientRect() : E.tagName ? E.getBoundingClientRect() : E).left, right: E.right, top: E.top || M, height: E.height || A, bottom: E.bottom || M + (E.height || A), width: E.width || H };
+        }, P.StringDecoder = function() {
+          return { decode: function(E) {
+            if (!E) return "";
+            if (typeof E != "string") throw new Error("Error - expected string data.");
+            return decodeURIComponent(encodeURIComponent(E));
+          } };
+        }, P.convertCueToDOMTree = function(E, A) {
+          return E && A ? v(E, A) : null;
+        }, P.processCues = function(E, A, H) {
+          if (!E || !A || !H) return null;
+          for (; H.firstChild; ) H.removeChild(H.firstChild);
+          var M = E.document.createElement("div");
+          if (M.style.position = "absolute", M.style.left = "0", M.style.right = "0", M.style.top = "0", M.style.bottom = "0", M.style.margin = "1.5%", H.appendChild(M), ((q) => {
+            for (var Q = 0; Q < q.length; Q++) if (q[Q].hasBeenReset || !q[Q].displayState) return 1;
+          })(A)) for (var O, j, U = [], N = T.getSimpleBoxPosition(M), C = { font: Math.round(0.05 * N.height * 100) / 100 * a + "px sans-serif" }, I = 0; I < A.length; I++) O = new w(E, j = A[I], C), M.appendChild(O.div), R(0, O, N, U), j.displayState = O.div, U.push(T.getSimpleBoxPosition(O));
+          else for (var L = 0; L < A.length; L++) M.appendChild(A[L].displayState);
+        }, (P.Parser = function(E, A) {
+          this.window = E, this.state = "INITIAL", this.buffer = "", this.decoder = A || new TextDecoder("utf8"), this.regionList = [];
+        }).prototype = { reportOrThrowError: function(E) {
+          if (!(E instanceof n)) throw E;
+          this.onparsingerror && this.onparsingerror(E);
+        }, parse: function(E) {
+          var A = this;
+          function H() {
+            for (var C = A.buffer, I = 0; I < C.length && C[I] !== "\r" && C[I] !== `
+`; ) ++I;
+            var L = C.substr(0, I);
+            return C[I] === "\r" && ++I, C[I] === `
+` && ++I, A.buffer = C.substr(I), L;
+          }
+          function M(C) {
+            y(C, function(I, L) {
+              var q;
+              I === "Region" && (I = L, q = new h(), y(I, function(Q, B) {
+                switch (Q) {
+                  case "id":
+                    q.set(Q, B);
+                    break;
+                  case "width":
+                    q.percent(Q, B);
+                    break;
+                  case "lines":
+                    q.integer(Q, B);
+                    break;
+                  case "regionanchor":
+                  case "viewportanchor":
+                    var k, D = B.split(",");
+                    D.length === 2 && ((k = new h()).percent("x", D[0]), k.percent("y", D[1]), k.has("x") && k.has("y")) && (q.set(Q + "X", k.get("x")), q.set(Q + "Y", k.get("y")));
+                    break;
+                  case "scroll":
+                    q.alt(Q, B, ["up"]);
+                }
+              }, /=/, /\s/), q.has("id")) && ((I = new A.window.VTTRegion()).width = q.get("width", 100), I.lines = q.get("lines", 3), I.regionAnchorX = q.get("regionanchorX", 0), I.regionAnchorY = q.get("regionanchorY", 100), I.viewportAnchorX = q.get("viewportanchorX", 0), I.viewportAnchorY = q.get("viewportanchorY", 100), I.scroll = q.get("scroll", ""), A.onregion && A.onregion(I), A.regionList.push({ id: q.get("id"), region: I }));
+            }, /:/);
+          }
+          E && (A.buffer += A.decoder.decode(E, { stream: !0 }));
+          try {
+            if (A.state === "INITIAL") {
+              if (!/\r\n|\n/.test(A.buffer)) return this;
+              var O, j = (O = H()).match(/^WEBVTT([ \t].*)?$/);
+              if (!j || !j[0]) throw new n(n.Errors.BadSignature);
+              A.state = "HEADER";
+            }
+            for (var U = !1; A.buffer; ) {
+              if (!/\r\n|\n/.test(A.buffer)) return this;
+              switch (U ? U = !1 : O = H(), A.state) {
+                case "HEADER":
+                  /:/.test(O) ? M(O) : O || (A.state = "ID");
+                  continue;
+                case "NOTE":
+                  O || (A.state = "ID");
+                  continue;
+                case "ID":
+                  if (/^NOTE($|[ \t])/.test(O)) {
+                    A.state = "NOTE";
+                    break;
+                  }
+                  if (!O) continue;
+                  if (A.cue = new A.window.VTTCue(0, 0, ""), A.state = "CUE", O.indexOf("-->") === -1) {
+                    A.cue.id = O;
+                    continue;
+                  }
+                case "CUE":
+                  try {
+                    ((C, I, L) => {
+                      var q = C;
+                      function Q() {
+                        var X = r(C);
+                        if (X === null) throw new n(n.Errors.BadTimeStamp, "Malformed timestamp: " + q);
+                        return C = C.replace(/^[^\sa-zA-Z-]+/, ""), X;
+                      }
+                      function B() {
+                        C = C.replace(/^\s+/, "");
+                      }
+                      if (B(), I.startTime = Q(), B(), C.substr(0, 3) !== "-->") throw new n(n.Errors.BadTimeStamp, "Malformed time stamp (time stamps must be separated by '-->'): " + q);
+                      C = C.substr(3), B(), I.endTime = Q(), B();
+                      var k = C, D = new h();
+                      y(k, function(X, te) {
+                        switch (X) {
+                          case "region":
+                            for (var ie = L.length - 1; 0 <= ie; ie--) if (L[ie].id === te) {
+                              D.set(X, L[ie].region);
+                              break;
+                            }
+                            break;
+                          case "vertical":
+                            D.alt(X, te, ["rl", "lr"]);
+                            break;
+                          case "line":
+                            var ne = te.split(","), G = ne[0];
+                            D.integer(X, G), D.percent(X, G) && D.set("snapToLines", !1), D.alt(X, G, ["auto"]), ne.length === 2 && D.alt("lineAlign", ne[1], ["start", "middle", "end"]);
+                            break;
+                          case "position":
+                            ne = te.split(","), D.percent(X, ne[0]), ne.length === 2 && D.alt("positionAlign", ne[1], ["start", "middle", "end"]);
+                            break;
+                          case "size":
+                            D.percent(X, te);
+                            break;
+                          case "align":
+                            D.alt(X, te, ["start", "middle", "end", "left", "right"]);
+                        }
+                      }, /:/, /\s/), I.region = D.get("region", null), I.vertical = D.get("vertical", "");
+                      try {
+                        I.line = D.get("line", "auto");
+                      } catch {
+                      }
+                      I.lineAlign = D.get("lineAlign", "start"), I.snapToLines = D.get("snapToLines", !0), I.size = D.get("size", 100);
+                      try {
+                        I.align = D.get("align", "center");
+                      } catch {
+                        I.align = D.get("align", "middle");
+                      }
+                      try {
+                        I.position = D.get("position", "auto");
+                      } catch {
+                        I.position = D.get("position", { start: 0, left: 0, center: 50, middle: 50, end: 100, right: 100 }, I.align);
+                      }
+                      I.positionAlign = D.get("positionAlign", { start: "start", left: "start", middle: "middle", end: "end", right: "end" }, I.align);
+                    })(O, A.cue, A.regionList);
+                  } catch (C) {
+                    A.reportOrThrowError(C), A.cue = null, A.state = "BADCUE";
+                    continue;
+                  }
+                  A.state = "CUETEXT";
+                  continue;
+                case "CUETEXT":
+                  var N = O.indexOf("-->") !== -1;
+                  if (!O || N && (U = !0)) {
+                    A.oncue && A.oncue(A.cue), A.cue = null, A.state = "ID";
+                    continue;
+                  }
+                  A.cue.text && (A.cue.text += `
+`), A.cue.text += O;
+                  continue;
+                case "BADCUE":
+                  O || (A.state = "ID");
+                  continue;
+              }
+            }
+          } catch (C) {
+            A.reportOrThrowError(C), A.state === "CUETEXT" && A.cue && A.oncue && A.oncue(A.cue), A.cue = null, A.state = A.state === "INITIAL" ? "BADWEBVTT" : "BADCUE";
+          }
+          return this;
+        }, flush: function() {
+          var E = this;
+          try {
+            if (E.buffer += E.decoder.decode(), !E.cue && E.state !== "HEADER" || (E.buffer += `
+
+`, E.parse()), E.state === "INITIAL") throw new n(n.Errors.BadSignature);
+          } catch (A) {
+            E.reportOrThrowError(A);
+          }
+          return E.onflush && E.onflush(), this;
+        } }, _.WebVTT = P;
+      }, {}], 62: [function(c, o, x) {
+        var _ = c("../lib/io");
+        c("../lib/storage");
+        function l(u) {
+          this._uploadDuration = u.logDuration || 5, this._uploadCount = u.logCount || 10, this._logReportTo = u.logReportTo, this._dumpLogReportTo = u.dumpLogReportTo, this._logs = [], this._retry = 0, this._disposed = !1, this._supportLocalStorage = !0;
+          var a;
+          try {
+            localStorage ? (a = localStorage.getItem("__aliplayer_log_data"), localStorage.removeItem("__aliplayer_log_data"), a && (this._logs = JSON.parse(a))) : this._supportLocalStorage = !1;
+          } catch {
+            this._supportLocalStorage = !1;
+          }
+          this._start();
+        }
+        l.prototype.add = function(u) {
+          var a = this._logs.length;
+          if (u.__time__ = Math.round(/* @__PURE__ */ new Date() / 1e3), 0 < a && u.e == "4001") {
+            var a = this._logs[a - 1];
+            if (a.e == "4001" && a.__time__ - u.__time__ < 5) return;
+          }
+          this._logs.push(u), (this._logs.length > this._uploadCount || u.e == "4001" || u.e == "2002" || u.e == "9002" && (a = u.args) != null && a.includes("dump::")) && this._report();
+        }, l.prototype.dispose = function() {
+          this._report(), this._disposed = !0;
+        }, l.prototype._start = function() {
+          this._disposed = !1, this._retry = 0, this._report();
+        }, l.prototype._report = function(u) {
+          var a, s, t;
+          this._tickHandler && (clearTimeout(this._tickHandler), this._tickHandler = null), 0 < (u = u || this._logs.splice(0, this._uploadCount)).length ? (t = { "Content-Type": "application/json;charset=UTF-8", "x-log-apiversion": "0.6.0", "x-log-bodyrawsize": (a = JSON.stringify({ __logs__: u, __source__: "" })).length }, _.postWithHeader((s = this)._logReportTo, a, t, function(e) {
+            s._tick();
+          }, function(e) {
+            s._retry == 0 ? (s._retry = 1, s._report(u)) : s._tick();
+          })) : this._tick();
+        }, l.prototype.reportDump = function(u) {
+          var a;
+          u && (a = { "Content-Type": "application/json;charset=UTF-8", "x-log-apiversion": "0.6.0", "x-log-bodyrawsize": (u = JSON.stringify({ __logs__: [u], __source__: "" })).length }, _.postWithHeader(this._dumpLogReportTo, u, a, function(s) {
+          }, function(s) {
+          }));
+        }, l.prototype._tick = function() {
+          var u;
+          this._disposed || (this._retry = 0, (u = this)._logs.length > this._uploadCount ? u._report() : this._tickHandler = setTimeout(function() {
+            u._report();
+          }, 1e3 * this._uploadDuration));
+        }, o.exports = l;
+      }, { "../lib/io": 41, "../lib/storage": 48 }], 63: [function(v, o, x) {
+        function _() {
+          return (_ = Object.assign ? Object.assign.bind() : function(f) {
+            for (var b = 1; b < arguments.length; b++) {
+              var S, w = arguments[b];
+              for (S in w) !{}.hasOwnProperty.call(w, S) || (f[S] = w[S]);
+            }
+            return f;
+          }).apply(null, arguments);
+        }
+        var l, u = v("../lib/oo"), a = v("../lib/object"), s = v("../lib/data"), t = v("../lib/io"), e = v("../lib/ua"), n = v("../lib/event"), r = v("../config"), h = v("../player/base/event/eventtype"), y = v("./util"), p = v("./log"), d = v("../lib/playerutil"), g = 0, m = { CREATE: 1e3, STARTFETCHDATA: 1003, COMPLETEFETCHDATA: 1004, PREPARE: 1101, PREPAREEND: 1102, STARTPLAY: 2e3, PLAY: 2001, STOP: 2002, PAUSE: 2003, SEEK: 2004, FULLSREEM: 2005, QUITFULLSCREEM: 2006, RESOLUTION: 2007, RESOLUTION_DONE: 2008, RECOVER: 2010, SEEK_END: 2011, PLAYABORT: 2012, SEEKED: 2014, CANPLAY: 2018, FETCHEDIP: 2020, CDNDETECT: 2021, DETECT: 2022, HEVCINFO: 2023, UNDERLOAD: 3002, LOADED: 3001, RETRY: 3003, HEARTBEAT: 9001, TRACE: 9002, DUMP: 9003, ERROR: 4001, ERRORRETRY: 4002, RTSFALLBACK: 4003, VOD_REQUEST_FATAL_ERROR: 4004, VOD_REQUEST_FATAL_ERROR_RESUME: 4005, LICENSE_RESULT: 5004, SNAPSHOT: 2027, ROTATE: 2028, IMAGE: 2029, THUMBNAILSTART: 2031, THUMBNAILCOMPLETE: 2032, CCSTART: 2033, CCCOMPLETE: 2034, AUDIOTRACKSTART: 2033, AUDIOTRACKCOMPLETE: 2034 }, v = u.extend({ init: function(T, R, w) {
+          this.trackLog = w = w === void 0 ? !0 : w, this.player = T, this.requestId = "", this.sessionId = s.guid(), this.playId = 0, this.firstPlay = !0, this.osName = e.os.name, this.osVersion = e.os.version || "", this.exName = e.browser.name, this.exVersion = e.browser.version || "", this.lightSaasVideoId = "", this._logService = "", this._h265ProbeInfo = {}, this.loadedDataReported = !1, this.startPlayReported = !1, this.canplayReported = !1, this.doPlayReported = !1, this.seekingData = { seekingStartTime: 0 }, this.pendingPrepareEndData = null, this.h265RenderTypeTimer = null, this.statisticsHistoryTimer = null, this.timeline = [{ name: "init", ts: performance.now() }], this.checkSeekStuckedTimer = null, r.logReportTo = R.logReportTo || r.logReportTo, this.prevStats = { timestamp: 0, bytesReceived: 0, framesDecoded: 0, packetsLost: 0, packetsReceived: 0, rtt: 0 }, this.resetHeartBeatStatusData(), this.resetStatisticsHistoryData(), R.logBatched && (this._logService = new p(r));
+          var w = this.player.getOptions(), T = R.from || "", R = (w.isLive, w.isLive ? "live" : "vod"), P = "pc", E = (e.IS_IPAD ? P = "pad" : e.os.phone && (P = "phone"), this.encodeURL(e.getReferer())), M = e.getHref(), A = this.encodeURL(M), H = "", M = (M && (H = e.getHost(M)), r.h5Version), O = y.getUuid(), j = w.source ? this.encodeURL(w.source) : "", U = e.getHost(w.source), N = w.userId ? w.userId + "" : "0", C = this.sessionId, I = (/* @__PURE__ */ new Date()).getTime(), L = w.traceId || "";
+          this._userNetInfo = { cdnIp: "", localIp: "" }, this.opt = { APIVersion: "0.6.0", t: I, ll: "info", lv: "1.0", pd: "player", md: "saas_player", ui: "saas_player", sm: "play", os: this.osName, ov: this.osVersion, et: this.exName, ev: this.exVersion, uat: e.USER_AGENT, hn: "0.0.0.0", bi: T, ri: C, e: "0", args: "0", li_ki: w.license.key || "", vt: R, tt: P, dm: "h5", av: M, uuid: O, vu: j, vd: U, ua: N, dn: "custom", cdn_ip: "0.0.0.0", app_n: H, r: E, pu: A, ti: L }, this.bindEvent();
+        }, updateVideoInfo: function(f) {
+          f = f.from || "", this.opt.bi = f + "", this.updateSourceInfo();
+        }, updateSourceInfo: function() {
+          var f, b = this.player.getOptions();
+          b && (f = b.source ? this.encodeURL(b.source) : "", b = e.getHost(b.source), this.opt.vu = f, this.opt.vd = b);
+        }, updateTraceId: function(f) {
+          this.opt.ti = f;
+        }, updateLightSaasVideoId: function(f) {
+          this.lightSaasVideoId = f;
+        }, replay: function() {
+          this.reset(), this.player.trigger(h.Video.LoadStart), this.player.trigger(h.Video.LoadedMetadata), this.player.trigger(h.Video.LoadedData), this.startHeartBeat();
+        }, bindEvent: function() {
+          var f = this;
+          this.player.on(h.Private.Create, function(b) {
+            f._onCreate(b);
+          }), this.player.on(h.Player.Init, function() {
+            f._onPlayerInit();
+          }), this.player.on(h.Video.LoadStart, function() {
+            f._onPlayerloadstart();
+          }), this.player.on(h.Video.LoadedMetadata, function() {
+            f._onPlayerLoadMetadata();
+          }), this.player.on(h.Video.LoadedData, function() {
+            f._onPlayerLoaddata();
+          }), this.player.on(h.Player.H265PlayInfo, function(b) {
+            f._onH265PlayInfo(b), f._onPlayerH265PlayInfo(b);
+          }), this.player.on(h.Player.H266PlayInfo, function(b) {
+            f._onH265PlayInfo(b), f._onPlayerH265PlayInfo(b);
+          }), this.player.on(h.Video.Play, function() {
+            f._onPlayerPlay();
+          }), this.player.on(h.Video.Playing, function() {
+            f._onPlayerReady();
+          }), this.player.on(h.Video.Ended, function() {
+            f._onPlayerFinish();
+          }), this.player.on(h.Video.Pause, function() {
+            f._onPlayerPause();
+          }), this.player.on("seeking", function() {
+            f._onPlayerSeeking();
+          }), this.player.on("seeked", function() {
+            f._onPlayerSeeked();
+          }), this.player.on(h.Private.LicenseHasResult, function(b) {
+            f._onLicenseHasResult(b);
+          }), this.player.on(h.Private.SeekStart, function(b) {
+            f._onPlayerSeekStart(b);
+          }), this.player.on(h.Private.EndStart, function(b) {
+            f._seekEndData = b.paramData;
+          }), this.player.on(h.Player.Waiting, function() {
+            f._onPlayerLoaded();
+          }), this.player.on(h.Video.CanPlayThrough, function() {
+          }), this.player.on(h.Video.CanPlay, function() {
+            f._waitingDelayLoadingShowHandle && (clearTimeout(f._waitingDelayLoadingShowHandle), f._waitingDelayLoadingShowHandle = null), f._onPlayerUnderload(), f._onPlayerCanplay();
+          }), this.player.on(h.Video.TimeUpdate, function() {
+            f._waitingDelayLoadingShowHandle && (clearTimeout(f._waitingDelayLoadingShowHandle), f._waitingDelayLoadingShowHandle = null), f._seekEndData && f.player._seeking && f._onPlayerSeekEnd();
+          }), this.player.on(h.Player.Error, function(b) {
+            f._onPlayerError(b);
+          }), this.player.on(h.Player.RequestFullScreen, function() {
+            f._onFullscreenChange(1);
+          }), this.player.on(h.Player.CancelFullScreen, function() {
+            f._onFullscreenChange(0);
+          }), this.player.on(h.Private.PREPARE, function(b) {
+            f._prepareTime = performance.now(), f._log("PREPARE", { dn: b.paramData }), f.timeline.push({ name: "prepare", ts: performance.now() });
+          }), this.player.on(h.Private.ManualPlay, function() {
+            f.loadedDataReported || (f._prepareTime = performance.now(), f.timeline.push({ name: "prepare2", ts: performance.now() }));
+          }), this.player.on(h.Player.Snapshoted, function() {
+            f._log("SNAPSHOT");
+          }), this.player.on(h.Private.Retry, function(b) {
+            b = b.paramData || {}, f._log("RETRY", { type: b.type, source: b.source });
+          }), this.player.on(h.Player.RtsFallback, function(w) {
+            var S, w = w.paramData || {};
+            f._log("RTSFALLBACK", { reason: (S = w.reason) == null ? void 0 : S.error_msg, url: w.fallbackUrl });
+          }), this.player.on(h.Private.VodRequestException, function(b) {
+            b = b.paramData || {}, f.reportVodException(b);
+          }), this.player.on(h.Private.VodRequestExceptionResume, function(b) {
+            b = b.paramData || {}, f.reportVodExceptionResume(b);
+          }), this.player.on(h.Private.TraceLog, function(b) {
+            b = b.paramData || {}, f._reportTrace(b);
+          }), this.player.on(h.Private.DumpBuffer, function(b) {
+            b = b.paramData || {}, f._reportDump(b);
+          }), this.player.on(h.Private.StatisticsInfo, function(b) {
+            b = b.paramData || {}, f._onStatisticsHistoryUpdate(b);
+          }), this.player.on(h.Private.Timeline, function(b) {
+            b = b.paramData || {}, f._onTimeline(b);
+          }), n.on(this.player.tag, h.Video.Playing, function() {
+            f.reportPlaying();
+          }), n.on(this.player.tag, h.Video.TimeUpdate, function() {
+            f.reportPlaying();
+          }), this.startHeartBeat.call(this), this.startStatisticsHistory.call(this);
+        }, startStatisticsHistory: function() {
+          var f = this;
+          this.opt.app_n === "n.dingtalk.com" && (this.statisticsHistoryTimer && clearInterval(this.statisticsHistoryTimer), this.statisticsHistoryTimer = setInterval(function() {
+            f.player.trigger(h.Private.TraceLog, "[statistics_history]" + JSON.stringify(f.statisticsHistory)), f.resetStatisticsHistoryData();
+          }, this.player._options.statisticsReportInterval));
+        }, reportPlaying: function() {
+          var f;
+          this.doPlayReported || this.player.paused() || this.player.readyState() === 0 || (this.doPlayReported = !0, this.first_play_time = performance.now(), f = { dsm: "fix", tc: this.first_play_time - this.loadstartTime, fc: this.first_play_time - this.playstartTime }, this._log("PLAY", f));
+        }, removeEvent: function() {
+          this.player.offAll("init"), this.player.offAll("ready"), this.player.offAll("ended"), this.player.offAll("play"), this.player.offAll("pause"), this.player.offAll("seekStart"), this.player.offAll("seekEnd"), this.player.offAll("canplaythrough"), this.player.offAll("playing"), this.player.offAll("timeupdate"), this.player.offAll("error"), this.player.offAll("fullscreenchange"), this.player.offAll("seeking"), this.player.offAll("seeked"), this.player.offAll(h.Private.PREPARE), this.player.offAll(h.Player.RtsFallback), n.off(this.player.tag, h.Video.Playing), n.off(this.player.tag, h.Video.TimeUpdate), this._logService && this._logService.dispose(), clearInterval(l), clearInterval(this.statisticsHistoryTimer), this.statisticsHistoryTimer = null, clearTimeout(this.checkSeekStuckedTimer), this.checkSeekStuckedTimer = null;
+        }, reset: function() {
+          this.stucking = !1, this.startTimePlay = 0, this.pause_flag = 0, this.firstPlay = !1, this.playId = 0, this._canPlay = 0, this.seekingStartTime = 0, this.prevStats = { timestamp: 0, bytesReceived: 0, framesDecoded: 0, packetsLost: 0, packetsReceived: 0, rtt: 0 }, g = 0, this.lightSaasVideoId = "", this.resetHeartBeatStatusData(), this.resetStatisticsHistoryData(), l && (clearInterval(l), l = null);
+        }, encodeURL: function(f) {
+          var b;
+          return f ? (b = this.player.getOptions()) && !b.logBatched ? encodeURIComponent(f) : f : "";
+        }, startHeartBeat: function() {
+          var f = this;
+          l && clearInterval(l), l = setInterval(function() {
+            var b;
+            f.player.getCurrentTime() && (b = Math.floor(1e3 * f.player.getCurrentTime()), f.player.paused() && (f.prevStats.timestamp = 0), ++g >= f.player._options.heartHeatInterval) && f.updateStats.call(f, function(S) {
+              var T = f._imageInfo() || {}, R = f.player.tag.playbackRate, w = f.player.getVolume(), T = { vt: b, interval: 1e3 * g, imgLength: T.imgLength, playbackRate: R, volume: w, bw: f._getbwEstimator() + "KB" }, R = ((T = S ? _({}, T, { dls: Math.floor(S.downloadSpeedPerSec), dfps: Math.floor(S.decodedFramesPerSec), pkl: Number((S.packageLossRate || 0).toFixed(2)), rtt: 1e3 * S.rtt }) : T).player_status = _({}, f.heartBeatStatusData), f.player);
+              T.time = { play_time: parseFloat((R._playingTime / 1e3).toFixed(2)), stuck_count: parseFloat(R._stuckCount.toFixed(2)), stuck_time: parseFloat((R._stuckTime / 1e3).toFixed(2)) }, f._log("HEARTBEAT", T), g = 0;
+            });
+          }, 1e3);
+        }, updateStats: function(f) {
+          f = f || function() {
+          };
+          var b = this;
+          this.player.getStats().then(function(S) {
+            var w, T;
+            S ? (w = b.prevStats, S.bytesReceived = S.bytesReceived || 0, S.framesDecoded = S.framesDecoded || 0, S.packetsLost = S.packetsLost || 0, S.packetsReceived = S.packetsReceived || 0, T = ((b.prevStats = S).timestamp - w.timestamp) / 1e3, f({ downloadSpeedPerSec: (S.bytesReceived - w.bytesReceived) / T, decodedFramesPerSec: (S.framesDecoded - w.framesDecoded) / T, packageLossRate: (S.packetsLost - w.packetsLost) / (S.packetsLost - w.packetsLost + (S.packetsReceived - w.packetsReceived)), rtt: S.rtt, timeGap: T })) : f();
+          }).catch(function(S) {
+            console.log("error in monitor getStats: ", S), f();
+          });
+        }, reportStartPlay: function() {
+          this.startPlayReported || (this._log("STARTPLAY", { vt: (/* @__PURE__ */ new Date()).getTime() }), this.startPlayReported = !0);
+        }, reportCanplay: function() {
+          this.canplayReported || (this._log("CANPLAY", { vt: (/* @__PURE__ */ new Date()).getTime() }), this.canplayReported = !0);
+        }, reportPlayAbort: function(f) {
+          this._log("PLAYABORT", { vt: (/* @__PURE__ */ new Date()).getTime(), from: f });
+        }, reportVodException: function(f) {
+          console.log("VOD_REQUEST_FATAL_ERROR", f), this._log("VOD_REQUEST_FATAL_ERROR", f);
+        }, reportVodExceptionResume: function(f) {
+          console.log("VOD_REQUEST_FATAL_ERROR_RESUME", f), this._log("VOD_REQUEST_FATAL_ERROR_RESUME", f);
+        }, resetStartPlayReportFlag: function() {
+          this.startPlayReported = !1;
+        }, resetCanplayReportFlag: function() {
+          this.canplayReported = !1;
+        }, resetLoadedDataReported: function() {
+          this.loadedDataReported = !1, this._prepareTime = performance.now();
+        }, resetDoPlayReportFlag: function() {
+          this.doPlayReported = !1;
+        }, resetSessionId: function() {
+          this.sessionId = s.guid();
+        }, resetHeartBeatStatusData: function() {
+          this.heartBeatStatusData = { t_last_pause: -1, t_last_resume: -1, t_last_load_start: -1, t_last_load_end: -1 }, this.player.startPlayTimeMonitor();
+        }, resetStatisticsHistoryData: function() {
+          this.statisticsHistory = { speed: [], framesDropped: [], downlink: [], type: [], rtt: [] };
+        }, resetTimeline: function() {
+          var f = performance.now();
+          this._createTime = f, this.timeline = [{ name: "init", ts: f }];
+        }, resetVV: function() {
+          this.startPlayReported && (this.resetStartPlayReportFlag(), this.resetLoadedDataReported(), this.resetDoPlayReportFlag(), this.resetCanplayReportFlag(), this.resetSessionId(), this.resetTimeline());
+        }, updateH265ProbeInfo: function(f) {
+          this._h265ProbeInfo = f || {};
+        }, _onFullscreenChange: function(f) {
+          f ? this._log("FULLSREEM", {}) : this._log("QUITFULLSCREEM", {});
+        }, _onTimeline: function(f) {
+          var b = ["frag_s", "frag_f", "frag_parsed"].includes(f.name);
+          this.timeline.some(function(S) {
+            return b && S.name === f.name;
+          }) || this.timeline.push(f);
+        }, _onPlayerloadstart: function() {
+          this.loadstartTime = performance.now(), this.playId = s.guid();
+        }, _onPlayerLoadMetadata: function() {
+          this.loadMetaDataCost = performance.now() - this.loadstartTime, this.timeline.push({ name: "meta", ts: performance.now() });
+        }, _onPlayerLoaddata: function() {
+          var f, b, S, w, T = this;
+          this.timeline.push({ name: "loadeddata", ts: performance.now() }), this.loadedDataReported || (w = S = 0, this.player.tag && (S = this.player.tag.videoWidth, w = this.player.tag.videoHeight), f = { fc: parseInt(performance.now() - this._createTime), tc: parseInt(performance.now() - this._prepareTime), cc: parseInt(performance.now() - this.loadstartTime), md: parseInt(this.loadMetaDataCost), mi: JSON.stringify({ type: "video", definition: S + "*" + w }) }, this.timeline.forEach(function(R, P) {
+            try {
+              var E = P ? R.ts - T.timeline[P - 1].ts : 0;
+              f["tl_" + R.name] = P + "#" + parseInt(E);
+            } catch {
+            }
+          }), (S = this.player.tag) != null && S.duration && (f.vdur = 1e3 * ((w = this.player.tag) == null ? void 0 : w.duration)), (5 < this._h265ProbeInfo.codecCost || 5 < this._h265ProbeInfo.decoderCost) && (S = Math.floor(this._h265ProbeInfo.codecCost) || 0, w = Math.floor(this._h265ProbeInfo.decoderCost) || 0, f.tc += b = S + w, f.cc += b, f.pcc = S, f.pdc = w), b = [{ type: "audio" }], S = { type: "video", codecType: null, isHardwareDecode: null }, w = this._h265ProbeInfo.codecTag, d.isH265Codec(w) ? S.codecType = "h265" : d.isH266Codec(w) ? S.codecType = "h266" : d.isH264Codec(w) && (S.codecType = "h264"), b.push(S), f.decode_info = b, this._h265ProbeInfo.waitRenderType ? (this.pendingPrepareEndData = f, this.h265RenderTypeTimer = setTimeout(function() {
+            T._log("PREPAREEND", f), T.h265RenderTypeTimer = null;
+          }, 2e3)) : this._log("PREPAREEND", f)), this.loadedDataReported = !0;
+        }, _onStatisticsHistoryUpdate: function(f) {
+          this.opt.app_n === "n.dingtalk.com" && (this.statisticsHistory.speed.push(parseInt(f.speed)), this.statisticsHistory.framesDropped.push(f.droppedFrames), f = navigator.connection) && (this.statisticsHistory.downlink.push(f.downlink), this.statisticsHistory.type.push(f.effectiveType), this.statisticsHistory.rtt.push(f.rtt));
+        }, _onH265PlayInfo: function(f) {
+          var b, S;
+          this.h265RenderTypeTimer && (clearTimeout(this.h265RenderTypeTimer), this.h265RenderTypeTimer = null), this.pendingPrepareEndData && (f = f.paramData, b = this.pendingPrepareEndData, this.pendingPrepareEndData = null, S = b.decode_info[1], f.renderType === "wasm" && (S.isHardwareDecode = !1), this._log("PREPAREEND", b));
+        }, _onPlayerH265PlayInfo: function(f) {
+          f = f.paramData || {}, this._log("HEVCINFO", { cd: f.codecTag, rd: f.renderType, si: f.simd, sio: f.simdOption, wt: f.wasmThreads, wto: f.wasmThreadsOption, sp: f.splayer });
+        }, _onPlayerCanplay: function() {
+          this._canPlay = 1, this.reportCanplay(), this.prevStats.timestamp || this.updateStats.call(this);
+        }, _onCreate: function(f) {
+          f = f.paramData || {}, f.hasPa = !!f.playauth, delete f.playauth, f.hasSk = !!f.accessKeySecret, delete f.accessKeySecret, f.hasSt = !!f.securityToken, delete f.securityToken, this._log("CREATE", f), this._createTime = performance.now();
+        }, _onPlayerInit: function() {
+          this.stucking = !1, this.pause_flag = 0, this.startTimePlay = 0, this._canPlay = 0, this.seekingStartTime = 0;
+        }, _onPlayerReady: function() {
+          this.startTimePlay || (this.startTimePlay = (/* @__PURE__ */ new Date()).getTime());
+        }, _onPlayerFinish: function() {
+          this._log("STOP", { vt: Math.floor(1e3 * this.player.getCurrentTime()) }), this.reset();
+        }, _onPlayerPlay: function() {
+          var f;
+          this.playstartTime = (/* @__PURE__ */ new Date()).getTime(), this.playId == 0 && (this.playId = s.guid()), this.player._isPreload() || (this.loadstartTime = performance.now()), this.doPlayReported && this.pause_flag && (this.pause_flag = 0, this.pauseEndTime = (/* @__PURE__ */ new Date()).getTime(), this.heartBeatStatusData.t_last_resume = this.pauseEndTime, f = this.pauseEndTime - this.pauseTime, this._log("RECOVER", { vt: Math.floor(1e3 * this.player.getCurrentTime()), cost: f, pass: f, t_last_pause: this.pauseTime }));
+        }, _onPlayerPause: function() {
+          !this.doPlayReported || this.startTimePlay && !this.player._seeking && (this.pause_flag = 1, this.pauseTime = (/* @__PURE__ */ new Date()).getTime(), this.heartBeatStatusData.t_last_pause = this.pauseTime, this.heartBeatStatusData.t_last_resume = -1, this._log("PAUSE", { vt: Math.floor(1e3 * this.player.getCurrentTime()) }));
+        }, _onLicenseHasResult: function(f) {
+          f = f.paramData || {}, this._log("LICENSE_RESULT", { li_ri: f.result + " " + (f.errorCode || ""), li_ti: f.featureId || "sdk" });
+        }, _onPlayerSeekStart: function(f) {
+          this.seekStartTime = f.paramData.fromTime, this.startTimePlay = 0, this.seekStartStamp = (/* @__PURE__ */ new Date()).getTime();
+        }, _onPlayerSeekEnd: function() {
+          this.seekEndStamp = (/* @__PURE__ */ new Date()).getTime(), this._log("SEEK", { drag_from_timestamp: Math.floor(1e3 * this.seekStartTime), drag_to_timestamp: Math.floor(1e3 * this._seekEndData.toTime) }), this._log("SEEK_END", { vt: Math.floor(1e3 * this.player.getCurrentTime()), cost: this.seekEndStamp - this.seekStartStamp }), this._seekEndData = null;
+        }, _onPlayerLoaded: function() {
+          var f, b = this;
+          this.doPlayReported && !this.stucking && document.visibilityState !== "hidden" && (this.player._seeking ? (this.seekingStartTime = this.player.getCurrentTime(), this.checkSeekStuckedTimer && clearTimeout(this.checkSeekStuckedTimer), this.checkSeekStuckedTimer = setTimeout(function() {
+            var S = b.player.readyState() < 4;
+            b.player.readyState() || (S = !0), b.player.getCurrentTime() === b.seekingStartTime && S && (S = b._getbwEstimator(), b._log("UNDERLOAD", { vt: Math.floor(1e3 * b.player.getCurrentTime()), bw: S, cbs: b._getCbs() }), b.stucking = !0, b.stuckStartTime = (/* @__PURE__ */ new Date()).getTime(), b._getCbs() === 0) && (b.heartBeatStatusData.t_last_load_start = b.stuckStartTime, b.heartBeatStatusData.t_last_load_end = -1);
+          }, 500)) : (this.stuckStartTime = (/* @__PURE__ */ new Date()).getTime(), this._getCbs() === 0 && (this.heartBeatStatusData.t_last_load_start = this.stuckStartTime, this.heartBeatStatusData.t_last_load_end = -1), this.stuckStartTime - this.startTimePlay <= 1e3 || (this.stucking = !0, f = this._getbwEstimator(), this._log("UNDERLOAD", { vt: Math.floor(1e3 * this.player.getCurrentTime()), bw: f, cbs: this._getCbs() }), this.stuckStartTime = (/* @__PURE__ */ new Date()).getTime())));
+        }, _onPlayerUnderload: function() {
+          var f, b, S, w;
+          !this.doPlayReported && this.player._options && this.player._options.autoplay || this.stucking && (f = Math.floor(1e3 * this.player.getCurrentTime()), b = this.stuckStartTime || (/* @__PURE__ */ new Date()).getTime(), 0 < (S = Math.floor((/* @__PURE__ */ new Date()).getTime() - b)) && S < (1e3 * this.player._options.waitingTimeout || 6e4) && (w = this._getbwEstimator(), this._getCbs() === 0 && (this.heartBeatStatusData.t_last_load_end = (/* @__PURE__ */ new Date()).getTime()), this._log("LOADED", { vt: f, cost: S, bw: w, cbs: this._getCbs(), t_last_load_start: b })), this.seekStart = !1, this.stucking = !1);
+        }, _onPlayerSeeking: function() {
+          this.seekStart = !0, this.seekingData.seekingStartTime = performance.now();
+        }, _onPlayerSeeked: function() {
+          var f = this;
+          this.player._splayer ? this.player.one("canplay", function() {
+            f._reportSeeked();
+          }) : this._reportSeeked();
+        }, _reportSeeked: function() {
+          var f = performance.now(), f = Math.floor(f - this.seekingData.seekingStartTime);
+          this._log("SEEKED", { vt: Math.floor(1e3 * this.player.getCurrentTime()), cost: f });
+        }, _reportTrace: function(f) {
+          this._log("TRACE", { log: f });
+        }, _reportDump: function(f) {
+          this._log("DUMP", f);
+        }, _onPlayerError: function(f) {
+          this._reportTrace(f.paramData), this.playId = 0, this.statisticsHistoryTimer && (clearInterval(this.statisticsHistoryTimer), this.statisticsHistoryTimer = null, this.resetStatisticsHistoryData()), l && (clearInterval(l), l = null);
+        }, _getbwEstimator: function() {
+          var f = NaN;
+          try {
+            f = ((f = this.player._getbwEstimator && parseInt(this.player._getbwEstimator(), 10)) / 8 / 1024).toFixed(2);
+          } catch {
+          }
+          return f;
+        }, _getCbs: function() {
+          return !this.player.getOptions().isLive && this.seekStart ? 1 : 0;
+        }, _log: function(f, b) {
+          if (this.trackLog) {
+            this.updateSourceInfo();
+            var S = a.copy(this.opt), w = (this.requestId = s.guid(), r.logReportTo), f = (S.e = m[f] + "", S.en = f, S.ri = this.sessionId, S.bi = S.bi && String(S.bi), S.t = (/* @__PURE__ */ new Date()).getTime() + "", S.cdn_ip = this._userNetInfo.cdnIp, S.hn = this._userNetInfo.localIp, this.player.getCurrentQuality()), T = (f != "" && (S.definition = f.definition), []), f = (a.each(b, function(A, H) {
+              if (typeof H != "string") try {
+                H = JSON.stringify(H);
+              } catch {
+              }
+              T.push(A + "=" + H);
+            }), ""), b = this.player.getOptions(), f = ((f = b && b.vid || this.lightSaasVideoId ? b.vid || this.lightSaasVideoId : f) && T.push("vid=" + f), "");
+            (f = b && b.mediaAuth ? b.mediaAuth : f) && T.push("pauth=" + f);
+            try {
+              Aliplayer && Aliplayer.__logCallback__ && (S.args = T, Aliplayer.__logCallback__(S));
+            } catch (A) {
+              console.log(A);
+            }
+            if ((T = T.join("&")) == "" && (T = "0"), S.args = this.encodeURL(T), this._logService) {
+              if (S.e === String(m.DUMP)) return void this._logService.reportDump(S);
+              this._logService.add(S);
+            } else {
+              var R = [];
+              a.each(S, function(A, H) {
+                R.push(A + "=" + H);
+              }), R = R.join("&"), t.jsonp(w + "?" + R, function() {
+              }, function() {
+              });
+            }
+            return this.sessionId;
+          }
+        }, _imageInfo: function() {
+          try {
+            var f, b, S, w, T, R, P;
+            return /MSIE\s8\.0/.test(navigator.userAgent) ? {} : (f = this.player.tag) ? (b = document.createElement("canvas"), S = f.videoWidth, w = f.videoHeight, b.width = S, b.height = w, (T = b.getContext("2d")).save(), T.drawImage(f, 0, 0, S, w), T.restore(), R = b.toDataURL("image/jpeg", 1), P = "", { imgLength: (P = R ? (P = R.substr(R.indexOf(",") + 1)) || "" : P).length }) : {};
+          } catch {
+            return {};
+          }
+        } });
+        o.exports = v;
+      }, { "../config": 15, "../lib/data": 31, "../lib/event": 34, "../lib/io": 41, "../lib/object": 43, "../lib/oo": 44, "../lib/playerutil": 46, "../lib/ua": 49, "../player/base/event/eventtype": 68, "./log": 62, "./util": 64 }], 64: [function(c, o, x) {
+        var _ = c("../lib/cookie"), l = c("../lib/data"), u = c("../lib/ua");
+        o.exports.getUuid = function() {
+          var a = _.get("p_h5_u");
+          return a || (a = l.guid(), _.set("p_h5_u", a, 730)), a;
+        }, o.exports.getTerminalType = function() {
+          var a = "pc";
+          return u.IS_IPAD ? a = "pad" : u.IS_ANDROID ? a = "android" : u.IS_IOS && (a = "iphone"), a;
+        }, o.exports.returnUTCDate = function(y) {
+          var s = y.getUTCFullYear(), t = y.getUTCMonth(), e = y.getUTCDate(), n = y.getUTCHours(), r = y.getUTCMinutes(), h = y.getUTCSeconds(), y = y.getUTCMilliseconds();
+          return Date.UTC(s, t, e, n, r, h, y);
+        }, o.exports.getRfc822 = function(a) {
+          return a.toUTCString().replace("UTC", "GMT");
+        };
+      }, { "../lib/cookie": 30, "../lib/data": 31, "../lib/ua": 49 }], 65: [function(c, o, x) {
+        var _ = c("./base/player"), l = c("./saas/mtsplayer"), u = c("./saas/vodplayer"), a = c("./saas/lightPlayer"), s = c("./audio/audioplayer"), t = c("./hls/hlsplayer"), e = c("./flv/flvplayer"), n = c("./dash/dashplayer"), r = c("./rts/rtsplayer"), h = c("./drm/drmplayer"), y = c("./splayer/splayer"), p = c("../lib/ua"), d = c("../lib/playerutil"), g = (c("../lib/dom"), c("../lib/io"), c("../lang/index")), m = c("../lib/constants"), v = c("./base/event/eventtype");
+        o.exports.create = function(w, S) {
+          w.PlayAuth && (w.playauth = w.PlayAuth), typeof w.rtsFallback != "boolean" && w.rtsFallbackSource && (w.rtsFallback = !0), w._userOptions || (w._userOptions = Object.assign({}, w)), navigator && navigator.userAgent && -1 < navigator.userAgent.indexOf("Olympic_Android") && (w.useNativeControls = !0), w.readyCallback = S = typeof S != "function" ? function() {
+          } : S, g.setCurrentLanguage(w.language, "h5", w.languageTexts, w.extLanguageTexts);
+          var S = d.handleOption(w), w = S.source, T = S.format;
+          if (T && w) try {
+            T = T.toLowerCase();
+          } catch (A) {
+            console.log("Aliplayer - parsing format failed", A), T = "";
+          }
+          else T = "";
+          d.isSupportedFormat(T) || (T = ""), S.optionFormat = T, S.drm && (S.isDrm = !0), S.useDrm2 === void 0 && (S.useDrm2 = !(S.isDrm && S.accessKeyId));
+          var R, P = d.isAudio(w, T), E = (P && (S.mediaType = "audio"), d.createWrapper(S));
+          if (E.player) return E.player;
+          if (P) R = new s(E, S);
+          else if (d.isRts(w)) R = new r(E, S);
+          else if ((S.forceH265 || S.enableH265) && (d.isMp4(w, T) || d.isFlv(w, T) || d.isHls(w, T))) R = new y(E, S);
+          else if ((S.forceH266 || S.enableH266) && (d.isMp4(w, T) || S.isLive && (d.isFlv(w, T) || d.isHls(w, T)))) R = new y(E, S);
+          else if (!S.useFlashPrism && d.isFlv(w, T) && d.isSupportFlv()) R = new e(E, S);
+          else if ([null, void 0].indexOf(S.mediaAuth) !== -1 || S.source) if (S.vid && !S.source) if (S.authInfo) R = new l(E, S);
+          else {
+            if (!(S.playauth || S.accessKeyId && S.accessKeySecret)) throw P = "vid=" + S.vid + " playauth='', playauth property is required by VOD(视频点播) as new Aliplayer.", new Error(P);
+            R = new u(E, S);
+          }
+          else d.isHls(w, T) ? d.canPlayHls() ? R = new (d.isSupportHls() && (d.isUsedHlsPluginOnMobile() || d.isSafariUsedHlsPlugin(S.useHlsPluginForSafari)) ? S.isDrm ? h : t : S.isDrm ? h : _)(E, S) : d.isSupportHls() ? R = new (S.isDrm ? h : t)(E, S) : p.os.pc || (R = new _(E, S)) : d.isDash(w, T) && d.isSupportMSE() ? R = new (S.isDrm ? h : n)(E, S) : (R = new _(E, S), S.source || (P = { error_code: m.ErrorCode.InvalidSourceURL, error_msg: "InvalidSourceURL", display_msg: g.get("Error_Empty_Source") }, R.trigger(v.Player.Error, P)));
+          else R = new a(E, S);
+          return R;
+        };
+      }, { "../lang/index": 24, "../lib/constants": 29, "../lib/dom": 33, "../lib/io": 41, "../lib/playerutil": 46, "../lib/ua": 49, "./audio/audioplayer": 66, "./base/event/eventtype": 68, "./base/player": 91, "./dash/dashplayer": 98, "./drm/drmplayer": 101, "./flv/flvplayer": 103, "./hls/hlsplayer": 105, "./rts/rtsplayer": 107, "./saas/lightPlayer": 111, "./saas/mtsplayer": 113, "./saas/vodplayer": 118, "./splayer/splayer": 127 }], 66: [function(t, o, x) {
+        var _ = t("../base/player"), l = t("../../ui/component"), u = t("../../lib/dom"), a = t("../../lib/object"), s = t("../../lib/playerutil"), t = _.extend({ init: function(e, n) {
+          this._isAudio = !0, n.skinLayout === void 0 && (n.skinLayout = s.getDefaultAudioLayout()), _.call(this, e, n);
+        } });
+        t.prototype.createEl = function() {
+          this.tag.tagName !== "AUDIO" && (this._el = this.tag, this.tag = l.prototype.createEl.call(this, "audio"));
+          var e = this._el, n = this.tag, r = (n.player = this, u.getElementAttributes(n));
+          return a.each(r, function(h) {
+            e.setAttribute(h, r[h]);
+          }), this.setVideoAttrs(), n.parentNode && n.parentNode.insertBefore(e, n), u.insertFirst(n, e), e;
+        }, o.exports = t;
+      }, { "../../lib/dom": 33, "../../lib/object": 43, "../../lib/playerutil": 46, "../../ui/component": 132, "../base/player": 91 }], 67: [function(c, o, x) {
+        var _ = c("../../../lib/event"), l = c("./eventtype"), u = c("../eventHandler/video/index"), a = c("../eventHandler/player/index");
+        o.exports.offAll = function(s) {
+          var t, e, n, r = s.tag, h = s._el;
+          for (t in l.Video) _.off(r, l.Video[t]);
+          for (e in l.Player) _.off(h, l.Player[e]);
+          for (n in l.Private) _.off(h, l.Private[n]);
+        }, o.exports.offVideoAll = function(s) {
+          var t, e = s.tag;
+          for (t in l.Video) _.off(e, l.Video[t]);
+        }, o.exports.onAll = function(s) {
+          u.bind(s), a.bind(s);
+        };
+      }, { "../../../lib/event": 34, "../eventHandler/player/index": 72, "../eventHandler/video/index": 82, "./eventtype": 68 }], 68: [function(c, o, x) {
+        o.exports = { Video: { TimeUpdate: "timeupdate", Play: "play", Playing: "playing", Pause: "pause", CanPlay: "canplay", Waiting: "waiting", Ended: "ended", Error: "error", Suspend: "suspend", Stalled: "stalled", LoadStart: "loadstart", DurationChange: "durationchange", LoadedData: "loadeddata", LoadedMetadata: "loadedmetadata", Progress: "progress", CanPlayThrough: "canplaythrough", ContextMenu: "contextmenu", Seeking: "seeking", Seeked: "seeked", ManualEnded: "manualended", VolumeChange: "volumechange", RateChange: "ratechange", Resize: "resize" }, Player: { TimeUpdate: "timeupdate", DurationChange: "durationchange", Init: "init", Ready: "ready", Play: "play", Playing: "playing", Pause: "pause", CanPlay: "canplay", Waiting: "waiting", Ended: "ended", Error: "error", RequestFullScreen: "requestFullScreen", CancelFullScreen: "cancelFullScreen", Snapshoted: "snapshoted", Snapshoting: "snapshoting", OnM3u8Retry: "onM3u8Retry", LiveStreamStop: "liveStreamStop", AutoPlayPrevented: "autoPlayPrevented", AutoPlay: "autoplay", StartSeek: "startSeek", CompleteSeek: "completeSeek", TextTrackReady: "textTrackReady", AudioTrackReady: "audioTrackReady", AudioTrackUpdated: "audioTrackUpdated", LevelsLoaded: "levelsLoaded", AudioTrackSwitch: "audioTrackSwitch", AudioTrackSwitched: "audioTrackSwitched", LevelSwitch: "levelSwitch", LevelSwitched: "levelSwitched", MarkerDotOver: "markerDotOver", MarkerDotOut: "markerDotOut", DefaultBandWidth: "defaultbandwidth", ResolutionChange: "resolutionChange", SeiFrame: "seiFrame", RtsFallback: "rtsFallback", RtsTraceId: "rtsTraceId", H265PlayInfo: "h265PlayInfo", H266PlayInfo: "h266PlayInfo", H265DecoderOverload: "h265DecoderOverload", SettingSelected: "settingSelected", AutoResize: "autoResize", VideoUnavailable: "videoUnavailable" }, Private: { Create: "create", Play_Btn_Show: "play_btn_show", UiH5Ready: "uiH5Ready", Error_Hide: "error_hide", Error_Show: "error_show", Info_Show: "info_show", Info_Hide: "info_hide", H5_Loading_Show: "h5_loading_show", H5_Loading_Hide: "h5_loading_hide", HideProgress: "hideProgress", CancelHideProgress: "cancelHideProgress", UpdateProgress: "updateProgress", UpdateCursorPosition: "updateCursorPosition", Click: "click", MouseOver: "mouseover", MouseOut: "mouseout", MouseEnter: "mouseenter", MouseLeave: "mouseleave", TouchStart: "touchstart", TouchMove: "touchmove", TouchEnd: "touchend", HideBar: "hideBar", ShowBar: "showBar", ControlBarClick: "controlBarClick", ReadyState: "readyState", SourceLoaded: "sourceloaded", QualityChange: "qualitychange", Play_Btn_Hide: "play_btn_hide", Cover_Hide: "cover_hide", Cover_Show: "cover_show", SeekStart: "seekStart", EndStart: "endStart", UpdateProgressBar: "updateProgressBar", LifeCycleChanged: "lifeCycleChanged", Dispose: "dispose", Created: "created", Snapshot_Hide: "snapshot_hide", AutoStreamShow: "auto_stream_show", AutoStreamHide: "auto_stream_hide", VolumnChanged: "volumnchanged", LiveShiftQueryCompleted: "liveShiftQueryCompleted", LiveShiftSwitchToLive: "LiveShiftSwitchToLive", StreamSelectorHide: "streamSelectorHide", SpeedSelectorHide: "speedSelectorHide", SettingShow: "settingShow", SettingHide: "settingHide", SelectorShow: "selectorShow", SelectorHide: "selectorHide", SettingListShow: "settingListShow", SettingListHide: "settingListHide", ThumbnailHide: "thumbnailHide", ThumbnailShow: "thumbnailShow", ThumbnailLoaded: "thumbnailLoaded", TooltipShow: "tooltipShow", TooltipHide: "tooltipHide", SelectorUpdateList: "selectorUpdateList", SelectorValueChange: "selectorValueChange", SelectorGenerateList: "selectorGenerateList", VolumeVisibilityChange: "volumeVisibilityChange", VolumeUpdatePosition: "volumeUpdatePosition", ChangeURL: "changeURL", UpdateToSettingList: "updateToSettingList", CCChanged: "CCChanged", CCStateChanged: "CCStateChanged", CCReset: "ccReset", TextTrackFounded: "textTrackFounded", UserTrackReset: "userTrackReset", PlayClick: "click", ProgressMarkerLoaded: "progressMarkerLoaded", MarkerTextShow: "markerTextShow", MarkerTextHide: "markerTextHide", PREPARE: "prepare", ProgressMarkerChanged: "progressMarkerChanged", SeiFrame: "privateSeiFrame", PlayInfoLoaded: "playInfoLoaded", Retry: "retry", LicenseHasResult: "licenseHasResult", PatchWaiting: "patchWaiting", VttHide: "vttHide", VttSwitchTrack: "vttSwitchTrack", VttClearTracks: "vttClearTracks", SafariDrmLevelSwitch: "safariDrmLevelSwitch", VodRequestException: "vodRequestException", VodRequestExceptionResume: "vodRequestExceptionResume", TraceLog: "traceLog", DumpBuffer: "dumpBuffer", PlaybackRateChanged: "playbackRateChanged", StatisticsInfo: "statisticsInfo", MutedAutoplay: "mutedAutoplay", HideUnmuteButton: "hideUnmuteButton", Timeline: "timeline", ManualPlay: "manualPlay", UpdateWatchTime: "updateWatchTime", FastForwardShow: "fastForwardShow", FastForwardHide: "fastForwardHide" } };
+      }, {}], 69: [function(c, o, x) {
+        c("../../event/eventtype");
+        var _ = c("../../../../lib/dom"), l = c("../../../../lib/ua");
+        o.exports.handle = function() {
+          l.IS_IOS && (l.IS_IOS, !this._splayer || this._splayer.renderType !== 2) || _.removeClass(this.el(), "prism-fullscreen");
+        };
+      }, { "../../../../lib/dom": 33, "../../../../lib/ua": 49, "../../event/eventtype": 68 }], 70: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        o.exports.handle = function(l) {
+          var u = this;
+          u.trigger(_.Player.CompleteSeek, l.paramData.toTime), u.one(_.Player.CanPlay, function() {
+            u._enteredProgressMarker && u.pause();
+          });
+        };
+      }, { "../../event/eventtype": 68 }], 71: [function(c, o, x) {
+        var _ = c("../../event/eventtype"), l = (c("../../../../lib/constants"), c("../../../../lang/index"), c("../../../../monitor/util"));
+        o.exports.handle = function(s) {
+          var a = this, s = s.paramData;
+          a.trigger(_.Private.H5_Loading_Hide), a.trigger(_.Private.Cover_Hide), a.trigger(_.Private.Play_Btn_Hide), a.trigger(_.Private.SettingListHide), a.trigger(_.Private.SelectorHide), a.trigger(_.Private.VolumeVisibilityChange, ""), s = s || {}, a._monitor && (s.uuid = l.getUuid(), s.serverRequestId = a._serverRequestId, s.requestId = a._monitor.sessionId, s.cdnIp = a._monitor._userNetInfo.cdnIp, s.localIp = a._monitor._userNetInfo.localIp), a._isError = !0, a.trigger(_.Private.Error_Show, s), a.trigger(_.Private.LifeCycleChanged, { type: _.Player.Error, data: s });
+        };
+      }, { "../../../../lang/index": 24, "../../../../lib/constants": 29, "../../../../monitor/util": 64, "../../event/eventtype": 68 }], 72: [function(c, o, x) {
+        var _ = c("../../event/eventtype"), l = c("../../../../lib/event"), u = c("./lifecyclecommon"), a = { endStart: c("./endstart"), seekStart: c("./seekstart"), requestFullScreen: c("./requestfullscreen"), cancelFullScreen: c("./cancelfullscreen"), error: c("./error"), privateSeiFrame: c("./seiframe"), patchWaiting: c("../video/waiting") }, s = [_.Private.EndStart, _.Private.SeekStart, _.Player.RequestFullScreen, _.Player.CancelFullScreen, _.Player.Error, _.Player.Ready, _.Private.Dispose, _.Private.Created, _.Private.SeiFrame, _.Private.PatchWaiting];
+        o.exports.bind = function(t) {
+          t.el();
+          for (var e = 0; e < s.length; e++) {
+            var n = s[e];
+            a[n] != "undefined" && ((r, h, y) => {
+              var p = r.el();
+              l.on(p, h, function(d) {
+                var g = (y && y.handle ? y : u).handle;
+                g.call(r, d, h);
+              });
+            })(t, n, a[n]);
+          }
+        };
+      }, { "../../../../lib/event": 34, "../../event/eventtype": 68, "../video/waiting": 90, "./cancelfullscreen": 69, "./endstart": 70, "./error": 71, "./lifecyclecommon": 73, "./requestfullscreen": 74, "./seekstart": 75, "./seiframe": 76 }], 73: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        o.exports.handle = function(l, u) {
+          this.trigger(_.Private.LifeCycleChanged, { type: u, data: l });
+        };
+      }, { "../../event/eventtype": 68 }], 74: [function(c, o, x) {
+        c("../../event/eventtype");
+        var _ = c("../../../../lib/dom"), l = c("../../../../lib/ua");
+        o.exports.handle = function() {
+          l.IS_IOS && (l.IS_IOS, !this._splayer || this._splayer.renderType !== 2) || _.addClass(this.el(), "prism-fullscreen");
+        };
+      }, { "../../../../lib/dom": 33, "../../../../lib/ua": 49, "../../event/eventtype": 68 }], 75: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        o.exports.handle = function(l) {
+          this._seeking = !0, this.trigger(_.Player.StartSeek, l.paramData.fromTime);
+        };
+      }, { "../../event/eventtype": 68 }], 76: [function(c, o, x) {
+        c("../../event/eventtype"), o.exports.handle = function(a) {
+          var l, u, a = a.paramData, s = a.pts;
+          this._hls2 ? s = parseInt(1e3 * s) : this._hls && (l = a.pts, u = this._initPTS, s = parseInt((l - u) / 90, 10)), this._seis[s] = this._seis[s] || [], this._seis[s].push(a.dataContent);
+        };
+      }, { "../../event/eventtype": 68 }], 77: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        o.exports.handle = function(l) {
+          var u = this, a = (u._retrySwitchUrlCount = 0, u._liveRetryCount = 0, u._clearLiveErrorHandle(), u._dumpBuffer = "ABORTED", (/* @__PURE__ */ new Date()).getTime() - u.readyTime);
+          u._options.autoplay || u._options._autoplay || !u.paused() || (u.trigger(_.Private.H5_Loading_Hide), u.trigger(_.Private.Play_Btn_Show)), u.trigger(_.Player.CanPlay, { loadtime: a });
+        };
+      }, { "../../event/eventtype": 68 }], 78: [function(c, o, x) {
+        var _ = c("../../event/eventtype"), l = c("../../../../lib/dom"), u = c("../../../../lib/ua");
+        o.exports.handle = function(a) {
+          this._seeking = !1;
+          var s = this.tag;
+          s.style.display === "none" && u.IS_IOS && setTimeout(function() {
+            l.css(s, "display", "block");
+          }, 100), this.trigger(_.Video.CanPlayThrough);
+        };
+      }, { "../../../../lib/dom": 33, "../../../../lib/ua": 49, "../../event/eventtype": 68 }], 79: [function(c, o, x) {
+        o.exports.handle = function(_, l) {
+          var u = "";
+          _ && _.paramData && (u = _.paramData), this.trigger(l, u);
+        };
+      }, {}], 80: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        c("../../../../lang/index"), c("../../../../lib/event"), o.exports.handle = function(l) {
+          var u = this;
+          u.waiting = !1, u._ended = !0, u._currentTimeForDisableSeek = 0, u.traceLog("video/ended.js", "event::ended"), u.trigger(_.Private.Play_Btn_Show), u.trigger(_.Player.Ended, { playTime: u.getPlayTime() }), u.__disposed || (u._monitor && u._monitor._onPlayerInit(), u._options.rePlay ? (u._monitor && u._monitor.startHeartBeat(), this._splayer || (u.seek(u._getPlayStartTime()), u.tag.play())) : u._options.isLive && u.trigger(_.Private.H5_Loading_Hide));
+        };
+      }, { "../../../../lang/index": 24, "../../../../lib/event": 34, "../../event/eventtype": 68 }], 81: [function(c, o, x) {
+        var _ = c("../../event/eventtype"), l = c("../../../../lib/constants"), u = c("../../../../lang/index"), a = (c("../../../../lib/event"), c("../../../../lib/ua")), s = (c("../../../../lib/io"), c("../../../../lib/playerutil")), t = "video/error.js";
+        function e(n, r, h) {
+          var y = n._options, p = y.source || "";
+          (r = r !== 4 && a.IS_IOS && /qqbrowser/i.test(a.USER_AGENT) ? 4 : r) === 4 && s.isHls(p) ? s.detectRegionBlock(p, function(d) {
+            d ? (d = { mediaId: y.isLive ? "ISLIVE" : y.vid || "", error_code: l.ErrorCode.RegionBlock, error_msg: u.get("Error_Region_Block_Text"), diagnosis_info: u.get("Tip_Err_Blocked") }, n.logError(d), n.trigger("error", d)) : h();
+          }) : h();
+        }
+        o.exports.handle = function(n) {
+          if ((n.target || n.srcElement).error) {
+            var r = this;
+            if (r.waiting = !1, r._clearTimeout(), r.checkOnline() && !r._splayer && !r._drm) {
+              var h, d = "", y = n.target || n.srcElement, p = y.error && y.error.message || "", d = "";
+              if (y.error && y.error.code && (h = y.error.code, d = l.VideoErrorCode[y.error.code], p = h + " || " + p), r.traceLog(t, "event::error#" + h + "#" + p), r._reportDumpBuffer && r._reportDumpBuffer(), r._options.isLive) e(r, h, function() {
+                r._options.liveRetry > r._liveRetryCount ? r._reloadAndPlayForM3u8() : (r._liveRetryCount = 0, r.trigger(_.Player.LiveStreamStop), r._liveErrorHandle = setTimeout(function() {
+                  var m = { mediaId: "ISLIVE", error_code: d, error_msg: p || u.get("Error_Play_Text") + "，" + u.get("Error_Retry_Text") };
+                  r.logError(m), m.display_msg = l.VideoErrorCodeText[h] || m.error_msg, r.trigger("error", m);
+                }), a.IS_UC && (r._liveErrorHandle = null));
+              });
+              else if (h == 3) {
+                if (y = "", -1 < p.indexOf("no decoder found")) y = u.get("Error_No_Decoder_Text");
+                else if (r._nudgeCount = r._nudgeCount || 0, r._nudgeCount < 5) {
+                  r._nudgeCount++;
+                  var g = +r._nudgeCount, g = r.getCurrentTime() + g;
+                  if (r.traceLog(t, "decode error, try to nudge(" + r._nudgeCount + "/5) from " + r.getCurrentTime() + " to " + g + "s, duration: " + r.getDuration()), g < r.getDuration()) return void r._loadByUrlInner(r._options.source, g, !0);
+                } else if ((function() {
+                  var m = !1, v = this.getOptions();
+                  {
+                    var f;
+                    this._fallback || !s.isHls(v.source) || this._options._native || !s.canPlayHls() || this.swPlayer || (m = !0, this._options.useHlsPluginForSafari = !1, this._options._native = !0, this.traceLog(t, "fallback to native player"), f = this.getCurrentTime(), window.Aliplayer && window.Aliplayer.reloadInstance(this._options, function(b) {
+                      b._fallback = !0, v.isLive || b.seek(f);
+                    }, this));
+                  }
+                  return m;
+                }).call(r) || (function() {
+                  var m = !1, v = this.getOptions();
+                  {
+                    var f;
+                    !this._fallback && s.isHls(v.source) && this._options._native && s.isSupportHls() && (m = !0, this._options.useHlsPluginForSafari = !0, this._options._native = !1, this.traceLog(t, "fallback to MSE player"), f = this.getCurrentTime(), window.Aliplayer) && window.Aliplayer.reloadInstance(this._options, function(b) {
+                      b._fallback = !0, v.isLive || b.seek(f);
+                    }, this);
+                  }
+                  return m;
+                }).call(r)) return;
+                g = { mediaId: r._options.vid || "", error_code: d, error_msg: p }, r.logError(g), g.display_msg = l.VideoErrorCodeText[h] + (y ? "，" + y : ""), g.diagnosis_info = u.get("Tip_Err_Decode") + "<br />" + u.get("Tip_Err_Common_Short") + p, r.trigger(_.Player.Error, g);
+              } else r._reloadForVod() || e(r, h, function() {
+                var m, v, f;
+                m = u.get("Error_Play_Text"), v = !1, h < 3 ? m = l.VideoErrorCodeText[h] : r._eventState == l.SUSPEND ? (m = u.get("Error_Load_Abort_Text"), d = l.ErrorCode.RequestDataError) : r._eventState == l.LOAD_START ? (m = u.get("Error_Network_Text"), 0 < r._options.source.indexOf("auth_key") && (m = m + "，" + u.get("Error_AuthKey_Text")), d = l.ErrorCode.StartLoadData) : r._eventState == l.LOADED_METADATA && (m = u.get("Error_Play_Text"), d = l.ErrorCode.PlayingError), m = m + "，" + u.get("Error_Retry_Text"), 1 < r._urls.length && r._retrySwitchUrlCount < 3 && r._options.source.indexOf(".mpd") == -1 && (r.switchUrl(), v = !0), f = { mediaId: r._options.vid || "", error_code: d, error_msg: p }, v || (r.logError(f), f.display_msg = m, r.trigger(_.Player.Error, f));
+              });
+            }
+          } else this.traceLog(t, "video.MediaError is null, may be caused by non-video source, like invalid poster (" + (n.target || n.srcElement).poster + ")");
+        };
+      }, { "../../../../lang/index": 24, "../../../../lib/constants": 29, "../../../../lib/event": 34, "../../../../lib/io": 41, "../../../../lib/playerutil": 46, "../../../../lib/ua": 49, "../../event/eventtype": 68 }], 82: [function(c, o, x) {
+        var _ = c("../../../../lib/event"), l = c("../../event/eventtype"), u = { canplay: c("./canplay"), canplaythrough: c("./canplaythrough"), common: c("./common"), ended: c("./ended"), error: c("./error"), pause: c("./pause"), play: c("./play"), playing: c("./playing"), waiting: c("./waiting"), timeupdate: c("./timeupdate"), manualended: c("./ended"), loadedmetadata: c("./loadedmetadata"), seeking: c("./seeking"), resize: c("./resize") };
+        o.exports.bind = function(a) {
+          a.tag;
+          for (var s in l.Video)
+            s = l.Video[s], ((t, e, n) => {
+              var r = t.tag;
+              _.on(r, e, function(h) {
+                n.handle.call(t, h, e), e != l.Video.Error && (e == l.Video.ManualEnded && (e = l.Video.Ended), t.trigger(l.Private.LifeCycleChanged, { type: e, data: h }));
+              });
+            })(a, s, u[s] !== void 0 ? u[s] : u.common);
+        };
+      }, { "../../../../lib/event": 34, "../../event/eventtype": 68, "./canplay": 77, "./canplaythrough": 78, "./common": 79, "./ended": 80, "./error": 81, "./loadedmetadata": 83, "./pause": 84, "./play": 85, "./playing": 86, "./resize": 87, "./seeking": 88, "./timeupdate": 89, "./waiting": 90 }], 83: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        c("../../../../lib/playerutil"), o.exports.handle = function(l) {
+          var u = this.tag, a = u.duration < 1 ? 0 : u.duration;
+          this._getSubVideoConfig().start > a - 1 && (console.warn("Params.start [" + this._getSubVideoConfig().start + "] is greater than video.duration [" + a + "] - 1, seeking to 0"), this.setStartEnd(0, this._getSubVideoConfig().end)), this._getWatchTimeConfig().watchStartTime > a - 1 && (console.warn("Params.watchStartTime [" + this._getWatchTimeConfig().watchStartTime + "] is greater than video.duration [" + a + "] - 1, seeking to 0"), this.setWatchTime(0, this._getWatchTimeConfig().watchEndTime)), this.trigger(_.Private.ReadyState), this._splayer && this.trigger(_.Video.DurationChange), this.trigger(_.Video.LoadedMetadata), u.videoWidth && u.videoHeight || this.trigger(_.Player.VideoUnavailable);
+        };
+      }, { "../../../../lib/playerutil": 46, "../../event/eventtype": 68 }], 84: [function(c, o, x) {
+        var _ = c("../../event/eventtype"), l = c("../../../../lib/ua");
+        o.exports.handle = function(u) {
+          var a = this;
+          a._seeking && a._splayer || (a._hls && a._options && a._options.isLive && l.IS_FIREFOX && a.trigger(_.Private.Play_Btn_Show), a._clearTimeout(), a.trigger(_.Private.AutoStreamHide), a.trigger(_.Player.Pause), a._isManualPause && (a.trigger(_.Private.Play_Btn_Show), a.trigger(_.Private.H5_Loading_Hide)), a.waiting = !1);
+        };
+      }, { "../../../../lib/ua": 49, "../../event/eventtype": 68 }], 85: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        o.exports.handle = function(l) {
+          this.trigger(_.Private.Error_Hide), this.trigger(_.Private.Cover_Hide), this.trigger(_.Private.AutoStreamHide), this.waiting = !1, this.trigger(_.Player.Play);
+        };
+      }, { "../../event/eventtype": 68 }], 86: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        o.exports.handle = function(l) {
+          var u, a = this;
+          this.tag.paused || (a.trigger(_.Private.H5_Loading_Hide), a.trigger(_.Private.Cover_Hide), a.trigger(_.Private.Info_Hide), a.waiting = !1, a._ended = !1, a._liveRetryCount = 0, a._vodRetryCount = 0, a._seeking = !1, u = a.getCurrentTime(), a._waitingReloadTime != u && (a._waitingTimeoutCount = 0), a._checkTimeoutHandle && (clearTimeout(a._checkTimeoutHandle), a._checkTimeoutHandle = null), a._waitingLoadedHandle && (clearTimeout(a._waitingLoadedHandle), a._waitingLoadedHandle = null), a._ucSourceHandle && (clearTimeout(a._ucSourceHandle), a._ucSourceHandle = null), a._waitingDelayLoadingShowHandle && (clearTimeout(a._waitingDelayLoadingShowHandle), a._waitingDelayLoadingShowHandle = null), a._waitingTimeoutHandle && (clearTimeout(a._waitingTimeoutHandle), a._waitingTimeoutHandle = null, a._ccService) && a._options.isLive && (u = a._ccService.getCurrentSubtitle(), a._setDefaultCC = !0, u) && a._ccService.switch(u), a.trigger(_.Private.AutoStreamHide), a.trigger(_.Player.Playing), a.trigger(_.Private.Error_Hide), a.trigger(_.Private.Play_Btn_Hide));
+        };
+      }, { "../../event/eventtype": 68 }], 87: [function(c, o, x) {
+        var _ = c("../../event/eventtype"), l = c("../../../../feature/ratioAdapter");
+        o.exports.handle = function(u) {
+          this.trigger(_.Video.Resize);
+          var a = this.getOptions();
+          if (a.autoSize) {
+            if (!this._ratioAdapter) {
+              if (a.autoSize !== !0 && a.autoSize !== "width" && a.autoSize !== "height") return void console.warn("Unknown parameter [autoSize]: " + a.autoSize + ", only true/height/width are supported");
+              a.autoSize === !0 && (a.autoSize = "height"), this._ratioAdapter = new l();
+            }
+            this._ratioAdapter.autoResize(this.tag.videoWidth / this.tag.videoHeight, this, a.autoSize);
+          }
+        };
+      }, { "../../../../feature/ratioAdapter": 22, "../../event/eventtype": 68 }], 88: [function(c, o, x) {
+        var _ = c("../../event/eventtype");
+        c("../../../../lib/playerutil"), o.exports.handle = function(l) {
+          var u, a, s, t = this.tag, e = (this.getOptions().disableSeek && (e = t.currentTime - this._currentTimeForDisableSeek, 0.01 < Math.abs(e)) && (t.currentTime = this._currentTimeForDisableSeek), t.currentTime);
+          this._canSeek(e) || (u = this._getWatchTimeConfig(), s = 0, (a = this._getSubVideoConfig()).start || a.end ? s = e > a.end ? a.end : a.start : (u.watchStartTime || u.watchEndTime) && (s = e > u.watchEndTime ? u.watchEndTime : u.watchStartTime), t.currentTime = s), this.trigger(_.Video.Seeking);
+        };
+      }, { "../../../../lib/playerutil": 46, "../../event/eventtype": 68 }], 89: [function(c, o, x) {
+        var _ = c("../../event/eventtype"), l = c("../../../../lib/ua"), u = c("../../../../lib/event"), a = c("../../plugin/status");
+        function s(t) {
+          var e = this;
+          t != null && t.length && t.forEach(function(n) {
+            e.trigger(_.Player.SeiFrame, n);
+          });
+        }
+        o.exports.handle = function(t) {
+          var e = this;
+          if (e._isError || e.trigger(_.Player.TimeUpdate, t.timeStamp), !e.__disposed) {
+            e._decodeErrorNudgeTimer || (e._decodeErrorNudgeTimer = setTimeout(function() {
+              e._nudgeCount = 0;
+            }, 3e3)), (l.IS_IOS || l.IS_MAC_SAFARI) && (clearTimeout(e._waitingPatchTimer), e._waitingPatchTimer = setTimeout(function() {
+              e.waiting || e._isError || e.paused() || e._disposed || (console.log("!!!!!!!manually waiting!!!!!!!"), e.trigger(_.Private.PatchWaiting));
+            }, 3e3));
+            var n, r, h, y = e.getCurrentTime(), t = (e.tag.seeking || (e._currentTimeForDisableSeek = y), e.waiting && !e._TimeUpdateStamp && (e._TimeUpdateStamp = y), e.waiting != 0 && e._TimeUpdateStamp == y || y === 0 || (e.trigger(_.Private.H5_Loading_Hide), e.trigger(_.Private.AutoStreamHide), e._checkTimeoutHandle && clearTimeout(e._checkTimeoutHandle), e._waitingTimeoutHandle && clearTimeout(e._waitingTimeoutHandle), e._waitingLoadedHandle && clearTimeout(e._waitingLoadedHandle), e._ucSourceHandle && (clearTimeout(e._ucSourceHandle), e._ucSourceHandle = null), e.waiting = !1), l.IS_ANDROID && l.IS_UC && (e._timeNotUpdateCount = e._timeNotUpdateCount || 0, e.waiting || y !== e._TimeUpdateStamp || (e._timeNotUpdateCount++, 2 <= e._timeNotUpdateCount && (e._timeNotUpdateCount = 0, e.trigger(_.Private.PatchWaiting)))), e._TimeUpdateStamp = y, e._options.isLive || (n = e.getDuration(), t = !1, r = 0, n < y && !e.paused() ? (r = 1, t = !0) : n - y < 0.2 && 0 <= l.browser.version.indexOf("49.") && !e.paused() ? (r = 2, t = !0) : e.exceedPreviewTime(y) ? (r = 3, t = !0) : y >= e._getWatchTimeConfig().watchEndTime && (r = 4, t = !0, e.pause()), t && setTimeout(function() {
+              e._ended || (e._splayer || e.paused() || e.pause(), u.trigger(e.tag, _.Video.ManualEnded), e.traceLog && e.traceLog("video/timeupdate.js", "ManualEnded#" + r + "#" + y + "#" + n));
+            }, 100)), e._player.tag), p = (t && e._options.isLive && (e._player.resolution && 0 < t.videoWidth && 0 < t.videoHeight && (0 < e._player.resolution.width || 0 < e._player.resolution.height) && (e._player.resolution.width !== t.videoWidth || e._player.resolution.height !== t.videoHeight) && (h = { oldResolution: { width: e._player.resolution.width, height: e._player.resolution.height }, newResolution: { width: t.videoWidth, height: t.videoHeight } }, e.trigger(_.Player.ResolutionChange, h)), e._player.resolution.width = t.videoWidth == 0 ? e._player.resolution.width : t.videoWidth, e._player.resolution.height = t.videoHeight == 0 ? e._player.resolution.height : t.videoHeight), l.IS_CHROME && Number(l.CHROME_VERSION) < 50 && (e._playingSlientPause && (clearTimeout(e._playingSlientPause), e._playingSlientPause = null), e._playingSlientPause = setTimeout(function() {
+              var b, S;
+              e._status != a.playing || e.paused() || e._drm || e._urls.length || (b = e.getCurrentTime(), S = e._options.isLive ? 0 : b, e._loadByUrlInner(e._options.source, S, b));
+            }, 3e3)), e._seis || {}), d = Object.keys(p);
+            if (d.length !== 0) for (var g = parseInt(1e3 * y, 10) + 300, m = 0; m < d.length; m++) {
+              var v = d[m];
+              if (!(v <= g)) break;
+              s.call(e, p[v]), delete p[v];
+            }
+          }
+        };
+      }, { "../../../../lib/event": 34, "../../../../lib/ua": 49, "../../event/eventtype": 68, "../../plugin/status": 95 }], 90: [function(c, o, x) {
+        var _ = c("../../event/eventtype"), l = c("../../../../lib/constants"), u = c("../../../../lib/event"), a = c("../../../../lang/index"), s = c("../../../../lib/ua"), t = c("../../../../lib/playerutil"), e = "video/waiting.js";
+        o.exports.handle = function(n) {
+          var r = this;
+          if (!r._options.isLive) {
+            var h = this.getCurrentTime(), y = this.getDuration();
+            if (!r._ended && 0 < y && (y - h < 0.5 || y < h)) return r.pause(), r._ended = !0, u.trigger(this.tag, _.Video.ManualEnded), void (r.traceLog && r.traceLog(e, "ManualEnded#" + h + "#" + y));
+          }
+          r.waiting = !0;
+          function p() {
+            r._checkTimeoutHandle && (clearTimeout(r._checkTimeoutHandle), r._checkTimeoutHandle = null), r._waitingTimeoutHandle && (clearTimeout(r._waitingTimeoutHandle), r._waitingTimeoutHandle = null), r._waitingLoadedHandle && (clearTimeout(r._waitingLoadedHandle), r._waitingLoadedHandle = null), r._waitingDelayLoadingShowHandle && (clearTimeout(r._waitingDelayLoadingShowHandle), r._waitingDelayLoadingShowHandle = null), r._ucSourceHandle && (clearTimeout(r._ucSourceHandle), r._ucSourceHandle = null);
+          }
+          p(), r._waitingDelayLoadingShowHandle = setTimeout(function() {
+            s.IS_IOS && r.paused() || r._isError || r.trigger(_.Private.H5_Loading_Show);
+          }, 1e3 * r._options.delayLoadingShow), r._TimeUpdateStamp = null, r._checkTimeoutHandle = setTimeout(function() {
+            r.trigger(_.Private.AutoStreamShow);
+          }, 1e3 * r._options.loadDataTimeout), r.trigger(_.Player.Waiting), r._waitingTimeoutHandle = setTimeout(function() {
+            var d;
+            r.tag && r._options && (r.pause(), d = { mediaId: r._options.vid || "", error_code: l.ErrorCode.LoadingTimeout, error_msg: a.get("Error_Waiting_Timeout_Text") }, r.logError(d), r.trigger("error", d));
+          }, 1e3 * r._options.waitingTimeout), h = r._options, h.disableLiveHalfRetry && h.isLive || h.disableVodHalfRetry && !h.isLive || (r._waitingLoadedHandle = setTimeout(function() {
+            var d = r.getCurrentTime();
+            r._waitingTimeoutCount == 0 && d != r._waitingReloadTime && (r.traceLog(e, "half-retry::" + r._options.waitingTimeout / 2), r._waitingTimeoutCount = 1, r._waitingReloadTime = d, d = r._options.isLive ? 0 : d, r._loadByUrlInner(r._options.source, d, !0));
+          }, r._options.waitingTimeout / 2 * 1e3)), s.IS_ANDROID && s.IS_DINGTALK && (r._ucSourceHandle = setTimeout(function() {
+            t.detectRegionBlock(r._options.source, function(d) {
+              d && (d = { mediaId: r._options.vid, error_code: l.ErrorCode.RegionBlock, error_msg: a.get("Error_Region_Block_Text"), diagnosis_info: a.get("Tip_Err_Blocked") }, r.logError(d), r.trigger("error", d));
+            });
+          }, 5e3)), r.on("error", function() {
+            p();
+          });
+        };
+      }, { "../../../../lang/index": 24, "../../../../lib/constants": 29, "../../../../lib/event": 34, "../../../../lib/playerutil": 46, "../../../../lib/ua": 49, "../../event/eventtype": 68 }], 91: [function(c, o, x) {
+        (function(_) {
+          (function() {
+            var l = typeof Promise > "u" ? c("es6-promise").Promise : Promise, u = c("../../ui/component"), a = c("../../lib/object"), s = c("../../lib/dom"), t = c("../../lib/event"), e = c("../../ui/exports"), n = c("../../monitor/monitor"), r = c("../../lib/ua"), h = c("../../lib/constants"), y = c("../../lib/playerutil"), p = c("../../lib/util"), d = c("./x5play"), g = c("../../lib/cookie"), m = c("../../lang/index"), v = c("../../feature/autoplaydelay"), f = c("./event/eventmanager"), b = c("../../ui/component/cover"), S = c("../../feature/license"), w = c("../../ui/component/text-track-display"), T = c("../../ui/component/press-fast-forward"), R = c("../../ui/component/double-click-skip"), P = c("../../commonui/autostreamselector"), E = c("./event/eventtype"), A = c("./plugin/lifecyclemanager"), H = c("../service/export"), M = c("../../ui/component/progressmarker"), O = c("../../feature/keyboardControl"), j = c("../../feature/AntiRecord"), U = c("../../lib/vttnext/index"), N = c("../../lib/codec-probe"), C = c("../splayer/splayerinjector"), I = c("../../ui/component/util").throttle, L = c("../../feature/ratioAdapter"), q = c("../../feature/logoManager"), Q = "base/player.js", B = u.extend({ init: function(k, D) {
+              var X;
+              function te(ie) {
+                var ne, G = this;
+                _ === "dev" || window.location.protocol === "file:" || window.location.protocol === "resource:" || -1 < window.location.href.indexOf("resource://") || this._licenseHasResult || (this._licenseHasResult = !0, D.license && D.license.key && D.license.domain ? (ie.paramData.renderType !== "native" && (ie = ie.paramData.codecTag, y.isH265Codec(ie) ? ne = h.FEATURE_ID_H265 : y.isH266Codec(ie) && (ne = h.FEATURE_ID_H266)), S.getLicense(D.license.domain, D.license.key, D.env === "SEA" ? "ap-southeast-1" : "cn-shanghai").then(function(ae) {
+                  var J = ae.validate(h.PLAYER_SDK_CODE_LEGACY, ne), ae = ae.validate(h.PLAYER_SDK_CODE, ne), de = J === 0 || ae === 0;
+                  if (de || console.log(h.PLAYER_SDK_CODE_LEGACY, J, h.PLAYER_SDK_CODE, ae), de) G.trigger(E.Private.LicenseHasResult, { result: h.LicenseResultCode.Success, featureId: ne });
+                  else {
+                    if (J === 2 || ae === 2) return l.reject(h.LicenseResultCode.Expired);
+                    {
+                      if (J === 1 && ae === 1) return l.reject(h.LicenseResultCode.NotFound);
+                      console.error("license validate unknown error");
+                    }
+                  }
+                }).catch(function(F) {
+                  var J = String(F).split("#"), J = (F = Number(J[0]), J[1]);
+                  G.trigger(E.Private.LicenseHasResult, { result: F, errorCode: J, featureId: ne }), S.logError(F);
+                })) : (console.error(m.get("Tip_License_Required") + ": https://help.aliyun.com/zh/vod/developer-reference/license-authorization-and-management#13133fa053843"), console.error(m.get("Tip_License_Params") + ": https://help.aliyun.com/zh/vod/developer-reference/integration#387d8a4c094im"), this.trigger(E.Private.LicenseHasResult, { result: h.LicenseResultCode.LicenseKeyInvalid })));
+              }
+              this.tag = k, this.loaded = !1, this.played = !1, this.oncePlayed = !1, this.waiting = !1, this._urls = [], this._currentPlayIndex = 0, this._retrySwitchUrlCount = 0, this._isError = !1, this._isHls = !1, this._liveRetryCount = 0, this._liveRetryTimer = null, this._flvDumpTimer = null, this._vodRetryCount = 0, this._nudgeCount = 0, this._seeking = !1, this._serverRequestId = 0, this._waitingTimeoutCount = 0, this._waitingReloadTime = 0, this._created = !1, this._enteredProgressMarker = !1, this._liveShiftSeekStartTime = 0, this._seis = {}, this._initPTS = 0, this.isMutiLevel = !1, this._antiRecord = null, this._ratioAdapter = null, this._logoManager = null, this._clickPauseEnabled = !1, this._currentTimeForDisableSeek = 0, this._loadByUrlStartTime = 0, this._posOffset = 0, this._onceLogged = !1, this._licenseHasResult = !1, this.__disposed = !1, this.resolution = { width: 0, height: 0 }, D.skinLayout === void 0 && (D.skinLayout = y.getDefaultH5Layout()), (k = D.skinLayoutIgnore) != null && k.length && (D.skinLayout = y.ignoreSkinLayouts(D.skinLayout, D.skinLayoutIgnore)), y.isRts(D.source) && !D.autoplay && (D.preload = !1), D.env === "SEA" && (D.logReportTo = "https://videocloud-sgp.ap-southeast-1.log.aliyuncs.com/logstores/newplayer/track", D.disableDumpBuffer = !0), u.call(this, this, D), this.addClass("prism-player"), D.plugins && a.each(D.plugins, function(ie, ne) {
+                this[ie](ne);
+              }, this), this._createService(), this.UI = {}, D.useNativeControls ? this.tag.setAttribute("controls", "controls") : (this.UI = e, D.errorDisplay == 0 && (this.UI.errorDisplay = void 0)), D.disablePip && this.tag.setAttribute("disablePictureInPicture", "true"), this._handleLongPress(D), this._handleClickPause_dbClickFullscreen(D), this.initChildren(), this._options.trackLog && (this._monitor = new n(this, { video_id: 0, album_id: 0, from: this._options.from, source: this._options.source, logBatched: this._options.logBatched, logReportTo: this._options.logReportTo }, this._options.trackLog)), f.onAll(this), this.trigger(E.Private.Create, D._userOptions), this._options.preventRecord && (this._antiRecord = new j({ player: this }), this._antiRecord.start()), this._lifeCycleManager = new A(this), this._overrideNativePlay(), this._liveshiftService && !this._liveshiftService.validate() ? (k = { mediaId: this._options.vid || "", error_code: h.ErrorCode.InvalidParameter, error_msg: m.get("ShiftLiveTime_Error") }, this.trigger(E.Player.Error, k)) : (this._posOffset = this._getSubVideoConfig().start || 0, this._options.extraInfo && (k = this._options.extraInfo).liveRetry && (this._options.liveRetry = k.liveRetry), this.on(E.Private.ReadyState, function() {
+                this.trigger(E.Player.Ready);
+              }), this.on(E.Player.H265PlayInfo, te), this.on(E.Player.H266PlayInfo, te), this.one(E.Player.CanPlay, te), this.on(E.Private.LicenseHasResult, function(ae) {
+                var ne = this, ae = ae.paramData || {}, G = ae.result, F = ae.errorCode, J = ae.featureId, ae = h.LicenseResultCode, de = "";
+                switch (G) {
+                  case ae.LicenseKeyInvalid:
+                  case ae.DomainInvalid:
+                    de = m.get(h.LicenseErrorKey.Empty);
+                    break;
+                  case ae.NotFound:
+                    var de = m.get(h.LicenseErrorKey.Unauthorized), me = "";
+                    J === h.FEATURE_ID_H265 && (me = "H265"), J === h.FEATURE_ID_H266 && (me = "H266"), console.error(m.get("Tip_License_Feature"), me);
+                    break;
+                  case ae.Expired:
+                    de = m.get(h.LicenseErrorKey.Expired);
+                    break;
+                  case ae.CertInvalid:
+                    -1 < ["E003", "E005", "E006"].indexOf(F) ? (de = m.get(h.LicenseErrorKey.LicenseKeyInvalid) + "(" + F + ")", console.error(m.get("Tip_License_Check"))) : F === "E008" ? (de = m.get(h.LicenseErrorKey.DomainInvalid) + "(" + F + ")", console.error(m.get("Tip_License_Domain"))) : F === "E010" && (de = m.get(h.LicenseErrorKey.NotFound) + "(" + F + ")", console.error(m.get("Tip_License_Check")));
+                }
+                de && (console.error(m.get("Tip_License_Reason") + " " + de), setTimeout(function() {
+                  ne.trigger(E.Player.Error, { mediaId: ne._options.vid || "", error_code: h.ErrorCode.LicenseError, display_msg: m.get("Error_Play_Text") + " (LICENSE ERROR)", error_msg: de }), ne.tag.pause(), ne.trigger(E.Private.HideUnmuteButton), f.offAll(ne), ne.tag && ne.tag.parentNode && ne.tag.parentNode.removeChild(ne.tag), ne.play = function() {
+                  }, ne.loadByUrl = function() {
+                  };
+                }));
+              }), this._thumbnailService && this._options.thumbnailUrl && this._thumbnailService.get(this._options.thumbnailUrl), 0 < this._options.progressMarkers.length && this.trigger(E.Private.ProgressMarkerLoaded, this._options.progressMarkers), this._options.source && this._options._native && this._executeReadyCallback(), this._options.autoplay || this._options.preload ? this.trigger(E.Private.H5_Loading_Show) : this.trigger(E.Private.Play_Btn_Show), this._extraMultiSources(), this._options.source && (this.trigger(E.Private.PREPARE, "custom"), this._options.autoPlayDelay ? (this._autoPlayDelay = new v(this), (X = this)._autoPlayDelay.handle(function() {
+                X.initPlay();
+              })) : this.initPlay()), this._options.ratio && (this._options.autoSize ? console.warn("The parameter [ratio] will be ignored when [autoSize] is set.") : (this._options.height && console.warn("The parameter [height] will be ignored when [ratio] is set."), this._ratioAdapter = new L(), this._ratioAdapter.autoResize(this._options.ratio, this))), O.init.call(this), (k = this._options.logo) != null && k.length && (this._logoManager = new q({ container: this.el(), video: this.tag, logo: this._options.logo })), this._vttBroker = new U({ player: this }), this._getUserTextTracks());
+            } });
+            B.prototype.isSupportMSE = function() {
+              return y.isSupportMSE();
+            }, B.prototype.initPlay = function(k) {
+              this._initPlayBehavior(k, this._options.source);
+            }, B.prototype.initChildren = function() {
+              var k = this.options(), D = k.skinLayout;
+              if (D !== !1 && !a.isArray(D)) throw new Error("PrismPlayer Error: skinLayout should be false or type of array!");
+              D !== !1 && D.length !== 0 && (this.options({ children: D }), u.prototype.initChildren.call(this)), this.UI.cover = b, k.className = "", this.addChild("cover", k), this.UI.autoStreamSelector = P, this.addChild("autoStreamSelector", k), this.UI.progressMarker = M, this.addChild("progressMarker", k), this.UI.textTrackDisplay = w, this.addChild("textTrackDisplay", k), k.longPressFastForward && (this.UI.pressFastForward = T, this.addChild("pressFastForward", { name: "pressFastForward", align: "free" })), y.enableDbClickSkip(k) && (this.UI.doubleClickSkip = R, this.addChild("doubleClickSkip", { name: "doubleClickSkip", align: "free" })), this.trigger(E.Private.UiH5Ready);
+            }, B.prototype.createEl = function() {
+              var k = !1, D = (this.tag.tagName !== "VIDEO" ? (this._el = this.tag, this.tag = u.prototype.createEl.call(this, "video"), this._options.playsinline && (this.tag.setAttribute("webkit-playsinline", ""), this.tag.setAttribute("playsinline", ""), this.tag.setAttribute("x-webkit-airplay", ""), this.tag.setAttribute("x5-playsinline", ""))) : (k = !0, this._el = this.tag.parentNode), this._el), X = this.tag, te = (this._options.enableSystemMenu || (X.addEventListener ? X.addEventListener("contextmenu", function(ie) {
+                ie.preventDefault();
+              }, !1) : X.attachEvent("oncontextmenu", function() {
+                window.event.returnValue = !1;
+              })), X.player = this, s.getElementAttributes(X));
+              return a.each(te, function(ie) {
+                D.setAttribute(ie, te[ie]);
+              }), this.setVideoAttrs(), k || (X.parentNode && X.parentNode.insertBefore(D, X), s.insertFirst(X, D)), D;
+            }, B.prototype.setVideoAttrs = function() {
+              var k = this._options.preload, D = this._options.autoplay;
+              if (this.tag.style.width = this._options.videoWidth || "100%", this.tag.style.height = this._options.videoHeight || "100%", k && this.tag.setAttribute("preload", "preload"), D && r.IOS_VERSION !== "15" && this.tag.setAttribute("autoplay", "autoplay"), r.IS_IOS && this.tag.setAttribute("poster", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAAAXNSR0IArs4c6QAAAAlwSFlzAAALEwAACxMBAJqcGAAAAVlpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IlhNUCBDb3JlIDUuNC4wIj4KICAgPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICAgICAgPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIKICAgICAgICAgICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iPgogICAgICAgICA8dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPgogICAgICA8L3JkZjpEZXNjcmlwdGlvbj4KICAgPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KTMInWQAAAMZJREFUeAHt0DEBAAAAwqD1T20LL4hAYcCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMCAAQMGDBgwYMDAc2CcpAABaODCqQAAAABJRU5ErkJggg=="), (r.IS_UC || r.dingTalk() || r.IS_QUARK) && this.tag.setAttribute("renderer", "standard"), this._options.extraInfo) for (var X in this._options.extraInfo) r.IS_OPPO && X === "crossOrigin" || this.tag.setAttribute(X, this._options.extraInfo[X]);
+              d.adaptX5Play(this);
+            }, B.prototype.checkOnline = function() {
+              var k;
+              return !(this._options && !this._options.debug && navigator.onLine == 0 && ((k = { mediaId: this._options.vid || "", error_code: h.ErrorCode.NetworkUnavaiable, error_msg: m.get("Error_Offline_Text") }).display_msg = m.get("Error_Offline_Text"), this.trigger(E.Player.Error, k), 1));
+            }, B.prototype.id = function() {
+              return this.el().id;
+            }, B.prototype.renderUI = function() {
+            }, B.prototype.switchUrl = function() {
+              var k, D;
+              this.traceLog(Q, "switchUrl"), this._urls.length != 0 && (this._currentPlayIndex = this._currentPlayIndex + 1, this._urls.length <= this._currentPlayIndex && (this._currentPlayIndex = 0, this._retrySwitchUrlCount++), k = this._urls[this._currentPlayIndex], g.set(h.SelectedStreamLevel, k.definition, 365), this.trigger(E.Private.QualityChange, m.get("Quality_Change_Fail_Switch_Text")), D = this.getCurrentTime(), this._vodRetryCount = 0, this._originalSource = "", this._loadByUrlInner(k.Url, D, !0));
+            }, B.prototype.setControls = function() {
+              var k = this.options();
+              k.useNativeControls ? this.tag.setAttribute("controls", "controls") : typeof k.controls == "object" && (k = this._initControlBar(k.controls), this.addChild(k));
+            }, B.prototype.enableClickPause = function() {
+              this._clickPauseEnabled = !0;
+            }, B.prototype.disableClickPause = function() {
+              this._clickPauseEnabled = !1;
+            }, B.prototype._initControlBar = function(k) {
+              return new ControlBar(this, k);
+            }, B.prototype.getMetaData = function() {
+            }, B.prototype.getReadyTime = function() {
+              return this.readyTime;
+            }, B.prototype.readyState = function() {
+              return this.tag.readyState;
+            }, B.prototype.getError = function() {
+              return this.tag.error;
+            }, B.prototype.getRecentOccuredEvent = function() {
+              return this._eventState;
+            }, B.prototype.getSourceUrl = function() {
+              return this._options ? this._options.source : "";
+            }, B.prototype.getMonitorInfo = function() {
+              return this._monitor ? this._monitor.opt : {};
+            }, B.prototype.getCurrentQuality = function() {
+              var k;
+              return 0 < this._urls.length ? { width: (k = this._urls[this._currentPlayIndex]).width, url: k.Url, definition: k.definition } : "";
+            }, B.prototype.getCurrentPDT = function() {
+              var k;
+              if ((r.IS_SAFARI || r.IS_IOS) && this.tag) return k = Date.parse(this.tag.getStartDate()), isNaN(k) ? 0 : k + 1e3 * this.getCurrentTime();
+            }, B.prototype.stopPlayTimeMonitor = function() {
+              this._playTimeMonitorTimer && (clearInterval(this._playTimeMonitorTimer), this._playTimeMonitorTimer = null);
+            }, B.prototype.startPlayTimeMonitor = function() {
+              var k = this, D = (this._playingTime = 0, this._stuckTime = 0, this._stuckCount = 0, performance.now()), X = 0, te = 0, ie = !1, ne = 0;
+              this.stopPlayTimeMonitor(), this._playTimeMonitorTimer = setInterval(function() {
+                var G = k.paused() ? ie = !0 : !k.tag, F = 1e3 * k.getCurrentTime(), J = performance.now(), ae = J - D, de = (D = J, (F - X) / k.tag.playbackRate);
+                X = F, de < 0 && (G = !0), (F = k._monitor) != null && F.canplayReported || (G = !0), (G = document.visibilityState === "hidden" ? !0 : G) || (ie ? ie = !1 : de < 0.8 * ae ? (ae < J - te && (k._stuckCount++, ne = J), J - ne >= 1e3 * k.getOptions().waitingTimeout ? k.stopPlayTimeMonitor() : (te = J, k._playingTime += de, k._stuckTime += ae - de)) : k._playingTime += ae);
+              }, 1e3);
+            }, B.prototype.setSpeed = function(k, D) {
+              D === void 0 && (D = !0), this.tag && (this._originalPlaybackRate = k, this.tag.playbackRate = k, D) && this.trigger(E.Private.PlaybackRateChanged, k);
+            }, B.prototype.play = function(k) {
+              return this.traceLog(Q, "play::" + k), k && this.trigger(E.Private.ManualPlay), this.tag && (this.tag.ended || this._ended ? this.replay() : ((this._options.preload || this.loaded) && this.tag.src || this._initLoad(this._options.source), this.trigger(E.Private.Cover_Hide), this.tag.play())), this._isManualPlay = k || !1, this;
+            }, B.prototype.replay = function() {
+              return this._monitor && this._monitor.replay(), this.seek(this._getPlayStartTime()), this.tag.play(), this;
+            }, B.prototype._getPlayStartTime = function() {
+              return Math.max(0, this._getWatchTimeConfig().watchStartTime || 0, this._loadByUrlStartTime || 0);
+            }, B.prototype._getWatchTimeConfig = function() {
+              var te = this.getOptions(), k = te.start, D = te.end, X = te.watchStartTime, te = te.watchEndTime, X = Number(X), te = Number(te);
+              return (X || te) && (y.hasValue(k) || y.hasValue(D)) ? (this._logOnce("Params.watchStartTime and Params.watchEndTime will be ignored when Params.start or Params.end is set", "warn"), { watchStartTime: void 0, watchEndTime: void 0 }) : (te = te || void 0, (X = X || void 0) < 0 && (this._logOnce("Params.watchStartTime is less than 0 [" + X + "], setting to undefined", "warn"), X = void 0), te < 0 && (this._logOnce("Params.watchEndTime is less than 0 [" + te + "], setting to undefined", "warn"), te = void 0), te <= X && (this._logOnce("Params.watchEndTime(" + te + ") is less than Params.watchStartTime(" + X + "), setting to [undefined, " + te + "]", "warn"), X = void 0), { watchStartTime: X, watchEndTime: te });
+            }, B.prototype._getSubVideoConfig = function() {
+              var k = this.getOptions(), D = k.start, k = k.end, D = Number(D);
+              return k = (k = Number(k)) || void 0, (D = D || void 0) < 0 && (this._logOnce("Params.start is less than 0 [" + D + "], setting to undefined", "warn"), D = void 0), k < 0 && (this._logOnce("Params.end is less than 0 [" + k + "], setting to undefined", "warn"), k = void 0), k <= D && (this._logOnce("Params.start(" + D + ") is greater than Params.end(" + k + "), setting to [undefined, " + k + "]", "warn"), D = void 0), { start: D, end: k };
+            }, B.prototype.pause = function(k) {
+              return this.tag && this.tag.pause(), this._isManualPause = k || !1, this;
+            }, B.prototype.stop = function() {
+              return this.traceLog(Q, "stop"), this.tag.setAttribute("src", null), this;
+            }, B.prototype.paused = function() {
+              if (this.tag) return this.tag.paused !== !1;
+            }, B.prototype.getDuration = function() {
+              var k = 0, X = (this.tag && (k = this.isPreview() && this._vodDuration || this.tag.duration), this._getSubVideoConfig()), D = X.start, X = X.end;
+              return k = D || X ? Math.min(this.tag.duration, X || this.tag.duration) - Math.max(0, D || 0) : k;
+            }, B.prototype.getDisplayDuration = function() {
+              var k = 0, X = (this.tag && (k = this._vodDuration || this.getDuration()), this._getSubVideoConfig()), D = X.start, X = X.end;
+              return k = D || X ? Math.min(this.tag.duration, X || this.tag.duration) - Math.max(0, D || 0) : k;
+            }, B.prototype.getCurrentTime = function() {
+              return this.tag ? this.tag.currentTime - this._posOffset : 0;
+            }, B.prototype.seek = function(k) {
+              var D;
+              if (!Number.isNaN(k) && (k = Number(k), k += this._posOffset, this._canSeek(k))) return this._ended = !1, D = this.tag.duration, this._doSeek(this, k = D <= k ? D : k), this;
+            }, B.prototype._doSeek = I(function(X) {
+              var D = X[0], X = X[1];
+              try {
+                var te = D._originalPlaybackRate || D.tag.playbackRate;
+                ["16"].indexOf(r.IOS_VERSION) !== -1 && !D.oncePlayed || (D.tag.currentTime = X), D._seeking = !0, D.traceLog(Q, "doSeek::" + X), r.IS_IE11 && setTimeout(function() {
+                  D.tag && (D.tag.playbackRate = te);
+                });
+              } catch (ie) {
+                console.log(ie);
+              }
+            }, 100), B.prototype.traceLog = function(k, D) {
+              this.trigger(E.Private.TraceLog, "[" + k + "]" + D);
+            }, B.prototype._loadByUrlInner = function(k, D, X) {
+              this.loadByUrl(k, D, X, !0);
+            }, B.prototype.loadByUrl = function(k, D, X, te) {
+              var ie = this, ne = (this.traceLog(Q, "loadByUrl::" + k + "#" + D + "#" + X + "#" + te), this._monitor && this._monitor._onPlayerUnderload(), this._monitor && !te && (this._monitor.reportPlayAbort("loadByUrl"), this._monitor.resetVV()), /\.m3u8|\.flv|\.mp4|artc\:\/\/|rtmp\:\/\//gi), G = ((this._options.source || "").match(ne) || [])[0] !== ((k || "").match(ne) || [])[0];
+              if (this._options.liveShiftSource && (G = !1), this._options.enableH266 && (G = !1), this._h265InfoReported = !1, this._probeInfo || (this._probeInfo = {}), this._probeInfo.codecTag = void 0, !G && (y.isMp4(k) || y.isFlv(k) || y.isHls(k))) return this._options.forceH265 || this._options.forceH266 || !this._options.enableH265 && !this._options.enableH266 || r.IS_ANDROID && r.dingTalk() && !y.isFlv(k) ? void F.call(this) : void N(k, this._options, function(ae) {
+                var ae = y.getVideoTrack(ae.tracks), de = (ae || {}).codecTag || ((de = (ae || {}).codec) == null ? void 0 : de.split(".")[0]);
+                ie._probeInfo.codecTag = de, ae && y.isH265Codec(de) ? y.isFlv(k) || y.isHls(k) ? (ie._splayer || (G = !0), F.call(ie)) : y.shouldUseBasePlayer({ codecTag: de, url: k }, function(me) {
+                  me ? (ie._splayer && (G = !0), ie._probeInfo.codecTag && C.reportH265PlayInfo.call(ie, { renderType: "native", codecTag: ie._probeInfo.codecTag })) : ie._splayer || (G = !0), F.call(ie);
+                }) : (ae && y.isH266Codec(de) ? ie._splayer || (G = !0) : ie._splayer && (G = !0), F.call(ie));
+              }, function(J) {
+                F.call(ie);
+              });
+              function F() {
+                var J, ae = this;
+                G && window.Aliplayer ? (console.log("[RELOAD INSTANCE]"), this.traceLog(Q, "reloadInstance::" + k), this._options.source = k, window.Aliplayer.reloadInstance(this._options, function() {
+                }, this)) : (te || (this._urls = []), this._monitor && !te && (this._monitor.reset(), this._monitor.startHeartBeat()), this._isError = !1, this._clearTimeout(), this.trigger(E.Private.Error_Hide), this._options.source = k, this._posOffset = this._getSubVideoConfig().start || 0, this._monitor && this._monitor.updateVideoInfo({ video_id: 0, album_id: 0, source: k, from: this._options.from }), te || (this.trigger(E.Private.ChangeURL), this._vodRetryCount = 0), D && this._canSeek(D) ? this._loadByUrlStartTime = D - this._posOffset : this._loadByUrlStartTime = 0, this._options._autoplay = X, this.initPlay(X), (J = this._options.autoplay || X) && this.trigger(E.Private.Cover_Hide), J ? this.trigger(E.Player.Play) : this.trigger(E.Player.Pause), this._options.isLive || !D && D != 0 || isNaN(D) || t.one(this.tag, E.Video.CanPlay, function(de) {
+                  J && (r.IS_IOS || r.IS_MAC_SAFARI) && ae._splayer && ae.play();
+                }));
+              }
+              F.call(this);
+            }, B.prototype.setLogo = function(k) {
+              this._logoManager && this._logoManager.dispose(), this._logoManager = new q({ container: this.el(), video: this.tag, logo: k });
+            }, B.prototype.dispose = function() {
+              this.__disposed || (this.__disposed = !0, this.trigger(E.Private.Dispose), this.tag.pause(), f.offAll(this), O.dispose.call(this), this._ratioAdapter && (this._ratioAdapter.dispose(), this._ratioAdapter = null), this._logoManager && (this._logoManager.dispose(), this._logoManager = null), this._antiRecord && (this._antiRecord.dispose(), this._antiRecord = null), this._monitor && (this._monitor.reportPlayAbort("dispose"), this._monitor.removeEvent(), this._monitor = null), this._autoPlayDelay && this._autoPlayDelay.dispose(), this._checkTimeoutHandle && (clearTimeout(this._checkTimeoutHandle), this._checkTimeoutHandle = null), this._waitingTimeoutHandle && (clearTimeout(this._waitingTimeoutHandle), this._waitingTimeoutHandle = null), this._playingSlientPause && (clearTimeout(this._playingSlientPause), this._playingSlientPause = null), this._waitingLoadedHandle && (clearTimeout(this._waitingLoadedHandle), this._waitingLoadedHandle = null), this._ucSourceHandle && (clearTimeout(this._ucSourceHandle), this._ucSourceHandle = null), this._readyStateTimer && (clearInterval(this._readyStateTimer), this._readyStateTimer = null), this._vodRetryCountHandle && (clearTimeout(this._vodRetryCountHandle), this._vodRetryCountHandle = null), this._waitingDelayLoadingShowHandle && (clearTimeout(this._waitingDelayLoadingShowHandle), this._waitingDelayLoadingShowHandle = null), this._liveRetryTimer && (clearTimeout(this._liveRetryTimer), this._liveRetryTimer = null), this._flvDumpTimer && (clearTimeout(this._flvDumpTimer), this._flvDumpTimer = null), this.stopPlayTimeMonitor(), this._disposeService(), this._clearLiveErrorHandle(), this._el.innerHTML = "", this.destroy(), this._releaseMediaElement(), this._options.recreatePlayer = null, this._options = null, this.isMutiLevel = !1, this._seis = {}, this._initPTS = 0, this._clickPauseEnabled = !1, this._currentTimeForDisableSeek = 0, this._posOffset = 0, this._onceLogged = !1);
+            }, B.prototype._releaseMediaElement = function() {
+              this.tag.removeAttribute("src"), this.tag.load(), this.tag = null;
+            }, B.prototype.mute = function(k) {
+              return this._muteInner(), this._originalVolumn = this.tag.volume, k || (k = m.get("Volume_Mute"), this._player.trigger(E.Private.Info_Show, { text: k, duration: 1e3, align: "lb" })), this._setInnerVolume(0), this;
+            }, B.prototype._muteInner = function() {
+              this.tag.muted = !0, this.trigger(E.Private.VolumnChanged, -1);
+            }, B.prototype.unMute = function(k) {
+              return this._unMuteInner(), k || (k = m.get("Volume_UnMute"), this._player.trigger(E.Private.Info_Show, { text: k, duration: 1e3, align: "lb" })), this._setInnerVolume(this._originalVolumn || 0.5), this;
+            }, B.prototype._unMuteInner = function() {
+              this.tag.muted = !1, this.getOptions().mute && (this.getOptions().mute = !1), this.trigger(E.Private.VolumnChanged, -2);
+            }, B.prototype.muted = function() {
+              return this.tag && this.tag.muted;
+            }, B.prototype.getVolume = function() {
+              return this.tag && this.tag.volume;
+            }, B.prototype.getOptions = function() {
+              return this._options;
+            }, B.prototype.setVolume = function(k, D) {
+              (k = Math.min(1, Math.max(0, k))) != 0 ? this._unMuteInner() : k == 0 && this._muteInner(), this._setInnerVolume(k), k = m.get("Curent_Volume") + "<span>" + (100 * k).toFixed() + "%</span>", this._player.trigger(E.Private.Info_Show, { text: k, duration: 1e3, align: "lb" });
+            }, B.prototype._setInnerVolume = function(k) {
+              this.tag.volume = k, this.trigger(E.Private.VolumnChanged, k);
+            }, B.prototype.hideProgress = function() {
+              this.trigger(E.Private.HideProgress);
+            }, B.prototype.cancelHideProgress = function() {
+              this.trigger(E.Private.CancelHideProgress);
+            }, B.prototype.setPlayerSize = function(k, D) {
+              this._el && (this._el.style.width = k, this._el.style.height = D);
+            }, B.prototype.getBuffered = function() {
+              return this.tag.buffered;
+            }, B.prototype.setRotate = function(k) {
+              this.tag && (this._rotate = k, this._setTransform(), this.log("ROTATE", { rotation: k }));
+            }, B.prototype.getRotate = function(k) {
+              return this._rotate === void 0 ? 0 : this._rotate;
+            }, B.prototype.setImage = function(k) {
+              this.tag && (this._image = k, this._setTransform(), this.log("IMAGE", { mirror: k == "horizon" ? 2 : 1, text: k }));
+            }, B.prototype.getImage = function() {
+              return this._image;
+            }, B.prototype.cancelImage = function() {
+              this.tag && (this._image = "", this._setTransform(), this.log("IMAGE", { mirror: 0 }));
+            }, B.prototype.setCover = function(k) {
+              var D = document.querySelector("#" + this.id() + " .prism-cover");
+              D && k && (D.style.backgroundImage = "url(" + k + ")", this._options.cover = k, this._options.autoplay || this.trigger(E.Private.Cover_Show));
+            }, B.prototype.setTextTracks = function(k) {
+              this._options.textTracks = k, k = y.unqiueTextTracks(k || []), this.trigger(E.Private.VttClearTracks), k && k.length && this.trigger(E.Private.TextTrackFounded, { from: "user", textTracks: k }), this.trigger(E.Private.CCReset);
+            }, B.prototype._setTransform = function() {
+              this._transformProp || (this._transformProp = s.getTransformName(this.tag));
+              var k = " translate(-50%, -50%)";
+              this._rotate && (k += " rotate(" + this._rotate + "deg)"), this._image && (this._image == "vertical" ? k += " scaleY(-1)" : this._image == "horizon" && (k += " scaleX(-1)")), this.tag.style[this._transformProp] = k;
+            }, B.prototype._startPlay = function() {
+              this.tag.paused && this.tag.play();
+            }, B.prototype._initPlayBehavior = function(k, D) {
+              var X = this;
+              return !this._checkSupportVideoType() && (y.validateSource(D) ? (k === void 0 && (k = !1), this._created || (this._created = !0, this.trigger(E.Private.Created)), this.loaded || this.trigger(E.Player.Init), this._options.mute && this.mute(!0), this.one(E.Video.CanPlay, function() {
+                var te = X._getPlayStartTime();
+                X.getCurrentTime() < te && X.seek(te), X._loadByUrlStartTime = 0, X.tag.playbackRate !== 1 && X.setSpeed(X.tag.playbackRate);
+              }), this._options.autoplay || this._options._autoplay || this._options.preload || k ? (this._options._preload = !0, this._initLoad(D), !this._options.autoplay && !this._options._autoplay || this._isError || this._dash || this._startPlay()) : this.trigger(E.Private.Play_Btn_Show), !0) : ((k = { mediaId: this._options.vid || "", error_code: h.ErrorCode.InvalidSourceURL, error_msg: "InvalidSourceURL" }).display_msg = m.get("Error_Invalidate_Source"), this.trigger(E.Player.Error, k), !1));
+            }, B.prototype._isPreload = function() {
+              return this._options.autoplay || this._options.preload || this._options._preload;
+            }, B.prototype._initLoad = function(k) {
+              k && (this._isPreload() && !r.IS_MOBILE ? this.trigger(E.Private.H5_Loading_Show) : (this.trigger(E.Private.H5_Loading_Hide), this.trigger(E.Private.Play_Btn_Show)), this.tag.setAttribute("src", k), this.oncePlayed = !1, this.loaded = !0);
+            }, B.prototype._clearLiveErrorHandle = function() {
+              this._liveErrorHandle && (clearTimeout(this._liveErrorHandle), this._liveErrorHandle = null);
+            }, B.prototype._reloadAndPlayForM3u8 = function() {
+              this._liveRetryCount == 0 && this.trigger(E.Player.OnM3u8Retry);
+              var k = this._options, D = k.liveRetryInterval + k.liveRetryStep * this._liveRetryCount, X = this;
+              this._liveRetryTimer && (clearTimeout(this._liveRetryTimer), this._liveRetryTimer = null), this.traceLog(Q, "reloadAndPlayForM3u8::#" + X._options.source + "#" + 1e3 * D), this._liveRetryTimer = setTimeout(function() {
+                X._liveRetryCount++, X._loadByUrlInner(X._options.source, void 0, k.autoplay);
+              }, 1e3 * D);
+            }, B.prototype._checkSupportVideoType = function() {
+              var k, D = this, X = this._options.source, te = "";
+              if (y.isRTMP(X) && !this._options.useFlashPrism) te = m.get("Error_Not_Support_RTMP");
+              else if (y.isDash(X) && !y.isSupportMSE()) te = m.get("Error_Not_Support_Mse_Dash");
+              else if (!this.tag.canPlayType || !this._options.source || !r.IS_MOBILE) return "";
+              return 0 < X.indexOf("m3u8") ? this.tag.canPlayType("application/x-mpegURL") != "" || y.isSupportHls() || (te = m.get("Error_Not_Support_M3U8_Text")) : 0 < X.indexOf("mp4") ? this.tag.canPlayType("video/mp4") == "" && (te = m.get("Error_Not_Support_MP4_Text")) : (y.isRTMP(X) || y.isFlv(X)) && r.IS_MOBILE && (this._options.useFlvPlugOnMobile ? y.isSupportFlv() || (te = m.get("Error_Not_Support_Mse_Flv")) : te = m.get("Error_Not_Support_Format_On_Mobile")), te && (X = y.getFormat(X), k = { mediaId: this._options.vid || "", error_code: h.ErrorCode.FormatNotSupport, error_msg: te + (X ? "(format:" + X + ")" : "") }, this.logError(k), k.display_msg = te, setTimeout(function() {
+                D.trigger(E.Player.Error, k);
+              })), te;
+            }, B.prototype._handleLongPress = function(k, D) {
+              var X, te, ie = this;
+              function ne() {
+                te ? (clearTimeout(te), te = null) : t.trigger(D, "longPressEnd");
+              }
+              k.longPressFastForward && (D = D || this.tag, t.on(D, "longPress", function() {
+                ie.trigger(E.Private.FastForwardShow), X = ie.tag.playbackRate, ie.tag.playbackRate = 2;
+              }), t.on(D, "longPressEnd", function() {
+                ie.trigger(E.Private.FastForwardHide), ie.tag.playbackRate = X;
+              }), te = null, t.on(D, "touchstart", function() {
+                te && clearTimeout(te), te = setTimeout(function() {
+                  te = null, t.trigger(D, "longPress");
+                }, 500);
+              }), t.on(D, "touchend", ne), t.on(D, "touchcancel", ne));
+            }, B.prototype._handleClickPause_dbClickFullscreen = function(k, D) {
+              var X, te, ie, ne = this, G = null;
+              !k.isLive && k.clickPause && (this._clickPauseEnabled = !0, X = r.IS_IOS ? "touchstart" : "click", D = D || this.tag, t.on(D, X, function() {
+                ne._clickPauseEnabled && (k.dbClickFullscreen ? (G && clearTimeout(G), G = setTimeout(function() {
+                  ne.paused() ? ne.play(!0) : ne.pause(!0), G = null;
+                }, k.clickPauseDelay)) : ne.paused() ? ne.play(!0) : ne.pause(!0));
+              })), k.dbClickFullscreen && (te = function() {
+                G && (clearTimeout(G), G = null);
+                var F = this.fullscreenService;
+                F.getIsFullScreen() ? F.cancelFullScreen() : F.requestFullScreen(), this.trigger(E.Private.MarkerTextHide), t.trigger(this.tag, "touchend");
+              }, r.IS_IOS ? (ie = null, t.on(this.tag, "touchstart", function() {
+                ie = ie ? (te.call(ne), clearTimeout(ie), null) : setTimeout(function() {
+                  ie = null;
+                }, k.dbClickFullscreenDelay);
+              })) : t.on(this.tag, "dblclick", function() {
+                te.call(ne);
+              }));
+            }, B.prototype.getComponent = function(k) {
+              return this._lifeCycleManager.getComponent(k);
+            }, B.prototype.logError = function(k, D) {
+              (this._options.autoplay || this._options._autoplay) && this._monitor && this._monitor.reportStartPlay(), (k = k || {}).vt = this.getCurrentTime(), this.log(D ? "ERRORRETRY" : "ERROR", k);
+            }, B.prototype.log = function(k, D) {
+              var X = 0, te = 0;
+              if (this._monitor) return this._options && (X = this._options.vid || "0", te = this._options.from || "0"), this._monitor.updateVideoInfo({ video_id: X, album_id: 0, source: this._options.source, from: te }), this._monitor._log(k, D);
+            }, B.prototype.setSanpshotProperties = function(k, D, X) {
+              if (this._snapshotMatric || (this._snapshotMatric = {}), this._snapshotMatric.width = k, this._snapshotMatric.height = D, 1 < X) throw new Error("rate doesn't allow more than 1");
+              this._snapshotMatric.rate = X;
+            }, B.prototype.setSnapshotProperties = function(k, D, X) {
+              this.setSanpshotProperties(k, D, X);
+            }, B.prototype.takeSnapshot = function() {
+              var k = document.createElement("canvas"), G = this.tag, D = G.videoWidth, X = G.videoHeight, te = this._getSanpshotMatric(), ie = (k.width = te.width || D, k.height = te.height || X, this.getCurrentTime()), ne = k.getContext("2d"), F = (ne.save(), this.getImage()), F = (F == "vertical" ? (ne.translate(0, k.height), ne.scale(1, -1)) : F == "horizon" && (ne.translate(k.width, 0), ne.scale(-1, 1)), G), G = (this._splayer && (F = this._splayer.renderType === 2 ? this._el.querySelector("canvas") : this._el.querySelector("video")), ne.drawImage(F, 0, 0, D, X), ne.restore(), y.drawSnapshotText(ne, this.getOptions()), ""), F = "";
+              try {
+                G = k.toDataURL("image/jpeg", te.rate || 1);
+              } catch (J) {
+                (F = J) && F.message && -1 < F.message.indexOf("Tainted canvases") && (F = new Error('截图功能需要设置播放器参数 extraInfo: { crossOrigin:"anonymous" }'));
+              }
+              return D = "", X = "", G && (ne = (D = G).substr(D.indexOf(",") + 1), X = p.toBinary(ne)), { time: ie, base64: D, binary: X, error: F };
+            }, B.prototype.getStatus = function() {
+              return this._status || "init";
+            }, B.prototype.enterProgressMarker = function() {
+              this._enteredProgressMarker = !0;
+            }, B.prototype.isInProgressMarker = function() {
+              return this._enteredProgressMarker;
+            }, B.prototype.exitProgressMarker = function() {
+              this._enteredProgressMarker = !1;
+            }, B.prototype.setProgressMarkers = function(k) {
+              this.trigger(E.Private.ProgressMarkerChanged, k = k || []);
+            }, B.prototype.getProgressMarkers = function() {
+              return this._progressMarkerService ? this._progressMarkerService.progressMarkers : [];
+            }, B.prototype.setPreviewTime = function(k) {
+              this._options.playConfig || (this._options.playConfig = {}), this._options.playConfig.PreviewTime = k;
+            }, B.prototype.getPreviewTime = function() {
+              var k = 0;
+              return k = this._options.playConfig ? this._options.playConfig.PreviewTime : k;
+            }, B.prototype.exceedPreviewTime = function(k) {
+              return this.isPreview() && k >= this._options.playConfig.PreviewTime;
+            }, B.prototype.isPreview = function() {
+              var k = this._options.playConfig.PreviewTime, D = this._vodDuration || this.tag.duration;
+              return 0 < k && k < D;
+            }, B.prototype.getStats = function() {
+              return new l(function(k) {
+                k();
+              });
+            }, B.prototype.setTraceId = function(k) {
+              this._monitor && this._monitor.updateTraceId(k);
+            }, B.prototype._canSeek = function(k) {
+              var X = this._getSubVideoConfig(), D = X.start, X = X.end;
+              return D || X ? !(k < D || X < k) : !(!(D = this._getWatchTimeConfig()).watchStartTime || D.watchEndTime) || !(k < D.watchStartTime || k > D.watchEndTime);
+            }, B.prototype.setWatchTime = function(k, D) {
+              this._options.watchStartTime = k, this._options.watchEndTime = D, this.trigger(E.Private.UpdateWatchTime), k = this.getCurrentTime(), D = this._getWatchTimeConfig(), k < D.watchStartTime ? this.seek(D.watchStartTime) : k > D.watchEndTime && this.seek(D.watchEndTime);
+            }, B.prototype.setNextWatchTime = function(k, D) {
+              this._options.watchStartTime = k, this._options.watchEndTime = D;
+            }, B.prototype.setStartEnd = function(k, D) {
+              this._options.start = k, this._options.end = D, k = this._getSubVideoConfig(), this._posOffset = k.start || 0, this.trigger(E.Player.DurationChange), D = this.getCurrentTime() + this._posOffset, D < k.start ? this.seek(0) : D > k.end && this.seek(k.end - this._posOffset);
+            }, B.prototype.setNextStartEnd = function(k, D) {
+              this._options.start = k, this._options.end = D;
+            }, B.prototype.getPlayTime = function() {
+              return Math.round(this._playingTime / 1e3);
+            }, B.prototype._getSanpshotMatric = function() {
+              return this._snapshotMatric || (this._snapshotMatric = {}), this._snapshotMatric;
+            }, B.prototype._autoplayFailedHandler = function() {
+              var k, D = this;
+              (k = this.getOptions().autoplayPolicy) != null && k.fallbackToMute && !this.muted() ? (this.mute(!0), (k = this.tag.play()) ? k.then(function() {
+                D.trigger(E.Private.MutedAutoplay);
+              }).catch(function(X) {
+                D.tag.paused ? (console.warn("Muted autoplay failed", X), D.unMute(!0)) : D.one("canplay", function() {
+                  D.trigger(E.Private.MutedAutoplay);
+                });
+              }) : this.paused() ? this.unMute(!0) : this.trigger(E.Private.MutedAutoplay)) : (this.oncePlayed = !1, this.trigger(E.Private.Play_Btn_Show), this.trigger(E.Private.H5_Loading_Hide), this.trigger(E.Player.AutoPlayPrevented), this.trigger(E.Player.AutoPlay, !1), this._options.cover && this.trigger(E.Private.Cover_Show));
+            }, B.prototype._overrideNativePlay = function() {
+              var k = this.tag.play, D = this;
+              this.tag.play = function() {
+                if (D._monitor && D._monitor.reportStartPlay(), !D._options.source) return X = { mediaId: D._options.vid || "", error_code: h.ErrorCode.InvalidSourceURL, error_msg: "InvalidSourceURL" }, D._options.vid || D._options.mediaAuth ? void 0 : (X.display_msg = m.get("Error_Empty_Source"), void D.trigger(E.Player.Error, X));
+                D.readyTime = (/* @__PURE__ */ new Date()).getTime();
+                var X = k.apply(D.tag), te = (D.oncePlayed = !0, X !== void 0 && X.then(function() {
+                  D.trigger(E.Player.AutoPlay, !0);
+                }).catch(function(ie) {
+                  !D.tag || !D.tag.paused || D._isError || D._options._autoplay || D._switchedLevel || D._autoplayFailedHandler();
+                }), D._originalPlaybackRate || D.tag.playbackRate);
+                return setTimeout(function() {
+                  D.tag && (D.tag.playbackRate = te);
+                }), X;
+              };
+            }, B.prototype._extraMultiSources = function() {
+              var k = this._options.source;
+              if (k && -1 < k.indexOf("{") && -1 < k.indexOf("}")) {
+                var D = "";
+                try {
+                  D = JSON.parse(k);
+                } catch (ne) {
+                  console.error(ne), console.error("地址json串格式不对");
+                }
+                var X, te = [];
+                for (X in D) {
+                  var ie = h.QualityLevels[X];
+                  te.push({ definition: X, Url: D[X], desc: ie || X });
+                }
+                this._setupSourceList(te);
+              }
+              return te;
+            }, B.prototype._setupSourceList = function(k) {
+              var D;
+              (k = k === void 0 ? [] : k).length && (this._currentPlayIndex = y.findSelectedStreamLevel(k, this._options.defaultDefinition), D = k[this._currentPlayIndex], this._urls = k, this._options.source = D.Url, this.trigger(E.Private.SourceLoaded, D));
+            }, B.prototype._createService = function() {
+              if (H) for (var k = H.length, D = 0; D < k; D++) {
+                var X = H[D], te = X.condition;
+                te === void 0 ? te = !0 : typeof te == "function" && (te = te.call(this)), te && (this[X.name] = new X.service(this));
+              }
+            }, B.prototype._disposeService = function() {
+              if (H) for (var k = H.length, D = 0; D < k; D++) {
+                var X = this[H[D].name];
+                X !== void 0 && X.dispose && X.dispose();
+              }
+            }, B.prototype._executeReadyCallback = function() {
+              if (!this._options._readyCallbackCalled) {
+                this._options._readyCallbackCalled = !0;
+                try {
+                  this._options.autoplay || this._options.preload || (this.trigger(E.Private.H5_Loading_Hide), this.trigger(E.Private.Play_Btn_Show)), this._options.readyCallback(this);
+                } catch (k) {
+                  console.log(k);
+                }
+              }
+            }, B.prototype._clearTimeout = function() {
+              this._checkTimeoutHandle && (clearTimeout(this._checkTimeoutHandle), this._checkTimeoutHandle = null), this._waitingTimeoutHandle && (clearTimeout(this._waitingTimeoutHandle), this._waitingTimeoutHandle = null), this._decodeErrorNudgeTimer && (clearTimeout(this._decodeErrorNudgeTimer), this._decodeErrorNudgeTimer = null), this._clearLiveErrorHandle();
+            }, B.prototype._reloadForVod = function() {
+              var k, D, X;
+              return this._originalSource || (this._originalSource = this._options.source), !!(this._vodRetryCount < this._options.vodRetry && navigator.onLine) && (k = this.getCurrentTime(), (D = this._originalSource).indexOf("auth_key=") < 0 && (D = D && 0 < D.indexOf("?") ? D + "&_t=" + (/* @__PURE__ */ new Date()).valueOf() : D + "?_t=" + (/* @__PURE__ */ new Date()).valueOf()), this._vodRetryCountHandle && clearTimeout(this._vodRetryCountHandle), (X = this).traceLog(Q, "reloadForVod::#" + D + "#" + 100 * this._vodRetryCount), this._vodRetryCountHandle = setTimeout(function() {
+                X._loadByUrlInner(D, k, X.getOptions().autoplay);
+              }, 100 * this._vodRetryCount), this._vodRetryCount = this._vodRetryCount + 1, !0);
+            }, B.prototype._getUserTextTracks = function() {
+              var k = this._options.textTracks || [];
+              (k = y.unqiueTextTracks(k)).length && this.trigger(E.Private.TextTrackFounded, { from: "user", textTracks: k });
+            }, B.prototype._logOnce = function(k, D) {
+              this._onceLogged || (console[D || "log"](k), this._onceLogged = !0);
+            }, o.exports = B;
+          }).call(this);
+        }).call(this, "prod");
+      }, { "../../commonui/autostreamselector": 12, "../../feature/AntiRecord": 17, "../../feature/autoplaydelay": 18, "../../feature/keyboardControl": 19, "../../feature/license": 20, "../../feature/logoManager": 21, "../../feature/ratioAdapter": 22, "../../lang/index": 24, "../../lib/codec-probe": 27, "../../lib/constants": 29, "../../lib/cookie": 30, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/object": 43, "../../lib/playerutil": 46, "../../lib/ua": 49, "../../lib/util": 51, "../../lib/vttnext/index": 55, "../../monitor/monitor": 63, "../../ui/component": 132, "../../ui/component/cover": 136, "../../ui/component/double-click-skip": 137, "../../ui/component/press-fast-forward": 144, "../../ui/component/progressmarker": 146, "../../ui/component/text-track-display": 157, "../../ui/component/util": 162, "../../ui/exports": 165, "../service/export": 121, "../splayer/splayerinjector": 128, "./event/eventmanager": 67, "./event/eventtype": 68, "./plugin/lifecyclemanager": 94, "./x5play": 96, "es6-promise": 9 }], 92: [function(c, o, x) {
+        c = c("../../../lib/oo").extend({}), o.exports = c;
+      }, { "../../../lib/oo": 44 }], 93: [function(c, o, x) {
+        o.exports = { createEl: "createEl", created: "created", ready: "ready", loading: "loading", play: "play", pause: "pause", playing: "playing", waiting: "waiting", timeUpdate: "timeupdate", error: "error", ended: "ended", dispose: "dispose", markerDotOver: "markerDotOver", markerDotOut: "markerDotOut" };
+      }, {}], 94: [function(c, o, x) {
+        function _(n) {
+          (this._player = n)._status = "init", this.components = [];
+          var r = n.getOptions().components;
+          if (r && l.isArray(r) && 0 < r.length) for (var h = 0; h < r.length; h++) {
+            var d = r[h];
+            if (!d) return void console.log("The " + h + " custome component is " + d);
+            var y = d.type === void 0 ? d : d.type, p = d.args === void 0 ? [] : d.args, d = d.name === void 0 ? "" : d.name;
+            if (!y) return void console.log(d + " compenent is " + y);
+            p = p && 0 < p.length ? [].concat.call([y], p) : [], y = new (Function.prototype.bind.apply(y, p))(), p = y[a.createEl], p && typeof p == "function" && p.call(y, n.el(), n), this.components.push({ name: d, obj: y });
+          }
+          var g = this;
+          n.on(u.Private.LifeCycleChanged, function(m) {
+            var v = m.paramData, f = v.type;
+            f === u.Video.CanPlayThrough && g._player.trigger(u.Player.TimeUpdate, v.data.target.currentTime), f === u.Video.Ended && g._player.trigger(u.Player.TimeUpdate, g._player.getDuration()), g.components.length != 0 && t.call(g, n, m);
+          });
+        }
+        var l = c("../../../lib/object"), u = c("../event/eventtype"), a = c("./lifecycle"), s = c("./status"), t = (_.prototype.getComponent = function(n) {
+          var r = null, h = this.components.length;
+          if (n) {
+            for (var y = 0; y < h; y++) if (this.components[y].name == n) {
+              r = this.components[y].obj;
+              break;
+            }
+          }
+          return r;
+        }, function(n, r) {
+          if (r) {
+            for (var r = r.paramData, h = r.type, y = r.data, p = ((r = h) != u.Video.LoadStart && r != u.Video.LoadedData && r != u.Video.LoadedMetadata || (h = a.loading), e(n, h), this.components.length), d = 0; d < p; d++) {
+              var g = this.components[d].obj, m = g[h];
+              m && typeof m == "function" && m.call(g, n, y);
+            }
+            h == u.Private.Dispose && (this.components = []);
+          }
+        }), e = function(n, r) {
+          s[r] === void 0 || r == s.pause && (n._status == s.error || n._status == s.ended) || r == s.ready && n._status == s.playing || (n._status = r);
+        };
+        o.exports = _;
+      }, { "../../../lib/object": 43, "../event/eventtype": 68, "./lifecycle": 93, "./status": 95 }], 95: [function(c, o, x) {
+        o.exports = { init: "init", ready: "ready", loading: "loading", play: "play", pause: "pause", playing: "playing", waiting: "waiting", error: "error", ended: "ended" };
+      }, {}], 96: [function(c, o, x) {
+        function _(a, s) {
+          var t = a.el().style.height, e = a.el().style.width, n = (a.originalLayout = { container: { height: t, width: e }, video: { width: a.tag.style.width, height: a.tag.style.height } }, document.body.clientHeight * (window.devicePixelRatio || 1) + "px"), r = document.body.clientWidth + "px";
+          width = s ? (height = n, r) : (height = t.indexOf("%") ? t : t + "px", e.indexOf("%") ? e : e + "px"), a.tag.style.width = r, a.tag.style.height = n, a.el().style.height = s ? n : height;
+        }
+        var l = c("../../lib/ua"), u = c("../../lib/dom");
+        o.exports.isAndroidX5 = function() {
+          return l.os.android && l.is_X5 || l.dingTalk();
+        }, o.exports.adaptX5Play = function(a) {
+          l.os.android && l.is_X5 && (a._options.x5_type == "h5" && (a.tag.setAttribute("x5-video-player-type", a._options.x5_type), window.onresize = function() {
+            var s, t;
+            _(a, a._options.x5_fullscreen || a._options.x5_video_position == "center"), (s = a)._x5VideoOrientation == "landscape" && (s._originalTagWidth = s.tag.style.width, s._originalTagHeight = s.tag.style.height, (t = document.querySelector("#" + s.id() + " .prism-controlbar")) && parseFloat(t.offsetHeight), s.tag.style.height = "100%", s.tag.style.width = window.screen.width + "px");
+          }, a.tag.addEventListener("x5videoenterfullscreen", function() {
+            _(a, a._options.x5_fullscreen || a._options.x5_video_position == "center"), a.trigger("x5requestFullScreen");
+          }), a.tag.addEventListener("x5videoexitfullscreen", function() {
+            var s, t;
+            (s = a).originalLayout && (t = s.originalLayout, s.el().style.height = t.container.height, s.el().style.width = t.container.width, s.tag.style.width = t.video.width, s.tag.style.height = t.video.height), a.trigger("x5cancelFullScreen"), a.fullscreenService.getIsFullScreen() && a.fullscreenService.cancelFullScreen();
+          }), a.on("requestFullScreen", function() {
+            a._options.x5_video_position == "top" && u.removeClass(a.tag, "x5-top-left"), l.os.android && l.is_X5 && a._options.x5LandscapeAsFullScreen && (a.tag.setAttribute("x5-video-orientation", "landscape"), a._x5VideoOrientation = "landscape");
+          }), a.on("cancelFullScreen", function() {
+            a._options.x5_video_position == "top" && u.addClass(a.tag, "x5-top-left"), l.os.android && l.is_X5 && a._options.x5LandscapeAsFullScreen && (a.tag.setAttribute("x5-video-orientation", "portrait"), _(a, a._options.x5_fullscreen || a._options.x5_video_position == "center"), a._x5VideoOrientation = "portrait");
+          })), a._options.x5_fullscreen !== void 0 && a._options.x5_fullscreen && (a.tag.setAttribute("x5-video-player-fullscreen", a._options.x5_fullscreen), u.addClass(a.tag, "x5-full-screen")), a._options.x5_video_position == "top" && u.addClass(a.tag, "x5-top-left"), a._options.x5_orientation !== void 0) && a.tag.setAttribute("x5-video-orientation", a._options.x5_orientation);
+        };
+      }, { "../../lib/dom": 33, "../../lib/ua": 49 }], 97: [function(c, o, x) {
+        var _ = c("../../lib/object"), l = c("../../lib/io"), u = c("../../config"), a = c("../../lang/index"), s = c("../../lib/constants"), t = c("../../lib/playerutil"), e = c("../base/event/eventtype"), n = "dashinjector.js";
+        o.exports.inject = function(r, h, y, p) {
+          var d = p.source;
+          if (!(function(m) {
+            return !this._dash && t.isDash(m) && t.isSupportMSE();
+          }).call(r, d)) return console.warn("Should not inject dash player");
+          function g() {
+            this._disposed || (this._disposed = !0, this._destroyDash(), this._superPt && (this._superPt.dispose.call(this), h.prototype.play = this._superPt.play, h.prototype.pause = this._superPt.pause, h.prototype.initPlay = this._superPt.initPlay, h.prototype.seek = this._superPt.seek, h.prototype.canSeekable = this._superPt.canSeekable));
+          }
+          r._Type = h, r._superType = y, r._superPt = y.prototype, r._disposed = !1, r._dash = null, h.prototype.initPlay = function() {
+            var m = this, v = (this.trigger(e.Private.H5_Loading_Show), performance.now());
+            (function(f, b) {
+              var w = "aliplayer-dash-min.js", S = this.getOptions(), w = S.dashjsUrl || "https://" + u.domain + u.path + u.h5Version + "/dash/" + w;
+              S.assetPrefix && (S.assetPrefix, ((T) => {
+                throw new TypeError('"' + T + '" is read-only');
+              })("url")), l.loadJS(w, f, b);
+            }).call(this, function() {
+              m.traceLog(n, "got js#" + parseInt(performance.now() - v) + "ms"), (function() {
+                var f, b, S, w = !this._dash;
+                this._disposed || (this._destroyDash(), (f = this.getOptions()).vid || (f.isVBR = !0), b = { streaming: { retryAttempts: { MPD: f.isLive ? f.liveRetry : f.vodRetry } } }, b = _.deepMerge(b, f.dashOption), S = dashjs.MediaPlayer().create(), this._dash = S, (function() {
+                  var T = this, R = this._dash, P = this.getOptions(), E = !1;
+                  R.on(dashjs.MediaPlayer.events.STREAM_INITIALIZED, function(A) {
+                    var H, M;
+                    E || (E = !0, M = (M = R.getBitrateInfoListFor("video")) == null ? void 0 : M.map(function(O) {
+                      return { url: "" + s.DASH_QUALITY_PROTOCOL + O.qualityIndex, width: O.width, height: O.height, bitrate: O.bitrate, attrs: { BANDWIDTH: O.bitrate, RESOLUTION: O.width + "x" + O.height } };
+                    }), T.trigger(e.Player.LevelsLoaded, { levels: M }), H = R.getCurrentTrackFor("audio"), M = R.getTracksFor("audio").map(function(O) {
+                      return { id: O.index, language: O.lang, enabled: (H == null ? void 0 : H.index) === O.index };
+                    }), T.trigger(e.Player.AudioTrackUpdated, { audioTracks: M }));
+                  }), R.on(dashjs.MediaPlayer.events.QUALITY_CHANGE_RENDERED, function(A) {
+                    var H, M;
+                    A.mediaType === "video" && (H = T._qualityService.levels || [], M = "" + s.DASH_QUALITY_PROTOCOL + A.newQuality, A = H.find(function(O) {
+                      return O.Url === M;
+                    }), T.trigger(e.Private.QualityChange, { levelSwitch: !0, url: M, desc: A == null ? void 0 : A.desc }));
+                  }), R.on("bytesAppendedEndFragment", function(A) {
+                    try {
+                      var H, M;
+                      A.mediaType === "video" && (H = A.bufferedRanges.length) && (M = A.bufferedRanges.end(H - 1), A.startTime > M) && (R.refreshManifest(), T.traceLog(n, "PTS rollback, refresh manifest, expectedStart: " + A.startTime + ", resultBufferEnd: " + M), console.warn("PTS rollback, refresh manifest"));
+                    } catch (O) {
+                      console.log("exception", O);
+                    }
+                  }), R.on(dashjs.MediaPlayer.events.ERROR, function(A) {
+                    var H = A.error, M = dashjs.MediaPlayer.errors, O = ((q) => {
+                      var Q, B, k = {};
+                      for (Q in q) q.hasOwnProperty(Q) && (B = q[Q], k[B] = Q);
+                      return k;
+                    })(M)[H.code], j = [M.TIME_SYNC_FAILED_ERROR_CODE, M.TIMED_TEXT_ERROR_ID_PARSE_CODE];
+                    if (console.log("dash error", A, "code:", O), T.traceLog(n, "dashjs-error::" + O + "#" + H.message + "#" + ((A = H.data) == null || (A = A.response) == null ? void 0 : A.status)), !j.includes(H.code)) {
+                      T._clearTimeout();
+                      var U, N, C, I = H.code;
+                      switch (I) {
+                        case M.DOWNLOAD_ERROR_ID_CONTENT_CODE:
+                        case M.DOWNLOAD_ERROR_ID_MANIFEST_CODE:
+                        case M.DOWNLOAD_ERROR_ID_INITIALIZATION_CODE:
+                        case M.DOWNLOAD_ERROR_ID_SIDX_CODE:
+                        case M.DOWNLOAD_ERROR_ID_XLINK_CODE:
+                        case M.FRAGMENT_LOADER_LOADING_FAILURE_ERROR_CODE:
+                        case M.FRAGMENT_LOADER_NULL_REQUEST_ERROR_CODE:
+                          var L = (L = H.data) == null || (L = L.response) == null ? void 0 : L.status;
+                          if (L === 404) {
+                            if (R.isDynamic() && I === M.DOWNLOAD_ERROR_ID_CONTENT_CODE) return T.traceLog(n, "dashjs::reload mpd because seg 404"), void R.attachSource(P.source);
+                            U = s.ErrorCode.NotFoundSourceURL, N = a.get("Error_Not_Found"), C = a.get("Tip_Err_Not_found");
+                          } else N = L === 403 ? (U = s.ErrorCode.AuthKeyExpired, a.get("Error_AuthKey_Text")) : L === 0 ? (U = s.ErrorCode.RequestDataError, a.get("Error_Play_Text") + "," + a.get("Maybe_Cors_Error")) : (U = s.ErrorCode.RequestDataError, a.get("Error_Network_Text") + "(" + O + "|" + L + ")");
+                          break;
+                        case M.MANIFEST_ERROR_ID_NOSTREAMS_CODE:
+                        case M.MANIFEST_ERROR_ID_MULTIPLEXED_CODE:
+                        case M.MANIFEST_ERROR_ID_PARSE_CODE:
+                        case M.MANIFEST_LOADER_LOADING_FAILURE_ERROR_CODE:
+                        case M.MANIFEST_LOADER_PARSING_FAILURE_ERROR_CODE:
+                          U = s.ErrorCode.LoadedMetadata, N = a.get("Error_Manifest_Decode_Text") + "(" + O + ")";
+                          break;
+                        default:
+                          U = s.ErrorCode.OtherError, N = a.get("Error_Play_Text") + "(" + O + ")";
+                      }
+                      N += "<br>" + H.message, A = { mediaId: P.vid || "", mediaAuth: P.mediaAuth || "", error_code: U, error_msg: N, diagnosis_info: C }, T.logError(A), T.trigger(e.Player.Error, A), T._dash.reset();
+                    }
+                  });
+                }).call(this), S.initialize(), S.updateSettings(b), S.setAutoPlay(f.autoplay), S.attachView(this.tag), S.attachSource(f.source), this._initPlayBehavior(), w && this._executeReadyCallback());
+              }).call(m);
+            }, function() {
+              var f = { mediaId: p.vid || "", mediaAuth: p.mediaAuth || "", error_code: s.ErrorCode.ModuleLoadError, error_msg: "dash module load error." };
+              m.trigger(e.Player.Error, f);
+            });
+          }, Object.defineProperty(h.prototype, "dispose", { enumerable: !0, configurable: !0, get: function() {
+            return g;
+          }, set: function() {
+            return g;
+          } }), h.prototype._switchLevel = function(m) {
+            this.traceLog(n, "switchLevel::" + m);
+            var v = this._dash;
+            m ? (m = Number(m.replace(s.DASH_QUALITY_PROTOCOL, "")), v.updateSettings({ streaming: { abr: { autoSwitchBitrate: { audio: !1, video: !1 } } } }), v.setQualityFor("video", m)) : v.updateSettings({ streaming: { abr: { autoSwitchBitrate: { audio: !0, video: !0 } } } });
+          }, h.prototype._switchAudioTrack = function(m) {
+            var v = this._dash, f = v.getTracksFor("audio").find(function(b) {
+              return b.index === m;
+            });
+            f && v.setCurrentTrack(f);
+          }, h.prototype._destroyDash = function() {
+            this._dash && (this._dash.destroy(), this._dash = null);
+          };
+        };
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../../lib/object": 43, "../../lib/playerutil": 46, "../base/event/eventtype": 68 }], 98: [function(c, o, x) {
+        var _ = c("../base/player"), l = c("./dashinjector"), u = _.extend({ init: function(a, s) {
+          s._native = !1, l.inject(this, u, _, s), _.call(this, a, s);
+        } });
+        o.exports = u;
+      }, { "../base/player": 91, "./dashinjector": 97 }], 99: [function(c, o, x) {
+        function _() {
+          return (_ = Object.assign ? Object.assign.bind() : function(d) {
+            for (var g = 1; g < arguments.length; g++) {
+              var m, v = arguments[g];
+              for (m in v) !{}.hasOwnProperty.call(v, m) || (d[m] = v[m]);
+            }
+            return d;
+          }).apply(null, arguments);
+        }
+        var l = c("../../lib/io"), u = c("../../config"), a = c("../../lib/constants"), s = c("../../lib/util"), t = c("../../lib/playerutil"), e = (c("../../lib/dom"), c("../../lang/index")), n = c("../base/event/eventtype"), r = c("../saas/drm"), h = c("../../lib/ua"), y = "drminjector.js", p = (() => {
+          function d() {
+          }
+          var g = d.prototype;
+          return g.destroy = function() {
+          }, g.append = function(m) {
+          }, g.remove = function(m, v) {
+          }, g.isTextVisible = function() {
+          }, g.setTextVisibility = function(m) {
+          }, d;
+        })();
+        o.exports.inject = function(d, g, m, v, f, b, S) {
+          var w, T = v.source;
+          function R(j) {
+            var U = shaka.util.Error.Code, N = "", C = j.data || [];
+            switch (j.code) {
+              case U.BAD_HTTP_STATUS:
+              case U.HTTP_ERROR:
+              case U.TIMEOUT:
+              case U.LICENSE_REQUEST_FAILED:
+                N = e.get("Tip_Drm_Request_Err") + P(C);
+                break;
+              case U.REQUESTED_KEY_SYSTEM_CONFIG_UNAVAILABLE:
+              case U.SESSION_TIMEOUT:
+                window.isSecureContext ? (N = e.get("Tip_Drm_Key_System_Unavailable"), C.length && (N += "<br />" + e.get("Tip_Err_Common_Short") + C)) : N = e.get("Tip_Drm_Secure_Context");
+                break;
+              case U.FAILED_TO_CREATE_CDM:
+                window.location.protocol === "file:" && (N = e.get("Tip_Drm_File_Not_Allowed"));
+                break;
+              case U.HLS_INVALID_PLAYLIST_HIERARCHY:
+                N = e.get("Tip_Drm_Playlist_Hierarchy");
+            }
+            return j = P(C), N || j;
+          }
+          function P(j) {
+            return e.get("Tip_Err_Common") + j;
+          }
+          function E(j) {
+            var U = this;
+            this._drm.load(this._options.source, j.startTime).then(function() {
+              if (U.trigger(n.Private.H5_Loading_Hide), j.continuePlay && (U.play(), j.prevVariant) && j.prevVariant !== 0) {
+                for (var N, C = U._drm.getVariantTracks(), I = 0; I < C.length; I++) if (C[I].id === j.prevVariant) {
+                  N = C[I];
+                  break;
+                }
+                N && U._drm.selectVariantTrack(N, !0);
+              }
+            }).catch(function(N) {
+              H.call(U, N);
+            });
+          }
+          function A() {
+            M();
+            var U = a.ErrorCode.DrmNotSupported, j = e.get("Error_Drm_Not_Supported"), U = { mediaId: this._options.vid || "", error_code: U, error_msg: j, diagnosis_info: e.get("Tip_Drm_Unsupported") };
+            this.logError(U), this.trigger(n.Player.Error, U);
+          }
+          function H(j) {
+            M();
+            var N = a.ErrorCode.DrmLoadError, U = e.get("Error_Drm_Load"), N = { mediaId: this._options.vid || "", error_code: N, error_msg: U + " | " + this._shakaCodeMap[j.code], drm_info: JSON.stringify({ cdmData: this._cdmData, licenseData: this._licenseData }) };
+            this.logError(N), N.diagnosis_info = R.call(this, j), this.trigger(n.Player.Error, N);
+          }
+          function M() {
+            this._sessionTimer && (clearTimeout(this._sessionTimer), this._sessionTimer = null);
+          }
+          function O(j, U) {
+            U = U.getVariantTracks().find(function(N) {
+              return N.active;
+            }), console.log("activeTrack", U), j.trigger(n.Private.QualityChange, { levelSwitch: !0, bitrate: U.bandwidth, desc: U.height });
+          }
+          !b && (v = T, d._drm || !t.isDash(v) && !t.isHls(v)) || (d._isDrm = !0, d._drm = null, d._isLoadedDrm = !1, d._sessionTimer = null, d._isFairPlay = h.IS_MAC_SAFARI || h.IS_IOS, d._fairPlayHandlers = {}, d._shakaCodeMap = {}, d._cdmData = "", d._licenseData = "", console.log("use FairPlay", d._isFairPlay), g.prototype._checkDrmReady = function() {
+            return !(this._drm == null && !this._isFairPlay && (console.warn("please invoke this method after ready event"), 1));
+          }, g.prototype.play = function(j) {
+            if (this.traceLog(y, "play::" + j), this._checkDrmReady()) return this._isManualPlay = j || !1, this.trigger(n.Private.Cover_Hide), this.tag.ended ? this.replay() : (this.getCurrentTime(), this.tag.paused && this.tag.play()), this;
+          }, g.prototype.initPlay = function(j) {
+            var U, N, C;
+            function I(L, q) {
+              var Q, B, k, D;
+              L._antiRecord && (console.log("Manual check before load source"), L._antiRecord.check()) || (!shaka.Player.isBrowserSupported() || !(!h.IS_ANDROID || !h.IS_UC && !h.IS_FIREFOX) ? A.call(L) : (Q = null, shaka.Player.probeSupport().then(function(X) {
+                Q && (clearTimeout(Q), Q = null), X && X.drm && X.drm["com.widevine.alpha"] ? L.destroy(D) : A.call(L);
+              }), Q = setTimeout(function() {
+                A.call(L);
+              }, 5e3), B = !L._drm, k = function() {
+                var X, te, ie;
+                L._drm = new shaka.Player(L.tag), w(L, L._drm), shaka.util.Error.Code.SESSION_TIMEOUT = "SESSION_TIMEOUT", L._shakaCodeMap = (X = shaka.util.Error.Code, te = {}, Object.keys(X).forEach(function(ne) {
+                  te[X[ne]] = ne;
+                }), te), ie = L._options.isLive ? "https://" + t.getLiveHostByRegion(L._options.region) : "https://vod." + L._options.region + ".aliyuncs.com", L._drm.configure(_({ drm: { servers: { "com.widevine.alpha": ie, "com.microsoft.playready": ie }, retryParameters: { maxAttempts: 1 } } }, L._options.drmOption || {}, { textDisplayFactory: function() {
+                  return new p();
+                } })), L._drm.getNetworkingEngine().registerRequestFilter(function(ne, G) {
+                  shaka.util.StringUtils;
+                  var F = shaka.util.Uint8ArrayUtils;
+                  ne == shaka.net.NetworkingEngine.RequestType.LICENSE && (ne = F.toBase64(new Uint8Array(G.body)), F = L._options.isLive ? r.getRequestUrl(ne, L) : r.postData(ne, L), L._cdmData = ne, G.uris[0] = F.url, G.headers["content-type"] = "application/x-www-form-urlencoded", G.body = F.data);
+                }), L._drm.getNetworkingEngine().registerResponseFilter(function(ne, G) {
+                  var F = shaka.util.StringUtils, J = shaka.util.Uint8ArrayUtils;
+                  ne == shaka.net.NetworkingEngine.RequestType.LICENSE && (ne = F.fromUTF8(G.data), F = JSON.parse(ne), ne = L._options.isLive ? F.Response.B64License : JSON.parse(F.License).b64License, L._licenseData = ne, G.data = J.fromBase64(ne));
+                }), L._drm.addEventListener("error", function(ne) {
+                  console.log("errorMessage"), console.log(ne.detail.code), console.log(ne.detail);
+                }), L._drm.load(L._options.source).then(function() {
+                  L._initPlayBehavior(q);
+                }).catch(function(ne) {
+                  H.call(L, ne);
+                }), M.call(L), L.one(n.Video.CanPlay, function() {
+                  M.call(L);
+                }), L._sessionTimer = setTimeout(function() {
+                  L._isError || (H.call(L, { code: "SESSION_TIMEOUT" }), L._drm && L._drm.destroy());
+                }, L._player.getOptions().drmSessionTimeout || 5e3), f && f(L._drm), B && (L._executeReadyCallback(), L._urls) && 0 < L._urls.length && (L._currentPlayIndex = t.findSelectedStreamLevel(L._urls, L._options.defaultDefinition), ie = L._urls[L._currentPlayIndex], L.trigger(n.Private.SourceLoaded, ie));
+              }, D = function(X) {
+                try {
+                  k();
+                } catch (te) {
+                  console.log(te);
+                }
+              }));
+            }
+            s.contentProtocolMixed(T) ? (M(), (U = { mediaId: this._options.vid || "", error_code: a.ErrorCode.InvalidSourceURL, error_msg: "InvalidSourceURL" }).display_msg = e.get("Request_Block_Text"), this.trigger(n.Player.Error, U)) : this._options.accessKeyId && this._options.accessKeySecret ? ((N = this)._waitingTimeoutCount = 1, this._isFairPlay ? (this.trigger(n.Private.H5_Loading_Show), (function(L, q) {
+              var Q;
+              this._isFairPlay && ((() => {
+                var B;
+                return h.IS_IOS ? (B = parseInt(h.os.version), console.log("osVersion", B), 12 <= B) : h.IS_MAC_SAFARI ? (B = parseInt(h.browser.version), console.log("browserVersion", B), 12 <= B) : void 0;
+              })() ? ((Q = this).destroy(), r.loadCertificate(this, function() {
+                L && L(), Q._initPlayBehavior(q, Q._options.source), Q._executeReadyCallback();
+              })) : A.call(this));
+            }).call(this, f, j)) : this._isLoadedDrm && typeof shaka < "u" ? I(this, j) : (this.trigger(n.Private.H5_Loading_Show), C = performance.now(), (function(L, q) {
+              var Q = "aliplayer-drm-min.js", B = "", B = u.domain ? "https://" + u.domain + u.path + u.h5Version + "/drm/" + Q : "/build/drm/" + Q, k = (this._options.shakaUrl && (B = this._options.shakaUrl), this);
+              l.loadJS(B, function() {
+                shaka.polyfill.installAll(), L.apply(k);
+              }, function(D) {
+                q && q(D);
+              });
+            }).call(N, function() {
+              this.traceLog(y, "got js#" + parseInt(performance.now() - C)), this._isLoadedDrm = !0, I(this, j);
+            }, function(L) {
+              L = { mediaId: N._options.vid || "", mediaAuth: N._options.mediaAuth || "", error_code: a.ErrorCode.ModuleLoadError, error_msg: "drm player module load error." + (L ? L.message : "") }, N.trigger(n.Player.Error, L);
+            }))) : (M(), (U = { mediaId: this._options.vid || "", error_code: a.ErrorCode.InvalidParameter, error_msg: "No sts params." }).display_msg = e.get("Error_Drm_No_Sts"), this.trigger(n.Player.Error, U));
+          }, g.prototype.destroy = function(j) {
+            var U;
+            this._drm ? (M.call(U = this), this._drm.destroy().then(function() {
+              U._drm = null, typeof j == "function" && j(U);
+            })) : (this._isFairPlay && this._destroyFairPlay(), typeof j == "function" && j(this));
+          }, g.prototype._destroyFairPlay = function() {
+            r.destroyFairPlay.call(this);
+          }, g.prototype.dispose = function() {
+            m.dispose.call(this), this.destroy();
+          }, g.prototype._switchLevel = function(j, U) {
+            if (U = U || { isAuto: !0 }, this.trigger(n.Player.LevelSwitch), this._switchedLevel = !0, this._isFairPlay) {
+              this._manuallySwitchDrmLevel = !U.isAuto;
+              var N = this.autoplay || this._status != "pause";
+              this._loadByUrlInner(j, this.getCurrentTime(), N);
+            } else if (U.isAuto) this._drm.configure({ abr: { enabled: !0 } }), O(this._player, this._drm);
+            else {
+              for (var C, I = this._drm.getVariantTracks(), L = 0; L < I.length; L++) {
+                var q = I[L];
+                if (Number(q.bandwidth) === Number(U.bitrate) && Number(q.height) === Number(U.resolution.split("x")[1])) {
+                  C = q;
+                  break;
+                }
+              }
+              C || console.warn("cannot find target track", U), this._drm.configure({ abr: { enabled: !1 } }), this._drm.selectVariantTrack(C, !this._options.seamlessHandover);
+            }
+            var Q = this;
+            setTimeout(function() {
+              Q.trigger(n.Player.LevelSwitched), this._switchedLevel = !1;
+            }, 1e3);
+          }, g.prototype._getDRMEncryptItem = function() {
+            var j = this._urls;
+            if (j && 0 < j.length) for (var U = j.length, N = 0; N < U; N++) {
+              var C = j[N];
+              if (C.Url == this._options.source && +C.encryption) return C;
+            }
+            return "";
+          }, g.prototype._getItemBySource = function() {
+            var j = this._urls;
+            if (j && 0 < j.length) for (var U = j.length, N = 0; N < U; N++) {
+              var C = j[N];
+              if (C.Url == this._options.source) return C;
+            }
+            return "";
+          }, w = function(j, U) {
+            U.addEventListener("error", function(L) {
+              var C, I = j, L = L.detail, Q = "Error code:" + L.code + "message:" + L.message, q = (I.traceLog(y, Q), console.log(Q), a.ErrorCode.OtherError), Q = e.get("Error_Play_Text");
+              L.code == shaka.util.Error.Code.EXPIRED ? (function() {
+                var B = this, k = (this.trigger(n.Private.H5_Loading_Show), null);
+                this._options.isLive || (k = this.getCurrentTime());
+                var D, X = !this.paused(), te = this._drm.getConfiguration().abr.enabled;
+                if (!te) {
+                  for (var ie = this._drm.getVariantTracks(), ne = 0; ne < ie.length; ne++) if (ie[ne].active) {
+                    D = ie[ne].id;
+                    break;
+                  }
+                }
+                var G = { startTime: k, continuePlay: X, prevVariant: D, isAdaptive: te };
+                typeof this._options.refreshAccessInfo == "function" ? this._options.refreshAccessInfo().then(function(F) {
+                  (F = F || {}).accessKeyId && (B._options.accessKeyId = F.accessKeyId), F.securityToken && (B._options.securityToken = F.securityToken), F.accessKeySecret && (B._options.accessKeySecret = F.accessKeySecret), E.call(B, G);
+                }) : E.call(B, G);
+              }).call(I) : (L.code == shaka.util.Error.Code.HTTP_ERROR ? (q = a.ErrorCode.NetworkError, Q = e.get("Http_Error")) : L.code == shaka.util.Error.Code.TIMEOUT ? (q = a.ErrorCode.LoadingTimeout, Q = e.get("Error_Waiting_Timeout_Text")) : L.code == shaka.util.Error.Code.LICENSE_REQUEST_FAILED ? (q = a.ErrorCode.DrmLicenseRequestFailed, Q = e.get("Error_Drm_License_Request_Failed")) : L.Category == shaka.util.Error.NETWORK && (q = a.ErrorCode.NetworkError, Q = e.get("Error_Network_Text")), M.call(I), setTimeout(function() {
+                I.trigger(n.Private.Play_Btn_Hide);
+              }), I.checkOnline() && (C = I._drm.drmInfo() || {}, C = { keyIds: Array.from(C.keyIds || []), initData: String(((C = (C.initData || [])[0]) == null ? void 0 : C.initData) || []), cdmData: I._cdmData, licenseData: I._licenseData }, C = { mediaId: I._options.vid || "", error_code: q, error_msg: L.message, shaka_error: JSON.stringify(L.data || []), drm_info: JSON.stringify(C) }, I.logError(C), C.display_msg = Q + " | " + I._shakaCodeMap[L.code], C.diagnosis_info = R.call(I, L), I.trigger(n.Player.Error, C)));
+            }), U.addEventListener("variantchanged", function(N) {
+              console.log("DRM Event: variantchanged", N);
+            }), U.addEventListener("abrstatuschanged", function(N) {
+              console.log("DRM Event: abrstatuschanged", N);
+            }), U.addEventListener("drmsessionupdate", function(N) {
+              console.log("DRM Event: drmsessionupdate", N), M.call(j);
+            }), U.addEventListener("expirationupdated", function(N) {
+              console.log("DRM Event: expirationupdated", N), console.log("Exp:", this.getExpiration());
+            }), U.addEventListener("adaptation", function(N) {
+              console.log("adaptation", N), O(j, U);
+            }), U.addEventListener("trackschanged", function(N) {
+              console.log("DRM EVENT: trackschanged", U.getTextLanguages(), U.getTextTracks());
+              var C = U.getTextLanguages();
+              C && C.length && (C = ((I) => {
+                var L = { subtitle: "subtitles", caption: "captions" }, q = (console.log("Building track config"), I.getManifest().textStreams || []), Q = (console.log("textStreams", q), I.getTextLanguages()), B = (console.log("languageList", Q), []);
+                try {
+                  q.forEach(function(k) {
+                    Q.includes(k.language) && B.push({ kind: L[k.kind] || k.kind, label: k.label, srclang: k.language, src: Array.from(k.segmentIndex)[0].getUris()[0] });
+                  });
+                } catch (k) {
+                  console.log("error in retrieving text track url: ", k);
+                }
+                return B;
+              })(U), j.trigger(n.Private.TextTrackFounded, { from: "drm", textTracks: C }), j.trigger(n.Private.CCReset));
+            });
+          });
+        };
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/dom": 33, "../../lib/io": 41, "../../lib/playerutil": 46, "../../lib/ua": 49, "../../lib/util": 51, "../base/event/eventtype": 68, "../saas/drm": 109 }], 100: [function(c, o, x) {
+        function _() {
+          _ = function() {
+            return I;
+          };
+          var C, I = {}, L = Object.prototype, q = L.hasOwnProperty, J = typeof Symbol == "function" ? Symbol : {}, Q = J.iterator || "@@iterator", B = J.asyncIterator || "@@asyncIterator", k = J.toStringTag || "@@toStringTag";
+          function D(be, Ce, De, Oe) {
+            Object.defineProperty(be, Ce, { value: De, enumerable: !Oe, configurable: !Oe, writable: !Oe });
+          }
+          try {
+            D({}, "");
+          } catch {
+            D = function(Ce, De, Oe) {
+              return Ce[De] = Oe;
+            };
+          }
+          function X(be, Ke, De, Oe) {
+            var Ne, Xe, Me, Ye, Ke = Ke && Ke.prototype instanceof ne ? Ke : ne, Ke = Object.create(Ke.prototype);
+            return D(Ke, "_invoke", (Ne = be, Xe = De, Me = new Ve(Oe || []), Ye = 1, function(at, tt) {
+              if (Ye === 3) throw Error("Generator is already running");
+              if (Ye === 4) {
+                if (at === "throw") throw tt;
+                return { value: C, done: !0 };
+              }
+              for (Me.method = at, Me.arg = tt; ; ) {
+                var Fe = Me.delegate;
+                if (Fe && (Fe = function nt(et, He) {
+                  var qe = He.method, oe = et.i[qe];
+                  return oe === C ? (He.delegate = null, qe === "throw" && et.i.return && (He.method = "return", He.arg = C, nt(et, He), He.method === "throw") || qe !== "return" && (He.method = "throw", He.arg = new TypeError("The iterator does not provide a '" + qe + "' method")), ie) : (qe = te(oe, et.i, He.arg), qe.type === "throw" ? (He.method = "throw", He.arg = qe.arg, He.delegate = null, ie) : (oe = qe.arg, oe ? oe.done ? (He[et.r] = oe.value, He.next = et.n, He.method !== "return" && (He.method = "next", He.arg = C), He.delegate = null, ie) : oe : (He.method = "throw", He.arg = new TypeError("iterator result is not an object"), He.delegate = null, ie)));
+                }(Fe, Me), Fe)) {
+                  if (Fe === ie) continue;
+                  return Fe;
+                }
+                if (Me.method === "next") Me.sent = Me._sent = Me.arg;
+                else if (Me.method === "throw") {
+                  if (Ye === 1) throw Ye = 4, Me.arg;
+                  Me.dispatchException(Me.arg);
+                } else Me.method === "return" && Me.abrupt("return", Me.arg);
+                if (Ye = 3, Fe = te(Ne, Xe, Me), Fe.type === "normal") {
+                  if (Ye = Me.done ? 4 : 2, Fe.arg === ie) continue;
+                  return { value: Fe.arg, done: Me.done };
+                }
+                Fe.type === "throw" && (Ye = 4, Me.method = "throw", Me.arg = Fe.arg);
+              }
+            }), !0), Ke;
+          }
+          function te(be, Ce, De) {
+            try {
+              return { type: "normal", arg: be.call(Ce, De) };
+            } catch (Oe) {
+              return { type: "throw", arg: Oe };
+            }
+          }
+          I.wrap = X;
+          var ie = {};
+          function ne() {
+          }
+          function G() {
+          }
+          function F() {
+          }
+          var J = {}, ae = (D(J, Q, function() {
+            return this;
+          }), Object.getPrototypeOf), ae = ae && ae(ae(Qe([]))), de = (ae && ae !== L && q.call(ae, Q) && (J = ae), F.prototype = ne.prototype = Object.create(J));
+          function me(be) {
+            ["next", "throw", "return"].forEach(function(Ce) {
+              D(be, Ce, function(De) {
+                return this._invoke(Ce, De);
+              });
+            });
+          }
+          function ke(be, Ce) {
+            var De;
+            D(this, "_invoke", function(Oe, Ne) {
+              function Xe() {
+                return new Ce(function(Me, Ye) {
+                  (function Ke(He, tt, Fe, nt) {
+                    var et, He = te(be[He], be, tt);
+                    if (He.type !== "throw") return (tt = (et = He.arg).value) && typeof tt == "object" && q.call(tt, "__await") ? Ce.resolve(tt.__await).then(function(qe) {
+                      Ke("next", qe, Fe, nt);
+                    }, function(qe) {
+                      Ke("throw", qe, Fe, nt);
+                    }) : Ce.resolve(tt).then(function(qe) {
+                      et.value = qe, Fe(et);
+                    }, function(qe) {
+                      return Ke("throw", qe, Fe, nt);
+                    });
+                    nt(He.arg);
+                  })(Oe, Ne, Me, Ye);
+                });
+              }
+              return De = De ? De.then(Xe, Xe) : Xe();
+            }, !0);
+          }
+          function Le(be) {
+            this.tryEntries.push(be);
+          }
+          function je(be) {
+            var Ce = be[4] || {};
+            Ce.type = "normal", Ce.arg = C, be[4] = Ce;
+          }
+          function Ve(be) {
+            this.tryEntries = [[-1]], be.forEach(Le, this), this.reset(!0);
+          }
+          function Qe(be) {
+            if (be != null) {
+              var Ce, De = be[Q];
+              if (De) return De.call(be);
+              if (typeof be.next == "function") return be;
+              if (!isNaN(be.length)) return Ce = -1, (De = function Oe() {
+                for (; ++Ce < be.length; ) if (q.call(be, Ce)) return Oe.value = be[Ce], Oe.done = !1, Oe;
+                return Oe.value = C, Oe.done = !0, Oe;
+              }).next = De;
+            }
+            throw new TypeError(typeof be + " is not iterable");
+          }
+          return D(de, "constructor", G.prototype = F), D(F, "constructor", G), D(F, k, G.displayName = "GeneratorFunction"), I.isGeneratorFunction = function(be) {
+            return be = typeof be == "function" && be.constructor, !!be && (be === G || (be.displayName || be.name) === "GeneratorFunction");
+          }, I.mark = function(be) {
+            return Object.setPrototypeOf ? Object.setPrototypeOf(be, F) : (be.__proto__ = F, D(be, k, "GeneratorFunction")), be.prototype = Object.create(de), be;
+          }, I.awrap = function(be) {
+            return { __await: be };
+          }, me(ke.prototype), D(ke.prototype, B, function() {
+            return this;
+          }), I.AsyncIterator = ke, I.async = function(be, Ce, De, Oe, Ne) {
+            Ne === void 0 && (Ne = Promise);
+            var Xe = new ke(X(be, Ce, De, Oe), Ne);
+            return I.isGeneratorFunction(Ce) ? Xe : Xe.next().then(function(Me) {
+              return Me.done ? Me.value : Xe.next();
+            });
+          }, me(de), D(de, k, "Generator"), D(de, Q, function() {
+            return this;
+          }), D(de, "toString", function() {
+            return "[object Generator]";
+          }), I.keys = function(be) {
+            var Ce, De = Object(be), Oe = [];
+            for (Ce in De) Oe.unshift(Ce);
+            return function Ne() {
+              for (; Oe.length; ) if ((Ce = Oe.pop()) in De) return Ne.value = Ce, Ne.done = !1, Ne;
+              return Ne.done = !0, Ne;
+            };
+          }, I.values = Qe, Ve.prototype = { constructor: Ve, reset: function(be) {
+            if (this.prev = this.next = 0, this.sent = this._sent = C, this.done = !1, this.delegate = null, this.method = "next", this.arg = C, this.tryEntries.forEach(je), !be) for (var Ce in this) Ce.charAt(0) === "t" && q.call(this, Ce) && !isNaN(+Ce.slice(1)) && (this[Ce] = C);
+          }, stop: function() {
+            this.done = !0;
+            var be = this.tryEntries[0][4];
+            if (be.type === "throw") throw be.arg;
+            return this.rval;
+          }, dispatchException: function(be) {
+            if (this.done) throw be;
+            var Ce = this;
+            function De(at) {
+              Xe.type = "throw", Xe.arg = be, Ce.next = at;
+            }
+            for (var Oe = Ce.tryEntries.length - 1; 0 <= Oe; --Oe) {
+              var Ne = this.tryEntries[Oe], Xe = Ne[4], Me = this.prev, Ye = Ne[1], Ke = Ne[2];
+              if (Ne[0] === -1) return De("end"), !1;
+              if (!Ye && !Ke) throw Error("try statement without catch or finally");
+              if (Ne[0] != null && Ne[0] <= Me) {
+                if (Me < Ye) return this.method = "next", this.arg = C, De(Ye), !0;
+                if (Me < Ke) return De(Ke), !1;
+              }
+            }
+          }, abrupt: function(be, Ce) {
+            for (var De = this.tryEntries.length - 1; 0 <= De; --De) {
+              var Oe = this.tryEntries[De];
+              if (-1 < Oe[0] && Oe[0] <= this.prev && this.prev < Oe[2]) {
+                var Ne = Oe;
+                break;
+              }
+            }
+            var Xe = (Ne = Ne && (be === "break" || be === "continue") && Ne[0] <= Ce && Ce <= Ne[2] ? null : Ne) ? Ne[4] : {};
+            return Xe.type = be, Xe.arg = Ce, Ne ? (this.method = "next", this.next = Ne[2], ie) : this.complete(Xe);
+          }, complete: function(be, Ce) {
+            if (be.type === "throw") throw be.arg;
+            return be.type === "break" || be.type === "continue" ? this.next = be.arg : be.type === "return" ? (this.rval = this.arg = be.arg, this.method = "return", this.next = "end") : be.type === "normal" && Ce && (this.next = Ce), ie;
+          }, finish: function(be) {
+            for (var Ce = this.tryEntries.length - 1; 0 <= Ce; --Ce) {
+              var De = this.tryEntries[Ce];
+              if (De[2] === be) return this.complete(De[4], De[3]), je(De), ie;
+            }
+          }, catch: function(be) {
+            for (var Ce = this.tryEntries.length - 1; 0 <= Ce; --Ce) {
+              var De, Oe, Ne = this.tryEntries[Ce];
+              if (Ne[0] === be) return (De = Ne[4]).type === "throw" && (Oe = De.arg, je(Ne)), Oe;
+            }
+            throw Error("illegal catch attempt");
+          }, delegateYield: function(be, Ce, De) {
+            return this.delegate = { i: Qe(be), r: Ce, n: De }, this.method === "next" && (this.arg = C), ie;
+          } }, I;
+        }
+        function l(C, I, L, q, Q, B, k) {
+          try {
+            var D = C[B](k), X = D.value;
+          } catch (te) {
+            return L(te);
+          }
+          D.done ? I(X) : Promise.resolve(X).then(q, Q);
+        }
+        function u(C) {
+          return function() {
+            var I = this, L = arguments;
+            return new Promise(function(q, Q) {
+              var B = C.apply(I, L);
+              function k(X) {
+                l(B, q, Q, k, D, "next", X);
+              }
+              function D(X) {
+                l(B, q, Q, k, D, "throw", X);
+              }
+              k(void 0);
+            });
+          };
+        }
+        var a = typeof Promise > "u" ? c("es6-promise").Promise : Promise, s = c("../../lib/io"), t = c("../../config"), e = c("../../lang/index"), n = c("../base/event/eventtype"), r = c("../../lib/constants"), h = "drminjectorNg.js", y = { LoadJs: 1, LoadSource: 2, PlayerError: 3, SupportError: 4, ParamsError: 5 }, p = { Widevine: "com.widevine.alpha", FairPlay: "com.apple.fps" }, d = {}, g = {};
+        function m(C) {
+          return v.apply(this, arguments);
+        }
+        function v() {
+          return (v = u(_().mark(function C(I) {
+            var L, q, Q, B, k = this;
+            return _().wrap(function(D) {
+              for (; ; ) switch (D.prev = D.next) {
+                case 0:
+                  if (this._drm) return D.next = 3, this._drm.destroy();
+                  D.next = 4;
+                  break;
+                case 3:
+                  this._drm = null;
+                case 4:
+                  D.prev = 4, j.call(this, "mod_shaka_s"), D.next = 8;
+                  var X = I;
+                  return new a(function(te, ie) {
+                    var ne = "https://" + t.domain + t.path + t.h5Version + "/drm/aliplayer-drm2-min.js";
+                    X != null && X.shakaUrl && (ne = X == null ? void 0 : X.shakaUrl), s.loadJS(ne, te, ie);
+                  });
+                case 8:
+                  j.call(this, "mod_shaka_f"), D.next = 15;
+                  break;
+                case 11:
+                  return D.prev = 11, D.t0 = D.catch(4), console.log("[load shaka-player error]", D.t0), D.abrupt("return", E.call(this, y.LoadJs, D.t0));
+                case 15:
+                  if (shaka.polyfill.installAll(), d = A(shaka.util.Error.Code), g = A(shaka.net.NetworkingEngine.RequestType), shaka.Player.isBrowserSupported()) {
+                    D.next = 20;
+                    break;
+                  }
+                  return D.abrupt("return", E.call(this, y.SupportError));
+                case 20:
+                  if (window.isSecureContext) {
+                    D.next = 22;
+                    break;
+                  }
+                  return D.abrupt("return", E.call(this, y.SupportError, { _code: "no-secure-context" }));
+                case 22:
+                  if (Q = ((te) => {
+                    var ie = null;
+                    return (te = te || {}).widevine || te.fairplay || (ie = { message: e.get("Error_Drm_Params_Missing") }), [te, ie];
+                  })(I.drm), q = Q[0], Q = Q[1]) return D.abrupt("return", E.call(this, y.ParamsError, Q));
+                  D.next = 25;
+                  break;
+                case 25:
+                  return I.vid || (this._options.isVBR = !0), Q = new shaka.Player(), P.call(this, Q), this._drm = Q, B = { drm: { servers: ((B = {})[p.Widevine] = (L = q.widevine) == null ? void 0 : L.licenseUrl, B[p.FairPlay] = (L = q.fairplay) == null ? void 0 : L.licenseUrl, B), advanced: ((L = {})[p.Widevine] = { serverCertificateUri: (B = q.widevine) == null ? void 0 : B.certificateUrl }, L[p.FairPlay] = { serverCertificateUri: (B = q.fairplay) == null ? void 0 : B.certificateUrl, serverCertificate: (B = q.fairplay) == null ? void 0 : B.certificate }, L) }, autoShowText: 1 }, shaka.util.PlayerConfiguration.mergeConfigObjects(B, I.drmOption || {}), Q.configure(B), Q.attach(this.tag), Q.getNetworkingEngine().registerRequestFilter(function(te, ie, ne) {
+                    if ((F = ie.drmInfo) != null && F.keySystem && (k._keySystem = ie.drmInfo.keySystem), te === shaka.net.NetworkingEngine.RequestType.LICENSE) {
+                      j.call(k, "drm_li_s");
+                      var G = U.call(k);
+                      if (G.licenseHeaders && Object.keys(G.licenseHeaders).forEach(function(J) {
+                        ie.headers[J] = G.licenseHeaders[J];
+                      }), typeof G.licenseRequestFilter == "function") return G.licenseRequestFilter(ie, shaka.util);
+                    } else if (te === shaka.net.NetworkingEngine.RequestType.SERVER_CERTIFICATE) {
+                      j.call(k, "drm_cer_s");
+                      var F = U.call(k);
+                      if (typeof F.certificateRequestFilter == "function") return F.certificateRequestFilter(ie, shaka.util);
+                    }
+                  }), Q.getNetworkingEngine().registerResponseFilter(function(te, ie, ne) {
+                    if (te === shaka.net.NetworkingEngine.RequestType.LICENSE) {
+                      j.call(k, "drm_li_f"), N.call(k, te, ie);
+                      var G = U.call(k);
+                      if (typeof G.licenseResponseFilter == "function") return G.licenseResponseFilter(ie, shaka.util);
+                    } else if (te === shaka.net.NetworkingEngine.RequestType.SERVER_CERTIFICATE && (j.call(k, "drm_cer_f"), N.call(k, te, ie), G = U.call(k), typeof G.certificateResponseFilter == "function"))
+                      return G.certificateResponseFilter(ie, shaka.util);
+                  }), D.prev = 37, D.next = 40, Q.load(I.source);
+                case 40:
+                  D.next = 46;
+                  break;
+                case 42:
+                  D.prev = 42, D.t1 = D.catch(37), console.log("error when load source", D.t1), E.call(this, y.LoadSource, D.t1);
+                case 46:
+                  this._initPlayBehavior(), this._executeReadyCallback();
+                case 48:
+                case "end":
+                  return D.stop();
+              }
+            }, C, this, [[4, 11], [37, 42]]);
+          }))).apply(this, arguments);
+        }
+        function f(C) {
+          this.traceLog(h, "play::" + C), C && this.trigger(n.Private.ManualPlay), this._isManualPlay = !!C, this.tag.ended || this._ended ? this.replay() : this.tag.paused && this.tag.play();
+        }
+        function b() {
+          this._switchingDesc = null, this._keySystem = null, this._baseType.dispose.call(this), this._drm && (this._drm.destroy(), this._drm = null);
+        }
+        function S(C, I) {
+          var L, q, Q, B = this._drm;
+          C ? (L = Number(C.split(r.DASH_QUALITY_PROTOCOL)[1]), (C = B.getVariantTracks().find(function(k) {
+            return k.id === L;
+          })) && (B.configure({ abr: { enabled: !1 } }), q = !1, Q = this.getOptions().seamlessHandover, B.selectVariantTrack(C, q = typeof Q == "boolean" ? !Q : q), q || (this._switchingDesc = I.desc))) : (B.configure({ abr: { enabled: !0 } }), this._switchingDesc = null);
+        }
+        function w() {
+          var C = this._drm;
+          if (C) return C.getTextTracks().map(function(I) {
+            return { language: I.language, label: I.label, kind: I.kind === "subtitle" ? "subtitles" : "captions", default: I.active };
+          });
+          console.warn("shaka has not been initialized but _getTextTracks is called");
+        }
+        function T(C) {
+          var I = this._drm;
+          I && (C ? (I.setTextTrackVisibility(!0), I.selectTextLanguage(C)) : I.setTextTrackVisibility(!1));
+        }
+        function R(C) {
+          C && this._drm.selectAudioLanguage(C), O.call(this);
+        }
+        function P(C) {
+          var I = this;
+          C.addEventListener("error", function(L) {
+            E.call(I, y.PlayerError, L.detail);
+          }), C.addEventListener("trackschanged", function() {
+            (function() {
+              var L, q, Q, B = this._drm, k = B.getAudioLanguages(), D = (L = B.getVariantTracks()) == null ? void 0 : L.find(function(X) {
+                return X.active;
+              });
+              D && (q = [], k.length === 1 && k[0] === "und" ? q.push({ id: "und", language: e.get("Default"), enabled: !0 }) : k.length && (Q = B.getAudioLanguagesAndRoles() || [], k.forEach(function(X) {
+                var te;
+                q.push({ id: X, language: ((te = Q.find(function(ie) {
+                  return ie.language === X;
+                })) == null ? void 0 : te.label) || X, enabled: X === D.language });
+              })), this.trigger(n.Player.AudioTrackUpdated, { audioTracks: q }));
+            }).call(I), C.keySystem() === p.FairPlay ? I.trigger(n.Player.LevelsLoaded, { levels: [{}] }) : (O.call(I), M.call(I, C));
+          }), C.addEventListener("adaptation", function() {
+            C.keySystem() !== p.FairPlay && M.call(I, C);
+          }), this.tag.addEventListener("resize", function() {
+            I._switchingDesc && I.trigger(n.Private.Info_Show, { text: e.get("Quality_Change_Result") + "<span>" + I._switchingDesc + "</span>", duration: 3e3, align: "lb" });
+          });
+        }
+        function E(C, I) {
+          var L = this;
+          if (console.log("to handle error of:", C, I, "this._isError", this._isError), this._isError) this.traceLog(h, "drm extra error [" + C + "]" + I + "}");
+          else {
+            I = I || {};
+            var q = { mediaId: this.getOptions().vid || "", error_code: "", error_msg: "" };
+            switch (C) {
+              case y.LoadJs:
+                q.error_code = r.ErrorCode.ModuleLoadError, q.error_msg = "drm player module load error." + ((I == null ? void 0 : I.message) || "");
+                break;
+              case y.LoadSource:
+              case y.PlayerError:
+                q.error_code = r.ErrorCode.DrmLoadError, q.error_msg = e.get("Error_Drm_Load") + " | " + (d[I.code] || "") + " " + ((Q) => {
+                  var B = "";
+                  return B = Q.code === shaka.util.Error.Code.BAD_HTTP_STATUS ? (Q == null || (Q = Q.data) == null ? void 0 : Q[1]) || "" : B;
+                })(I), q.diagnosis_info = ((Q) => {
+                  var B = shaka.util.Error.Code, k = "", D = Q.data || [];
+                  switch (Q.code) {
+                    case B.BAD_HTTP_STATUS:
+                    case B.HTTP_ERROR:
+                    case B.TIMEOUT:
+                    case B.LICENSE_REQUEST_FAILED:
+                      k = e.get("Tip_Drm_Request_Err") + H(D);
+                      break;
+                    case B.REQUESTED_KEY_SYSTEM_CONFIG_UNAVAILABLE:
+                    case B.SESSION_TIMEOUT:
+                      window.isSecureContext ? (k = e.get("Tip_Drm_Key_System_Unavailable"), D.length && (k += "<br />" + e.get("Tip_Err_Common_Short") + D)) : k = e.get("Tip_Drm_Secure_Context");
+                      break;
+                    case B.FAILED_TO_CREATE_CDM:
+                      window.location.protocol === "file:" && (k = e.get("Tip_Drm_File_Not_Allowed"));
+                      break;
+                    case B.HLS_INVALID_PLAYLIST_HIERARCHY:
+                      k = e.get("Tip_Drm_Playlist_Hierarchy");
+                      break;
+                    case B.ENCRYPTED_CONTENT_WITHOUT_DRM_INFO:
+                      k = e.get("Tip_Drm_Info_Missing");
+                  }
+                  return Q = H(D), k || Q;
+                })(I), q.shaka_error = I || {}, I.code === shaka.util.Error.Code.LICENSE_REQUEST_FAILED && console.log("LICENSE_REQUEST_FAILED => ", I.data[0]);
+                break;
+              case y.SupportError:
+                q.error_code = r.ErrorCode.DrmNotSupported, I._code === "no-secure-context" ? q.error_msg = e.get("Tip_Drm_Secure_Context") : (q.error_msg = e.get("Error_Drm_Not_Supported"), q.diagnosis_info = e.get("Tip_Drm_Unsupported"));
+                break;
+              case y.ParamsError:
+                q.error_code = r.ErrorCode.InvalidParameter, q.error_msg = I.message || "";
+            }
+            this.logError(q), this.trigger(n.Player.Error, q), shaka.Player.probeSupport().then(function(Q) {
+              L.traceLog(h, "probeSupport::" + JSON.stringify(Q));
+            }).catch(function(Q) {
+              L.traceLog(h, "probeSupport::" + Q);
+            });
+          }
+        }
+        function A(C) {
+          var I = {};
+          return Object.keys(C).forEach(function(L) {
+            I[C[L]] = L;
+          }), I;
+        }
+        function H(C) {
+          return e.get("Tip_Err_Common") + C;
+        }
+        function M() {
+          var C = (I = this._drm.getVariantTracks()) == null ? void 0 : I.find(function(L) {
+            return L.active;
+          }), I = (this._qualityService.levels || []).find(function(L) {
+            return L.Url === "" + r.DASH_QUALITY_PROTOCOL + C.id;
+          });
+          C && I ? this.trigger(n.Private.QualityChange, { levelSwitch: !0, desc: I.desc }) : console.warn("no activeTrack or activeDisplayItem found", C, I);
+        }
+        function O() {
+          var C = this._drm, I = C.getVariantTracks(), L = (q = C.getVariantTracks()) == null ? void 0 : q.find(function(Q) {
+            return Q.active;
+          }), q = (I = I.filter(function(Q) {
+            return Q.audioId === L.audioId;
+          })).map(function(Q) {
+            return { url: "" + r.DASH_QUALITY_PROTOCOL + Q.id, width: Q.width, height: Q.height, bitrate: Q.bandwidth, attrs: { BANDWIDTH: Q.bandwidth, RESOLUTION: Q.width + "x" + Q.height } };
+          });
+          this.trigger(n.Player.LevelsLoaded, { levels: q }), this.trigger(n.Private.SelectorGenerateList, { type: "quality" }), C.getConfiguration().abr.enabled || (I = (this._qualityService.levels || []).find(function(Q) {
+            return Q.Url === "" + r.DASH_QUALITY_PROTOCOL + L.id;
+          })) && this.trigger(n.Private.SelectorValueChange, { type: "quality", text: I.desc });
+        }
+        function j(C) {
+          this.trigger(n.Private.Timeline, { name: C, ts: performance.now() });
+        }
+        function U() {
+          var C = {}, I = this.getOptions().drm || {}, L = this._keySystem || ((L = this._drm) == null ? void 0 : L.keySystem()) || "";
+          return L === p.Widevine ? C = I.widevine || {} : L === p.FairPlay && (C = I.fairplay || {}), C;
+        }
+        function N(C, I) {
+          if ((L = this.getOptions()) == null || (L = L.drm) == null || !L.disableReportLicense) {
+            var L = I.data, I = "";
+            if (typeof L == "string") I = L;
+            else if (L instanceof ArrayBuffer) try {
+              I = new TextDecoder().decode(L);
+            } catch (Q) {
+              console.log("error in decode license provider response", Q), I = "[ArrayBuffer] decode error: " + Q;
+            }
+            this.traceLog(h, "DRM-" + g[C] + "-response: " + I);
+          }
+        }
+        o.exports.inject = (() => {
+          var C = u(_().mark(function I(L, q, Q, B) {
+            var k;
+            return _().wrap(function(D) {
+              for (; ; ) switch (D.prev = D.next) {
+                case 0:
+                  (k = L)._baseType = Q, k._keySystem = null, k.initPlay = m.bind(k, B), k.play = f.bind(k), k.dispose = b.bind(k), k._getDrmTextTracks = w.bind(k), k._switchDrmTextTrack = T.bind(k), k._switchLevel = S.bind(k), k._switchAudioTrack = R.bind(k);
+                case 10:
+                case "end":
+                  return D.stop();
+              }
+            }, I);
+          }));
+          return function(I, L, q, Q) {
+            return C.apply(this, arguments);
+          };
+        })(), o.exports.play = f, o.exports._switchLevel = S, o.exports._getTextTracks = w, o.exports._switchTextTrack = T, o.exports._switchAudioTrack = R, o.exports.updateLevelList = O, o.exports.logProviderResponse = N;
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../base/event/eventtype": 68, "es6-promise": 9 }], 101: [function(c, o, x) {
+        var _ = c("../base/player"), l = c("./drminjector"), u = c("./drminjectorNg"), a = _.extend({ init: function(s, t) {
+          t.useDrm2 ? u.inject(this, a, _.prototype, t) : l.inject(this, a, _.prototype, t, function(e) {
+          }), t._native = !1, _.call(this, s, t);
+        } });
+        o.exports = a;
+      }, { "../base/player": 91, "./drminjector": 99, "./drminjectorNg": 100 }], 102: [function(c, o, x) {
+        (function(_) {
+          (function() {
+            var l = c("../../lib/io"), u = c("../../config"), a = c("../../lib/constants"), s = c("../../lib/util"), t = c("../../lib/playerutil"), e = c("../../lib/ua"), n = c("../../lib/data"), r = c("../../lang/index"), h = c("../base/event/eventtype"), y = "flvinjector.js";
+            o.exports.inject = function(p, d, g, m, v, f) {
+              var b, S = m.source, w = m.optionFormat;
+              function T() {
+                this._disposed || (this._disposed = !0, this._superPt && this._superPt.dispose.call(this), this._destroyFlv(), this._superPt && (d.prototype.play = this._superPt.play, d.prototype.pause = this._superPt.pause, d.prototype.initPlay = this._superPt.initPlay, d.prototype.seek = this._superPt.seek, d.prototype.canSeekable = this._superPt.canSeekable));
+              }
+              function R(P) {
+                try {
+                  for (var E = P.buffered.length, A = "Len:" + E + ";", H = 0; H < E; H++) A += "[" + (H + 1) + "]" + P.buffered.start(H) + "~" + P.buffered.end(H);
+                  return A;
+                } catch {
+                }
+              }
+              (f || (m = S, f = w, !p._flv && t.isFlv(m, f) && t.isSupportFlv())) && (p._Type = d, p._superType = g, p._superPt = g.prototype, p._disposed = !1, d.prototype._checkFlvReady = function() {
+                return this._flv != null || (console.warn("please invoke this method after ready event"), !1);
+              }, p._isFlv = !0, p._flv = null, p._isLoadedFlv = !1, p._dumpBuffer = null, d.prototype.play = function(P) {
+                if (this.traceLog(y, "play::" + P), P && this.trigger(h.Private.ManualPlay), this._checkFlvReady()) return this._isManualPlay = P || !1, this.trigger(h.Private.Cover_Hide), this._options.isLive && P ? this._loadByUrlInner(this._options.source, 0, P) : this.tag.ended || this._ended ? this.replay() : (this._seeking == 0 && (P = 0, this.tag.ended || this._ended || (P = this.getCurrentTime()) == 0 && (P = -1), P != -1) && this.seek(P), this.tag.paused && (this._hasLoaded || (this._hasLoaded = !0, this._flv.load()), this._flv.play())), this;
+              }, d.prototype.seek = function(P) {
+                if (this._checkFlvReady()) {
+                  this._seeking = !0;
+                  var E = this.getDuration();
+                  E <= (P = Math.floor(P)) && (P = E);
+                  try {
+                    this._flv.currentTime = P;
+                  } catch (A) {
+                    console.log(A);
+                  }
+                  return this;
+                }
+              }, d.prototype.pause = function(P) {
+                if (this._checkFlvReady()) return this._isManualPause = P || !1, this._flv.pause(), this;
+              }, d.prototype.getProgramDateTime = function() {
+                var P;
+                if (this._checkFlvReady()) return this._metadata ? (P = (P = this._flv.getFirstSample()) && P.pts ? P.pts : 0, console.log("推流时间：" + this._metadata.NtpTime), console.log("首帧PTS：" + P), this._metadata.NtpTime + P) : "";
+              }, d.prototype.initPlay = function(P) {
+                var E, A, H;
+                function M(O, j) {
+                  if (!O._disposed) {
+                    var U = !O._flv, N = (O._destroyFlv(), O._options.isLive);
+                    if (N && !flvjs.getFeatureList().networkStreamIO) return (q = { error_code: a.ErrorCode.FormatNotSupport, error_msg: r.get("Error_Not_Support_Mse_Flv") + "|streamIO(format:flv)" }).display_msg = q.error_msg, void O.trigger(h.Player.Error, q);
+                    var C, I = { isLive: N, enableWorker: O._options.enableWorker, accurateSeek: !0 }, L = (e.IS_IE11 && (I.enableWorker = !1), { type: "flv", isLive: N, url: O._options.source });
+                    for (C in N ? (I.enableStashBuffer = O._options.enableStashBufferForFlv, I.stashInitialSize = O._options.stashInitialSizeForFlv, I.autoCleanupSourceBuffer = !1) : I.lazyLoadMaxDuration = 600, I.statisticsInfoReportInterval = 1e3, O._options.isLive && (O._options.flvFrameChasing && (I.flvFrameChasing = O._options.flvFrameChasing), O._options.chasingFirstParagraph && (I.chasingFirstParagraph = O._options.chasingFirstParagraph), O._options.chasingSecondParagraph && (I.chasingSecondParagraph = O._options.chasingSecondParagraph), O._options.chasingFirstSpeed && (I.chasingFirstSpeed = O._options.chasingFirstSpeed), O._options.chasingSecondSpeed) && (I.chasingSecondSpeed = O._options.chasingSecondSpeed), O._options.flvOption) C == "cors" || C == "hasAudio" || C == "withCredentials" || C == "hasVideo" || C == "type" ? L[C] = O._options.flvOption[C] : I[C] = O._options.flvOption[C];
+                    flvjs.LoggingControl.enableAll = O._options.debug, O._flv = flvjs.createPlayer(L, I), b(O, O._flv), O._flv.on(flvjs.Events.DUMP_BUFFER, function(B) {
+                      var k, D, X;
+                      O._options.disableDumpBuffer || O._liveRetryCount === 0 && O._vodRetryCount === 0 && O._nudgeCount === 0 && typeof O._dumpBuffer != "string" && (O._flvDumpTimer || (O._flvDumpTimer = setTimeout(function() {
+                        O._reportDumpBuffer && O._reportDumpBuffer();
+                      }, 5e3)), B = new Uint8Array(B), O._dumpBuffer ? O._dumpBuffer = (k = O._dumpBuffer, D = B, (X = new Uint8Array(k.length + D.length)).set(k), X.set(D, k.length), X) : O._dumpBuffer = B);
+                    });
+                    var q, Q = s.throttle(function(B) {
+                      O.traceLog(y, "dts_adjustment::" + B.from + "->" + B.to);
+                    }, 1e3);
+                    O._flv.on(flvjs.Events.DTS_ADJUSTMENT, function(B) {
+                      Q(B);
+                    }), O._flv.on(flvjs.Events.MEDIA_INFO, function(B) {
+                      O._metadata = B.metadata;
+                    }), O._flv.on(flvjs.Events.METADATA_ARRIVED, function(B) {
+                      B && B.dataContent && B.dataContent.length && O.trigger(h.Private.SeiFrame, { dataContent: B.dataContent, pts: B.pts });
+                    }), O._flv.on(flvjs.Events.STATISTICS_INFO, function(B) {
+                      O.trigger(h.Private.StatisticsInfo, B);
+                    }), O._flv.attachMediaElement(O.tag), O._initPlayBehavior(j) && ((O._options.preload || O._options.autoplay) && (O._hasLoaded = !0, O._flv.load()), O._options.autoplay && !O.tag.paused && O._flv.play(), v && v(O._flv), U) && (O._executeReadyCallback(), O._urls) && 0 < O._urls.length && (O._currentPlayIndex = t.findSelectedStreamLevel(O._urls, O._options.defaultDefinition), q = O._urls[O._currentPlayIndex], O._options.source = q.Url, O.trigger(h.Private.SourceLoaded, q));
+                  }
+                }
+                e.browser.safari && this.trigger(h.Private.Snapshot_Hide), s.contentProtocolMixed(S, "", w) ? ((E = { mediaId: this._options.vid || "", error_code: a.ErrorCode.InvalidSourceURL, error_msg: "InvalidSourceURL" }).display_msg = r.get("Request_Block_Text"), this.trigger(h.Player.Error, E)) : (A = this)._isLoadedFlv && typeof Hls < "u" ? setTimeout(function() {
+                  M(A, P);
+                }, 1e3) : (this.trigger(h.Private.H5_Loading_Show), H = performance.now(), (function(O, j, U) {
+                  var N = "aliplayer-flv-min.js", C = "", C = u.domain ? "https://" + u.domain + u.path + u.h5Version + "/flv/" + N : "/build/flv/" + N, I = (this._options.assetPrefix && (C = this._options.assetPrefix + "/flv/" + N), JSON.parse(_) && (C = "http://localhost:8000/dist/aliplayer-flv.js"), this);
+                  l.loadJS(C, function() {
+                    O.apply(I);
+                  }, function() {
+                    U && U();
+                  });
+                }).call(A, function() {
+                  this.traceLog(y, "got js#" + parseInt(performance.now() - H)), this._isLoadedFlv = !0, M(this, P);
+                }, this._options.debug, function() {
+                  var O = { mediaId: A._options.vid || "", mediaAuth: A._options.mediaAuth || "", error_code: a.ErrorCode.ModuleLoadError, error_msg: "flv module load error." };
+                  A.trigger(h.Player.Error, O);
+                }));
+              }, d.prototype._reportDumpBuffer = function() {
+                var P, E;
+                this.__flvDumpTimer && clearTimeout(this.__flvDumpTimer), this.__flvDumpTimer = null, this._dumpBuffer && typeof this._dumpBuffer != "string" && (1048576 < this._dumpBuffer.byteLength && (this._dumpBuffer = this._dumpBuffer.slice(0, 1048576)), P = this._dumpBuffer, this._dumpBuffer = "REPORTED", performance.now(), P = s.arrayBufferToB64(P), E = n.guid(), this.traceLog(y, "dump::" + E), this.trigger(h.Private.DumpBuffer, { id: E, data: P }));
+              }, d.prototype._destroyFlv = function() {
+                try {
+                  this._flv && (this._flv.pause(), this._flv.destroy());
+                } catch (P) {
+                  console.log(P);
+                }
+                this.loaded = !1, this._hasLoaded = !1, this._flv = null, this._flvDumpTimer && (clearTimeout(this._flvDumpTimer), this._flvDumpTimer = null), this._dumpBuffer = null;
+              }, Object.defineProperty(d.prototype, "dispose", { enumerable: !0, configurable: !0, get: function() {
+                return T;
+              }, set: function() {
+                return T;
+              } }), d.prototype.canSeekable = function(P) {
+                var E;
+                if (this._flv) return E = this._flv.mediaInfo, !(!this._flv._isTimepointBuffered(P) && E && !E.hasKeyframesIndex);
+              }, d.prototype._getbwEstimator = function() {
+                var P;
+                return 1024 * ((P = this._flv) == null || (P = P.statisticsInfo) == null ? void 0 : P.speed) * 8;
+              }, b = function(P, E) {
+                var A = !1;
+                E.on(flvjs.Events.ERROR, function(H, M, O) {
+                  var j, U, N, C, I = "flvjs-error::" + H + "#" + M + "#" + O.code + "#" + O.msg, L = O.msg === "BodyStreamBuffer was aborted" && E._config.lazyLoad;
+                  if (L) {
+                    I += "#Maximum buffering duration exceeded, suspend transmuxing task";
+                    try {
+                      var q = E._msectl._sourceBuffers.video, Q = E._msectl._sourceBuffers.audio;
+                      I += "#Video buffer:" + R(q) + "#Audio buffer:" + R(Q);
+                    } catch {
+                    }
+                  }
+                  P.traceLog(y, I), P._reportDumpBuffer && P._reportDumpBuffer(), H === flvjs.ErrorTypes.BUFFER_FULL || (P._flv.unload(), L) || P._isError || (j = a.ErrorCode.OtherError, U = r.get("Error_Play_Text"), N = null, M == flvjs.ErrorDetails.NETWORK_EXCEPTION ? !(q = P.getOptions().source) || q.toLowerCase().indexOf("http://") != 0 && q.toLowerCase().indexOf("https://") != 0 ? (j = a.ErrorCode.InvalidSourceURL, U = r.get("Error_Invalidate_Source_Widthout_Protocal"), A = !0) : U = navigator.onLine ? (j = a.ErrorCode.RequestDataError, r.get("Maybe_Cors_Error")) : (j = a.ErrorCode.NetworkError, r.get("Error_Network_Text")) : M == flvjs.ErrorDetails.NETWORK_STATUS_CODE_INVALID ? O.code == "404" ? (j = a.ErrorCode.NotFoundSourceURL, U = r.get("Error_Not_Found"), N = r.get("Tip_Err_Not_found")) : O.code == "403" ? (j = a.ErrorCode.AuthKeyExpired, U = r.get("Error_AuthKey_Text"), A = !0) : (j = a.ErrorCode.NetworkError, U = r.get("Error_Network_Text")) : M == flvjs.ErrorDetails.NETWORK_TIMEOUT ? (j = a.ErrorCode.LoadingTimeout, U = r.get("Error_Waiting_Timeout_Text")) : M == flvjs.ErrorDetails.MEDIA_FORMAT_UNSUPPORTED || M == flvjs.ErrorDetails.MEDIA_CODEC_UNSUPPORTED ? (j = a.ErrorCode.FormatNotSupport, U = r.get("Error_H5_Not_Support_Text") + "|codec(format:flv)", A = !0) : M === flvjs.ErrorDetails.MEDIA_MSE_ERROR && (Q = P.tag.error) && (j = a.VideoErrorCode[Q.code], U = Q.code + " || " + Q.message), I = function() {
+                    var B;
+                    setTimeout(function() {
+                      P.trigger(h.Private.Play_Btn_Hide);
+                    }), P.checkOnline() && (B = { mediaId: P._options && P._options.vid ? P._options.vid : "", error_code: j, error_msg: U, diagnosis_info: N }, P.logError(B), B.display_msg = U, u.cityBrain && (P.flv = null), P.trigger(h.Player.Error, B));
+                  }, P._options && P._options.isLive && !A ? (C = P._options).liveRetry > P._liveRetryCount ? (P._liveRetryCount == 0 && P.trigger(h.Player.OnM3u8Retry), H = C.liveRetryInterval + C.liveRetryStep * P._liveRetryCount, P._liveRetryCount++, setTimeout(function() {
+                    P._isError || P._liveRetryTimer || P._loadByUrlInner(C.source);
+                  }, 1e3 * H)) : (P.trigger(h.Player.LiveStreamStop), I()) : M === flvjs.ErrorDetails.MEDIA_MSE_ERROR && O.code === 11 && P.getCurrentTime() < P.getDuration() ? (P._flv.unload(), P._flv.load(), P._flv.detachMediaElement(), P._flv.attachMediaElement(P.tag)) : A ? (P._flv.unload(), I()) : P._reloadForVod() || I());
+                });
+              });
+            };
+          }).call(this);
+        }).call(this, "false");
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/data": 31, "../../lib/io": 41, "../../lib/playerutil": 46, "../../lib/ua": 49, "../../lib/util": 51, "../base/event/eventtype": 68 }], 103: [function(c, o, x) {
+        var _ = c("../base/player"), l = c("./flvinjector"), u = _.extend({ init: function(a, s) {
+          l.inject(this, u, _, s, function(t) {
+          }), s._native = !1, _.call(this, a, s);
+        } });
+        o.exports = u;
+      }, { "../base/player": 91, "./flvinjector": 102 }], 104: [function(c, o, x) {
+        (function(_) {
+          (function() {
+            function l() {
+              return (l = Object.assign ? Object.assign.bind() : function(S) {
+                for (var w = 1; w < arguments.length; w++) {
+                  var T, R = arguments[w];
+                  for (T in R) !{}.hasOwnProperty.call(R, T) || (S[T] = R[T]);
+                }
+                return S;
+              }).apply(null, arguments);
+            }
+            var u, a = c("../../lib/object"), s = c("../../lib/io"), t = c("../../config"), e = c("../../lib/constants"), n = c("../../lib/util"), r = c("../../lib/playerutil"), h = c("../../lib/ua"), y = c("../../lang/index"), p = c("../base/event/eventtype"), d = "hlsinjector.js";
+            function g() {
+              this && this._hls && (this._hls.stopLoad(), this._hls.destroy(), this._hls = null);
+            }
+            function m(S) {
+              this.trigger(p.Private.Timeline, { name: S, ts: performance.now() });
+            }
+            function v(S, w) {
+              return w < S.maxNumRetry;
+            }
+            var f = {};
+            function b(S, w) {
+              w.frag.level === this.currentLevel && (this.off(u.Events.FRAG_BUFFERED, b), this.media.currentTime = this.media.currentTime + 0.01);
+            }
+            o.exports.inject = function(S, w, T, R, P, E) {
+              S._hls2 = !1;
+              var A, H, M, O = R.source, j = R.optionFormat;
+              ((P || "").length || E || (E = O, A = R.useHlsPluginForSafari, R = R.useHlsPlugOnMobile, H = j, !S._hls && r.isHls(E, H) && (!r.canPlayHls() || r.isSafariUsedHlsPlugin(A) || R && r.isUsedHlsPluginOnMobile()))) && (S._Type = w, S._superType = T, S._superPt = T.prototype, S._disposed = !1, S._isHls = !0, S._hls = null, S._isLoadedHls = !1, S._stopLoadAsPaused = !0, S._yekced_saved = P, f.seek || (f.seek = T.prototype.seek), f.dispose || (f.dispose = T.prototype.dispose), S.initPlay = (function(U) {
+                var N, C;
+                function I(L, q) {
+                  if (!L._disposed) {
+                    if (L._antiRecord && (console.log("Manual check before load source"), L._antiRecord.check())) return;
+                    var Q, B = !L._hls, k = (L._destroyHls(), { xhrSetup: function(X, te) {
+                      X.withCredentials = L._options.withCredentials || !1;
+                    } }), D = (L._hls2 || (D = L._options.loadingTimeOut || L._options.hlsLoadingTimeOut) && (k.manifestLoadingTimeOut = D, k.levelLoadingTimeOut = D, k.fragLoadingTimeOut = D), L._hls2 && (k.manifestLoadPolicy = l({}, u.DefaultConfig.manifestLoadPolicy), k.playlistLoadPolicy = l({}, u.DefaultConfig.playlistLoadPolicy), k.fragLoadPolicy = l({}, u.DefaultConfig.fragLoadPolicy), D = L._options.isLive ? L._options.liveRetry : L._options.vodRetry, k.manifestLoadPolicy.default.errorRetry.maxNumRetry = D, L._options.isLive && (k.manifestLoadPolicy.default.errorRetry.shouldRetry = v), k.manifestLoadPolicy.default.timeoutRetry.maxNumRetry = D, k.playlistLoadPolicy.default.errorRetry.maxNumRetry = D, L._options.isLive && (k.playlistLoadPolicy.default.errorRetry.shouldRetry = v), k.playlistLoadPolicy.default.timeoutRetry.maxNumRetry = D, k.fragLoadPolicy.default.maxLoadTimeMs = 2e4, k.fragLoadPolicy.default.errorRetry.shouldRetry = v, (D = L._options.hlsOption || {}).manifestLoadPolicy && (k.manifestLoadPolicy = a.deepMerge(k.manifestLoadPolicy, D.manifestLoadPolicy), delete D.manifestLoadPolicy), D.playlistLoadPolicy && (k.playlistLoadPolicy = a.deepMerge(k.playlistLoadPolicy, D.playlistLoadPolicy), delete D.playlistLoadPolicy), D.fragLoadPolicy && (k.fragLoadPolicy = a.deepMerge(k.fragLoadPolicy, D.fragLoadPolicy), delete D.fragLoadPolicy), L._options.isLive) && !h.IS_IE11 && (k.backBufferLength = 12, k.liveDurationInfinity = !0), L._options.isLive && (L._options.hlsFrameChasing && (k.hlsFrameChasing = L._options.hlsFrameChasing), L._options.chasingFirstParagraph && (k.chasingFirstParagraph = L._options.chasingFirstParagraph), L._options.chasingSecondParagraph && (k.chasingSecondParagraph = L._options.chasingSecondParagraph), L._options.chasingFirstSpeed && (k.chasingFirstSpeed = L._options.chasingFirstSpeed), L._options.chasingSecondSpeed) && (k.chasingSecondSpeed = L._options.chasingSecondSpeed), L._options.defaultBandwidth && (k.defaultBandwidth = L._options.defaultBandwidth), L._options.hlsBandWidthUpCacheTime && (k.abrBandWidthUpCacheTime = L._options.hlsBandWidthUpCacheTime), L._options.seamlessHandover && (k.seamlessHandover = L._options.seamlessHandover), L._options.liveSyncDurationCount && (k.liveSyncDurationCount = L._options.liveSyncDurationCount), L._options.nudgeMaxRetry && (k.nudgeMaxRetry = L._options.nudgeMaxRetry), L._options.maxMaxBufferLength && (k.maxMaxBufferLength = L._options.maxMaxBufferLength), L._options.maxBufferSize && (k.maxBufferSize = L._options.maxBufferSize), L._options.fragLoadingRetryDelay && (k.fragLoadingRetryDelay = L._options.fragLoadingRetryDelay), L._options.maxBufferLength && (k.maxBufferLength = L._options.maxBufferLength), L._options.accessKeyId && (k.accessKeyId = L._options.accessKeyId), L._options.accessKeySecret && (k.accessKeySecret = L._options.accessKeySecret), L._options.securityToken && (k.securityToken = L._options.securityToken), L._options.app && (k.app = L._options.app), L._options.stream && (k.stream = L._options.stream), L._options.domain && (k.domain = L._options.domain), L._options.regionId && (k.regionId = L._options.regionId), L._yekced_saved && (k._yekcedxx = L._yekced_saved, k._vpk = L._yekced_saved), k.enableWorker = L._options.enableWorker, k.debug = L._options.debug, L._stopLoadAsPaused = L._options.hlsOption.stopLoadAsPaused, L._getPlayStartTime() + L._posOffset);
+                    for (Q in D && (k.startPosition = D, console.log("hls.js startPosition => ", D)), L._options.hlsOption) k[Q] = L._options.hlsOption[Q];
+                    h.IS_IE11 && (k.enableWorker = !1), L._hls = new u(k), M(L, L._hls), L._loadSourced = !1, L._hls.attachMedia(L.tag), L._hls.on(u.Events.INIT_PTS_FOUND, function(X, te) {
+                      L._initPTS = te.initPTS;
+                    }), L._hls.on(u.Events.FRAG_LOADING, function() {
+                      m.call(L, "frag_s");
+                    }), L._hls.on(u.Events.FRAG_LOADED, function() {
+                      m.call(L, "frag_f");
+                    }), L._hls.on(u.Events.FRAG_PARSED, function() {
+                      m.call(L, "frag_parsed");
+                    }), L._hls.on(u.Events.FRAG_PARSED, function(X, ie) {
+                      var ie = (ie == null ? void 0 : ie.frag) || {}, ne = ie.elementaryStreams || {}, G = "Frag(sn" + ie.sn + "): " + ((G = ie.startPTS) == null ? void 0 : G.toFixed(3)) + " -> " + ((G = ie.endPTS) == null ? void 0 : G.toFixed(3)) + "(v:" + ((G = ne.video) == null || (G = G.startPTS) == null ? void 0 : G.toFixed(3)) + "/" + ((G = ne.video) == null || (G = G.endPTS) == null ? void 0 : G.toFixed(3)) + ";a:" + ((G = ne.audio) == null || (G = G.startPTS) == null ? void 0 : G.toFixed(3)) + "/" + ((G = ne.audio) == null || (G = G.endPTS) == null ? void 0 : G.toFixed(3)) + "); Duration: " + ((ne = ie.duration) == null ? void 0 : ne.toFixed(3));
+                      L.trackLogFragBuffer && (L.trackLogFragBuffer.push(G), 10 < L.trackLogFragBuffer.length) && L.trackLogFragBuffer.shift();
+                    }), L._hls.on(u.Events.FRAG_PARSING_USERDATA, function(X, te) {
+                      te && te.dataContent && te.dataContent.length ? L.trigger(p.Private.SeiFrame, { dataContent: te.dataContent, pts: te.pts }) : te.samples.forEach(function(ie) {
+                        L.trigger(p.Private.SeiFrame, { dataContent: ie.userDataBytes, dataContentString: ie.userData, pts: ie.pts, uuid: ie.uuid });
+                      });
+                    }), L._hls.on(u.Events.MEDIA_ATTACHED, function() {
+                      var X;
+                      L._hls.on(u.Events.MANIFEST_PARSED, function() {
+                        L._initPlayBehavior(q || L._loadSourced);
+                      }), L._hls.on(u.Events.AUDIO_TRACKS_UPDATED, function(te, ie) {
+                        L.trigger(p.Player.AudioTrackUpdated, ie);
+                      }), L._hls.on(u.Events.MANIFEST_LOADED, function(te, ie) {
+                        L.trigger(p.Player.LevelsLoaded, ie);
+                      }), L._hls.on(u.Events.LEVEL_SWITCHED, function(te, ie) {
+                        if (L._qualityService) {
+                          for (var ne = L._hls.levels[ie.level].url, G = L._qualityService.levels, F = "", J = "", ae = 0; ae < G.length; ae++) if (G[ae].Url == ne) {
+                            J = G[ae].desc, F = G[ae].bitrate;
+                            break;
+                          }
+                          (J || F) && L.trigger(p.Private.QualityChange, { levelSwitch: !0, url: ne, bitrate: F, desc: J });
+                        }
+                      }), L._hls.on(u.Events.AUDIO_TRACK_SWITCH, function(te, ie) {
+                        L.trigger(p.Player.AudioTrackSwitch, ie), setTimeout(function() {
+                          L.trigger(p.Player.AudioTrackSwitched, ie);
+                        }, 1e3);
+                      }), (L._options.autoplay || L._options.preload || q) && (L._loadSourced = !0, L._levels && 1 < L._levels.length ? (L._hls.trigger(u.Events.MANIFEST_LOADING, {}), L._hls.trigger(u.Events.MANIFEST_LOADED, { levels: L._levels })) : L._hls.loadSource(L._options.source || "__INVALID__")), B ? (L._executeReadyCallback(), L._urls && 0 < L._urls.length && (L._currentPlayIndex = r.findSelectedStreamLevel(L._urls, L._options.defaultDefinition), X = L._urls[L._currentPlayIndex], L._options.source = X.Url, L.trigger(p.Private.SourceLoaded, X))) : L.trigger(p.Private.H5_Loading_Show);
+                    });
+                  }
+                }
+                this.trigger(p.Private.H5_Loading_Show), n.contentProtocolMixed(O, "", j) ? (N = this.getOptions() || {}, (N = { mediaId: N.vid || "", mediaAuth: N.mediaAuth || "", error_code: e.ErrorCode.InvalidSourceURL, error_msg: "InvalidSourceURL" }).display_msg = y.get("Request_Block_Text"), this.trigger(p.Player.Error, N)) : (C = this)._isLoadedHls && u !== void 0 ? I(this, U) : (this.trigger(p.Private.H5_Loading_Show), this._getHlsVersion(function(L) {
+                  var q = performance.now();
+                  (function(Q, B, k) {
+                    var D = "aliplayer-hls-min.js", X = ((B = B || {}).hls2 && (D = "aliplayer-hls2-min.js"), B.enableHlsH265 && (D = "aliplayer-hls2-hevc-min.js"), ""), X = t.domain ? "https://" + t.domain + t.path + t.h5Version + "/hls/" + D : "/build/hls/" + D, te = (B.assetPrefix && (X = B.assetPrefix + "/hls/" + D), JSON.parse(_) && (X = "http://localhost:8080/dist/aliplayer-hls2.js"), m.call(this, "mod_hls_s"), this);
+                    s.loadJS(X, function() {
+                      m.call(te, "mod_hls_f"), u = window.AliHls || window.Hls, Q.apply(te);
+                    }, function() {
+                      k && k();
+                    });
+                  }).call(C, function() {
+                    C.traceLog(d, "got js#" + parseInt(performance.now() - q)), C._isLoadedHls = !0, I(C, U);
+                  }, { debug: C._options.debug, hls2: C._hls2, assetPrefix: C._options.assetPrefix, enableHlsH265: C._options.enableHlsH265 }, function() {
+                    var Q = { mediaId: C._options.vid || "", mediaAuth: C._options.mediaAuth || "", error_code: e.ErrorCode.ModuleLoadError, error_msg: "hls module load error." };
+                    C.trigger(p.Player.Error, Q);
+                  });
+                }), this.on("error", g));
+              }).bind(S), S.seek = (function(U) {
+                if (this._checkHlsReady()) {
+                  try {
+                    f.seek.call(this, U), this.tag.paused && this._stopLoadAsPaused && this._hls.startLoad(U);
+                  } catch (N) {
+                    console.log(N);
+                  }
+                  return this;
+                }
+              }).bind(S), S.pause = (function(U) {
+                if (this.tag) {
+                  if (!this._checkHlsReady()) return;
+                  this.tag.pause(), this._stopLoadAsPaused && this._hls.stopLoad();
+                }
+                return this._isManualPause = U || !1, this;
+              }).bind(S), S.play = (function(U) {
+                if (this.traceLog(d, "play::" + U), U && this.trigger(p.Private.ManualPlay), this._checkHlsReady()) return this._isManualPlay = U || !1, this.trigger(p.Private.Cover_Hide), this._options.autoplay || this._options.preload || this._loadSourced || (this._loadSourced = !0, this._options._autoplay = !0, this._hls.loadSource(this._options.source)), this.tag.ended || this._ended ? this.replay() : this.tag.paused && (this.tag.play(), this._stopLoadAsPaused) && (U = this.getCurrentTime(), this._hls.startLoad(U)), this;
+              }).bind(S), S.stop = (function() {
+                if (this._checkHlsReady()) return this.tag.setAttribute("src", null), this._hls.stopLoad(), this;
+              }).bind(S), S.dispose = (function() {
+                this._disposed || (this._disposed = !0, f.dispose.call(this), this._destroyHls());
+              }).bind(S), S.getCurrentPDT = (function() {
+                var U, N, C;
+                if (this._checkHlsReady()) return this._hls.currentLevel == -1 ? "" : this._hls.playingDate ? this._hls.playingDate.getTime() : (N = this._hls.streamController.fragPlaying || {}, (U = N.pdt) ? (N = 1e3 * N.startPTS, C = 1e3 * this.getCurrentTime(), U + (C - N)) : 0);
+              }).bind(S), S.getProgramDateTime = (function() {
+                if (this._checkHlsReady()) {
+                  if (this._hls.currentLevel == -1) return "";
+                  var U = this._hls.currentLevel, U = this._hls.levels[U].details;
+                  return U && (U = U.programDateTime, U) ? new Date(U).valueOf() : 0;
+                }
+              }).bind(S), S._checkHlsReady = (function() {
+                return this._hls != null || (console.warn("please invoke this method after ready event"), !1);
+              }).bind(S), S._getHlsVersion = (function(U) {
+                this._options.useHls2 === !0 ? (this._hls2 = !0, U()) : this._options.useHls2 === !1 && U();
+              }).bind(S), S._getbwEstimator = (function() {
+                var U = NaN;
+                {
+                  var N;
+                  this._hls && (N = this._hls.abrController._bwEstimator, U = N ? N.getEstimate() : this._hls.bandwidthEstimate);
+                }
+                return U;
+              }).bind(S), S._destroyHls = (function() {
+                this._hls && this._hls.destroy(), this._hls = null, this.trackLogFragBuffer = [];
+              }).bind(S), S._switchLevel = (function(U) {
+                for (var N = this, C = (this.traceLog(d, "switchLevel::" + U), this.trigger(p.Player.LevelSwitch), this._hls.levels), I = !0, L = 0; L < C.length; L++) if (C[L].url == U || C[L].url[0] == U) {
+                  I = !1, this._hls2 && this._options.seamlessHandover ? (this._hls.loadLevel = L, console.log("Seamlessly set nextLevel to", L)) : (this._hls.on(u.Events.FRAG_BUFFERED, b), this._hls.currentLevel = L, console.log("Immediately set currentLevel to", L));
+                  break;
+                }
+                I && (this._hls.on(u.Events.FRAG_BUFFERED, b), this._hls.currentLevel = -1), this._switchedLevel = !0, setTimeout(function() {
+                  N.trigger(p.Player.LevelSwitched), N._switchedLevel = !1;
+                }, 1e3);
+              }).bind(S), M = function(U, N) {
+                N.on(u.Events.MANIFEST_LOADING, function() {
+                  m.call(U, "mani_s");
+                }), N.on(u.Events.MANIFEST_LOADED, function() {
+                  m.call(U, "mani_f");
+                }), N.on(u.Events.DEFAULT_BANDWIDTH, function(C, I) {
+                  U.trigger(p.Player.DefaultBandWidth, { width: I.width, height: I.height, bitrate: I.bitrate });
+                }), N.on(u.Events.ERROR, function(C, I) {
+                  var L = "hlsjs-error::" + I.type + "#" + I.details + "#" + ((L = I.networkDetails) == null ? void 0 : L.status) + "#" + I.reason + "#bw:" + (U._getbwEstimator() / 8 / 1024).toFixed(2) + "KB";
+                  if (I.details === "manifestParsingError") try {
+                    L += "#" + I.networkDetails.getResponseHeader("Content-Type") + "#" + I.networkDetails.getResponseHeader("Content-Length");
+                  } catch {
+                  }
+                  else if (I.details === "fragLoadError" || I.details === "fragLoadTimeOut") L += "#" + I.frag.url + "#retry:" + ((ie = I.errorAction) == null ? void 0 : ie.retryCount);
+                  else if (I.details === "internalException") try {
+                    L += "#" + I.event + "#" + ((B = I.error) == null ? void 0 : B.message) + "#" + ((Q = I.error) == null ? void 0 : Q.stack);
+                  } catch {
+                  }
+                  I.details !== "internalException" && (L += "#" + I.error);
+                  try {
+                    L += "#" + (U == null || (G = U.trackLogFragBuffer) == null ? void 0 : G.toString());
+                  } catch {
+                  }
+                  if (U.traceLog(d, L), U._options && I.details != u.ErrorDetails.FRAG_LOOP_LOADING_ERROR && U._seeking != 1 && I.fatal != 0) {
+                    U._clearTimeout();
+                    var q, Q, B, k = e.ErrorCode.LoadedMetadata, D = y.get("Error_Play_Text"), X = !1, te = null, ie = !1, ne = (I.details == u.ErrorDetails.MANIFEST_LOAD_ERROR || I.details == u.ErrorDetails.LEVEL_LOAD_ERROR ? (X = !0, B = I.networkDetails, q = Number(B.status), U.liveShiftSerivce && U.liveShiftSerivce.isLiveShiftPlaying() && q === 404 ? (k = e.ErrorCode.NotFoundSourceURL, D = y.get("Error_Liveshift_M3U8_Not_Found_Text"), ie = !0) : q === 404 ? (k = e.ErrorCode.NotFoundSourceURL, D = y.get("Error_Not_Found"), te = y.get("Tip_Err_Not_found")) : q === 403 ? (Q = r.parseHttpHeaders(B)["x-tengine-error"]) && -1 < e.RegionBlockMessages.indexOf(Q) ? (k = e.ErrorCode.RegionBlock, D = y.get("Error_Region_Block_Text"), te = y.get("Tip_Err_Blocked")) : (k = e.ErrorCode.AuthKeyExpired, D = y.get("Error_AuthKey_Text")) : D = q === 0 && navigator.onLine ? (k = e.ErrorCode.RequestDataError, D + "，" + y.get("Maybe_Cors_Error")) : y.get("Error_Load_M3U8_Failed_Text")) : I.details == u.ErrorDetails.MANIFEST_LOAD_TIMEOUT || I.details == u.ErrorDetails.LEVEL_LOAD_TIMEOUT ? (X = !0, D = y.get("Error_Load_M3U8_Timeout_Text")) : I.details == u.ErrorDetails.MANIFEST_PARSING_ERROR || I.details == u.ErrorDetails.MANIFEST_INCOMPATIBLE_CODECS_ERROR ? (X = !0, D = y.get("Error_M3U8_Decode_Text")) : I.type == u.ErrorTypes.NETWORK_ERROR ? (k = e.ErrorCode.NetworkError, D = y.get("Error_Network_Text")) : I.type != u.ErrorTypes.MUX_ERROR && I.type != u.ErrorTypes.MEDIA_ERROR || (k = e.ErrorCode.PlayDataDecode, D = y.get("Error_TX_Decode_Text")), D = D + "(" + I.details + ")", function() {
+                      var J;
+                      setTimeout(function() {
+                        U.trigger(p.Private.Play_Btn_Hide);
+                      }), U.checkOnline() && (J = { mediaId: (J = U.getOptions() || {}).vid || "", mediaAuth: J.mediaAuth || "", error_code: k, error_msg: I.details, diagnosis_info: te }, U.logError(J), J.display_msg = D, U.trigger(p.Player.Error, J));
+                    }), G = function() {
+                      U._liveErrorHandle && clearTimeout(U._liveErrorHandle), N.stopLoad(), U.trigger(p.Player.LiveStreamStop), U._liveErrorHandle = setTimeout(ne, 500);
+                    }, F = U._options;
+                    if (F.isLive && ie) G();
+                    else if (U._hls2) {
+                      if (X && F.isLive) if (F.hlsOption.progressive) {
+                        if (F.liveRetry > U._liveRetryCount) return U._liveRetryCount == 0 && U.trigger(p.Player.OnM3u8Retry), U.trigger(p.Private.H5_Loading_Show), U._hls.stopLoad(), U._liveRetryCount++, void setTimeout(function() {
+                          U.traceLog(d, "retry when live error in progressive mode#" + U._liveRetryCount), U._hls.loadSource(F.source);
+                        }, 1e3 * U._liveRetryCount);
+                      } else ((L = I.errorAction) == null ? void 0 : L.retryCount) === 0 && U.trigger(p.Player.OnM3u8Retry);
+                      I.fatal && G();
+                    } else F.isLive ? F.liveRetry > U._liveRetryCount ? (U._liveRetryCount == 0 && U.trigger(p.Player.OnM3u8Retry), B = F.liveRetryInterval + F.liveRetryStep * U._liveRetryCount, U._liveRetryCount++, U.trigger(p.Private.H5_Loading_Show), setTimeout(function() {
+                      X && U._loadByUrlInner(U._options.source, 0, !0);
+                    }, 1e3 * B)) : G() : (X && -1 < [403, 404].indexOf(q) || !U._reloadForVod()) && ne();
+                  }
+                });
+              });
+            };
+          }).call(this);
+        }).call(this, "false");
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../../lib/object": 43, "../../lib/playerutil": 46, "../../lib/ua": 49, "../../lib/util": 51, "../base/event/eventtype": 68 }], 105: [function(c, o, x) {
+        var _ = c("../base/player"), l = c("./hlsinjector"), u = _.extend({ init: function(a, s) {
+          s._native = !1, l.inject(this, u, _, s), _.call(this, a, s);
+        } });
+        o.exports = u;
+      }, { "../base/player": 91, "./hlsinjector": 104 }], 106: [function(c, o, x) {
+        var _ = ["extraInfo"];
+        function l() {
+          return (l = Object.assign ? Object.assign.bind() : function(v) {
+            for (var f = 1; f < arguments.length; f++) {
+              var b, S = arguments[f];
+              for (b in S) !{}.hasOwnProperty.call(S, b) || (v[b] = S[b]);
+            }
+            return v;
+          }).apply(null, arguments);
+        }
+        var u = typeof Promise > "u" ? c("es6-promise").Promise : Promise, a = c("../../lib/io"), s = c("../../config"), t = c("../../lib/constants"), e = c("../../lang/index"), n = c("../base/event/eventtype"), r = c("../../lib/ua"), h = c("../base/event/eventtype"), y = c("../../lib/playerutil"), p = "rtsinjector.js";
+        function d(v) {
+          var f, b, S, w, T = this._options;
+          T.rtsFallback && window.Aliplayer ? ((f = T.rtsFallbackSource) || ((b = String(T.rtsFallbackType || "").toUpperCase()) && !["HLS", "FLV"].includes(b) && (console.warn("invalid rtsFallbackType:", T.rtsFallbackType, ", will use flv -> hls as fallback"), b = ""), b = b || (y.isSupportFlv() ? "FLV" : "HLS"), S = T.source, w = !S.includes("@subvideo=no"), S = !S.includes("@subaudio=no"), S = (w = { enableVideo: w, enableAudio: S }).enableVideo, w = w.enableAudio, b === "FLV" ? (T.flvOption = T.flvOption || {}, w || (T.flvOption.hasAudio = !1), S || (T.flvOption.hasVideo = !1)) : b !== "HLS" || w || (T.mute = !0), f = ((R, E) => {
+            var E = E === "FLV" ? "flv" : "m3u8", A = window.location.protocol, A = (-1 < ["http:", "https:"].indexOf(A) ? A : "https:") + "//";
+            return (R = R.replace("artc://", A).replace("?", "." + E + "?").replace("@subvideo=no", "").replace("@subaudio=no", "")).includes("?") || (R += "." + E), R.includes("auth_key") && (R += "&rts_degrade=on"), R;
+          })(T.source, b)), this.trigger(n.Player.RtsFallback, { reason: v, fallbackUrl: f }), this.loadByUrl(f)) : (this.trigger(n.Player.Error, v), this.logError(v));
+        }
+        function g(v) {
+          var f = this, b = (this.trigger(n.Private.H5_Loading_Show), this.trigger(n.Private.Play_Btn_Hide), this._options), S = new m(f, v);
+          return f._rts.subscribe(b.source, l({ retryTimes: b.rtsFallback ? 1 : void 0, mediaTimeout: b.rtsLoadDataTimeout }, b.rtsOption || {})).then(function(w) {
+            return S.preProcess(), f.tag.srcObject = null, w.play(f.tag), r.IS_IOS && Number(r.IOS_VERSION) <= 14 && f.one(h.Player.TimeUpdate, function() {
+              setTimeout(function() {
+                f.tag.pause(), f.tag.play();
+              }, 200);
+            }), !0;
+          }).catch(function(w) {
+            return f.traceLog(p, "subError::" + JSON.stringify(w)), !1;
+          });
+        }
+        o.exports.inject = function(v, f, b, S, w, T) {
+          function R() {
+            this._disposed || (this._disposed = !0, this._superPt && this._superPt.dispose.call(this), this._destroyRts());
+          }
+          v._Type = f, v._superType = b, v._superPt = b.prototype, v._disposed = !1, f.prototype._checkRtsReady = function() {
+            return this._rts != null || (console.warn("please invoke this method after ready event"), !1);
+          }, v._isRts = !0, v._rts = null, v._isLoadedRts = !1, v.bind_rtsErrorEventHandler = null, v.bind_rtsReconnectEventHandler = null, f.prototype.play = function(P) {
+            if (this.traceLog(p, "play::" + P), P && this.trigger(n.Private.ManualPlay), this._checkRtsReady() && (this._isManualPlay = P || !1, this.paused()))
+              return this.trigger(n.Private.Cover_Hide), this.trigger(n.Private.Play_Btn_Hide), g.call(this), this;
+          }, f.prototype.seek = function(P) {
+          }, f.prototype.setSpeed = function(P) {
+          }, f.prototype.stop = function() {
+            return this._rts && this._rts.unsubscribe(), this;
+          }, Object.defineProperty(f.prototype, "dispose", { enumerable: !0, configurable: !0, get: function() {
+            return R;
+          }, set: function() {
+            return R;
+          } }), f.prototype._destroyRts = function() {
+            this._rts && (this.stop(), this._rts.off("onError", this.bind_rtsErrorEventHandler), this._rts.off("reconnect", this.bind_rtsReconnectEventHandler)), this._rts = null;
+          }, f.prototype.initPlay = function(P) {
+            var E, A = this;
+            function H(M, O) {
+              var j;
+              M._disposed || (j = !M._rts, M._destroyRts(), M._rts = new AliRTS.createClient({ customReporter: function(U) {
+                if (Number(U.msgid) === 126) {
+                  var N = {};
+                  try {
+                    N = JSON.parse(U.args);
+                  } catch {
+                    N = {};
+                  }
+                  N.tcid && M._rts && (M._rts.traceid = N.tcid, M.traceLog(p, "tcid::" + N.tcid), M.trigger(n.Player.RtsTraceId, { traceId: N.tcid, source: M._options.source }));
+                }
+              } }), M._checkRtsSupport(function(U) {
+                (function(N) {
+                  var C = this._rtsErrorEventHandler.bind(this), C = (this.bind_rtsErrorEventHandler = C, N.on("onError", C), this._rtsReconnectEventHandler.bind(this));
+                  this.bind_rtsReconnectEventHandler = C, N.on("reconnect", C);
+                }).call(M, M._rts), M._options.autoplay ? g.call(M).then(function(N) {
+                  N && M._initPlayBehavior(O);
+                }) : M._initPlayBehavior(O), j && M._executeReadyCallback();
+              }, function(U) {
+                console.log("[RTS isSupport error]", U);
+                var N = null, C = null;
+                switch (Number(U.errorCode)) {
+                  case 10110:
+                    N = t.ErrorCode.RtsNotSupportWebRtc, C = e.get("Rts_Err_Not_Support_Webrtc");
+                    break;
+                  case 10111:
+                    N = t.ErrorCode.RtsBrowserNotSupport, C = e.get("Rts_Err_Browser_Not_Support");
+                    break;
+                  case 10112:
+                    N = t.ErrorCode.RtsBrowserVersionTooLow, C = e.get("Rts_Err_Browser_Version_Too_Low");
+                    break;
+                  case 10113:
+                    N = t.ErrorCode.RtsNotSupportH264, C = e.get("Rts_Err_Not_Support_H264");
+                    break;
+                  case 10114:
+                    N = t.ErrorCode.RtsCreateOfferError, C = e.get("Rts_Err_Create_Offer_Error");
+                }
+                return d.call(M, { error_code: N, error_msg: C }), !1;
+              }));
+            }
+            this._isLoadedRts ? H(this, P) : (this.trigger(n.Private.H5_Loading_Show), E = performance.now(), (function(M, O, j) {
+              var N = "", U = this._options, N = "https://g.alicdn.com/apsara-media-box/imp-web-rts-sdk/" + (U.rtsVersion || s.rtsVersion) + "/aliyun-rts-sdk.js", C = (U.assetPrefix && (N = U.assetPrefix + "/rts/aliyun-rts-sdk.js"), U.rtsSdkUrl && (N = U.rtsSdkUrl), this);
+              a.loadJS(N, function() {
+                M.apply(C);
+              }, function() {
+                j && j();
+              });
+            }).call(A, function() {
+              this.traceLog(p, "got js#" + parseInt(performance.now() - E)), this._isLoadedRts = !0, H(this, P);
+            }, this._options.debug, function() {
+              var M = { error_code: t.ErrorCode.ModuleLoadError, error_msg: "rts module load error." };
+              A.trigger(n.Player.Error, M);
+            }));
+          }, f.prototype.getStats = function() {
+            return this._rts && this._rts.getTransportStats ? u.all([this._rts.getTransportStats(), this._rts.getRemoteVideoStats(), this._rts.getRemoteAudioStats()]).then(function(H) {
+              var E = H[0], A = H[1], H = H[2];
+              return { rtt: E.rtt, bytesReceived: E.bytesReceived, framesDecoded: A.framesDecoded, packetsLost: (A.packetsLost || 0) + (H.packetsLost || 0), packetsReceived: (A.packetsReceived || 0) + (H.packetsReceived || 0), timestamp: E.timestamp || Date.now() };
+            }).catch(function(P) {
+              return console.log("ERR in RTS getstats: ", P), {};
+            }) : u.resolve();
+          }, f.prototype._checkRtsSupport = function(P, E) {
+            this._options.skipRtsSupportCheck ? P() : this._rts.isSupport({ isReceiveVideo: !0 }).then(P).catch(E);
+          }, f.prototype._rtsErrorEventHandler = function(P) {
+            console.log("RTS Error:", P), P.extraInfo;
+            var E = ((C, I) => {
+              if (C == null) return {};
+              var L, q = {};
+              for (L in C) if ({}.hasOwnProperty.call(C, L)) {
+                if (I.indexOf(L) !== -1) continue;
+                q[L] = C[L];
+              }
+              return q;
+            })(P, _), A = (this.traceLog(p, "rtsError::" + JSON.stringify(E)), null), H = null, M = null;
+            switch (Number(P.errorCode)) {
+              case 10201:
+                return;
+              case 10101:
+                A = t.ErrorCode.RtsSignalError, H = e.get("Rts_Err_Http_Signal_Error");
+                break;
+              case 10114:
+                A = t.ErrorCode.RtsCreateOfferError, H = e.get("Rts_Err_Create_Offer_Error");
+                break;
+              case 10202:
+                A = t.ErrorCode.RtsPlayUrlError, H = e.get("Rts_Err_Play_Url_Error");
+                break;
+              case 10203:
+                A = t.ErrorCode.RtsSubscribeNonthing, H = e.get("Rts_Err_Subscribe_Nonthing");
+                break;
+              case 10205:
+                var O = (O = P.extraInfo) == null ? void 0 : O.response;
+                if ((O == null ? void 0 : O.status) === 403) {
+                  var j = O.headers["x-tengine-error"];
+                  if (j && -1 < t.RegionBlockMessages.indexOf(j)) {
+                    A = t.ErrorCode.RegionBlock, H = e.get("Error_Region_Block_Text"), M = e.get("Tip_Err_Blocked");
+                    break;
+                  }
+                  A = t.ErrorCode.AuthKeyExpired, H = e.get("Error_AuthKey_Text");
+                } else M = (O == null ? void 0 : O.status) === 404 ? (A = t.ErrorCode.NotFoundSourceURL, H = e.get("Error_Not_Found"), e.get("Tip_Err_Not_found")) : (A = t.ErrorCode.RtsHttpRequestFaild, H = e.get("Rts_Err_Http_Request_Failed"), e.get("Tip_Err_Rts_Http_Failed"));
+                break;
+              case 10206:
+                A = t.ErrorCode.RtsHttpAnswerFaild, H = e.get("Rts_Err_Http_Answer_Failed");
+                break;
+              case 10207:
+                A = t.ErrorCode.RtsPlayFailedError;
+                try {
+                  var U, N = (U = P.message.match(/after (\d+) ms/)) == null ? void 0 : U[1];
+                } catch {
+                }
+                H = e.get("Rts_Err_Play_Failed") + ", " + (N ? N * P.extraInfo.retryTimes / 1e3 + e.get("Rts_Err_No_Data_For") : P.message);
+                break;
+              case 12e3:
+                A = t.ErrorCode.RtsPeerConnectionUnknown, H = e.get("Rts_Err_PeerConnection_Unknown");
+            }
+            E = { error_code: A, error_msg: H, diagnosis_info: M, tcid: this._rts.traceid }, (function(C) {
+              var I = this;
+              I.pause(), setTimeout(function() {
+                I.trigger(n.Private.Play_Btn_Hide);
+              }), I.checkOnline() && d.call(this, C);
+            }).call(this, E);
+          }, f.prototype._rtsReconnectEventHandler = function(P) {
+            var E = this;
+            this.traceLog(p, "rts auto reconnect::" + P.retryTimes + "#" + JSON.stringify(P.reason)), this.waiting = !0, this._TimeUpdateStamp = 0, this.trigger(n.Private.H5_Loading_Show), this.trigger(n.Private.Play_Btn_Hide), this._options.autoplay && this.one(h.Player.AutoPlayPrevented, function() {
+              E.trigger(n.Private.Play_Btn_Hide), E.trigger(n.Private.H5_Loading_Show);
+            }), P.retryTimes === 1 && this.trigger(n.Player.OnM3u8Retry), this.trigger(n.Private.Retry, { type: "rts", source: this._options.source });
+          };
+        };
+        var m = (() => {
+          function v(f, b) {
+            (this.isRetry = b) && (this.isApple = r.IS_IOS || r.IS_SAFARI, this.player = f);
+          }
+          return v.prototype.preProcess = function() {
+            var f, b, S;
+            this.isRetry && this.isApple && (f = this.player.getVolume(), b = this.player.muted(), f) && !b && ((S = this.player.tag).volume = 0, this.player.one("canplay", function() {
+              S.volume = f;
+            }));
+          }, v;
+        })();
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../../lib/playerutil": 46, "../../lib/ua": 49, "../base/event/eventtype": 68, "es6-promise": 9 }], 107: [function(c, o, x) {
+        var _ = c("../base/player"), l = c("./rtsinjector"), u = _.extend({ init: function(a, s) {
+          s.isLive && (s._native = !1, l.inject(this, u, _, s), _.call(this, a, s));
+        } });
+        o.exports = u;
+      }, { "../base/player": 91, "./rtsinjector": 106 }], 108: [function(l, o, x) {
+        var _ = l("../../lib/constants"), l = l("../../lib/oo").extend({ init: function(u) {
+          this.player = u, this.tickhandle = null;
+        } });
+        l.prototype.tick = function(u, a) {
+          var s = this;
+          this.tickhandle = setTimeout(function() {
+            s.player && s.player.trigger(_.AuthKeyExpiredEvent), a && a();
+          }, 1e3 * u);
+        }, l.prototype.clearTick = function(u) {
+          this.tickhandle && clearTimeout(this.tickhandle);
+        }, o.exports = l;
+      }, { "../../lib/constants": 29, "../../lib/oo": 44 }], 109: [function(c, o, x) {
+        function _(m, v, f) {
+          var S = s.randomUUID(), b = "https://mts." + m.domainRegion + ".aliyuncs.com/?", S = { AccessKeyId: m.accessId, Action: "GetLicense", MediaId: m.vid, LicenseUrl: b, data: m.data, SecurityToken: m.stsToken, Format: "JSON", Type: m.encryptionType, Version: "2014-06-18", SignatureMethod: "HMAC-SHA1", SignatureVersion: "1.0", SignatureNonce: S };
+          m.header && (S.Header = m.header), b += "Signature=" + s.AliyunEncodeURI(s.makeChangeSiga(S, m.accessSecret, "POST")), m = s.makeUTF8sort(S, "=", "&"), l.post(b, m, function(w) {
+            w ? (w = JSON.parse(w), v && (w = w.License, v(w))) : f && f(t.createError("MPS获取License失败"));
+          }, function(w) {
+            if (f) {
+              var T = { Code: "", Message: r.get("Error_MTS_Fetch_Urls_Text") };
+              try {
+                T = JSON.parse(w);
+              } catch {
+              }
+              f({ Code: a.ErrorCode.ServerAPIError, Message: T.Code + "|" + T.Message, sri: T.RequestId || "" });
+            }
+          });
+        }
+        var l = c("../../lib/io"), u = (c("../../lib/ua"), c("../../lib/bufferbase64")), a = c("../../lib/constants"), s = c("./signature"), t = c("./util"), e = c("../../lib/url"), n = c("../../lib/playerutil"), r = c("../../lang/index"), h = c("../base/event/eventtype");
+        function y(m) {
+          window.console.error("The license request failed.");
+        }
+        function p(m) {
+          window.console.error("A decryption key error was encountered"), window.console.error("A decryption key error was encountered", m);
+        }
+        function d(m) {
+          window.console.log("Decryption key was added to session.");
+        }
+        function g(m, v, f) {
+          f.addEventListener(m, function() {
+            v(arguments[0]);
+          }, !1);
+        }
+        o.exports.requestLicenseKey = function(m) {
+          var v = m;
+          return v._options.vid && (v.__vid = v._options.vid), function(f, b) {
+            var S, w, T = v._options, R = v._getDRMEncryptItem();
+            R && (S = { vid: v.__vid, accessId: T.accId, accessSecret: T.accSecret, stsToken: T.stsToken, domainRegion: T.domainRegion, authInfo: T.authInfo, encryptionType: R.encryptionType }, R.encryptionType == a.EncryptionType.Widevine ? S.data = u.encode(f.message) : R.encryptionType == a.EncryptionType.PlayReady && (T = u.unpackPlayReady(f.message), S.data = T.changange, T.header) && (S.header = JSON.stringify(T.header)), console.log(S.data), f = v.__licenseKeys, w = v.__vid + R.Url, f && f[w], _(S, function(P) {
+              v.__licenseKeys || (v.__licenseKeys = {}), 10 < S.data.length && (v.__licenseKeys[w] = P), P = u.decode(P), b(P);
+            }, function(P) {
+              P = { mediaId: v.__vid, error_code: P.Code, error_msg: P.Message }, v.logError(P), v.trigger("error", P);
+            }));
+          };
+        }, o.exports.loadCertificate = function(P, R) {
+          var f, b, S, w = new XMLHttpRequest(), T = (w.addEventListener("load", (function(E, M) {
+            var H, M = M.target;
+            if (M.status !== 200) {
+              var j = a.ErrorCode.DrmLicenseRequestFailed, O = r.get("Error_Drm_License_Request_Failed"), j = { mediaId: this._options.vid || "", error_code: j, error_msg: M.response };
+              player.logError(j), j.display_msg = O, player.trigger(h.Player.Error, j);
+            } else {
+              try {
+                H = this._options.isLive ? JSON.parse(M.response).Response.B64ServCert : JSON.parse(JSON.parse(M.response).DRMCertInfo).b64ServCert;
+              } catch (U) {
+                console.log(U);
+              }
+              O = s.base64DecodeUint8Array(H), j = (function(U, I) {
+                var C = I.target, I = I.initData, L = s.arrayToString(I).split("skd://")[1].split("?")[0], q = s.stringToArray(L);
+                if (I = ((Q, B, k) => {
+                  typeof B == "string" && (B = stringToArray(B));
+                  var D = 0, X = new ArrayBuffer(Q.byteLength + 4 + B.byteLength + 4 + k.byteLength), te = new DataView(X);
+                  return new Uint8Array(X, 0, Q.byteLength).set(Q), D += Q.byteLength, te.setUint32(D, B.byteLength, !0), D += 4, (Q = new Uint16Array(X, D, B.length)).set(B), D += Q.byteLength, te.setUint32(D, k.byteLength, !0), D += 4, new Uint8Array(X, D, k.byteLength).set(k), new Uint8Array(X, 0, X.byteLength);
+                })(I, q, U), C.webkitKeys || ((() => {
+                  if (!WebKitMediaKeys.isTypeSupported("com.apple.fps.1_0", "video/mp4")) throw "Key System not supported";
+                  keySystem = "com.apple.fps.1_0";
+                })(), C.webkitSetMediaKeys(new WebKitMediaKeys(keySystem))), !C.webkitKeys) throw "Could not create MediaKeys";
+                if (q = C.webkitKeys.createSession("video/mp4", I), !q) throw "Could not create key session";
+                q.contentId = L, g("webkitkeymessage", (function(X) {
+                  var B = this, k = X.target, G = X.message, D = new XMLHttpRequest(), X = (X.sessionId, D.responseType = "text", D.session = k, D.addEventListener("load", (function(J) {
+                    J = J.target, ae = this._options.isLive ? JSON.parse(J.response).Response.B64License : JSON.parse(JSON.parse(J.response).License).b64License;
+                    var ae = s.base64DecodeUint8Array(ae), ae = s.Uint8ArrayToString(ae);
+                    ae.substr(0, 5) === "<ckc>" && ae.substr(-6) === "</ckc>" && (ae = ae.slice(5, -6)), ae = s.base64DecodeUint8Array(ae), J.session.update(ae);
+                  }).bind(this), !1), D.addEventListener("error", y, !1), btoa("spc=" + s.base64EncodeUint8Array(G) + "&assetId=" + encodeURIComponent(k.contentId))), te = { Format: "JSON", SignatureMethod: "HMAC-SHA1", SignatureVersion: "1.0", Timestamp: s.ISODateString(/* @__PURE__ */ new Date()), SignatureNonce: s.randomUUID(), AccessKeyId: B._options.accessKeyId, SecurityToken: B._options.securityToken, CertId: B._options.certId };
+                  B._options.isLive ? (te.RegionId = B._options.region, te.Action = "DescribeDRMLicense", te.Version = "2016-11-01", te.CdmData = X, te.Type = "fairplay", te.Domain = e.parseUrl(B._options.source).hostname) : (te.region = B._options.region, te.Action = "GetDRMLicense", te.Version = "2017-03-21", te.VideoId = B._options.vid, te.CDMData = X, te.DRMType = "FairPlay");
+                  var ie, ne, G = "Signature=" + s.AliyunEncodeURI(s.makeChangeSiga(te, B._options.accessKeySecret, "POST"));
+                  k = B._options.isLive ? "https://" + n.getLiveHostByRegion(B._options.region) + "/?" + G : "https://vod." + B._options.region + ".aliyuncs.com/?" + G;
+                  for (ne in D.open("POST", k, !0), D.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), te) {
+                    var F;
+                    te.hasOwnProperty(ne) && (F = te[ne], ie = ie ? ie + "&" + s.AliyunEncodeURI(ne) + "=" + s.AliyunEncodeURI(F) : s.AliyunEncodeURI(ne) + "=" + s.AliyunEncodeURI(F));
+                  }
+                  D.send(ie);
+                }).bind(this), q), g("webkitkeyadded", d, q), g("webkitkeyerror", p, q);
+              }).bind(this, O), M = (this._fairPlayHandlers.onNeedKey = j, (function(U) {
+                window.console.error("A video playback error occurred");
+              }).bind(this)), this._fairPlayHandlers.onError = M, this.tag.addEventListener("webkitneedkey", j, !1), this.tag.addEventListener("error", M, !1), this.tag.src = this._options.source;
+            }
+            E && E();
+          }).bind(P, R), !1), w.addEventListener("error", (function(E) {
+            window.console.error("Failed to retrieve the server certificate.");
+          }).bind(P), !1), { Format: "JSON", SignatureMethod: "HMAC-SHA1", SignatureVersion: "1.0", Timestamp: s.ISODateString(/* @__PURE__ */ new Date()), SignatureNonce: s.randomUUID(), AccessKeyId: P._options.accessKeyId, SecurityToken: P._options.securityToken, CertId: P._options.certId }), R = (P._options.isLive ? (T.RegionId = P._options.region, T.Action = "DescribeDRMCertificate", T.Version = "2016-11-01") : (T.region = P._options.region, T.Action = "GetDRMCertInfo", T.Version = "2017-03-21", T.VideoId = P._options.vid), "Signature=" + s.AliyunEncodeURI(s.makeChangeSiga(T, P._options.accessKeySecret, "POST"))), P = P._options.isLive ? "https://" + n.getLiveHostByRegion(P._options.region) + "/?" + R : "https://vod." + P._options.region + ".aliyuncs.com/?" + R;
+          for (f in w.open("POST", P, !0), w.setRequestHeader("Content-type", "application/x-www-form-urlencoded"), T) T.hasOwnProperty(f) && (b = T[f], S = S ? S + "&" + s.AliyunEncodeURI(f) + "=" + s.AliyunEncodeURI(b) : s.AliyunEncodeURI(f) + "=" + s.AliyunEncodeURI(b), console.log(b));
+          w.send(S);
+        }, o.exports.getRequestUrl = function(f, v) {
+          var f = { AccessKeyId: v._options.accessKeyId, Format: "JSON", Version: "2016-11-01", SignatureMethod: "HMAC-SHA1", SignatureVersion: "1.0", Timestamp: s.ISODateString(/* @__PURE__ */ new Date()), SignatureNonce: s.randomUUID(), SecurityToken: v._options.securityToken, RegionId: v._options.region, Action: "DescribeDRMLicense", Type: "widevine", CdmData: f, Domain: e.parseUrl(v._options.source).hostname }, b = (v._options.widevineCertId && (f.CertId = v._options.widevineCertId), "Signature=" + s.AliyunEncodeURI(s.makeChangeSiga(f, v._options.accessKeySecret, "POST")));
+          return { url: "https://" + n.getLiveHostByRegion(v._options.region) + "/?" + b, data: s.makeUTF8sort(f, "=", "&"), jsonData: s.makeUTF8sort(f, "=", "&", "json") };
+        }, o.exports.postData = function(b, v) {
+          var f = s.randomUUID(), f = { AccessKeyId: v._options.accessKeyId, VideoId: v._options.vid, Format: "JSON", Version: "2017-03-21", SignatureMethod: "HMAC-SHA1", SignatureVersion: "1.0", SignatureNonce: f, SecurityToken: v._options.securityToken, region: v._options.region, Action: "GetDRMLicense", DRMType: "Widevine", CDMData: b }, b = (v._options.widevineCertId && (f.CertId = v._options.widevineCertId), "Signature=" + s.AliyunEncodeURI(s.makeChangeSiga(f, v._options.accessKeySecret, "POST")));
+          return { url: "https://vod." + v._options.region + ".aliyuncs.com/?" + b, data: s.makeUTF8sort(f, "=", "&"), jsonData: s.makeUTF8sort(f, "=", "&", "json") };
+        }, o.exports.destroyFairPlay = function() {
+          this._fairPlayHandlers.onNeedKey && this.tag.removeEventListener("webkitneedkey", this._fairPlayHandlers.onNeedKey), this._fairPlayHandlers.onError && this.tag.removeEventListener("error", this._fairPlayHandlers.onError), this._fairPlayHandlers = {};
+        };
+      }, { "../../lang/index": 24, "../../lib/bufferbase64": 26, "../../lib/constants": 29, "../../lib/io": 41, "../../lib/playerutil": 46, "../../lib/ua": 49, "../../lib/url": 50, "../base/event/eventtype": 68, "./signature": 115, "./util": 116 }], 110: [function(c, o, x) {
+        var _ = c("../../lib/io"), l = c("../../lib/constants"), u = c("../../lib/data"), a = c("./util");
+        o.exports.getDataByAuthInfo = function(s, t, e, n) {
+          s = { playAuth: s.playAuth, requestId: s.requestId }, _.get("https://api.h5video.shop/api/page/getMediaPlayInfo" + ((r) => (r.requestId = u.guid(), Object.keys(r).reduce(function(h, y) {
+            return h + (h ? "&" : "?") + y + "=" + encodeURIComponent(r[y]);
+          }, "")))(s), function(r) {
+            if (r)
+              if (r = JSON.parse(r), r.httpStatusCode !== 200) n && n({ Code: l.ErrorCode.ServerAPIError, Message: r.httpStatusCode + "|" + r.code, sri: r.requestId });
+              else {
+                for (var h = r.data.PlayInfoList, y = [], p = h.length - 1; 0 <= p; --p) h[p].Definition === "AUTO" && (y = [h.splice(p, 1)[0]]);
+                var d, g = null;
+                (g = (g = y.length === 0 ? a.objectPlayerMessageSort(h, t) : a.objectPlayerMessageSort(y)).map(function(m) {
+                  return m.format === "m3u8" && (m.Url = m.Url + "&_ext=.m3u8"), m;
+                })) && e && (d = r.data.VideoBase || {}, e({ videoId: d.VideoId, userId: d.UserId, requestId: r.requestId, urls: g, encryptUrlArr: [], thumbnailUrl: "", coverUrl: d.CoverURL, playInfoAry: h, textTracks: r.data.SubtitlesList }));
+              }
+            else n && n(a.createError("轻SaaS服务获取数据失败"));
+          }, function(r) {
+            r && typeof r == "string" && -1 < r.indexOf("Invalid CORS request") ? n && n({ Code: l.ErrorCode.ServerAPIError, Message: r }) : n && n(a.createError("轻SaaS服务获取数据失败"));
+          });
+        };
+      }, { "../../lib/constants": 29, "../../lib/data": 31, "../../lib/io": 41, "./util": 116 }], 111: [function(a, o, x) {
+        var _ = a("./saasplayer"), l = a("./light"), u = a("../base/event/eventtype"), a = _.extend({ init: function(s, t) {
+          _.call(this, s, t), this.service = l, this.loadByLightSaas();
+        } });
+        a.prototype.loadByLightSaas = function(s) {
+          var t = this._options, e = { playAuth: t.mediaAuth, defaultDefinition: t.defaultDefinition };
+          this.log("STARTFETCHDATA", { it: "lightSaasPlayAuth", pa: { playAuth: t.mediaAuth } }), this.loadData(e, s);
+        }, a.prototype.replayByMediaAuth = function(s) {
+          this.trigger(u.Private.Error_Hide), this.tag && (this.tag.pause(), this.tag.removeAttribute("src"), this.tag.load()), this.setTextTracks([]), this.trigger(u.Private.UserTrackReset), this._options.source = "", this._options.mediaAuth = s, this._isError = !1, this._options.cover = "", this._vodRetryCount = 0, this._clearTimeout(), this.loadByLightSaas(!0);
+        }, o.exports = a;
+      }, { "../base/event/eventtype": 68, "./light": 110, "./saasplayer": 114 }], 112: [function(c, o, x) {
+        var _ = c("../../lib/io"), l = c("../../lib/constants"), u = c("./signature"), a = c("./util"), s = c("../../lang/index"), t = c("../../lib/ua"), e = function(r, h) {
+          for (var y = "", p = (r.sort(function(f, b) {
+            return f = parseInt(f.bitrate), b = parseInt(b.bitrate), h == "desc" ? b < f ? -1 : f < b ? 1 : void 0 : f < b ? -1 : b < f ? 1 : void 0;
+          }), r.length), d = 0; d < p; d++) {
+            var g = r[d], m = l.QualityLevels[g.definition], v = "", v = m === void 0 ? g.bitrate : y == m ? m + g.bitrate : m;
+            g.desc = v, y = m;
+          }
+        }, n = function(r, h) {
+          for (var y = "", p = (r.sort(function(f, b) {
+            return f = parseInt(f.width), b = parseInt(b.width), h == "desc" ? b < f ? -1 : f < b ? 1 : void 0 : f < b ? -1 : b < f ? 1 : void 0;
+          }), r.length), d = 0; d < p; d++) {
+            var g = r[d], m = l.QualityLevels[g.definition], v = "", v = m === void 0 ? "" : y == m ? m + g.height : m;
+            g.desc = v, y = m;
+          }
+        };
+        o.exports.getDataByAuthInfo = function(g, h, y, p) {
+          u.returnUTCDate(), u.randomUUID();
+          var d = u.randomUUID(), d = { AccessKeyId: g.accessId, Action: "PlayInfo", MediaId: g.vid, Formats: g.format, AuthInfo: g.authInfo, AuthTimeout: g.authTimeout || l.AuthKeyExpired, IncludeSnapshotList: g.includeSnapshotList, Rand: g.rand, SecurityToken: g.stsToken, Format: "JSON", Version: "2014-06-18", SignatureMethod: "HMAC-SHA1", SignatureVersion: "1.0", Terminal: t.IS_CHROME ? "Chrome" : t.IS_EDGE ? "Edge" : t.IS_IE11 ? "IE" : t.IS_SAFARI ? "Safari" : t.IS_FIREFOX ? "Firefox" : "", SignatureNonce: d }, d = (g.hlsUriToken && (g.MtsHlsUriToken = g.hlsUriToken), g.playConfig && (d.PlayConfig = JSON.stringify(g.playConfig)), u.makeUTF8sort(d, "=", "&") + "&Signature=" + u.AliyunEncodeURI(u.makeChangeSiga(d, g.accessSecret))), g = "https://mts." + g.domainRegion + ".aliyuncs.com/?" + d;
+          _.get(g, function(m) {
+            var v, f, b;
+            m ? (v = (m = JSON.parse(m)).PlayInfoList.PlayInfo, f = "", (b = m.SnapshotList ? m.SnapshotList.Snapshot : []) && 0 < b.length && (f = b[0].Url), b = ((S, w) => {
+              for (var T = [], R = [], P = [], E = [], A = S.length - 1; 0 <= A; A--) {
+                var H = S[A];
+                (H.format == "mp4" ? R : H.format == "mp3" ? P : H.format == "m3u8" ? T : E).push(H);
+              }
+              return 0 < P.length ? (e(P, w), P) : 0 < R.length ? (n(R, w), R) : 0 < T.length ? (n(T, w), T) : (n(E, w), E);
+            })(v, h), y && y({ requestId: m.RequestId, urls: b, thumbnailUrl: f })) : p && p(a.createError("MPS获取取数失败"));
+          }, function(m) {
+            if (p) {
+              var v = { Code: "", Message: s.get("Error_MTS_Fetch_Urls_Text") };
+              try {
+                v = JSON.parse(m);
+              } catch {
+              }
+              p({ Code: l.ErrorCode.ServerAPIError, Message: v.Code + "|" + v.Message, sri: v.RequestId || "" });
+            }
+          });
+        };
+      }, { "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../../lib/ua": 49, "./signature": 115, "./util": 116 }], 113: [function(u, o, x) {
+        var _ = u("./saasplayer"), l = (u("../../lib/constants"), u("./mts")), u = _.extend({ init: function(a, s) {
+          _.call(this, a, s), this.service = l, this.loadByMts();
+        } });
+        u.prototype.loadByMts = function(a) {
+          var s = { vid: this._options.vid, accessId: this._options.accId, accessSecret: this._options.accSecret, stsToken: this._options.stsToken, domainRegion: this._options.domainRegion, authInfo: this._options.authInfo, format: this._options.format, includeSnapshotList: this._options.includeSnapshotList || !1, defaultDefinition: this._options.defaultDefinition, authTimeout: this._options.authTimeout, hlsUriToken: this._options.hlsUriToken, playConfig: this._options.playConfig };
+          this.loadData(s, a);
+        }, u.prototype.replayByVidAndAuthInfo = function(a, s, t, e, n, r) {
+          this.trigger("error_hide"), this._options.source = "", this._isError = !1, this._options.cover = "", this._vodRetryCount = 0, this._clearTimeout(), this.reloadNewVideoInfo(a, s, t, e, n, r);
+        }, u.prototype.reloadNewVideoInfo = function(a, s, t, e, n, r) {
+          if (this.trigger("error_hide"), this._options.source = "", a && (this._options.vid = a, this._options.accId = s, this._options.accessSecret = t, this._options.stsToken = e, this._options.domainRegion = r, this._options.authInfo = n), !(this._options.vid && this._options.accId && this._options.accessSecret && this._options.stsToken && this._options.domainRegion && this._options.authInfo)) throw new Error("需要提供vid、accId、accessSecret、stsToken、domainRegion和authInfo参数");
+          this.log("STARTFETCHDATA", { it: "mps", pa: { vid: a } }), this.loadByMts(!0);
+        }, o.exports = u;
+      }, { "../../lib/constants": 29, "./mts": 112, "./saasplayer": 114 }], 114: [function(c, o, x) {
+        var _ = c("../base/player"), l = c("../audio/audioplayer"), u = c("../../lib/io"), a = c("../../lib/constants"), s = c("./signature"), t = c("./authkeyexpiredhandle"), e = c("../hls/hlsinjector"), n = c("../flv/flvinjector"), r = c("../drm/drminjector"), h = c("../sw/swinjector"), y = c("../../lang/index"), p = c("../../lib/ua"), d = c("../../config"), g = c("../../lib/playerutil"), m = c("../base/event/eventtype"), v = c("../../protected/anti-injector-protected"), f = _.extend({ init: function(w, T) {
+          p.IS_PC && v(T, this), this._authKeyExpiredHandle = new t(this), _.prototype._videoCreateEl || (_.prototype._videoCreateEl = _.prototype.createEl), T.format == "mp3" ? (T.height = "auto", T.mediaType = "audio", _.prototype.createEl = l.prototype.createEl, l.call(this, w, T), f.prototype.play = _.prototype.play, f.prototype.pause = _.prototype.pause, f.prototype.initPlay = _.prototype.initPlay, f.prototype.replay = _.prototype.replay, f.prototype.stop = _.prototype.stop, f.prototype.seek = _.prototype.seek) : (_.prototype.createEl = _.prototype._videoCreateEl, T._native = !1, _.call(this, w, T));
+        } });
+        function b() {
+          var w, T = !1;
+          return Number(this._options.encryptType) !== 1 ? (w = { error_code: a.ErrorCode.InvalidParameter, error_msg: y.get("Error_Not_Support_encrypt_Text") }, this.logError(w), this.trigger("error", w), !0) : T;
+        }
+        function S() {
+          var w = g.checkSecuritSupport();
+          if (w) return this._mtsError_message(this, { Code: a.ErrorCode.EncrptyVideoNotSupport, Message: w, display_msg: w }, ""), !0;
+        }
+        f.prototype.loadData = function(w, T) {
+          var R, P, E;
+          this._options.encryptType != 1 ? this._loadData(w, T) : (R = "aliplayer-vod-min.js", P = "", P = d.domain ? "https://" + d.domain + d.path + d.h5Version + "/hls/" + R : "/build/hls/" + R, this.trigger(m.Private.Timeline, { name: "mod_rand_s", ts: performance.now() }), E = this, u.loadJS(P, function() {
+            E.trigger(m.Private.Timeline, { name: "mod_rand_f", ts: performance.now() }), E._loadData(w, T);
+          }));
+        }, f.prototype._loadData = function(w, T) {
+          var R, P = (/* @__PURE__ */ new Date()).getTime(), E = this;
+          this._urls = [], this._currentPlayIndex = 0, this._retrySwitchUrlCount = 0, this._authKeyExpiredHandle.clearTick(), w.format != "" && w.format != "m3u8" || this._options.encryptType != 1 ? w.rand = s.randomUUID() : (R = _rtsneg(E._vdnct6f === 3 ? w.vid : void 0), w.rand = _dnaRekam(R, E._vdnct6f)), this._options.thumbnailUrl && (w.thumbnailUrl = this._options.thumbnailUrl), this.trigger(m.Private.H5_Loading_Show), this.service.getDataByAuthInfo.call(this, w, this._options.qualitySort, function(A) {
+            if (E.trigger(m.Private.PlayInfoLoaded, A), A.userId && (E._options.from = A.userId), A.videoId && E._monitor && E._monitor.updateLightSaasVideoId(A.videoId), A.textTracks && A.textTracks.length && (H = g.unqiueTextTracks(A.textTracks), E.trigger(m.Private.TextTrackFounded, { from: "saas", textTracks: H })), A.urls && A.urls.length == 0) E._mtsError_message(E, { Code: a.ErrorCode.URLsIsEmpty, Message: y.get("Error_Vod_URL_Is_Empty_Text") + (w.format ? "(format:" + w.format + ")" : "") }, "");
+            else {
+              E.log("COMPLETEFETCHDATA", { cost: (/* @__PURE__ */ new Date()).getTime() - P, mi: JSON.stringify(((I) => {
+                for (var L = [], q = 0; q < I.length; q++) L.push({ width: I[q].width, height: I[q].height, definition: I[q].definition, format: I[q].format, encryptionType: I[q].encryptionType, duration: I[q].duration });
+                return L;
+              })(A.urls)) }), E._urls = A.urls, E._currentPlayIndex = g.findSelectedStreamLevel(E._urls, w.defaultDefinition);
+              var H = (M = A.urls[E._currentPlayIndex]).Url;
+              if (E._vodDuration = M.duration || 0, E._options.source = H, E.encType = "", E.trigger(m.Private.PREPARE, M.definition), E.UI.cover && A.coverUrl && !E._options.cover && E.setCover(A.coverUrl), g.isHls(H)) if (A && A.playInfoAry && 0 < A.playInfoAry.length && A.playInfoAry[0].EncryptType == "Widevine-FairPlay") r.inject(E, f, _.prototype, E._options);
+              else {
+                if (A.encryptUrlArr && 0 < A.encryptUrlArr.length) {
+                  for (var M, O = [], j = !1, U = 0; U < A.encryptUrlArr.length; ++U) if ((M = A.encryptUrlArr[U]).encryptionType === a.EncryptionType.Private) {
+                    if (b.call(E)) return;
+                    if (j || S.call(E)) return void (j = !0);
+                    var N = _yekced(R, M.rand, M.plaintext);
+                    O.push({ url: M.Url, secData: N });
+                  }
+                } else if (O = "", M.encryptionType == a.EncryptionType.Private) {
+                  if (b.call(E) || S.call(E)) return;
+                  E.encType = M.encryptionType, O = _yekced(R, M.rand, M.plaintext);
+                }
+                var C = p.IS_IOS && parseFloat(p.IOS_FULL_VERSION) < 17.1;
+                (O && (E._options.useSW || C) ? h : (E._hls && (E._hls.destroy(), E._hls = null), e)).inject(E, f, _, E._options, O);
+              }
+              else g.isFlv(H) ? n.inject(E, f, _, E._options) : g.isDash(H) ? (console.log("isDash"), r.inject(E, f, _, E._options)) : E._player._executeReadyCallback();
+              E._authKeyExpiredHandle.tick(a.AuthKeyRefreshExpired), E.trigger(m.Private.SourceLoaded, M), E.initPlay(T), E.trigger(m.Private.ChangeURL, { from: "saas" }), A.thumbnailUrl && E._thumbnailService.get(A.thumbnailUrl), C = E._player._isFlv, H = -1 < E._player.getOptions().source.indexOf("mp4"), E._player.encType == 1 || C || H || (p.IS_IOS || p.IS_MAC_SAFARI || p.IS_X5 || p.IS_EDGE) && (E._player._executeReadyCallback(), E._urls.length) && E.trigger(m.Private.SourceLoaded, M);
+            }
+          }, function(A) {
+            var H;
+            -1 < ((H = A.Message) == null ? void 0 : H.indexOf('The specified parameter "Rand" is not valid')) && b.call(E) || E._mtsError_message(E, A, "");
+          });
+        }, f.prototype._changeStream = function(w, T) {
+          this._urls.length > w && (this._loadByUrlInner(this._urls[w].Url, this.getCurrentTime(), !0), this._currentPlayIndex = w, this.trigger(m.Private.QualityChange, T || y.get("Quality_Change_Fail_Switch_Text")));
+        }, f.prototype._getLowerQualityLevel = function() {
+          if (this._urls.length != 0 && this._currentPlayIndex != -1) {
+            if (this.options().qualitySort == "asc") {
+              if (0 < this._currentPlayIndex) return { item: this._urls[this._currentPlayIndex - 1], index: this._currentPlayIndex - 1 };
+            } else if (this._currentPlayIndex < this._urls.length - 1) return { item: this._urls[this._currentPlayIndex + 1], index: this._currentPlayIndex + 1 };
+          }
+          return "";
+        }, f.prototype._mtsError_message = function(w, T, R) {
+          w._serverRequestId = T.sri, w.trigger(m.Private.H5_Loading_Hide), T.Code = T.Code || T.code, T.Message = T.Message || T.message;
+          var P = T.Code || "OTHER_ERR_CODE", E = T.Message || "OTHER_ERR_MSG", A = (a.ErrorCode.ServerAPIError, T.display_msg || ""), H = (-1 < E.indexOf("InvalidParameter.Rand") || -1 < E.indexOf('"Rand" is not valid.') ? (a.ErrorCode.EncrptyVideoNotSupport, A = y.get("Error_Encrypt_Fetch_Failed_Text")) : -1 < E.indexOf("SecurityToken.Expired") ? (a.ErrorCode.AuthKeyExpired, A = y.get("Error_Playauth_Expired_Text")) : -1 < E.indexOf("InvalidVideo.NoneStream") ? (a.ErrorCode.URLsIsEmpty, A = y.get("Error_Fetch_NotStream") + "(" + w._options.format + "|" + w._options.definition + ")") : -1 < E.indexOf("DataNotFound") && (a.ErrorCode.MediaNotFound, A = y.get("Error_Fetch_Media_Not_Found")), w._options.vid || ""), H = (w._options.from, { mediaId: H, mediaAuth: w._options.mediaAuth || "", error_code: P, error_msg: E });
+          T.sri && (H.sri = T.sri), w.logError(H), H.display_msg = A && A === E ? A : (A || y.get("Error_Vod_Fetch_Urls_Text")) + "</br>" + E, w.trigger("error", H), console.log("PrismPlayer Error: " + R + "! error_msg :" + E + ";");
+        }, o.exports = f;
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../../lib/playerutil": 46, "../../lib/ua": 49, "../../protected/anti-injector-protected": 131, "../audio/audioplayer": 66, "../base/event/eventtype": 68, "../base/player": 91, "../drm/drminjector": 99, "../flv/flvinjector": 102, "../hls/hlsinjector": 104, "../sw/swinjector": 129, "./authkeyexpiredhandle": 108, "./signature": 115 }], 115: [function(c, o, x) {
+        var _ = c("crypto-js/hmac-sha1"), l = c("crypto-js/enc-base64"), u = c("crypto-js/enc-utf8");
+        o.exports.randomUUID = function() {
+          for (var a = [], s = "0123456789abcdef", t = 0; t < 36; t++) a[t] = s.substr(Math.floor(16 * Math.random()), 1);
+          return a[14] = "4", a[19] = s.substr(3 & a[19] | 8, 1), a[8] = a[13] = a[18] = a[23] = "-", a.join("");
+        }, o.exports.returnUTCDate = function() {
+          var h = /* @__PURE__ */ new Date(), a = h.getUTCFullYear(), s = h.getUTCMonth(), t = h.getUTCDate(), e = h.getUTCHours(), n = h.getUTCMinutes(), r = h.getUTCSeconds(), h = h.getUTCMilliseconds();
+          return Date.UTC(a, s, t, e, n, r, h);
+        }, o.exports.AliyunEncodeURI = function(a) {
+          return a = encodeURIComponent(a), a = (a = (a = a.replace("+", "%2B")).replace("*", "%2A")).replace("%7E", "~");
+        }, o.exports.makesort = function(a, s, t) {
+          if (!a) throw new Error("PrismPlayer Error: vid should not be null!");
+          var e = [];
+          for (y in a) e.push(y);
+          for (var n = e.sort(), r = "", h = n.length, y = 0; y < h; y++) r == "" ? r = n[y] + s + a[n[y]] : r += t + n[y] + s + a[n[y]];
+          return r;
+        }, o.exports.makeUTF8sort = function(a, s, t) {
+          if (!a) throw new Error("PrismPlayer Error: vid should not be null!");
+          var e = [];
+          for (y in a) e.push(y);
+          for (var n = e.sort(), r = "", h = n.length, y = 0; y < h; y++) {
+            var p = o.exports.AliyunEncodeURI(n[y]), d = o.exports.AliyunEncodeURI(a[n[y]]);
+            r == "" ? r = p + s + d : r += t + p + s + d;
+          }
+          return r;
+        }, o.exports.makeChangeSiga = function(a, s, t) {
+          if (a) return l.stringify(_((t = t || "GET") + "&" + o.exports.AliyunEncodeURI("/") + "&" + o.exports.AliyunEncodeURI(o.exports.makeUTF8sort(a, "=", "&")), s + "&"));
+          throw new Error("PrismPlayer Error: vid should not be null!");
+        }, o.exports.ISODateString = function(a) {
+          function s(t) {
+            return t < 10 ? "0" + t : t;
+          }
+          return a.getUTCFullYear() + "-" + s(a.getUTCMonth() + 1) + "-" + s(a.getUTCDate()) + "T" + s(a.getUTCHours()) + ":" + s(a.getUTCMinutes()) + ":" + s(a.getUTCSeconds()) + "Z";
+        }, o.exports.encPlayAuth = function(a) {
+          if (a = u.stringify(l.parse(a))) return JSON.parse(a);
+          throw new Error("playuth参数解析为空");
+        }, o.exports.encRsa = function() {
+        }, o.exports.stringToArray = function(a) {
+          for (var s = new ArrayBuffer(2 * a.length), t = new Uint16Array(s), e = 0, n = a.length; e < n; e++) t[e] = a.charCodeAt(e);
+          return t;
+        }, o.exports.Uint8ArrayToString = function(a) {
+          for (var s = "", t = 0; t < a.length; t++) s += String.fromCharCode(a[t]);
+          return s;
+        }, o.exports.arrayToString = function(a) {
+          return a = new Uint16Array(a.buffer), String.fromCharCode.apply(null, a);
+        }, o.exports.base64DecodeUint8Array = function(a) {
+          var s = window.atob(a), t = s.length, e = new Uint8Array(new ArrayBuffer(t));
+          for (i = 0; i < t; i++) e[i] = s.charCodeAt(i);
+          return e;
+        }, o.exports.base64EncodeUint8Array = function(a) {
+          for (var s, t, e, n, r, h, y = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=", p = "", d = 0; d < a.length; ) e = (s = a[d++]) >> 2, n = (3 & s) << 4 | (s = d < a.length ? a[d++] : Number.NaN) >> 4, r = (15 & s) << 2 | (t = d < a.length ? a[d++] : Number.NaN) >> 6, h = 63 & t, isNaN(s) ? r = h = 64 : isNaN(t) && (h = 64), p += y.charAt(e) + y.charAt(n) + y.charAt(r) + y.charAt(h);
+          return p;
+        };
+      }, { "crypto-js/enc-base64": 4, "crypto-js/enc-utf8": 5, "crypto-js/hmac-sha1": 6 }], 116: [function(c, o, x) {
+        var _ = c("../../lib/constants");
+        o.exports.createError = function(l, u) {
+          return { requestId: "", code: u || "", message: l };
+        }, o.exports.getItem = function(l) {
+          var u = {};
+          return u.width = l.Width, u.height = l.Height, u.definition = l.Definition, u.Url = l.PlayURL, u.format = l.Format, u.desc = _.QualityLevels[u.definition], u.encryptionType = _.VodEncryptionType[l.EncryptType], u.plaintext = l.Plaintext, u.rand = l.Rand, u.encrypt = l.Encrypt, u.duration = l.Duration, u.bitrate = l.Bitrate, u;
+        }, o.exports.objectPlayerMessageSort = function(l, u) {
+          for (var a = [], s = [], t = [], e = [], n = l.length - 1; 0 <= n; n--) {
+            var r = l[n], r = o.exports.getItem(r);
+            (r.format == "mp4" ? s : r.format == "mp3" ? t : r.format == "m3u8" ? a : e).push(r);
+          }
+          var h = [], h = 0 < t.length ? t : 0 < s.length ? s : 0 < a.length ? a : e;
+          return u == "asc" && h.reverse(), h;
+        };
+      }, { "../../lib/constants": 29 }], 117: [function(c, o, x) {
+        var _ = c("../../lib/io"), l = c("../../lib/constants"), u = c("./signature"), a = c("./util"), s = c("../../config"), t = c("../../lang/index"), e = c("../base/event/eventtype"), n = "saas/vod.js", r = { MAIN: "main", BACKUP: "backup" }, h = function(g) {
+          return (g || "").split("?")[0];
+        }, y = { type: r.MAIN, time: 0 };
+        function p(g, m, v, f) {
+          var b = this, S = (function(T) {
+            var R = u.randomUUID(), R = { AccessKeyId: T.accessId, Action: "GetPlayInfo", VideoId: T.vid, Formats: T.format, AuthTimeout: T.authTimeout || l.AuthKeyExpired, Rand: T.rand, SecurityToken: T.stsToken, StreamType: T.mediaType, Format: "JSON", Version: "2017-03-21", SignatureMethod: "HMAC-SHA1", SignatureVersion: "1.0", SignatureNonce: R, PlayerVersion: s.h5Version, Channel: "HTML5" };
+            return T.definition === "AUTO" ? R.ResultType = "Multiple" : T.definition && (R.Definition = T.definition), T.authInfo && (R.AuthInfo = T.authInfo), T.outputType && (R.OutputType = T.outputType), T.playConfig && (R.PlayConfig = JSON.stringify(T.playConfig)), T.reAuthInfo && (R.ReAuthInfo = JSON.stringify(T.reAuthInfo)), R = u.makeUTF8sort(R, "=", "&") + "&Signature=" + u.AliyunEncodeURI(u.makeChangeSiga(R, T.accessSecret)), "https://vod" + (this._useBackupVodDomain ? "-product" : "") + "." + T.domainRegion + ".aliyuncs.com/?" + R;
+          }).call(this, g), w = performance.now();
+          y.time === 0 && this.trigger(e.Private.Timeline, { name: "vod_s", ts: w }), _.get.call(this, S, function(T) {
+            d.call(b, S, { status: 200 }), (function(R, P, E, A, H) {
+              if (this.trigger(e.Private.Timeline, { name: "vod_f", ts: performance.now() }), this.traceLog(n, "Vod request ok." + R), y = { type: r.MAIN, time: 0 }, R) {
+                for (var M, R = JSON.parse(R), O = "", j = R.VideoBase.ThumbnailList, U = (j && j.Thumbnail && 0 < j.Thumbnail.length ? O = j.Thumbnail[0].URL : P.thumbnailUrl && (O = String(P.thumbnailUrl)), R.PlayInfoList.PlayInfo), N = [], C = [], I = U.length - 1; 0 <= I; --I) U[I].Definition === "AUTO" ? (this.getOptions().isVBR = !0, M = U.splice(I, 1)[0], N = [M]) : U[I].Encrypt === 1 && C.push(U[I]);
+                j = null, C = N.length === 0 ? (j = a.objectPlayerMessageSort(U, E), []) : (j = a.objectPlayerMessageSort(N), a.objectPlayerMessageSort(C)), j && A && A({ requestId: R.RequestId, urls: j, encryptUrlArr: C, thumbnailUrl: O, coverUrl: R.VideoBase.CoverURL, playInfoAry: U });
+              } else H && H(a.createError("点播服务获取数据失败"));
+            }).call(b, T, g, m, v, f);
+          }, function(T, R, P) {
+            if ((A = (E = P).status) === 0 || 500 <= A && A <= 599 && (E.responseText || "").indexOf("RequestId") === -1) {
+              if (b.trigger(e.Private.VodRequestException, { url: h(S), status: P.status, response: P.responseText, retryType: y.type, retryTime: y.time }), 5e3 < performance.now() - w && (y.type === r.MAIN ? y.time = 1 : y.type === r.BACKUP && (y.time = 2)), y.type === r.MAIN) return y.time < 1 ? (y.time++, void setTimeout(function() {
+                p.call(b, g, m, v, f);
+              }, 200)) : (y.type = r.BACKUP, y.time = 1, void setTimeout(function() {
+                b._useBackupVodDomain = !0, p.call(b, g, m, v, f);
+              }, 200));
+              if (y.type === r.BACKUP) {
+                if (y.time < 2) return y.time++, void setTimeout(function() {
+                  p.call(b, g, m, v, f);
+                }, 200);
+                b && (b._useBackupVodDomain = !1);
+              }
+            } else d.call(b, S, P);
+            var E, A;
+            (function(H, M) {
+              if (this.traceLog(n, "Vod request error::" + H), y = { type: r.MAIN, time: 0 }, M) {
+                var O = { Code: "", Message: t.get("Error_Vod_Fetch_Urls_Text") };
+                try {
+                  O = JSON.parse(H);
+                } catch {
+                }
+                M({ Code: l.ErrorCode.ServerAPIError, Message: O.Code + "|" + O.Message, sri: O.RequestId || "" });
+              }
+            }).call(b, T, f);
+          }, void 0, void 0, 5e3);
+        }
+        function d(g, m) {
+          y.time !== 0 && (this._useBackupVodDomain = !0, this.trigger(e.Private.VodRequestExceptionResume, { url: h(g), status: m == null ? void 0 : m.status, response: (m == null ? void 0 : m.status) !== 200 ? m == null ? void 0 : m.responseText : "", retryType: y.type, retryTime: y.time }));
+        }
+        o.exports.getDataByAuthInfo = p;
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../base/event/eventtype": 68, "./signature": 115, "./util": 116 }], 118: [function(n, o, x) {
+        var _ = n("./saasplayer"), l = n("../../lib/constants"), u = n("./vod"), a = n("./signature"), s = n("../../lib/io"), t = n("../../config"), e = n("../base/event/eventtype"), n = _.extend({ init: function(r, h) {
+          _.call(this, r, h), this.service = u, this.loadByVod();
+        } });
+        n.prototype.loadByVod = function(r) {
+          var h, y, p;
+          typeof _apesrap < "u" ? this._loadByVod(r) : (typeof globalThis != "object" && (Object.prototype.__defineGetter__("__magic__", function() {
+            return this;
+          }), __magic__.globalThis = __magic__, delete Object.prototype.__magic__), h = "aliplayer-vod-p-min.js", y = "", y = t.domain ? "https://" + t.domain + t.path + t.h5Version + "/hls/" + h : "/build/hls/" + h, this.trigger(e.Private.Timeline, { name: "mod_pa_s", ts: performance.now() }), p = this, s.loadJS(y, function() {
+            p.trigger(e.Private.Timeline, { name: "mod_pa_f", ts: performance.now() }), p._loadByVod(r);
+          }));
+        }, n.prototype._loadByVod = function(r) {
+          var h = "", y = "", p = "", d = "", g = "";
+          if (this._options.accessKeyId && this._options.accessKeySecret) h = this._options.accessKeyId, y = this._options.accessKeySecret, p = this._options.securityToken, d = this._options.region, this.log("STARTFETCHDATA", { it: "sts", pa: { vid: this._options.vid } });
+          else {
+            try {
+              var m = _apesrap(this._options.playauth, this._options.vid), v = (this._vdnct6f = m.v, m.value), f = a.encPlayAuth(v), h = f.AccessKeyId, y = f.AccessKeySecret, p = f.SecurityToken, d = f.Region, g = f.AuthInfo;
+            } catch (b) {
+              return console.log("e", b), m = { Code: l.ErrorCode.PlayauthDecode, Message: "playauth decoded failed.", displayMessage: "playauth解析错误" }, void this._mtsError_message(this, m, v);
+            }
+            this._options.from = f.CustomerId || "", this.log("STARTFETCHDATA", { it: "playAuth", pa: { vid: this._options.vid } });
+          }
+          this._loadByVodBySTS(h, y, p, d, g, r);
+        }, n.prototype.replayByVidAndPlayAuth = function(r, h) {
+          this.trigger("error_hide"), this.setTextTracks([]), this.trigger(e.Private.UserTrackReset), this._options.source = "", this._options.vid = r, this._options.playauth = h, this._isError = !1, this._options.cover = "", this._vodRetryCount = 0, this._posOffset = this._getSubVideoConfig().start || 0, this._clearTimeout(), this.loadByVod(!0);
+        }, n.prototype.updateSourcesByVidAndPlayAuth = function(r, h) {
+          var y, p, d;
+          typeof _apesrap < "u" ? this._updateSourcesByVidAndPlayAuth(r, h) : (y = "aliplayer-vod-p-min.js", p = "", p = t.domain ? "https://" + t.domain + t.path + t.h5Version + "/hls/" + y : "/build/hls/" + y, d = this, s.loadJS(p, function() {
+            d._updateSourcesByVidAndPlayAuth(r, h);
+          }));
+        }, n.prototype._updateSourcesByVidAndPlayAuth = function(r, h) {
+          if (r != this._options.vid) console.log("不能更新地址，vid和播放中的不一致");
+          else {
+            this._options.vid = r, this._options.playauth = h;
+            try {
+              var y = _apesrap(this._options.playauth, this._options.vid), p = (this._vdnct6f = y.v, y.value), d = a.encPlayAuth(p);
+            } catch {
+              return void console.log("playauth解析错误");
+            }
+            var h = { vid: r, accessId: d.AccessKeyId, accessSecret: d.AccessKeySecret, stsToken: d.SecurityToken, domainRegion: d.Region, authInfo: d.AuthInfo, playDomain: d.PlayDomain, format: this._options.format, mediaType: this._options.mediaType }, g = (this._authKeyExpiredHandle.clearTick(), this);
+            this.service.loadData(h, this._options.qualitySort, function(v) {
+              g._serverRequestId = v.requestId, v.urls.length != 0 && (g._urls = v.urls), g._authKeyExpiredHandle.tick(l.AuthKeyRefreshExpired);
+            }, function(v) {
+              console.log(v);
+            });
+          }
+        }, n.prototype.reloaduserPlayInfoAndVidRequestMts = function(r, h) {
+          this.replayByVidAndPlayAuth(r, h, accessSecret);
+        }, n.prototype._loadByVodBySTS = function(r, h, y, p, d, g) {
+          r = { vid: this._options.vid, accessId: r, accessSecret: h, stsToken: y, authInfo: d, domainRegion: p, format: this._options.format, mediaType: this._options.mediaType, definition: this._options.definition, defaultDefinition: this._options.defaultDefinition, authTimeout: this._options.authTimeout, outputType: this._options.outputType, playConfig: this._options.playConfig, reAuthInfo: this._options.reAuthInfo }, this.loadData(r, g);
+        }, o.exports = n;
+      }, { "../../config": 15, "../../lib/constants": 29, "../../lib/io": 41, "../base/event/eventtype": 68, "./saasplayer": 114, "./signature": 115, "./vod": 117 }], 119: [function(c, o, x) {
+        function _(u) {
+          this._player = u, this._video = u.tag;
+          var a = this;
+          this._isCreated = !1, this._canPlayTriggered = !1, this._defaultTrack = "", u.on(l.Private.ChangeURL, function() {
+            a._isCreated = !1, a._canPlayTriggered = !1, a._defaultTrack = "";
+          }), u.on(l.Player.CanPlay, function() {
+            var s;
+            a._player._drm || a._canPlayTriggered || ((s = a._getTracks()) && (a._isCreated = !0, a._player._options.isVBR || a._hls || (u.trigger(l.Player.AudioTrackReady, s), a._notifyDefaultValue(s))), a._canPlayTriggered = !0);
+          }), u.on(l.Player.AudioTrackUpdated, function(s) {
+            a._isCreated || (s = a._getTracks(s.paramData.audioTracks)) && (a._isCreated = !0, u.trigger(l.Player.AudioTrackReady, s), a._notifyDefaultValue(s));
+          });
+        }
+        var l = c("../base/event/eventtype");
+        _.prototype._notifyDefaultValue = function(u) {
+          !this._defaultTrack && 0 < u.length && (this._defaultTrack = u[0]), this._defaultTrack && this._player.trigger(l.Private.SelectorUpdateList, { type: "audio", text: this._defaultTrack.text });
+        }, _.prototype.support = function() {
+          return !!this._video.audioTracks;
+        }, _.prototype._getTracks = function(u) {
+          if (!this.support() && !u) return null;
+          for (var a = [], s = (u = !this._video || !this._video.audioTracks || u && u.length != 0 ? u : this._video.audioTracks) ? u.length : 0, t = 0; t < s; t++) {
+            var e = u[t], n = { value: e.id, text: e.label || e.name || e.language };
+            (e.default || e.enabled) && (this._defaultTrack = n), a.push(n);
+          }
+          return a;
+        }, _.prototype.switch = function(u) {
+          if (this._player._hls) this._player._hls.audioTrack = +u;
+          else if (this._player._switchAudioTrack) this._player._switchAudioTrack(u);
+          else for (var a = this._video.audioTracks ? this._video.audioTracks.length : 0, s = 0; s < a; s++) {
+            var t = this._video.audioTracks[s];
+            t.id == u ? t.enabled = !0 : t.enabled = !1;
+          }
+        }, _.prototype.dispose = function() {
+          this._player = null;
+        }, o.exports = _;
+      }, { "../base/event/eventtype": 68 }], 120: [function(c, o, x) {
+        function _(n) {
+          this._video = n.tag, this._player = n, this._isCreated = !1, this._backupCC = "", this.tracks = [], this._defaultTrack = "", this._currentValue = "", this._switchTimer = null, this._storedTracks = [];
+          var r = this, h = (n.on(l.Player.LevelsLoaded, function(y) {
+            n.getOptions().useDrm2 || (a.IS_MAC_SAFARI || a.IS_IOS) && (y && y.paramData && y.paramData.subtitles && y.paramData.subtitles.length ? r._storedTracks = y.paramData.subtitles || [] : r._resotreTracks());
+          }), n.on(l.Private.SafariDrmLevelSwitch, function() {
+            r._resotreTracks();
+          }), n.on(l.Private.ChangeURL, function(y) {
+            y && y.paramData && y.paramData.from === "saas" || (r._disabledTracks(), r._isCreated = !1, r._defaultTrack = "", r._backupCC = "");
+          }), n.on(l.Private.VttClearTracks, function() {
+            r.switch("off"), r._disabledTracks(), r._isCreated = !1, r._defaultTrack = { value: "off", text: "Off" }, r.tracks = [r._defaultTrack], n.trigger(l.Private.SelectorGenerateList, { type: "cc" }), n.trigger(l.Private.CCStateChanged, { value: "off", lang: "" });
+          }), n.on(l.Player.CanPlay, function() {
+            r._isCreated || (r.tracks = r._getTracks(), n.trigger(l.Player.TextTrackReady, r.tracks), n.trigger(l.Private.CCReset)), r._isCreated && !r._player._setDefaultCC || !r._defaultTrack || (n.trigger(l.Private.SelectorUpdateList, { type: "cc", text: r._defaultTrack.text }), r.switch(r._defaultTrack.value), r._player._setDefaultCC = !1, r._isCreated = !0);
+          }), a.os.ios && parseFloat(a.os.version) <= 15.1 && u.addCssByStyle("video::-webkit-media-text-track-container{position: relative; top: -44px !important;}"), n.getOptions().controlBarVisibility === "always" && u.addCssByStyle("video::-webkit-media-text-track-container{transform: translateY(-44px);}"), e.throttle(function() {
+            n._vttBroker && n._vttBroker.enabled || u.addCssByStyle("video::-webkit-media-text-track-container{transform: translateY(-44px);}");
+          }, 100)), h = (n.on(l.Private.ShowBar, h), e.throttle(function() {
+            n._vttBroker && n._vttBroker.enabled || u.addCssByStyle("video::-webkit-media-text-track-container{transform: none;}");
+          }, 100));
+          n.on(l.Private.HideBar, h), n.on(l.Private.CCReset, function() {
+            r._updateSelectorList();
+          });
+        }
+        var l = c("../base/event/eventtype"), u = (c("../../lib/event"), c("../../lib/dom")), a = c("../../lib/ua"), s = c("../../lib/cookie"), t = c("../../lib/constants"), e = c("../../ui/component/util");
+        _.prototype._adaptiveCueStype = function() {
+          var n, r = -10;
+          a.IS_SAFARI ? (r = -65, (n = this._player.fullscreenService) && n.getIsFullScreen() && (r = -95)) : a.IS_MOBILE && (r = -30), u.addCssByStyle("video::-webkit-media-text-track-container{transform: translateY(" + r + "px) !important;}");
+        }, _.prototype.close = function() {
+          for (var n = this.getTextTracks(), r = n.length, h = 0; h < r; h++) {
+            var y = n[h];
+            y.mode != "expired" && (y.mode == "showing" && (this._backupCC = y), y.mode = "disabled", this._player._switchDrmTextTrack) && this._player._switchDrmTextTrack();
+          }
+          this._player.trigger(l.Private.VttHide);
+        }, _.prototype.open = function() {
+          var n, r, h;
+          return !this.tracks || this.tracks.length < 2 || (r = this._backupCC ? this._backupCC.language : "", h = this._backupCC ? this._backupCC.label : "", this.tracks.forEach(function(y) {
+            r === y.value && (n = !0);
+          }), (r = n ? r : h = "") || (r = this.tracks[1].value, h = this.tracks[1].text), this.switch(r)), { label: h, language: r };
+        }, _.prototype.getCurrentSubtitle = function() {
+          return this._currentValue;
+        }, _.prototype._getTracks = function() {
+          for (var n = this.getTextTracks(), r = n.length, h = (this._defaultTrack = { value: "off", text: "Off" }, [this._defaultTrack]), y = s.get(t.SelectedCC), p = "", d = !1, g = 0; g < r; g++) {
+            var m, v = n[g];
+            v.mode == "expired" || v.kind != "subtitles" && v.kind != "captions" || (m = { value: v.language, text: v.label }, v.default && (this._defaultTrack = m, d = !0), m.value == y && (p = m), h.push(m));
+          }
+          return !d && p && (this._defaultTrack = p), h;
+        }, _.prototype._disabledTracks = function() {
+          for (var n = this.getTextTracks(), r = n.length, h = 0; h < r; h++) n[h].mode = "expired";
+        }, _.prototype.switch = function(n) {
+          var r = this._player;
+          if (this.close(), n != "off") for (var h = this.getTextTracks(), y = h.length, p = 0; p < y; p++) {
+            var d = h[p];
+            d.language === n && d.mode != "expired" && (r._switchDrmTextTrack && r._switchDrmTextTrack(n), h[p].mode = "showing", r.trigger(l.Private.VttSwitchTrack, d.language));
+          }
+          else this.close();
+          this._currentValue = n, r.trigger(l.Private.CCChanged, n);
+        }, _.prototype.updateUI = function(n) {
+          var r = this._player, h = "on", y = "";
+          y = n ? (this.tracks.find(function(p) {
+            return p.value === n;
+          }) || {}).text || "" : (h = "off", "Off"), r.trigger(l.Private.CCChanged, h), r.trigger(l.Private.CCStateChanged, { value: h, lang: y });
+        }, _.prototype.dispose = function() {
+          this._player = null, this._switchTimer && (clearTimeout(this._switchTimer), this._switchTimer = null);
+        }, _.prototype._patchSafariTracks = function() {
+          var n = this;
+          if (a.IS_MAC_SAFARI || a.IS_IOS) {
+            if (!(this._video && this._video.textTracks && this._video.textTracks.length)) {
+              var r = !1;
+              if (r = this._video.textTracks && this._video.textTracks.length ? !0 : r) return;
+              for (var h = 0; h < this._storedTracks.length; h++) {
+                var y = this._storedTracks[h], p = y.vttUrl, d = document.createElement("track");
+                d.src = p, d.kind = "subtitles", d.label = y.name, d.srclang = y.lang, this._video.appendChild(d);
+              }
+            }
+            this._switchTimer && clearTimeout(this._switchTimer), this._switchTimer = setTimeout(function() {
+              var g = n.getCurrentSubtitle();
+              g && g !== "off" && n.switch(g);
+            }, 1e3);
+          }
+        }, _.prototype.getTextTracks = function() {
+          var n = this._player, r = n.tag;
+          return n._vttBroker && n._vttBroker.enabled && n.getTextTracks ? n.getTextTracks() || [] : n._getDrmTextTracks ? n._getDrmTextTracks() || [] : r && r.textTracks || [];
+        }, _.prototype._updateSelectorList = function() {
+          var n = this._player;
+          this.tracks = this._getTracks(), n.trigger(l.Private.SelectorGenerateList, { type: "cc", value: "Off" });
+        }, _.prototype._resotreTracks = function() {
+          this._patchSafariTracks(), this.tracks = this._getTracks(), this._player.trigger(l.Player.TextTrackReady, this.tracks);
+        }, o.exports = _;
+      }, { "../../lib/constants": 29, "../../lib/cookie": 30, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/ua": 49, "../../ui/component/util": 162, "../base/event/eventtype": 68 }], 121: [function(c, o, x) {
+        var _ = c("../../lib/playerutil");
+        o.exports = [{ service: c("./ccservice"), name: "_ccService", condition: !0 }, { service: c("./audiotrackservice"), name: "_audioTrackService" }, { service: c("./qualityservice"), name: "_qualityService" }, { service: c("./fullscreenservice"), name: "fullscreenService", condition: function() {
+          return !0;
+        } }, { service: c("./liveshiftservice"), name: "_liveshiftService", condition: function() {
+          var l = this.options();
+          return _.isLiveShift(l);
+        } }, { service: c("./thumbnailservice"), name: "_thumbnailService", condition: function() {
+          return !0;
+        } }, { service: c("./progressmarkerservice"), name: "_progressMarkerService", condition: function() {
+          return !0;
+        } }];
+      }, { "../../lib/playerutil": 46, "./audiotrackservice": 119, "./ccservice": 120, "./fullscreenservice": 122, "./liveshiftservice": 123, "./progressmarkerservice": 124, "./qualityservice": 125, "./thumbnailservice": 126 }], 122: [function(c, o, x) {
+        function _(r) {
+          var h = this, y = (this.isFullWindow = !1, this.isFullScreen = !1, this.isFullScreenChanged = !1, this._requestFullScreenTimer = null, this._cancelFullScreenTimer = null, this._player = r, this), p = t;
+          this._fullscreenChanged = function(d) {
+            var g;
+            y._player != null && (d.target || d.srcElement) === (d = y._player.el()) && (g = document[p.fullscreenElement], y.isFullScreen = g === d, (y.isFullScreenChanged = !0) === y.isFullScreen ? y._player.trigger(s.Player.RequestFullScreen) : y._player.trigger(s.Player.CancelFullScreen));
+          }, p && a.on(document, p.eventName, this._fullscreenChanged), a.on(r.tag, "webkitendfullscreen", function(d) {
+            d = d.target || d.srcElement, r && r.tag === d && (h.isFullScreenChanged = !0, h.isFullScreen = !1, h._player.trigger(s.Player.CancelFullScreen), h._player.trigger(s.Private.Play_Btn_Show));
+          });
+        }
+        var l = c("../../lib/ua"), u = c("../../lib/dom"), a = c("../../lib/event"), s = c("../base/event/eventtype"), t = (c("../base/x5play"), c("../../lang/index"), (() => {
+          u.createEl("div");
+          var r = {}, h = [["requestFullscreen", "exitFullscreen", "fullscreenElement", "fullscreenEnabled", "fullscreenchange", "fullscreenerror", "fullScreen"], ["webkitRequestFullscreen", "webkitExitFullscreen", "webkitFullscreenElement", "webkitFullscreenEnabled", "webkitfullscreenchange", "webkitfullscreenerror", "webkitfullScreen"], ["webkitRequestFullScreen", "webkitCancelFullScreen", "webkitCurrentFullScreenElement", "webkitFullscreenEnabled", "webkitfullscreenchange", "webkitfullscreenerror", "webkitIsFullScreen"], ["mozRequestFullScreen", "mozCancelFullScreen", "mozFullScreenElement", "mozFullScreenEnabled", "mozfullscreenchange", "mozfullscreenerror", "mozFullScreen"], ["msRequestFullscreen", "msExitFullscreen", "msFullscreenElement", "msFullscreenEnabled", "MSFullscreenChange", "MSFullscreenError", "MSFullScreen"]], y = !1;
+          if (!(y = l.IS_IOS && (r.requestFn = "webkitEnterFullscreen", r.cancelFn = "webkitExitFullscreen", r.fullscreenElement = "webkitFullscreenElement", r.eventName = "webkitfullscreenchange", r.isFullScreen = "webkitDisplayingFullscreen", document[r.requestFn]) ? !0 : y)) {
+            for (var p = 0; p < 5; p++) if (h[p][1] in document) {
+              r.requestFn = h[p][0], r.cancelFn = h[p][1], r.fullscreenElement = h[p][2], r.eventName = h[p][4], r.isFullScreen = h[p][6];
+              break;
+            }
+            "requestFullscreen" in document ? r.requestFn = "requestFullscreen" : "webkitRequestFullscreen" in document ? r.requestFn = "webkitRequestFullscreen" : "webkitRequestFullScreen" in document ? r.requestFn = "webkitRequestFullScreen" : "webkitEnterFullscreen" in document ? r.requestFn = "webkitEnterFullscreen" : "mozRequestFullScreen" in document ? r.requestFn = "mozRequestFullScreen" : "msRequestFullscreen" in document && (r.requestFn = "msRequestFullscreen"), "fullscreenchange" in document ? r.eventName = "fullscreenchange" : "webkitfullscreenchange" in document || "webkitfullscreenchange" in document || "webkitfullscreenchange" in document ? r.eventName = "webkitfullscreenchange" : "mozfullscreenchange" in document ? r.eventName = "mozfullscreenchange" : "MSFullscreenChange" in document && (r.eventName = "MSFullscreenChange"), "fullScreen" in document ? r.isFullScreen = "fullScreen" : "webkitfullScreen" in document ? r.isFullScreen = "webkitfullScreen" : "webkitIsFullScreen" in document ? r.isFullScreen = "webkitIsFullScreen" : "webkitDisplayingFullscreen" in document ? r.isFullScreen = "webkitDisplayingFullscreen" : "mozFullScreen" in document ? r.isFullScreen = "mozFullScreen" : "mozfullScreen" in document ? r.isFullScreen = "mozfullScreen" : "MSFullScreen" in document && (r.isFullScreen = "MSFullScreen"), "fullscreenElement" in document ? r.fullscreenElement = "fullscreenElement" : "webkitFullscreenElement" in document ? r.fullscreenElement = "webkitFullscreenElement" : "webkitFullScreenElement" in document ? r.fullscreenElement = "webkitFullScreenElement" : "mozFullScreenElement" in document ? r.fullscreenElement = "mozFullScreenElement" : "msFullscreenElement" in document ? r.fullscreenElement = "msFullscreenElement" : "MSFullscreenElement" in document && (r.fullscreenElement = "MSFullscreenElement");
+          }
+          return r.requestFn ? r : null;
+        })()), e = (_.prototype.requestFullScreen = function() {
+          var r = t, h = this._player.el(), y = this;
+          if (l.IS_IOS) {
+            var p = this._player._splayer;
+            if (!p || p.renderType !== 2) {
+              h = this._player.tag, p && p.renderType !== 2 && (h = this._player.el().querySelector("video"));
+              try {
+                var d = h[r.requestFn]();
+                d && typeof d.catch == "function" && d.catch(function(m) {
+                  console.log(m);
+                }), y._player.trigger(s.Player.RequestFullScreen);
+              } catch (m) {
+                console.log(m);
+              }
+              return this;
+            }
+            this._player._options.enableMockFullscreen = !0;
+          }
+          if (this.isFullScreen = !0, this.isFullScreenChanged = !1, this._requestFullScreenTimer = null, this._cancelFullScreenTimer || clearTimeout(this._cancelFullScreenTimer), y = this, r && !this._player._options.enableMockFullscreen) try {
+            var g = h[r.requestFn]();
+            g && typeof g.catch == "function" && g.catch(function(m) {
+              console.log(m);
+            }), this._requestFullScreenTimer = setTimeout(function() {
+              y.isFullScreenChanged || (e.apply(y), y._player.trigger(s.Player.RequestFullScreen)), y._requestFullScreenTimer = null;
+            }, 1e3);
+          } catch (m) {
+            console.log(m);
+          }
+          else e.apply(y), this._player.trigger(s.Player.RequestFullScreen);
+          return this._player;
+        }, _.prototype.cancelFullScreen = function() {
+          var r = t, h = (this.isFullScreen = !1, this.isFullScreenChanged = !1, this._cancelFullScreenTimer = null, this._requestFullScreenTimer || clearTimeout(this._requestFullScreenTimer), this);
+          if (r && !this._player._options.enableMockFullscreen) {
+            try {
+              var y = document[r.cancelFn]();
+              y && typeof y.catch == "function" && y.catch(function(p) {
+                console.log(p);
+              });
+            } catch (p) {
+              console.log(p);
+            }
+            h._cancelFullScreenTimer = setTimeout(function() {
+              h.isFullScreenChanged || (n.apply(h), h._player.trigger(s.Player.CancelFullScreen)), h._cancelFullScreenTimer = null;
+            }, 500);
+          } else n.apply(h), this._player.trigger(s.Player.CancelFullScreen);
+          return this._player.tag.paused || this._player.trigger(s.Player.Play), this._player;
+        }, _.prototype.getIsFullScreen = function() {
+          return this.isFullScreen;
+        }, _.prototype.dispose = function() {
+          this._player = null, t && a.off(document, t.eventName, this._fullscreenChanged);
+        }, function() {
+          this.isFullWindow = !0, this.docOrigOverflow = document.documentElement.style.overflow, document.documentElement.style.overflow = "hidden", u.addClass(document.getElementsByTagName("body")[0], "prism-full-window");
+        }), n = function() {
+          this.isFullWindow = !1, document.documentElement.style.overflow = this.docOrigOverflow, u.removeClass(document.getElementsByTagName("body")[0], "prism-full-window");
+        };
+        o.exports = _;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/ua": 49, "../base/event/eventtype": 68, "../base/x5play": 96 }], 123: [function(c, o, x) {
+        function _(p, d) {
+          var g;
+          if (p) return p = new Date(p), g = (d = new Date(d)).valueOf() / 1e3 - p.valueOf() / 1e3, { start: p, end: d, endDisplay: s.extractTime(d), totalTime: g };
+        }
+        function l(p, d) {
+          d && (p.currentTimestamp = d, p.currentTime = s.convertToDate(d), p.currentTimeDisplay = s.extractTime(p.currentTime), p.liveShiftStart = p.liveTimeRange.start, p.liveShiftEnd = p.liveTimeRange.end, p.liveShiftStartDisplay = s.extractTime(p.liveShiftStart), p.liveShiftEndDisplay = s.extractTime(p.liveShiftEnd), p.availableLiveShiftTime = d - p.liveShiftStart.valueOf() / 1e3, p.timestampStart = s.convertToTimestamp(p.liveShiftStart), p.timestampEnd, s.convertToTimestamp(p.liveShiftEnd));
+        }
+        function u(p) {
+          function d() {
+            var m = p._options.source;
+            this._originalPlayUrl = m, this._liveShiftUrl = p._options.liveTimeShiftUrl, this.liveTimeRange = _(p._options.liveStartTime, p._options.liveOverTime), this.availableLiveShiftTime = 0, this.seekTime = -1;
+          }
+          this._player = p, this._isLiveShiftPlaying = !1;
+          var g = this;
+          d.call(this), p.liveShiftSerivce = { setLiveTimeRange: function(m, v) {
+            g.setLiveTimeRange(m, v);
+          }, queryLiveShift: function(m, v, f) {
+            g.queryLiveShift(m, v, f);
+          }, isLiveShiftPlaying: function() {
+            return g._isLiveShiftPlaying;
+          } }, p.on(y.Private.ChangeURL, function() {
+            d.call(g);
+          });
+        }
+        var a = c("../../lib/io"), s = c("../../lib/util"), t = c("../../lib/playerutil"), e = c("../../lang/index"), n = c("../flv/flvinjector"), r = c("../hls/hlsinjector"), h = c("../../lib/constants"), y = c("../base/event/eventtype");
+        c("../../lib/url"), u.prototype.validate = function() {
+          return !(this.liveTimeRange.start >= this.liveTimeRange.end);
+        }, u.prototype.switchToLive = function() {
+          this.seekTime = -1;
+          var p = this._originalPlayUrl, d = this._player._options.liveShiftSource, g = this._player._options.source;
+          t.isHls(g) && t.isFlv(p) && d && t.isHls(d) && (this._player._hls && this._player._destroyHls(), g = this._player._superType, d = this._player._Type, this._player._options._autoplay = !0, n.inject(this._player, d, g, this._player._options, "", !0)), this._player._loadByUrlInner(p, null, !0), this._isLiveShiftPlaying = !1, this._player.trigger(y.Private.LiveShiftSwitchToLive);
+        }, u.prototype.getBaseTime = function() {
+          return this.liveShiftStartDisplay, this.seekTime == -1 ? s.parseTime(this.currentTimeDisplay) : s.parseTime(this.liveShiftStartDisplay) + this.seekTime;
+        }, u.prototype.getSourceUrl = function(p, d) {
+          var g = this._originalPlayUrl;
+          return this.availableLiveShiftTime < p || (this._isLiveShiftPlaying = !0, p = parseInt(p), g = (g = this._switchLiveShiftPlayer(d)) && this._cleanUrl(g), d = parseInt(this.currentTimestamp) - p, (g = g.indexOf("?") == -1 ? g + "?lhs_start_unix_s_0=" + d : g + "&lhs_start_unix_s_0=" + d).indexOf("aliyunols=on") === -1 && (g += "&aliyunols=on"), g.indexOf("continue=on") === -1 && (g += "&continue=on")), g;
+        }, u.prototype._cleanUrl = function(p) {
+          var d;
+          return p.indexOf("?") === -1 ? p : (p = (p = (d = p.split("?"))[1]) && ((p = p.replace(/&?lhs_start_unix_s_0=[0-9]*/g, "")).indexOf("&") === 0 ? p.replace("&", "") : p)) ? d[0] + "?" + p : d[0];
+        }, u.prototype._switchLiveShiftPlayer = function(p) {
+          var d, g = this._originalPlayUrl, m = this._player._options.liveShiftSource, v = this._player._options.source;
+          if (t.isHls(v)) g = v;
+          else if (t.isFlv(g) && m && t.isHls(m)) return this._player._flv && this._player._destroyFlv(), v = this._player._superType, d = this._player._Type, this._player._options._autoplay = !0, r.inject(this._player, d, v, this._player._options, "", !0), m;
+          return g;
+        }, u.prototype.getTimeline = function(p, d) {
+          var g;
+          this._player.trigger(y.Private.LiveShiftQueryCompleted), this._liveShiftUrl ? (g = this).queryLiveShift(this._liveShiftUrl, function(m) {
+            m ? (m = m).retCode == 0 ? (l(g, m.content.current), p && p()) : d({ Code: h.ErrorCode.ServerAPIError, Message: m.retCode + "|" + m.description + "|" + m.content }) : console.log("获取直播时移数据失败");
+          }, function(m) {
+            if (d && m) {
+              var v = {};
+              if (m) {
+                if (typeof m == "string" && -1 < m.indexOf("403 Forbidden")) v.Code = h.ErrorCode.AuthKeyExpired, v.Message = "Query liveshift failed:" + e.get("Error_AuthKey_Text");
+                else {
+                  var f, v = m;
+                  try {
+                    f = JSON.parse(m);
+                  } catch {
+                  }
+                  f && (v.Code = h.ErrorCode.ServerAPIError, v.Message = f.retCode + "|" + f.description + "|" + f.content);
+                }
+                d(v);
+              }
+            }
+          }) : (l(this, (/* @__PURE__ */ new Date()).valueOf() / 1e3), p && p());
+        }, u.prototype.start = function(p, d) {
+          var g = this, m = function() {
+            g._loopHandler && clearTimeout(g._loopHandler), g._loopHandler = setTimeout(function() {
+              g.getTimeline(function() {
+              }, d), m();
+            }, p);
+          };
+          g.getTimeline(function(v) {
+            g._localLiveTimeHandler || g.tickLocalLiveTime();
+          }, d), m();
+        }, u.prototype.tickLocalLiveTime = function() {
+          function p() {
+            d._localLiveTimeHandler = setTimeout(function() {
+              d.currentTimestamp++, l(d, d.currentTimestamp), d._player.trigger(y.Private.LiveShiftQueryCompleted), p();
+            }, 1e3);
+          }
+          var d = this;
+          p();
+        }, u.prototype.setLiveTimeRange = function(p, d) {
+          p = p || this._player._options.liveStartTime, d = d || this._player._options.liveOverTime, this.liveTimeRange = _(p, d), l(this, this.currentTimestamp), this._player.trigger(y.Private.LiveShiftQueryCompleted);
+        }, u.prototype.queryLiveShift = function(p, d, g) {
+          a.get(p, function(m) {
+            var v;
+            m ? (v = JSON.parse(m)).retCode == 0 ? d && d(v) : g && g(v) : g && g(m);
+          }, function(m) {
+            g && g(m);
+          });
+        }, u.prototype.stop = function(p) {
+          this._loopHandler && (clearTimeout(this._loopHandler), this._loopHandler = null);
+        }, u.prototype.dispose = function() {
+          this.stop(), this._localLiveTimeHandler && (clearTimeout(this._localLiveTimeHandler), this._localLiveTimeHandler = null), this._loopHandler && (clearTimeout(this._loopHandler), this._loopHandler = null), this._player = null;
+        }, o.exports = u;
+      }, { "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../../lib/playerutil": 46, "../../lib/url": 50, "../../lib/util": 51, "../base/event/eventtype": 68, "../flv/flvinjector": 102, "../hls/hlsinjector": 104 }], 124: [function(c, o, x) {
+        function _(s) {
+          function t() {
+            var n = document.querySelector("#" + s.id() + " .prism-progress-marker");
+            if (n) {
+              n.innerHTML = "";
+              var r = e._player.getDuration();
+              if (0 < r) {
+                for (var h = 0; h < e.progressMarkers.length; h++) {
+                  var y, p = e.progressMarkers[h];
+                  p.offset !== void 0 && p.offset !== "" && (p = document.createElement("div"), u.addClass(p, "prism-marker-dot"), y = e.progressMarkers[h].offset / r, p.style.left = 100 * y + "%", n.appendChild(p), y = /* @__PURE__ */ ((g, m) => function() {
+                    e._player.trigger(l.Private.MarkerTextShow, { left: g, progressMarker: m });
+                  })(y, e.progressMarkers[h]), a.on(p, "mouseover", y), a.on(p, "mouseout", function(g) {
+                    e._player.trigger(l.Private.MarkerTextHide);
+                  }), a.on(p, "touchstart", y), a.on(p, "mousemove", function(g) {
+                    g.preventDefault();
+                  }), a.on(p, "touchmove", function(g) {
+                    g.preventDefault();
+                  }));
+                }
+                var d = document.querySelector("#" + e._player.id() + " .prism-progress-cursor");
+                e._player.on(d, "click", function(g) {
+                  for (var m = e._player.getCurrentTime(), v = 0; v < e.progressMarkers.length; v++) {
+                    var f, b = e.progressMarkers[v];
+                    b && m - 1 < b.offset && b.offset < m + 1 && (f = b.offset / r * 100 + "%", e._player.trigger(l.Private.MarkerTextShow, { left: f, progressMarker: b }));
+                  }
+                });
+              }
+            }
+          }
+          this.progressMarkers = [], this._player = s;
+          var e = this;
+          s.on(l.Private.ProgressMarkerLoaded, function(n) {
+            n = n.paramData, n && 0 < n.length && (e.progressMarkers = n);
+          }), s.on(l.Private.ProgressMarkerChanged, function(n) {
+            n = n.paramData, n && 0 < n.length && (e.progressMarkers = n, t());
+          }), s.on(l.Video.LoadedMetadata, t);
+        }
+        var l = c("../base/event/eventtype"), u = (c("../../lang/index"), c("../../lib/hls/hlsparse"), c("../../lib/object"), c("../../lib/dom")), a = c("../../lib/event");
+        c("../../lib/playerutil"), _.prototype.dispose = function() {
+          this._player = null, this.progressMarkers = [];
+        }, o.exports = _;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/hls/hlsparse": 39, "../../lib/object": 43, "../../lib/playerutil": 46, "../base/event/eventtype": 68 }], 125: [function(c, o, x) {
+        function _() {
+          return (_ = Object.assign ? Object.assign.bind() : function(h) {
+            for (var y = 1; y < arguments.length; y++) {
+              var p, d = arguments[y];
+              for (p in d) !{}.hasOwnProperty.call(d, p) || (h[p] = d[p]);
+            }
+            return h;
+          }).apply(null, arguments);
+        }
+        function l(h) {
+          this.levels = [], this.drmUrl = {}, this._player = h;
+          var y = this;
+          h.on(u.Private.PlayInfoLoaded, function(p) {
+            for (var d = p.paramData.encryptUrlArr || [], g = [], m = 0; m < d.length; m++) {
+              var v = d[m];
+              v.encryptionType === n.VodEncryptionType["Widevine-FairPlay"] && g.push(v);
+            }
+            y.drmUrl = g;
+          }), h.on(u.Player.LevelsLoaded, function(p) {
+            if (0 < y.levels.length && (y.levels = []), (p = p.paramData) && p.levels) {
+              for (var d, g = p.levels.length - 1; -1 < g; g--) {
+                var m, v = p.levels[g];
+                v.url && 0 < v.url.length && v.attrs && v.attrs.BANDWIDTH && (m = v.url, t.isArray(m) && (m = m[0]), m = { Url: m = !h._hls && h._options.isVBR && h._options.isDrm && h._options.vid ? r.call(y, v) : m, desc: Math.min(v.width, v.height), bitrate: v.bitrate, resolution: v.attrs.RESOLUTION, bandwidth: v.attrs.BANDWIDTH }, y.levels.push(m));
+              }
+              h._options.definition === "AUTO" && (h._urls = [], Object.assign(h._urls, this.levels)), y.levels.sort(function(f, b) {
+                return (f.bitrate || f.desc) - (b.bitrate || b.desc);
+              }), y.levels = ((f, b) => typeof b == "function" ? f.map(function(S) {
+                return _({}, S, { desc: b({ bandwidth: Number(S.bandwidth), bitrate: Number(S.bitrate), width: Number(S.resolution.split("x")[0]), height: Number(S.resolution.split("x")[1]) }) });
+              }) : f.map(function(S) {
+                return _({}, S, { desc: S.desc + "p@" + parseInt(S.bitrate / 1e3) + "k" });
+              }))(y.levels, h._options.bitrateDisplayHandler), (y.levels && 0 < y.levels.length || h._drm && h._options.useDrm2) && this._player._options.isVBR && (d = a.get("Auto"), y.levels.push({ Url: p.url, desc: d }), h.trigger(u.Private.SelectorUpdateList, { type: "quality", text: d }));
+            }
+          }), h.on(u.Video.LoadStart, function() {
+            var p, d, g;
+            h._options && (p = h._options.source, d = h._options.isVBR, g = h._options.useDrm2, !h._hls) && p && e.isHls(p) && (h._manuallySwitchDrmLevel ? (h._manuallySwitchDrmLevel = !1, h.trigger(u.Private.SafariDrmLevelSwitch)) : (d || h._drm && !g) && y.loadLevels(p));
+          });
+        }
+        var u = c("../base/event/eventtype"), a = c("../../lang/index"), s = c("../../lib/hls/hlsparse"), t = c("../../lib/object"), e = c("../../lib/playerutil"), n = c("../../lib/constants");
+        function r(h) {
+          for (var y, p = this.drmUrl, d = 0; d < this.drmUrl.length; d++) if (Number(h.height) === Number(p[d].height)) {
+            y = p[d].Url;
+            break;
+          }
+          return y;
+        }
+        (l.prototype = { loadLevels: function(h) {
+          var y = new s(), p = this;
+          y.load(h, function(d) {
+            var g;
+            (g = d.subtitles) != null && g.forEach(function(m) {
+              y.loadMediaPlaylist({ url: m.url }, function(v) {
+                v = v.fragments[0], v && (m.vttUrl = y.resolve(v.relurl, v.baseurl));
+              }, function(v) {
+                console.log("parse vtt url error: ", v);
+              });
+            }), p._player._created ? p._player.trigger(u.Player.LevelsLoaded, d) : p._player.one(u.Private.Created, function() {
+              p._player.trigger(u.Player.LevelsLoaded, d);
+            });
+          });
+        } }).dispose = function() {
+          this._player = null;
+        }, o.exports = l;
+      }, { "../../lang/index": 24, "../../lib/constants": 29, "../../lib/hls/hlsparse": 39, "../../lib/object": 43, "../../lib/playerutil": 46, "../base/event/eventtype": 68 }], 126: [function(c, o, x) {
+        function _(t) {
+          this._player = t, this.cues = [], this.baseUrl = "";
+          var e = this;
+          t.on(s.Private.ChangeURL, function() {
+            e.cues = [], e.baseUrl = "";
+          });
+        }
+        var l = c("../../lib/io"), u = c("../../lib/url"), a = c("../../lib/vtt/thumbnailvtt"), s = c("../base/event/eventtype");
+        (_.prototype = { get: function(t) {
+          var e, n, r, h = this;
+          this.baseUrl = (e = t, n = "", (r = u.parseUrl(e)) && (r = r.segments) && 0 < r.length && (r = r[r.length - 1], n = e.split("?")[0].replace(r, "")), n), l.get(t, function(y) {
+            y && a.parse(y, function(p) {
+              h.cues = p, h._player.trigger(s.Private.ThumbnailLoaded, p);
+            });
+          }, function(y) {
+            console.log(y);
+          });
+        }, findAvailableCue: function(t) {
+          for (var e = this.cues.length, n = 0; n < e; n++) {
+            var r = this.cues[n];
+            if (r.startTime <= t && t < r.endTime) return r;
+          }
+          return null;
+        }, makeUrl: function(t) {
+          return t = t.indexOf("://") == -1 ? this.baseUrl + t : t;
+        } }).dispose = function() {
+          this._player = null;
+        }, o.exports = _;
+      }, { "../../lib/io": 41, "../../lib/url": 50, "../../lib/vtt/thumbnailvtt": 52, "../base/event/eventtype": 68 }], 127: [function(c, o, x) {
+        function _() {
+          return (_ = Object.assign ? Object.assign.bind() : function(b) {
+            for (var S = 1; S < arguments.length; S++) {
+              var w, T = arguments[S];
+              for (w in T) !{}.hasOwnProperty.call(T, w) || (b[w] = T[w]);
+            }
+            return b;
+          }).apply(null, arguments);
+        }
+        var l = c("../base/player"), u = c("./splayerinjector"), a = c("../flv/flvinjector"), s = c("../hls/hlsinjector"), t = c("../../lib/playerutil"), e = c("../base/event/eventtype"), n = c("../../lib/constants"), r = c("../../lib/codec-probe"), h = c("../../lib/ua"), y = n.USER_EVENT_NAME, p = t.isH265Codec, d = t.isH266Codec, g = t.getVideoTrack, m = {}, v = { codecCost: 0, decoderCost: 0 }, f = l.extend({ init: function(b, S) {
+          var w, T = this, R = (this._options = S, t.isFlv(S.source, S.format)), P = t.isHls(S.source, S.format), E = this._extraMultiSources(), A = {};
+          function H() {
+            R ? (a.inject(this, f, l, S), S._native = !1) : P && !t.canPlayHls() && (s.inject(this, f, l, S), S._native = !1), l.call(this, b, S), this._monitor && this._monitor.updateH265ProbeInfo(_({}, v, m)), O.call(this), m.codecTag && u.reportH265PlayInfo.call(this, { renderType: "native", codecTag: m.codecTag });
+          }
+          function M() {
+            S._native = !1, u.inject(this, f, l, S, m), l.call(this, b, S), this._monitor && this._monitor.updateH265ProbeInfo(_({}, v, m, { waitRenderType: !0 })), O.call(this);
+          }
+          function O() {
+            var j, U, N = this, C = A, I = this[y];
+            I && (C = Object.assign({}, A, I), j = Object.keys(A), U = Object.keys(I), j.forEach(function(L) {
+              -1 < U.indexOf(L) && (C[L] = A[L].concat(I[L]));
+            })), Object.keys(C).forEach(function(L) {
+              C[L].forEach(function(q) {
+                q.binded || l.prototype.on.call(N, L, q);
+              });
+            });
+          }
+          A[e.Player.Ready] = [function() {
+            T._setupSourceList(E), T.trigger(e.Private.SelectorGenerateList, { type: "quality" });
+          }], S.from === "zhihu" || S.forceH265 || S.forceH266 ? M.call(this) : h.IS_ANDROID && h.dingTalk() && !R ? H.call(this) : (w = performance.now(), r(S.source, S, function(N) {
+            v.codecCost += performance.now() - w;
+            var U, N = g(N.tracks), C = (N || {}).codecTag || ((C = (N || {}).codec) == null ? void 0 : C.split(".")[0]);
+            m.codecTag = C, N && p(C) ? (U = performance.now(), R || P && !t.canPlayHls() ? (v.decoderCost += performance.now() - U, M.call(T)) : t.shouldUseBasePlayer({ codecTag: C, url: S.source }, function(I) {
+              v.decoderCost += performance.now() - U, (I ? H : M).call(T);
+            })) : (N && d(C) ? M : H).call(T);
+          }, function(j) {
+            console.log("error in demuxer, fallback to basePlayer", j), v.codecCost += performance.now() - w, H.call(T), u.checkProtocol.call(T, S.source);
+          }));
+        } });
+        o.exports = f;
+      }, { "../../lib/codec-probe": 27, "../../lib/constants": 29, "../../lib/playerutil": 46, "../../lib/ua": 49, "../base/event/eventtype": 68, "../base/player": 91, "../flv/flvinjector": 102, "../hls/hlsinjector": 104, "./splayerinjector": 128 }], 128: [function(c, o, x) {
+        function _() {
+          return (_ = Object.assign ? Object.assign.bind() : function(v) {
+            for (var f = 1; f < arguments.length; f++) {
+              var b, S = arguments[f];
+              for (b in S) !{}.hasOwnProperty.call(S, b) || (v[b] = S[b]);
+            }
+            return v;
+          }).apply(null, arguments);
+        }
+        var l = c("../../lib/io"), u = c("../base/event/eventtype"), a = c("../base/event/eventmanager"), s = (c("../../lib/event"), c("../../lib/util")), t = c("../../lib/dom"), e = c("../../lib/playerutil"), n = c("../../lib/constants"), r = c("../../lang/index"), h = "splayerinjector.js";
+        function y(v) {
+          var f = this._options, b = (g.call(this), (function() {
+            e.isVideoTag(this.tag) && (a.offVideoAll(this), this.tag.parentNode && this.tag.parentNode.removeChild(this.tag), this.tag = null);
+          }).call(this), Videox.Videox), S = f.splayerWasmDomain, S = (!S && f.assetPrefix && (S = f.assetPrefix + "/splayer"), new b(_({ container: this._el, wasmDomain: S, progressive: !0, skipFrame: b.DiscardType.NONE, loop: f.rePlay, controls: !1, muted: !1, threads: f.h265Threads, simd: f.h265Simd, autoplay: f.autoplay || f._autoplay, live: f.isLive, poster: f.cover || void 0, src: f.source, trackOptions: { disable: !0 }, preload: f.preload ? "auto" : "none", timeout: 1e3 * f.waitingTimeout }, f.splayerOptions || {}))), w = (f.debug && (S.setLogLevel(b.LogLevel.LOG), S.setLogPrintLevel(b.LogLevel.LOG)), this._splayer = S, (this.tag = S).play), T = this;
+          this.tag.play = function() {
+            T._monitor && T._monitor.reportStartPlay(), w.call(this);
+          }, (function() {
+            var R, P = this, E = document.createElement("video");
+            for (R in E) ((A) => {
+              P.tag[A] || A.indexOf("on") === 0 || typeof E[A] != "function" || (P.tag[A] = function() {
+                console.warn("Function [" + A + "] is called on splayer, which should be a mistake."), E[A].apply(E, arguments);
+              });
+            })(R);
+          }).call(this), (function(R) {
+            var P = this, E = (a.onAll(this), this._splayer);
+            E.addEventListener("error", (function(A) {
+              var H, M, O, N = Videox.Videox, j = (A || {}).detail, U = Number((j || {}).code), N = N.ErrorCode;
+              switch (this.traceLog(h, "splayer-error::" + U), U) {
+                case N.WASM_NOT_SUPPORTED:
+                case N.CANVAS_NOT_SUPPORTED:
+                case N.AUDIOCONTEXT_NOT_SUPPORTED:
+                case N.WORKER_NOT_SUPPORTED:
+                case N.WEBGL_NOT_SUPPORTED:
+                  H = n.ErrorCode.SplayerEnvCheckError, M = r.get("Splayer_Err_Env_Check") + " | " + p(j);
+                  break;
+                case N.DECODE:
+                  H = n.ErrorCode.SplayerDecodeError, M = r.get("Splayer_Err_Decode") + " | " + p(j);
+                  break;
+                case N.NETWORK:
+                  H = n.ErrorCode.NetworkError, M = r.get("Error_Network_Text") + " | " + p(j);
+                  var C = (j.origin || {}).response;
+                  C ? (C = C.status) === 404 ? (H = n.ErrorCode.NotFoundSourceURL, M = r.get("Error_Not_Found") + " | " + p(j), O = r.get("Tip_Err_Not_found")) : C === 403 && (H = n.ErrorCode.AuthKeyExpired, M = r.get("Error_AuthKey_Text") + " | " + p(j)) : navigator.onLine && (H = n.ErrorCode.RequestDataError, M = M + "，" + r.get("Maybe_Cors_Error"));
+                  break;
+                case N.PARSER:
+                  H = n.ErrorCode.SplayerParserNotFound, M = r.get("Splayer_Err_Parser_Not_Found") + " | " + p(j);
+                  break;
+                default:
+                  H = n.ErrorCode.OtherError, M = "(SP)" + r.get("Error_Play_Text") + " | " + p(j);
+              }
+              if (O = O || r.get("Tip_Err_Splayer") + '<a href="https://help.aliyun.com/zh/vod/developer-reference/advanced-features-3#section-j4v-zwt-641" target="_blank">' + r.get("Tip_Err_Splayer_Doc") + "</a>", !(H === n.ErrorCode.NetworkError && this._reloadForVod())) {
+                try {
+                  this.pause();
+                } catch {
+                }
+                U = { error_code: H, error_msg: M, diagnosis_info: O }, U.error_code !== null && U.error_msg !== null && (this.logError(U), this.trigger(u.Player.Error, U)), m.call(this, { splayer: !0 });
+              }
+            }).bind(this)), E.addEventListener("decoderoverload", function(A) {
+              A = A.detail, delete A.shouldWarn, P.trigger(u.Player.H265DecoderOverload, A);
+            }), E.addEventListener("loadedsupportinfo", function(H) {
+              var H = H.detail || {}, M = H.detail || {}, O = E.controller.options || {};
+              E.renderType = H.renderer, m.call(P, { renderer: H.renderer, wasmThreads: M.wasmThreads && O.threads, wasmThreadsOption: O.threads, simd: M.simd && O.simd, simdOption: O.simd, codecTag: E.controller.videoTrack && E.controller.videoTrack.codecTag || E.controller.videoTrack && ((H = E.controller.videoTrack.codec) == null ? void 0 : H.split(".")[0]), splayer: !0 });
+            }), (this._options.autoplay || this._options._autoplay) && (E.once("canplay", function() {
+              E.paused && P._autoplayFailedHandler();
+            }), E.once("timeupdate", function() {
+              P.trigger(u.Player.Play);
+            }), this._monitor) && this._monitor.reportStartPlay(), E.on("playing", function() {
+              P._monitor && P._monitor.reportPlaying();
+            }), E.on("timeupdate", function() {
+              P._monitor && P._monitor.reportPlaying();
+            });
+          }).call(this, v);
+        }
+        function p(f) {
+          var f = f = f === void 0 ? {} : f, b = f.code, S = Videox.Videox.ErrorCode, w = "";
+          return w = b ? w + b + (": " + (f.message || S[b])) : w;
+        }
+        function d(v) {
+          return !s.contentProtocolMixed(v, "alwaysCheck") || ((v = { mediaId: this._options.vid || "", error_code: n.ErrorCode.InvalidSourceURL, error_msg: "InvalidSourceURL" }).display_msg = r.get("Request_Block_Text"), this.logError(v), this.trigger(u.Player.Error, v), !1);
+        }
+        function g() {
+          this._splayer && (this._splayer.destroy(), this._splayer = null);
+        }
+        function m(v) {
+          var f;
+          v === void 0 && (v = {}), !this._h265InfoReported && (this._h265InfoReported = !0, f = { 0: "native", 1: "mse", 2: "wasm" }, delete (v = _({ codecTag: (this._probeInfo || {}).codecTag || v.codecTag, renderType: v.renderType || f[v.renderer] }, v)).renderer, v.renderType !== f[2] && (delete v.simd, delete v.simdOption, delete v.wasmThreads, delete v.wasmThreadsOption), this._splayerRenderType = v.renderType, f = v.codecTag) && (e.isH265Codec(f) ? this.trigger(u.Player.H265PlayInfo, v) : e.isH266Codec(f) && this.trigger(u.Player.H266PlayInfo, v));
+        }
+        o.exports.checkProtocol = d, o.exports.reportH265PlayInfo = m, o.exports.inject = function(v, f, b, S, w) {
+          function T(P, E) {
+            this._superPt.setPlayerSize.call(this, P, E), P = this._el.querySelector("canvas"), P && (E = this._el.offsetWidth / this._el.offsetHeight, P.offsetWidth / P.offsetHeight < E ? (P.style.height = "100%", P.style.width = "initial") : (P.style.width = "100%", P.style.height = "initial"));
+          }
+          function R() {
+            this._disposed || (this._superPt && (this._superPt.dispose.call(this), f.prototype.replay = this._superPt.replay, f.prototype.setPlayerSize = this._superPt.setPlayerSize, f.prototype._setTransform = this._superPt._setTransform, f.prototype.initPlay = this._superPt.initPlay), g.call(this), this._Type = null, this._superType = null, this._superPt = null, this._disposed = !0, this._splayerLoaded = !1, this._h265InfoReported = !1, this._splayerRenderType = null);
+          }
+          v._Type = f, v._superType = b, v._superPt = b.prototype, v._disposed = !1, v._splayer = null, v._splayerLoaded = !1, v._probeInfo = w, v._splayerRenderType = null, f.prototype.initPlay = function(P) {
+            var E = this;
+            this.trigger(u.Private.H5_Loading_Show), d.call(this, this._options.source) && (this._splayerLoaded ? y.call(this, P) : (function(A, H) {
+              var M = this._options, O = M.splayerUrl || "https://g.alicdn.com/apsara-media-components/amcom-splayer/0.7.8/dist/index.js";
+              !M.splayerUrl && M.assetPrefix && (O = M.assetPrefix + "/splayer/index.js"), l.loadJS(O, A.bind(this), function() {
+                H && H();
+              });
+            }).call(this, function() {
+              this._splayerLoaded = !0, y.call(this, P), E._executeReadyCallback();
+            }, function() {
+              var A = { mediaId: E._options.vid || "", mediaAuth: E._options.mediaAuth || "", error_code: n.ErrorCode.ModuleLoadError, error_msg: "splayer module load error." };
+              E.trigger(u.Player.Error, A);
+            }));
+          }, f.prototype.replay = function() {
+            return this._monitor && this._monitor.replay(), this._splayer.load(), this._splayer.play(), this;
+          }, Object.defineProperty(f.prototype, "setPlayerSize", { enumerable: !0, configurable: !0, get: function() {
+            return T;
+          }, set: function() {
+            return T;
+          } }), f.prototype._setTransform = function() {
+            var P = this._player.el(), E = this._splayerRenderType === "wasm", P = E ? P.querySelector("canvas") : P.querySelector("video"), E = (this._transformProp || (this._transformProp = t.getTransformName(P)), E ? "" : " translate(-50%, -50%)");
+            this._rotate && (E += " rotate(" + this._rotate + "deg)"), this._image && (this._image == "vertical" ? E += " scaleY(-1)" : this._image == "horizon" && (E += " scaleX(-1)")), P.style[this._transformProp] = E;
+          }, Object.defineProperty(f.prototype, "dispose", { enumerable: !0, configurable: !0, get: function() {
+            return R;
+          }, set: function() {
+            return R;
+          } });
+        };
+      }, { "../../lang/index": 24, "../../lib/constants": 29, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/io": 41, "../../lib/playerutil": 46, "../../lib/util": 51, "../base/event/eventmanager": 67, "../base/event/eventtype": 68 }], 129: [function(c, o, x) {
+        function _(b, S) {
+          var w, T = typeof Symbol < "u" && b[Symbol.iterator] || b["@@iterator"];
+          if (T) return (T = T.call(b)).next.bind(T);
+          if (Array.isArray(b) || (T = ((R, P) => {
+            var E;
+            if (R) return typeof R == "string" ? l(R, P) : (E = (E = {}.toString.call(R).slice(8, -1)) === "Object" && R.constructor ? R.constructor.name : E) === "Map" || E === "Set" ? Array.from(R) : E === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(E) ? l(R, P) : void 0;
+          })(b)) || S) return T && (b = T), w = 0, function() {
+            return w >= b.length ? { done: !0 } : { done: !1, value: b[w++] };
+          };
+          throw new TypeError(`Invalid attempt to iterate non-iterable instance.
+In order to be iterable, non-array objects must have a [Symbol.iterator]() method.`);
+        }
+        function l(b, S) {
+          (S == null || S > b.length) && (S = b.length);
+          for (var w = 0, T = Array(S); w < S; w++) T[w] = b[w];
+          return T;
+        }
+        var u = typeof Promise > "u" ? c("es6-promise").Promise : Promise, a = c("../../lib/io"), s = c("../../config"), t = c("../../lang/index"), e = c("../../lib/ua"), n = c("../base/event/eventtype"), r = c("../../lib/constants"), h = r.PLAYER_SCOPE, y = r.SW_MSG_EVT, p = r.DM_MSG_EVT, d = r.ErrorCode, g = c("./tsremuxer").TSRemuxer, m = "swinjector.js";
+        function v(b) {
+          b = { mediaId: this._options.vid || "", error_code: b.code, error_msg: b.msg, diagnosis_info: b.info }, this.trigger(n.Player.Error, b);
+        }
+        function f(b) {
+          return b.split("?")[0].split("#")[0];
+        }
+        o.exports.inject = function(b, S, w, T, R) {
+          b.swPlayer = !0, b.firstBuild = !0, b.sw = null, b.tsDemuxerWorker = null, b.tsRemuxer = null, b.preloadError = !1, b.fetchHasResult = !1, b._initServiceWorker = new u(function(O) {
+            setTimeout(O, 1e3), "serviceWorker" in navigator ? navigator.serviceWorker.getRegistrations().then(function(j) {
+              if (!j.length) return console.log("No serviceWorker registrations found."), O();
+              for (var U, N = [], C = _(j); !(U = C()).done; ) (() => {
+                var I = U.value, L = I.unregister().then(function(q) {
+                  console.log(q ? "Successfully unregistered" : "Failed to unregister", `ServiceWorkerRegistration
+` + (I.installing ? "  .installing.scriptURL = " + I.installing.scriptURL + `
+` : "") + (I.waiting ? "  .waiting.scriptURL = " + I.waiting.scriptURL + `
+` : "") + (I.active ? "  .active.scriptURL = " + I.active.scriptURL + `
+` : "") + "  .scope: " + I.scope + `
+`);
+                });
+                N.push(L);
+              })();
+              u.all(N).then(O).catch(O);
+            }).catch(function(j) {
+              console.log("clear sw error", j), O();
+            }) : O();
+          }).then((function(O) {
+            var j = this;
+            return new u(function(U) {
+              var N = ((I) => {
+                if (!I) return t.get("Error_SW_ScriptURL_Empty");
+                if ((I = String(I)).indexOf("https") !== 0 && I.indexOf("localhost") === -1 && I.indexOf("127.0.0.1") === -1) return t.get("Error_SW_ScriptURL_Https");
+                try {
+                  L = new URL(I);
+                } catch (q) {
+                  return t.get("Error_SW_ScriptURL_ILlegal", "", { detail: q });
+                }
+                (I = f(location.href).split("/")).pop();
+                var I = I.join("/"), L = ((L = f(L.href).split("/")).pop(), L.join("/"));
+                return I !== L ? t.get("Error_SW_ScriptURL_Scope", "", { scope1: L, scope2: I }) : void 0;
+              })(O.swScriptURL);
+              if (N) return j.preloadError = !0, v.call(j, { code: d.ModuleLoadError, msg: N });
+              "serviceWorker" in navigator ? (navigator.serviceWorker.register(O.swScriptURL, { scope: "./" }).then(function(C) {
+                j.traceLog(m, "sw registered"), C = C.active || C.waiting || C.installing, C.postMessage({ scope: h, name: y.SETUP }), j.sw = C;
+              }).catch(function(C) {
+                j.preloadError = !0, v.call(j, { code: d.ModuleLoadError, msg: t.get("Error_SW_Register_Failed") + "(" + C + ")", info: t.get("Tip_SW_Register") });
+              }), navigator.serviceWorker.addEventListener("controllerchange", function(C) {
+                C.target.controller.scriptURL !== O.swScriptURL && v.call(j, { code: d.ModuleLoadError, msg: t.get("Error_SW_Conflict"), info: "controlled by " + C.target.controller.scriptURL });
+              }), navigator.serviceWorker.addEventListener("message", function(C) {
+                var I;
+                if ((L = C.data) && L.scope === h) {
+                  var L = C.data.name;
+                  switch (console.log("[MESSAGE FROM SW][" + L + "]", ((B) => {
+                    var k;
+                    try {
+                      k = /[0-9]+\.ts/.exec(B)[0];
+                    } catch {
+                    }
+                    return k;
+                  })((I = C.data.payload) == null ? void 0 : I.url), C.data.payload), L) {
+                    case y.SETUP_ACK:
+                      U(), j.traceLog(m, "sw ack");
+                      var q = (q = C.data.payload) == null ? void 0 : q.version;
+                      q !== s.h5Version && (j.preloadError = !0, v.call(j, { code: d.ModuleLoadError, msg: t.get("Error_SW_Version_Not_Match", "", { swVersion: q, playerVersion: s.h5Version }) }));
+                      break;
+                    case y.ENC_SEGMENT:
+                      var Q = C.data.payload;
+                      j._getDemuxer.then(function() {
+                        j.tsDemuxerWorker && j.tsDemuxerWorker.postMessage({ name: p.DEMUX, payload: { buffer: Q.buffer, url: Q.url, playlistUrl: Q.playlistUrl } });
+                      });
+                      break;
+                    case y.ABORT_SEGMENT:
+                      j.tsDemuxerWorker && j.tsDemuxerWorker.postMessage({ name: p.FLUSH }), j.tsRemuxer && j.tsRemuxer.flush();
+                  }
+                }
+              })) : (j.preloadError = !0, N = location.protocol === "http:" ? t.get("Error_SW_Https_required") : t.get("UseChromeForVodEncription") + "(SW not found)", v.call(j, { code: d.EncrptyVideoNotSupport, msg: N }));
+            });
+          }).call(b, T));
+          var P, E, A = performance.now(), H = (b._getDemuxer = (P = T, new u(function(O, j) {
+            var U = "aliplayer-hls2-demuxer-min.js", N = "https://" + s.domain + s.path + s.h5Version + "/hls/" + U;
+            P.assetPrefix && (N = P.assetPrefix + "/hls/" + U), a.loadJS(N, O, j);
+          }).then(function() {
+            b.traceLog(m, "got demuxer#" + parseInt(performance.now() - A)), window.AliDemuxerWorker && (b.tsDemuxerWorker = window.AliDemuxerWorker.injectWorker().worker, b.tsDemuxerWorker.postMessage({ name: p.SETUP, payload: { key: R, debug: T.debug } }), b.tsDemuxerWorker.addEventListener("message", function(O) {
+              var j = O.data;
+              switch (j.name) {
+                case p.RESULT:
+                  if (b.tsRemuxer) try {
+                    b.tsRemuxer.remux(j.payload.demuxResult);
+                  } catch (U) {
+                    b.traceLog(m, "remux error: " + U.message + ", " + U.stack + "}");
+                  }
+                  break;
+                case p.DISPOSED:
+                  b.tsDemuxerWorker && (b.tsDemuxerWorker.terminate(), b.tsDemuxerWorker = null);
+                  break;
+                case p.ERROR:
+                  b.traceLog(m, "demuxer error:  " + j.payload.reason);
+              }
+            }), b.tsDemuxerWorker.addEventListener("error", function(O) {
+              b.traceLog(m, "demuxer uncaught error: " + O.message);
+            }));
+          }).catch(function(O) {
+            b.preloadError = !0, v.call(b, { code: d.ModuleLoadError, msg: "ts-demuxer module load error" });
+          })), performance.now());
+          function M() {
+            this.swPlayer = !1, this.preloadError = !1, this.fetchHasResult = !1, this.tsDemuxerWorker && this.tsDemuxerWorker.postMessage({ name: p.DISPOSE }), this.tsRemuxer && (this.tsRemuxer.destroy(), this.tsRemuxer = null);
+            var O = w.prototype;
+            O && (O.dispose.call(this), S.prototype.initPlay = O.initPlay), this.sw && (this.sw.postMessage({ scope: h, name: y.DISPOSE }), this.sw = null);
+          }
+          b._getRemuxer = (E = T, new u(function(O, j) {
+            var U, N = "aliplayer-remuxer-min.js", C = "https://" + s.domain + s.path + s.h5Version + "/hls/" + N;
+            E.assetPrefix && (C = E.assetPrefix + "/hls/" + N), e.IS_IOS && Number(e.IOS_VERSION) <= 14 ? (U = "https://" + s.domain + s.path + s.h5Version + "/hls/aliplayer-remuxer-polyfill.js", E.assetPrefix && (C = E.assetPrefix + "/hls/" + N), a.loadJS(U, function() {
+              a.loadJS(C, O, j);
+            }, j)) : a.loadJS(C, O, j);
+          }).then(function() {
+            b.traceLog(m, "got remuxer#" + parseInt(performance.now() - H)), window.LibMux && (b.tsRemuxer = new g({ onResult: function(O) {
+              b.sw.postMessage({ scope: h, name: y.DEC_SEGMENT, payload: { buffer: O.data.buffer, url: O.id } }, [O.data.buffer]);
+            } }));
+          }).catch(function() {
+            b.preloadError = !0, v.call(b, { code: d.ModuleLoadError, msg: "ts-remuxer module load error" });
+          })), S.prototype.initPlay = function() {
+            var O = this;
+            u.all([this._getDemuxer, this._getRemuxer, this._initServiceWorker]).then(function() {
+              O.trigger(n.Private.H5_Loading_Show), a.get(T.source, function(j) {
+                var U;
+                b.fetchHasResult = !0, O.preloadError || (j = ((N, C) => {
+                  var I, L = -1 < C.indexOf("EXT-X-STREAM-INF");
+                  if (C = C.replace(/#EXT-X-KEY:.*\n?/g, ""), N = N.match(/^(.*)\/[^\/]*$/)) return I = N[1], N = L ? /(#EXT-X-STREAM-INF:[^\n]+\n)([^\n]+)/g : /(#EXTINF:[^\n]+\n)([^\n]+)/g, C = C.replace(N, function(q, Q, B) {
+                    return "" + Q + I + "/" + B + (-1 < B.indexOf("?") ? "&" : "?") + "_s=enc";
+                  });
+                  console.warn("no match base url found.");
+                })(T.source, j), U = "", U = e.IS_IOS ? "data:application/x-mpegurl;base64," + btoa(j) : (j = new Blob([j], { type: "application/vnd.apple.mpegurl" }), URL.createObjectURL(j)), O.tag.src = U, O._initPlayBehavior(), O.firstBuild && (O.firstBuild = !1, O._executeReadyCallback()));
+              }, function(j, U) {
+                if (console.log("fetch m3u8 error", j, U), O.traceLog(m, "fetch m3u8 error " + U + "-" + j), !b.fetchHasResult && (b.fetchHasResult = !0, !O.preloadError)) {
+                  var N, C;
+                  switch (U) {
+                    case 403:
+                      N = d.AuthKeyExpired, C = t.get("Error_AuthKey_Text");
+                      break;
+                    case 404:
+                      N = d.NotFoundSourceURL, C = t.get("Error_Not_Found");
+                      break;
+                    default:
+                      N = d.RequestDataError, C = t.get("Error_Load_M3U8_Failed_Text");
+                  }
+                  v.call(O, { code: N, msg: C });
+                }
+              });
+            });
+          }, Object.defineProperty(S.prototype, "dispose", { enumerable: !0, configurable: !0, get: function() {
+            return M;
+          }, set: function() {
+            return M;
+          } });
+        };
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/io": 41, "../../lib/ua": 49, "../base/event/eventtype": 68, "./tsremuxer": 130, "es6-promise": 9 }], 130: [function(c, o, x) {
+        o.exports.TSRemuxer = (() => {
+          function _(u) {
+            this.mux = null;
+            var a = window.LibMux;
+            console.log("LibMux ->", a), this.mux = new a({ outputFormat: 2, hasVideo: !0, hasAudio: !0, onResult: function(s) {
+              console.log("remux result -> ", s), u.onResult(s);
+            } });
+          }
+          var l = _.prototype;
+          return l.remux = function(u) {
+            this.mux.remuxTS({ id: u.id, videoTrack: u.videoTrack, audioTrack: u.audioTrack });
+          }, l.flush = function() {
+            this.mux.flush();
+          }, l.destroy = function() {
+            this.mux.destroy();
+          }, _;
+        })();
+      }, {}], 131: [function(require, module, exports) {
+        (function _SkeinEnclosedFunction($jsskein_array_102, $jsskein_array_103, $jsskein_array_104) {
+          function kl5f8() {
+            function c(y) {
+              var p = window[$jsskein_array_102[10]];
+              return $jsskein_array_103[2], $jsskein_array_104[0], p[y] = function() {
+              };
+            }
+            for (var o = 1; o !== void 0; ) {
+              var x = 3 & o >> 2;
+              switch (3 & o) {
+                case 0:
+                  switch (x) {
+                    case 0:
+                      o = h ? 5 : 9;
+                      continue;
+                    case 1:
+                      h++, o = 8;
+                      continue;
+                    case 2:
+                      o = h < n[$jsskein_array_103[1]] ? 0 : 2;
+                      continue;
+                  }
+                  continue;
+                case 1:
+                  switch (x) {
+                    case 0:
+                      $jsskein_array_103[2], o = window ? 10 : 6;
+                      continue;
+                    case 1:
+                      var _ = n[$jsskein_array_102[7]](h), l = ~(~(_ & ~u) & ~(~_ & u)), u = _;
+                      r += $jsskein_array_104[10][$jsskein_array_103[9]](l), o = 4;
+                      continue;
+                    case 2:
+                      _ = $jsskein_array_103[8], u = parseInt($jsskein_array_104[9], $jsskein_array_102[6]) + _, o = 5;
+                      continue;
+                  }
+                  continue;
+                case 2:
+                  switch (x) {
+                    case 0:
+                      a[s]($jsskein_array_102[8], $jsskein_array_102[9], t, $jsskein_array_103[10], $jsskein_array_103[11], $jsskein_array_103[12], e, r), a[$jsskein_array_102[11]](c), o = 6;
+                      continue;
+                    case 1:
+                      o = void 0;
+                      continue;
+                    case 2:
+                      var a = [], s = $jsskein_array_103[3];
+                      s += $jsskein_array_103[4];
+                      var t = (t = $jsskein_array_104[6])[$jsskein_array_103[5]]($jsskein_array_103[6])[$jsskein_array_102[3]]()[$jsskein_array_104[7]]($jsskein_array_103[6]), e = $jsskein_array_102[4], n = (e = (e += $jsskein_array_104[8]) + $jsskein_array_102[5], $jsskein_array_103[7]), r = $jsskein_array_103[6], u = $jsskein_array_103[2], h = $jsskein_array_104[0];
+                      o = 8;
+                      continue;
+                  }
+                  continue;
+              }
+            }
+          }
+          function gas4s8() {
+            for (var NEXTBB24 = 3; NEXTBB24 !== void 0; ) {
+              var $jsskein_indexLevel106_0 = 1 & NEXTBB24, $jsskein_indexLevel106_1_Base = NEXTBB24 >> 1, $jsskein_indexLevel106_1 = 1 & $jsskein_indexLevel106_1_Base;
+              switch ($jsskein_indexLevel106_0) {
+                case 0:
+                  switch ($jsskein_indexLevel106_1) {
+                    case 0:
+                      eval(fs56j57), NEXTBB24 = 1;
+                      continue;
+                    case 1:
+                      NEXTBB24 = void 0;
+                      continue;
+                  }
+                  continue;
+                case 1:
+                  switch ($jsskein_indexLevel106_1) {
+                    case 0:
+                      NEXTBB24 = $jsskein_array_103[13] ? 0 : 2;
+                      continue;
+                    case 1:
+                      NEXTBB24 = 1;
+                      continue;
+                  }
+                  continue;
+              }
+            }
+          }
+          function n5fg6f(player) {
+            function _SkeinIIFE31() {
+              function cl48s87(isOpen) {
+                for (var NEXTBB34 = 10; NEXTBB34 !== void 0; ) {
+                  var $jsskein_indexLevel107_0 = 3 & NEXTBB34, $jsskein_indexLevel107_1_Base = NEXTBB34 >> 2, $jsskein_indexLevel107_1 = 3 & $jsskein_indexLevel107_1_Base;
+                  switch ($jsskein_indexLevel107_0) {
+                    case 0:
+                      switch ($jsskein_indexLevel107_1) {
+                        case 0:
+                          kl5f8(), player[$jsskein_array_104[23]](), gas4s8(), NEXTBB34 = 6;
+                          continue;
+                        case 1:
+                          $jsskein_simplify_tmp31 = Aliplayer[$jsskein_decrypt_variable62_ret], $jsskein_simplify_tmp31 = $jsskein_array_103[11] === $jsskein_simplify_tmp31, NEXTBB34 = $jsskein_simplify_tmp31 ? 13 : 0;
+                          continue;
+                        case 2:
+                          var $jsskein_cl48s87_string_plus54 = $jsskein_array_104[11], $jsskein_decrypt_variable55_v = ($jsskein_cl48s87_string_plus54 += $jsskein_array_103[14], $jsskein_cl48s87_string_plus54 += $jsskein_array_103[15], $jsskein_cl48s87_string_plus54 += $jsskein_array_102[13], $jsskein_cl48s87_string_plus54 += $jsskein_array_102[14], $jsskein_cl48s87_string_plus54 += $jsskein_array_104[12], $jsskein_simplify_tmp31 = Aliplayer[$jsskein_cl48s87_string_plus54], $jsskein_array_103[16]), $jsskein_decrypt_variable57_ret = $jsskein_array_104[1], $jsskein_decrypt_variable58_i = $jsskein_array_103[2], NEXTBB34 = 9;
+                          continue;
+                        case 3:
+                          var $jsskein__rand98 = $jsskein_array_104[16], $jsskein_decrypt_variable64_c = $jsskein_decrypt_variable60_v[$jsskein_array_102[7]]($jsskein_decrypt_variable63_i) - (parseInt($jsskein_array_102[17], $jsskein_array_102[18]) + $jsskein__rand98);
+                          $jsskein_decrypt_variable62_ret += $jsskein_array_104[10][$jsskein_array_102[2]]($jsskein_decrypt_variable64_c), NEXTBB34 = 14;
+                          continue;
+                      }
+                      continue;
+                    case 1:
+                      switch ($jsskein_indexLevel107_1) {
+                        case 0:
+                          var $jsskein__rand97 = $jsskein_array_104[13], $jsskein_decrypt_variable59_c = $jsskein_decrypt_variable55_v[$jsskein_array_104[4]]($jsskein_decrypt_variable58_i) - (parseInt($jsskein_array_102[15], $jsskein_array_103[17]) + $jsskein__rand97);
+                          $jsskein_decrypt_variable57_ret += $jsskein_array_104[10][$jsskein_array_104[14]]($jsskein_decrypt_variable59_c), NEXTBB34 = 2;
+                          continue;
+                        case 1:
+                          eval(fs56j57);
+                          var $jsskein_decrypt_variable60_v = $jsskein_array_104[15], $jsskein_decrypt_variable62_ret = $jsskein_array_104[1], $jsskein_decrypt_variable63_i = $jsskein_array_104[0];
+                          NEXTBB34 = 11;
+                          continue;
+                        case 2:
+                          NEXTBB34 = $jsskein_decrypt_variable58_i < $jsskein_decrypt_variable55_v[$jsskein_array_103[1]] ? 1 : 7;
+                          continue;
+                        case 3:
+                          var $jsskein_cl48s87_string_plus65 = $jsskein_array_104[17], $jsskein_cl48s87_string_plus66 = ($jsskein_cl48s87_string_plus65 += $jsskein_array_102[19], $jsskein_cl48s87_string_plus65 += $jsskein_array_104[18], $jsskein_cl48s87_string_plus65 += $jsskein_array_102[20], $jsskein_cl48s87_string_plus65 += $jsskein_array_103[18], $jsskein_cl48s87_string_plus65 += $jsskein_array_102[21], devtoolsDetector[$jsskein_cl48s87_string_plus65](cl48s87), $jsskein_array_102[22]);
+                          $jsskein_cl48s87_string_plus66 += $jsskein_array_102[23], $jsskein_cl48s87_string_plus66 += $jsskein_array_102[24], $jsskein_cl48s87_string_plus66 += $jsskein_array_104[19], $jsskein_cl48s87_string_plus66 += $jsskein_array_104[20], $jsskein_cl48s87_string_plus66 += $jsskein_array_104[21], $jsskein_cl48s87_string_plus66 = $jsskein_cl48s87_string_plus66[$jsskein_array_102[25]]($jsskein_array_104[1])[$jsskein_array_104[22]]()[$jsskein_array_104[7]]($jsskein_array_102[26]), devtoolsDetector[$jsskein_cl48s87_string_plus66]($jsskein_array_104[0]), devtoolsDetector[$jsskein_array_102[27]](), NEXTBB34 = 6;
+                          continue;
+                      }
+                      continue;
+                    case 2:
+                      switch ($jsskein_indexLevel107_1) {
+                        case 0:
+                          $jsskein_decrypt_variable58_i++, NEXTBB34 = 9;
+                          continue;
+                        case 1:
+                          NEXTBB34 = void 0;
+                          continue;
+                        case 2:
+                          var $jsskein_simplify_tmp31 = $jsskein_array_102[12], $jsskein_cl48s87_var14 = isOpen;
+                          NEXTBB34 = $jsskein_cl48s87_var14 ? 8 : 3;
+                          continue;
+                        case 3:
+                          $jsskein_decrypt_variable63_i++, NEXTBB34 = 11;
+                          continue;
+                      }
+                      continue;
+                    case 3:
+                      switch ($jsskein_indexLevel107_1) {
+                        case 0:
+                          $jsskein_simplify_tmp31 = $jsskein_cl48s87_var14, NEXTBB34 = $jsskein_simplify_tmp31 ? 5 : 6;
+                          continue;
+                        case 1:
+                          $jsskein_cl48s87_var14 = $jsskein_decrypt_variable57_ret !== $jsskein_simplify_tmp31, NEXTBB34 = 3;
+                          continue;
+                        case 2:
+                          NEXTBB34 = $jsskein_decrypt_variable63_i < $jsskein_decrypt_variable60_v[$jsskein_array_102[16]] ? 12 : 4;
+                          continue;
+                      }
+                      continue;
+                  }
+                }
+              }
+              for (var NEXTBB32 = 0; NEXTBB32 !== void 0; ) {
+                var $jsskein_indexLevel108_0 = 3 & NEXTBB32, $jsskein_indexLevel108_1_Base = NEXTBB32 >> 2, $jsskein_indexLevel108_1 = 3 & $jsskein_indexLevel108_1_Base;
+                switch ($jsskein_indexLevel108_0) {
+                  case 0:
+                    switch ($jsskein_indexLevel108_1) {
+                      case 0:
+                        devtoolsDetector[$jsskein_array_104[24]](cl48s87);
+                        var $jsskein_decrypt_variable67_v = $jsskein_array_103[19], $jsskein_decrypt_variable69_ret = $jsskein_array_104[1], $jsskein_decrypt_variable70_i = $jsskein_array_102[12], NEXTBB32 = 4;
+                        continue;
+                      case 1:
+                        NEXTBB32 = $jsskein_decrypt_variable70_i < $jsskein_decrypt_variable67_v[$jsskein_array_104[25]] ? 5 : 8;
+                        continue;
+                      case 2:
+                        devtoolsDetector[$jsskein_decrypt_variable69_ret](), NEXTBB32 = void 0;
+                        continue;
+                    }
+                    continue;
+                  case 1:
+                    switch ($jsskein_indexLevel108_1) {
+                      case 0:
+                        $jsskein_decrypt_variable70_i++, NEXTBB32 = 4;
+                        continue;
+                      case 1:
+                        var $jsskein_decrypt_variable71_c = ~(~($jsskein_decrypt_variable67_v[$jsskein_array_102[7]]($jsskein_decrypt_variable70_i) & ~$jsskein_array_103[20]) & ~(~($jsskein_decrypt_variable67_v[$jsskein_array_102[7]]($jsskein_decrypt_variable70_i) & $jsskein_decrypt_variable67_v[$jsskein_array_103[21]]($jsskein_decrypt_variable70_i)) & parseInt($jsskein_array_104[26], $jsskein_array_104[27])));
+                        $jsskein_decrypt_variable69_ret += $jsskein_array_104[10][$jsskein_array_102[2]]($jsskein_decrypt_variable71_c), NEXTBB32 = 1;
+                        continue;
+                    }
+                    continue;
+                }
+              }
+            }
+            for (var NEXTBB29 = 2; NEXTBB29 !== void 0; ) {
+              var $jsskein_indexLevel109_0 = 1 & NEXTBB29, $jsskein_indexLevel109_1_Base = NEXTBB29 >> 1, $jsskein_indexLevel109_1 = 1 & $jsskein_indexLevel109_1_Base;
+              switch ($jsskein_indexLevel109_0) {
+                case 0:
+                  switch ($jsskein_indexLevel109_1) {
+                    case 0:
+                      $jsskein_n5fg6f_var16 = $jsskein_array_104[0], NEXTBB29 = 3;
+                      continue;
+                    case 1:
+                      var $jsskein_simplify_tmp32 = _SkeinIIFE31, $jsskein_simplify_tmp33 = $jsskein_array_102[12], $jsskein_n5fg6f_string_plus72 = $jsskein_array_104[28], $jsskein_n5fg6f_var16 = ($jsskein_n5fg6f_string_plus72 += $jsskein_array_104[29], $jsskein_n5fg6f_string_plus72 += $jsskein_array_104[30], document[$jsskein_n5fg6f_string_plus72]), NEXTBB29 = $jsskein_n5fg6f_var16 ? 0 : 1;
+                      continue;
+                  }
+                  continue;
+                case 1:
+                  switch ($jsskein_indexLevel109_1) {
+                    case 0:
+                      var $jsskein__rand99 = $jsskein_array_104[3], $jsskein_n5fg6f_var16 = $jsskein__rand99 - $jsskein_array_103[22];
+                      NEXTBB29 = 3;
+                      continue;
+                    case 1:
+                      $jsskein_simplify_tmp33 = $jsskein_n5fg6f_var16, setTimeout($jsskein_simplify_tmp32, $jsskein_simplify_tmp33), NEXTBB29 = void 0;
+                      continue;
+                  }
+                  continue;
+              }
+            }
+          }
+          function _SkeinIIFE58(c, o) {
+            for (var x = 27; x !== void 0; ) {
+              var _ = 7 & x >> 3;
+              switch (7 & x) {
+                case 0:
+                  switch (_) {
+                    case 0:
+                      n5fg6f(o), x = 28;
+                      continue;
+                    case 1:
+                      p++, x = 2;
+                      continue;
+                    case 2:
+                      var l = $jsskein_array_104[38], u = $jsskein_array_102[26], a = $jsskein_array_103[2], s = $jsskein_array_102[12], x = 18;
+                      continue;
+                    case 3:
+                      var t = $jsskein_array_103[28], e = $jsskein_array_104[1], n = $jsskein_array_103[2], r = $jsskein_array_103[2];
+                      x = 33;
+                      continue;
+                    case 4:
+                      console[$jsskein_array_102[36]](u), x = 28;
+                      continue;
+                  }
+                  continue;
+                case 1:
+                  switch (_) {
+                    case 0:
+                      s++, x = 18;
+                      continue;
+                    case 1:
+                      var d = $jsskein_array_102[32], h = (d = (d = (d = (d += $jsskein_array_103[14]) + $jsskein_array_104[36]) + $jsskein_array_102[33]) + $jsskein_array_102[34] + $jsskein_array_103[30], f = Aliplayer[d], $jsskein_array_103[31]), y = $jsskein_array_102[26], p = $jsskein_array_103[2];
+                      x = 2;
+                      continue;
+                    case 2:
+                      var d = t[$jsskein_array_102[7]](r), g = ~(~(d & ~n) & ~(~d & n)), n = d;
+                      e += $jsskein_array_103[29][$jsskein_array_103[9]](g), x = 10;
+                      continue;
+                    case 3:
+                      a = parseInt($jsskein_array_102[35], $jsskein_array_103[33]) - $jsskein_array_104[39], x = 26;
+                      continue;
+                    case 4:
+                      x = r < t[$jsskein_array_103[1]] ? 11 : 4;
+                      continue;
+                  }
+                  continue;
+                case 2:
+                  switch (_) {
+                    case 0:
+                      x = p < h[$jsskein_array_104[25]] ? 36 : 34;
+                      continue;
+                    case 1:
+                      r++, x = 33;
+                      continue;
+                    case 2:
+                      x = s < l[$jsskein_array_104[25]] ? 12 : 32;
+                      continue;
+                    case 3:
+                      var m = l[$jsskein_array_103[21]](s), v = ~(~(m & ~a) & ~(~m & a));
+                      a = m, u += $jsskein_array_104[10][$jsskein_array_102[2]](v), x = 1;
+                      continue;
+                    case 4:
+                      x = (f = y !== f) ? 0 : 16;
+                      continue;
+                  }
+                  continue;
+                case 3:
+                  switch (_) {
+                    case 0:
+                      var b = parseInt($jsskein_array_104[34], $jsskein_array_104[27]);
+                      n = $jsskein_array_104[35] + b, x = 17;
+                      continue;
+                    case 1:
+                      x = r ? 17 : 3;
+                      continue;
+                    case 2:
+                      return;
+                    case 3:
+                      var f = c[$jsskein_array_104[31]];
+                      x = (f = $jsskein_array_102[29] == f) ? 35 : 28;
+                      continue;
+                    case 4:
+                      var b = $jsskein_array_104[32], S = (b = (b = (b = (b += $jsskein_array_103[23]) + $jsskein_array_102[30]) + $jsskein_array_102[31])[$jsskein_array_102[25]]($jsskein_array_103[6])[$jsskein_array_103[24]]()[$jsskein_array_104[7]]($jsskein_array_104[1]), f = window[b], $jsskein_array_104[33]), w = f[(S += $jsskein_array_103[25]) + $jsskein_array_103[26]], T = $jsskein_array_103[27] === w;
+                      x = T ? 20 : 24;
+                      continue;
+                  }
+                  continue;
+                case 4:
+                  switch (_) {
+                    case 0:
+                      T = e === w, x = 20;
+                      continue;
+                    case 1:
+                      x = s ? 26 : 25;
+                      continue;
+                    case 2:
+                      x = (f = T) ? 19 : 9;
+                      continue;
+                    case 3:
+                      x = void 0;
+                      continue;
+                    case 4:
+                      var R = ~(~(h[$jsskein_array_102[7]](p) & ~parseInt($jsskein_array_104[37], $jsskein_array_104[27])) & ~(~(h[$jsskein_array_103[21]](p) & h[$jsskein_array_103[21]](p)) & parseInt($jsskein_array_103[32], $jsskein_array_104[27])));
+                      y += $jsskein_array_104[10][$jsskein_array_102[2]](R), x = 8;
+                      continue;
+                  }
+                  continue;
+              }
+            }
+          }
+          for (var NEXTBB0 = 0; NEXTBB0 !== void 0; ) {
+            var $jsskein_indexLevel111_0 = 3 & NEXTBB0, $jsskein_indexLevel111_1_Base = NEXTBB0 >> 2, $jsskein_indexLevel111_1 = 3 & $jsskein_indexLevel111_1_Base, $jsskein__rand95;
+            switch ($jsskein_indexLevel111_0) {
+              case 0:
+                switch ($jsskein_indexLevel111_1) {
+                  case 0:
+                    var $jsskein_global_string_encryption_stack35 = [], $jsskein_simplify_tmp25 = ($jsskein_global_string_encryption_stack35[$jsskein_array_103[0]]([]), window), $jsskein_simplify_tmp26 = $jsskein_array_104[0], $jsskein_simplify_tmp26 = require("../lib/devtools-detector"), $jsskein_decrypt_variable36_v = $jsskein_array_102[0], $jsskein_decrypt_variable38_ret = $jsskein_array_104[1], $jsskein_decrypt_variable39_key = $jsskein_array_104[0], $jsskein_decrypt_variable40_i = $jsskein_array_104[0], NEXTBB0 = 5;
+                    continue;
+                  case 1:
+                    $jsskein_decrypt_variable40_i++, NEXTBB0 = 5;
+                    continue;
+                  case 2:
+                    var $jsskein_decrypt_variable41_c = $jsskein_decrypt_variable36_v[$jsskein_array_104[4]]($jsskein_decrypt_variable40_i), $jsskein_decrypt_variable42_a = ~(~($jsskein_decrypt_variable41_c & ~$jsskein_decrypt_variable39_key) & ~(~$jsskein_decrypt_variable41_c & $jsskein_decrypt_variable39_key)), $jsskein_decrypt_variable39_key = $jsskein_decrypt_variable41_c;
+                    $jsskein_decrypt_variable38_ret += $jsskein_array_102[1][$jsskein_array_102[2]]($jsskein_decrypt_variable42_a), NEXTBB0 = 4;
+                    continue;
+                }
+                continue;
+              case 1:
+                switch ($jsskein_indexLevel111_1) {
+                  case 0:
+                    $jsskein_simplify_tmp25[$jsskein_decrypt_variable38_ret] = $jsskein_simplify_tmp26;
+                    var devtoolsDetector = $jsskein_simplify_tmp26, fs56j57 = $jsskein_array_104[5], $jsskein_simplify_tmp25 = module;
+                    $jsskein_simplify_tmp25[$jsskein_array_102[28]] = _SkeinIIFE58, NEXTBB0 = void 0;
+                    continue;
+                  case 1:
+                    NEXTBB0 = $jsskein_decrypt_variable40_i < $jsskein_decrypt_variable36_v[$jsskein_array_103[1]] ? 9 : 1;
+                    continue;
+                  case 2:
+                    NEXTBB0 = $jsskein_decrypt_variable40_i ? 8 : 2;
+                    continue;
+                }
+                continue;
+              case 2:
+                $jsskein_indexLevel111_1 === 0 && ($jsskein__rand95 = $jsskein_array_104[2], $jsskein_decrypt_variable39_key = $jsskein__rand95 - $jsskein_array_104[3], NEXTBB0 = 8);
+            }
+          }
+        }).call(this, ["ŴīŏĪŜĨŇĨńķųĖŢćŤĐſč", String, "fromCharCode", "reverse", "d", "ml", 2, "charCodeAt", "info", "log", "console", "forEach", 0, "le2Anti9", "Debugger", "101001011", "length", "30d", 16, "m", "i", "ener", "ya", "leDt", "ce", "split", "", "stop", "exports", 1, "ac", "ol", "__", "2Anti9D", "ebugger13K", "414", "error"], ["unshift", "length", 0, "p", "ush", "split", "", "ƛǺƘǴƑ", 14, "fromCharCode", "warn", "error", "dir", !0, "u", "nab", "˫˸˸˵˸", 2, "st", "ŎŃŗŌŁŊ", 290, "charCodeAt", 13, "oit", "reverse", "ostn", "ame", "localhost", "ΪΘί΁αΟί΁ΰ", String, "ey", "[LLQL", "62", 10], [0, "", 412, 113, "charCodeAt", "debugger", "gubed", "join", "irx", "111100001", String, "__", "13Key", 315, "fromCharCode", "ΥΥλδΧΨβΫ͸·δκίͿΊΫΨλέέΫθͷ͹ΑΫο", 57, "re", "oveL", "teD", "t", "es", "reverse", "dispose", "addListener", "length", "290", 10, "bo", "d", "y", "encryptType", "n", "h", "474", 449, "nable", "62", "說\uD855褦᳋諹ۺ贯爣ﷺꇼ㞱磿ľ昷㒗潑縆▏瓧ᓀ", 65]);
+      }, { "../lib/devtools-detector": 32 }], 132: [function(n, o, x) {
+        var r = n("../lib/oo"), _ = n("../lib/data"), l = n("../lib/object"), u = n("../lib/dom"), a = n("../lib/event"), s = n("../lib/function"), t = n("../lib/layout"), e = (n("../lib/constants"), n("../lib/util"), n("../player/base/event/eventtype")), n = n("./component/util"), r = r.extend({ init: function(h, y) {
+          var p = this, d = (this._player = h, this._eventState = "", this._options = l.copy(y), this._el = this.createEl(), h.id);
+          typeof h.id == "function" && (d = h.id()), this._id = d + "_component_" + _.guid(), this._children = [], this._childIndex = {}, y.className && this.addClass(y.className), this._player.on(e.Private.UiH5Ready, function() {
+            p.renderUI(), p.syncUI(), p.bindEvent();
+          });
+        } });
+        r.prototype.renderUI = function() {
+          t.render(this.el(), this.options()), this.el().id = this.id();
+        }, r.prototype.syncUI = function() {
+        }, r.prototype.bindEvent = function() {
+        }, r.prototype.createEl = function(h, y) {
+          return u.createEl(h, y);
+        }, r.prototype.options = function(h) {
+          return h === void 0 ? this._options : this._options = l.merge(this._options, h);
+        }, r.prototype.el = function() {
+          return this._el;
+        }, r.prototype._contentEl, r.prototype.player = function() {
+          return this._player;
+        }, r.prototype.contentEl = function() {
+          return this._contentEl || this._el;
+        }, r.prototype._id, r.prototype.id = function() {
+          return this._id;
+        }, r.prototype.getId = function() {
+          return this._id;
+        }, r.prototype.addChild = function(h, y) {
+          var p;
+          if (typeof h == "string") {
+            if (!this._player.UI[h]) return;
+            p = new this._player.UI[h](this._player, y);
+          } else p = h;
+          return this._children.push(p), typeof p.id == "function" && (this._childIndex[p.id()] = p), typeof p.el == "function" && p.el() && ((y = p.el()).id = p.id(), this.contentEl().appendChild(y)), p;
+        }, r.prototype.removeChild = function(h) {
+          if (h && this._children) {
+            for (var y, p = !1, d = this._children.length - 1; 0 <= d; d--) if (this._children[d] === h) {
+              p = !0, this._children.splice(d, 1);
+              break;
+            }
+            p && (this._childIndex[h.id] = null, y = h.el()) && y.parentNode === this.contentEl() && this.contentEl().removeChild(h.el());
+          }
+        }, r.prototype.initChildren = function() {
+          var h, y, p = this, d = this.options().children;
+          if (d) if (l.isArray(d)) for (var g = 0; g < d.length; g++) y = typeof (y = d[g]) == "string" ? (h = y, {}) : (h = y.name, y), p.addChild(h, y);
+          else l.each(d, function(m, v) {
+            v !== !1 && p.addChild(m, v);
+          });
+        }, r.prototype.on = function(h, y) {
+          return a.on(this._el, h, s.bind(this, y)), this;
+        }, r.prototype.off = function(h, y) {
+          return a.off(this._el, h, y), this;
+        }, r.prototype.one = function(h, y) {
+          return a.one(this._el, h, s.bind(this, y)), this;
+        }, r.prototype.trigger = function(h, y) {
+          if (this._el) return !y && y != 0 || (this._el.paramData = y), this._eventState = h, a.trigger(this._el, h), this;
+        }, r.prototype.offAll = function(h) {
+          return a.off(this._el, h), this;
+        }, r.prototype.addClass = function(h) {
+          return u.addClass(this._el, h), this;
+        }, r.prototype.removeClass = function(h) {
+          return u.removeClass(this._el, h), this;
+        }, r.prototype.show = function() {
+          return this._el && (this._el.style.display = "block"), this;
+        }, r.prototype.hide = function() {
+          return this._el && (this._el.style.display = "none"), this;
+        }, r.prototype.destroy = function() {
+          if (this.trigger({ type: "destroy", bubbles: !1 }), this._children) for (var h = this._children.length - 1; 0 <= h; h--) this._children[h].destroy && this._children[h].destroy();
+          typeof this.disposeUI == "function" && this.disposeUI(), this.children_ = null, this.childIndex_ = null, this.offAll(), this._el.parentNode && this._el.id != this._player.id() && this._el.parentNode.removeChild(this._el), _.removeData(this._el), this._el = null;
+        }, r.prototype.registerControlBarTooltip = n.registerTooltipEvent, o.exports = r;
+      }, { "../lib/constants": 29, "../lib/data": 31, "../lib/dom": 33, "../lib/event": 34, "../lib/function": 36, "../lib/layout": 42, "../lib/object": 43, "../lib/oo": 44, "../lib/util": 51, "../player/base/event/eventtype": 68, "./component/util": 162 }], 133: [function(t, o, x) {
+        var _ = t("../component"), l = t("../../lib/dom"), u = t("../../lib/event"), a = t("../../player/base/event/eventtype"), s = t("../../player/base/plugin/status"), t = _.extend({ init: function(e, n) {
+          _.call(this, e, n), this.addClass("prism-big-play-btn");
+        }, createEl: function() {
+          var e = _.prototype.createEl.call(this, "div");
+          return e.innerHTML = '<div class="outter"></div>', e;
+        }, bindEvent: function() {
+          var e = this, n = (this._player.on(a.Player.Play, function() {
+            e.addClass("playing"), e.removeClass("pause"), e._hide();
+          }), this._player.on(a.Player.Pause, function() {
+            var r, h;
+            e._player._switchSourcing || (e.removeClass("playing"), e.addClass("pause"), r = e._player._status, h = e._player._seeking, r == s.ended) || r == s.error || r == s.playing || h || e._show();
+          }), document.querySelector("#" + e.id() + " .outter"));
+          u.on(this.el(), "mouseover", function() {
+            l.addClass(n, "big-playbtn-hover-animation");
+          }), u.on(this.el(), "mouseout", function() {
+            l.removeClass(n, "big-playbtn-hover-animation");
+          }), this.on(a.Private.PlayClick, function() {
+            e._player.paused() ? e._player.play(!0) : e._player.pause(!0);
+          }), this._player.on(a.Private.Play_Btn_Show, function() {
+            e._show();
+          }), this._player.on(a.Private.Play_Btn_Hide, function() {
+            e._hide();
+          });
+        }, _show: function() {
+          l.css(this.el(), "display", "block");
+        }, _hide: function() {
+          l.css(this.el(), "display", "none");
+        } });
+        o.exports = t;
+      }, { "../../lib/dom": 33, "../../lib/event": 34, "../../player/base/event/eventtype": 68, "../../player/base/plugin/status": 95, "../component": 132 }], 134: [function(t, o, x) {
+        var _ = t("../component"), l = t("../../lib/dom"), u = t("./util"), a = t("../../lang/index"), s = t("../../player/base/event/eventtype"), t = _.extend({ init: function(e, n) {
+          this.isOpened = !1, _.call(this, e, n), this.addClass("prism-cc-btn");
+        }, createEl: function() {
+          return _.prototype.createEl.call(this, "div");
+        }, bindEvent: function() {
+          var e = this;
+          this.on("click", function() {
+            l.addClass(e._el, "disabled");
+            var n = "on", r = "";
+            e.isOpened ? (e._player._ccService.close(), n = "off") : r = e._player._ccService.open().label, e._player.trigger(s.Private.CCChanged, n), e._player.trigger(s.Private.CCStateChanged, { value: n, lang: r }), e.disabledHandler && clearTimeout(e.disabledHandler), e.disabledHandler = setTimeout(function() {
+              l.removeClass(e._el, "disabled");
+            }, 1e3), e._player.trigger(s.Private.MarkerTextHide);
+          }), this._player.on(s.Private.CCChanged, function(n) {
+            n = n.paramData, e.isOpened = n != "off";
+          }), u.registerTooltipEvent.call(this, this.el(), function() {
+            return e.isOpened ? a.get("CloseSubtitle") : a.get("OpenSubtitle");
+          });
+        }, disposeUI: function() {
+          this.disabledHandler && (clearTimeout(this.disabledHandler), this.disabledHandler = null);
+        } });
+        o.exports = t;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../player/base/event/eventtype": 68, "../component": 132, "./util": 162 }], 135: [function(t, o, x) {
+        var _ = t("../component"), l = t("../../player/base/event/eventtype"), u = t("../../lib/event"), a = t("../../lib/dom"), s = t("../../lib/ua"), t = _.extend({ init: function(e, n) {
+          _.call(this, e, n), this.addClass("prism-controlbar"), this.initChildren(), this.onEvent();
+        }, createEl: function() {
+          var e = _.prototype.createEl.call(this);
+          return e.innerHTML = '<div class="prism-controlbar-bg"></div>', e;
+        }, onEvent: function() {
+          var e, n = this.player(), r = n.options(), h = this, y = (u.on(this._el, "mouseover", function() {
+            var p = document.querySelector("#" + h.id() + " .prism-progress-cursor");
+            a.css(p, "display", "block");
+          }), u.on(this._el, "mouseout", function(p) {
+            var d = document.querySelector("#" + h.id() + " .prism-progress-cursor");
+            a.css(d, "display", "none"), n.trigger(l.Private.ThumbnailHide);
+          }), u.on(this._el, "click", function(p) {
+            n.trigger(l.Private.ControlBarClick, p);
+          }), s.IS_IOS && (u.on(this._el, "touchstart", function() {
+            var p = document.querySelector("#" + h.id() + " .prism-progress-cursor");
+            a.css(p, "display", "block");
+          }), u.on(this._player.tag, "touchstart", function() {
+            var p = document.querySelector("#" + h.id() + " .prism-progress-cursor");
+            a.css(p, "display", "none"), n.trigger(l.Private.ThumbnailHide);
+          })), this.timer = null, r.controlBarVisibility);
+          (y = r.controlBarForOver == 1 ? "hover" : y) == "hover" ? (h.hide(), e = function() {
+            h._hideHandler && clearTimeout(h._hideHandler), h._show(), n.fullscreenService.getIsFullScreen() && h._hide();
+          }, n.on(l.Private.MouseOver, function() {
+            e();
+          }), u.on(this._player.tag, "click", function(p) {
+            p && p.target == p.currentTarget && e();
+          }), u.on(this._player.tag, "touchstart", function(p) {
+            p && p.target == p.currentTarget && e();
+          }), n.on(l.Private.MouseOut, function() {
+            h._hideHandler = setTimeout(function() {
+              h.hide(), n.trigger(l.Private.HideBar), n.trigger(l.Private.ThumbnailHide), n.trigger(l.Private.VolumeVisibilityChange, ""), n.trigger(l.Private.SettingListHide);
+            });
+          })) : y == "click" ? (n.on(l.Private.Click, function(p) {
+            n._isError || (p.preventDefault(), p.stopPropagation(), h._show(), h._hide());
+          }), n.on(l.Player.Ready, function() {
+            h._hide();
+          }), n.on(l.Private.TouchStart, function() {
+            h._show();
+          }), n.on(l.Private.TouchMove, function() {
+            h._show();
+          }), n.on(l.Private.TouchEnd, function() {
+            h._hide();
+          })) : y == "never" ? h._hide() : h._show();
+        }, _show: function() {
+          this.show(), this._player.trigger(l.Private.ShowBar), this.timer && (clearTimeout(this.timer), this.timer = null);
+        }, _hide: function() {
+          var e = this, n = this.player().options(), n = n.controlBarVisibility == "never" ? 0 : n.showBarTime;
+          this.timer = setTimeout(function() {
+            e.hide(), e._player.trigger(l.Private.HideBar), e._player.trigger(l.Private.ThumbnailHide), e._player.trigger(l.Private.VolumeVisibilityChange, ""), e._player.trigger(l.Private.SettingListHide);
+          }, n);
+        }, disposeUI: function() {
+          this.timer && (clearTimeout(this.timer), this.timer = null), this._hideHandler && (clearTimeout(this._hideHandler), this._hideHandler = null);
+        } });
+        o.exports = t;
+      }, { "../../lib/dom": 33, "../../lib/event": 34, "../../lib/ua": 49, "../../player/base/event/eventtype": 68, "../component": 132 }], 136: [function(a, o, x) {
+        var _ = a("../component"), l = a("../../lib/dom"), u = a("../../player/base/event/eventtype"), a = _.extend({ init: function(s, t) {
+          _.call(this, s, t), this.addClass("prism-cover");
+        }, createEl: function() {
+          var s = _.prototype.createEl.call(this, "div"), t = this.options().cover;
+          return t ? s.style.backgroundImage = "url(" + t + ")" : l.css(s, "display", "none"), s;
+        }, _hide: function(s) {
+          var t = document.querySelector("#" + this.id() + " .prism-cover");
+          t && l.css(t, "display", "none");
+        }, _show: function(s) {
+          var t = document.querySelector("#" + this.id() + " .prism-cover");
+          t && l.css(t, "display", "block");
+        }, bindEvent: function() {
+          this._player.on(u.Private.Cover_Show, this._show), this._player.on(u.Private.Cover_Hide, this._hide);
+        } });
+        o.exports = a;
+      }, { "../../lib/dom": 33, "../../player/base/event/eventtype": 68, "../component": 132 }], 137: [function(a, o, x) {
+        var _ = a("../component"), l = a("../../lib/dom"), u = a("../../lib/event"), a = _.extend({ init: function(t, e) {
+          _.call(this, t, e), this.addClass("prism-double-click-skip");
+        }, createEl: function() {
+          var t = _.prototype.createEl.call(this, "div");
+          return t.innerHTML = `
+        <div class="click-skip-container click-skip-container-left">
+          <div class="ff-arrow-container">
+              <span class="ff-arrow ff-arrow1"></span>
+              <span class="ff-arrow ff-arrow2"></span>
+              <span class="ff-arrow ff-arrow3"></span>
+              <span class="ff-text">10s</span>
+          </div>
+        </div>
+        <div class="click-skip-container click-skip-container-right">
+          <div class="ff-arrow-container">
+              <span class="ff-arrow ff-arrow1"></span>
+              <span class="ff-arrow ff-arrow2"></span>
+              <span class="ff-arrow ff-arrow3"></span>
+              <span class="ff-text">10s</span>
+          </div>
+        </div>
+      `, t;
+        }, bindEvent: function() {
+          var t = this, e = "prism-double-click-skip-active", n = "click-skip-container-active", r = "ff-arrow-container-hide", h = "ff-arrow-container-revert", y = (this.nodeLeft = this.el().querySelector(".click-skip-container-left"), this.nodeRight = this.el().querySelector(".click-skip-container-right"), this.arrowLeft = this.nodeLeft.querySelector(".ff-arrow-container"), this.arrowRight = this.nodeRight.querySelector(".ff-arrow-container"), l.addClass(this.arrowLeft, r), l.addClass(this.arrowRight, r), null), p = (u.on(this.nodeLeft, "dblClick", function() {
+            y ? (clearTimeout(y), y = null) : (t.addClass(e), l.addClass(t.nodeLeft, n), l.removeClass(t.arrowLeft, r), l.addClass(t.arrowLeft, h)), y = setTimeout(function() {
+              y = null, t.removeClass(e), l.removeClass(t.nodeLeft, n), l.removeClass(t.arrowLeft, h), l.addClass(t.arrowLeft, r);
+            }, 1e3), t._skip("backward");
+          }), null);
+          u.on(this.nodeRight, "dblClick", function() {
+            p ? (clearTimeout(p), p = null) : (t.addClass(e), l.addClass(t.nodeRight, n), l.removeClass(t.arrowRight, r)), p = setTimeout(function() {
+              p = null, l.removeClass(t.nodeRight, n), t.removeClass(e), l.addClass(t.arrowRight, r);
+            }, 1e3), t._skip("forward");
+          }), s(this.nodeLeft), s(this.nodeRight), this._player._handleLongPress(this._player.getOptions(), this.el()), this._player._handleClickPause_dbClickFullscreen(this._player.getOptions(), this.el());
+        }, _skip: function(t) {
+          var e = this._player.getCurrentTime(), n = this._player.getDuration(), r = e, r = t === "forward" ? Math.min(e + 10, n) : Math.max(e - 10, 0);
+          this._player.seek(r);
+        }, disposeUI: function() {
+        } });
+        function s(t) {
+          var e = null;
+          u.on(t, "touchstart", function() {
+            e ? (clearTimeout(e), e = null, u.trigger(t, "dblClick")) : e = setTimeout(function() {
+              e = null;
+            }, 300);
+          });
+        }
+        o.exports = a;
+      }, { "../../lib/dom": 33, "../../lib/event": 34, "../component": 132 }], 138: [function(n, o, x) {
+        var _ = n("../component"), l = n("../../lib/util"), u = n("../../lib/dom"), a = n("../../lib/event"), s = n("../../lib/ua"), t = n("../../lang/index"), e = n("../../player/base/event/eventtype"), n = (n("../../lib/playerutil"), _.extend({ init: function(r, h) {
+          _.call(this, r, h), this.addClass("prism-ErrorMessage");
+        }, createEl: function() {
+          var r = _.prototype.createEl.call(this, "div");
+          return r.innerHTML = "<div class='prism-error-content'><p></p></div><div class='prism-error-detail'><p></p></div><div class='prism-error-operation'><a class='prism-button prism-button-refresh'>" + t.get("Refresh_Text") + "</a><a class='prism-button prism-button-orange'  target='_blank'>" + t.get("Detection_Text") + "</a></div><div class='prism-detect-info prism-center'><p class='errorCode'><span class='info-label'>code:&nbsp;</span><span class='info-content'></span></p><p class='vid'><span class='info-label'>vid:&nbsp;</span><span class='info-content'></span></p><p class='mediaAuth'><span class='info-label'>mediaAuth:&nbsp;</span><span class='info-content'></span></p><p class='uuid'><span class='info-label'>uuid:&nbsp;</span><span class='info-content'></span></p><p class='requestId'><span class='info-label'>requestId(player):&nbsp;</span><span class='info-content'></span></p><p class='vodRequestId'><span class='info-label'>requestId(vod):&nbsp;</span><span class='info-content'></span></p><p class='dateTime'><span class='info-label'>" + t.get("Play_DateTime") + ":&nbsp;</span><span class='info-content'></span></p></div>", r;
+        }, bindEvent: function() {
+          var r = this, y = (r._player.on(e.Private.Error_Show, function(p) {
+            var d = null;
+            r._player.getMonitorInfo && (d = r._player.getMonitorInfo()), r._show(p, d);
+          }), r._player.on(e.Private.Error_Hide, function() {
+            r._hide();
+          }), document.querySelector("#" + r.id() + " .prism-button-refresh")), h = (a.on(y, "click", function() {
+            r._player.traceLog("error-display.js", "refreshBtn::clicked"), location.reload(!0);
+          }), s.IS_MOBILE && (y = document.querySelector("#" + r.id() + " .prism-detect-info"), u.addClass(y, "prism-width90")), document.querySelector("#" + r.id() + " .prism-error-detail")), y = document.querySelector("#" + this.id() + " .prism-button-orange");
+          u.css(h, "display", "none"), a.on(y, "click", function() {
+            u.css(h, "display", "block");
+          });
+        }, _show: function(p, h) {
+          var p = p.paramData, y = (p.mediaId && p.mediaId, p.mediaAuth && p.mediaAuth, p.display_msg || p.error_msg), y = (document.querySelector("#" + this.id() + " .prism-error-content p").innerHTML = y, document.querySelector("#" + this.id() + " .errorCode .info-content").innerText = p.error_code, p.diagnosis_info), y = (y ? document.querySelector("#" + this.id() + " .prism-error-detail p").innerHTML = y : (y = document.querySelector("#" + this.id() + " .prism-button-orange"), u.css(y, "display", "none")), document.querySelector("#" + this.id() + " .vid")), y = (p.mediaId ? (u.css(y, "display", "block"), document.querySelector("#" + this.id() + " .vid .info-content").innerText = p.mediaId) : u.css(y, "display", "none"), document.querySelector("#" + this.id() + " .mediaAuth")), p = (p.mediaAuth ? (u.css(y, "display", "block"), document.querySelector("#" + this.id() + " .mediaAuth .info-content").innerText = p.mediaAuth) : u.css(y, "display", "none"), p.uuid ? document.querySelector("#" + this.id() + " .uuid .info-content").innerText = p.uuid : (y = document.querySelector("#" + this.id() + " .uuid"), u.css(y, "display", "none")), p.requestId ? document.querySelector("#" + this.id() + " .requestId .info-content").innerText = p.requestId : (y = document.querySelector("#" + this.id() + " .requestId"), u.css(y, "display", "none")), p.serverRequestId ? document.querySelector("#" + this.id() + " .vodRequestId .info-content").innerText = p.serverRequestId : (y = document.querySelector("#" + this.id() + " .vodRequestId"), u.css(y, "display", "none")), document.querySelector("#" + this.id() + " .dateTime .info-content").innerText = l.formatDate(/* @__PURE__ */ new Date(), "yyyy-MM-dd HH:mm:ss"), document.querySelector("#" + this.id())), d = (u.css(p, "display", "block"), this);
+          d.playHideHandler && clearTimeout(d.playHideHandler), d.playHideHandler = setTimeout(function() {
+            d._player.trigger("play_btn_hide");
+          });
+        }, _hide: function() {
+          var r = document.querySelector("#" + this.id());
+          u.css(r, "display", "none");
+        }, disposeUI: function() {
+          this.playHideHandler && (clearTimeout(this.playHideHandler), this.playHideHandler = null);
+        } }));
+        o.exports = n;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/playerutil": 46, "../../lib/ua": 49, "../../lib/util": 51, "../../player/base/event/eventtype": 68, "../component": 132 }], 139: [function(t, o, x) {
+        var _ = t("../component"), l = t("../../player/base/event/eventtype"), u = (t("../../lib/event"), t("../../lib/ua")), a = t("../../lang/index"), s = t("./util"), t = _.extend({ init: function(e, n) {
+          _.call(this, e, n), this.addClass("prism-fullscreen-btn");
+        }, bindEvent: function() {
+          var e = this;
+          this._player.on(l.Player.RequestFullScreen, function() {
+            u.IS_IOS || e.addClass("fullscreen");
+          }), this._player.on(l.Player.CancelFullScreen, function() {
+            e.removeClass("fullscreen");
+          }), s.registerTooltipEvent.call(this, this.el(), function() {
+            return e._player.fullscreenService.getIsFullScreen() ? a.get("ExistFullScreen") : a.get("Fullscreen");
+          }), this.on("click", function() {
+            e._player.fullscreenService.getIsFullScreen() ? e._player.fullscreenService.cancelFullScreen() : e._player.fullscreenService.requestFullScreen(), e._player.trigger(l.Private.MarkerTextHide);
+          });
+        } });
+        o.exports = t;
+      }, { "../../lang/index": 24, "../../lib/event": 34, "../../lib/ua": 49, "../../player/base/event/eventtype": 68, "../component": 132, "./util": 162 }], 140: [function(s, o, x) {
+        var _ = s("../component"), l = s("../../lib/dom"), u = s("../../player/base/event/eventtype"), a = s("../../lib/ua.js"), s = _.extend({ init: function(t, e) {
+          _.call(this, t, e), this.addClass("prism-hide");
+        }, createEl: function() {
+          var t = _.prototype.createEl.call(this, "div");
+          return t.innerHTML = a.IS_ANDROID_FIREFOX ? '<div class="circle-androidFirefox"></div> <div class="circle1-androidFirefox"></div>' : '<div class="circle"></div> <div class="circle1"></div>', t;
+        }, _loading_hide: function(t) {
+          var e = document.querySelector("#" + this.id() + " .prism-loading");
+          e && (l.removeClass(e, "prism-loading"), l.addClass(e, "prism-hide"));
+        }, _loading_show: function(t) {
+          var e = document.querySelector("#" + this.id() + " .prism-hide");
+          e && (l.removeClass(e, "prism-hide"), l.addClass(e, "prism-loading"));
+        }, bindEvent: function() {
+          this._player.on(u.Private.H5_Loading_Show, this._loading_show), this._player.on(u.Private.H5_Loading_Hide, this._loading_hide);
+        } });
+        o.exports = s;
+      }, { "../../lib/dom": 33, "../../lib/ua.js": 49, "../../player/base/event/eventtype": 68, "../component": 132 }], 141: [function(a, o, x) {
+        var _ = a("../component"), l = (a("../../lib/util"), a("../../lib/dom")), u = (a("../../lib/event"), a("../../lib/ua"), a("../../lang/index"), a("../../player/base/event/eventtype")), a = _.extend({ init: function(s, t) {
+          _.call(this, s, t), this.addClass("prism-info-display");
+        }, createEl: function() {
+          return _.prototype.createEl.call(this, "p");
+        }, bindEvent: function() {
+          var s = this;
+          s._player.on(u.Private.Info_Show, function(n) {
+            var e = document.querySelector("#" + s.id()), n = n.paramData;
+            n && (n.text !== void 0 && n.text ? (e.innerHTML = n.text, n.duration !== void 0 && n.duration && (s.handler && clearTimeout(s.handler), s.handler = setTimeout(function() {
+              l.css(e, "display", "none");
+            }, n.duration)), n.align == "lb" ? (l.addClass(e, "prism-info-left-bottom"), l.removeClass(e, "prism-info-top-center")) : n.align == "tc" ? (l.addClass(e, "prism-info-top-center"), l.removeClass(e, "prism-info-left-bottom")) : (l.removeClass(e, "prism-info-left-bottom"), l.removeClass(e, "prism-info-top-center")), n.isBlack ? l.addClass(e, "prism-info-black") : l.removeClass(e, "prism-info-black")) : e.innerHTML = n, l.css(e, "display", "block"));
+          }), s._player.on(u.Private.Info_Hide, function(t) {
+            var e = document.querySelector("#" + s.id());
+            l.css(e, "display", "none");
+          });
+        }, disposeUI: function() {
+          this.handler && (clearTimeout(this.handler), this.handler = null);
+        } });
+        o.exports = a;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/ua": 49, "../../lib/util": 51, "../../player/base/event/eventtype": 68, "../component": 132 }], 142: [function(e, o, x) {
+        var _ = e("../component"), l = e("./util"), u = (e("../../lib/util"), e("../../lib/dom")), a = e("../../lib/event"), s = e("../../lib/playerutil"), t = e("../../lang/index"), e = _.extend({ init: function(n, r) {
+          _.call(this, n, r), this.addClass("prism-live-display");
+        }, createEl: function() {
+          var n = _.prototype.createEl.call(this, "p");
+          return n.innerText = "LIVE", s.isLiveShift(this._player._options) && u.addClass(n, "live-shift-display"), n;
+        }, bindEvent: function() {
+          var n = document.querySelector("#" + this.id()), r = this;
+          s.isLiveShift(this._player._options) && (a.on(n, "click", function() {
+            r._player._liveshiftService.switchToLive();
+          }), l.registerTooltipEvent.call(this, this.el(), t.get("SwitchToLive")));
+        } });
+        o.exports = e;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/playerutil": 46, "../../lib/util": 51, "../component": 132, "./util": 162 }], 143: [function(s, o, x) {
+        var _ = s("../component"), l = s("../../player/base/event/eventtype"), u = s("./util"), a = s("../../lang/index"), s = _.extend({ init: function(t, e) {
+          _.call(this, t, e), this.addClass("prism-play-btn");
+        }, bindEvent: function() {
+          var t = this;
+          this._player.on(l.Player.Play, function() {
+            t.addClass("playing");
+          }), this._player.on(l.Player.Pause, function() {
+            t.removeClass("playing");
+          }), this.on(l.Private.PlayClick, function() {
+            var e;
+            t._player.paused() ? (e = t._player.getCurrentTime(), (t._player.getDuration() <= e || t._player._ended || t._player.exceedPreviewTime(e)) && !t._player._splayer && t._player.seek(t._player._getPlayStartTime()), t._player.play(!0), t.addClass("playing")) : (t._player.pause(!0), t.removeClass("playing")), t._player.trigger(l.Private.MarkerTextHide);
+          }), u.registerTooltipEvent.call(this, this.el(), function() {
+            return t._player.paused() ? a.get("Play") : a.get("Pause");
+          });
+        } });
+        o.exports = s;
+      }, { "../../lang/index": 24, "../../player/base/event/eventtype": 68, "../component": 132, "./util": 162 }], 144: [function(s, o, x) {
+        var _ = s("../component"), l = s("../../lib/dom"), u = s("../../lang/index"), a = s("../../player/base/event/eventtype"), s = _.extend({ init: function(t, e) {
+          _.call(this, t, e), this.addClass("prism-press-fast-forward");
+        }, createEl: function() {
+          var t = _.prototype.createEl.call(this, "div");
+          return t.innerHTML = `
+    <div class="ff-arrow-container">
+        <span class="ff-arrow ff-arrow1"></span>
+        <span class="ff-arrow ff-arrow2"></span>
+        <span class="ff-arrow ff-arrow3"></span>
+        <span class="ff-text">` + u.get("Speed_Long_Press") + `</span>
+    </div>
+    `, t;
+        }, bindEvent: function() {
+          var t = this;
+          this._player.on(a.Private.FastForwardShow, function() {
+            t.show();
+          }), this._player.on(a.Private.FastForwardHide, function() {
+            t.hide();
+          });
+        }, show: function() {
+          l.css(this.el(), "display", "flex");
+        }, hide: function() {
+          l.css(this.el(), "display", "none");
+        }, disposeUI: function() {
+        } });
+        o.exports = s;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../player/base/event/eventtype": 68, "../component": 132 }], 145: [function(y, o, x) {
+        var _ = y("../component"), l = y("../../lib/dom"), u = (y("../../lib/constants"), y("../../lib/event")), a = y("../../lib/ua"), s = y("../../lib/function"), t = y("../../lang/index"), e = y("../../config"), n = y("../../lib/util"), r = (y("../../lib/playerutil"), y("../../player/base/event/eventtype")), h = y("./util").debounce, y = _.extend({ init: function(p, d) {
+          _.call(this, p, d), this._seekTime = -1, this._lastSeekTime = 0, this._moving = !1, this._thumbnailHideTimer = null, this.addClass("prism-progress"), p.getOptions().disableSeek && this.addClass("prism-progress-disabled");
+        }, createEl: function() {
+          var p = _.prototype.createEl.call(this);
+          return p.innerHTML = '<div class="prism-progress-loaded"></div><div class="prism-progress-played"></div><div class="prism-progress-marker"></div><div class="prism-progress-cursor"><img></img></div><p class="prism-progress-time"></p><div class="prism-progress-mask-left"></div><div class="prism-progress-mask-right"></div>', p;
+        }, bindEvent: function() {
+          function p(b) {
+            g._progressDown = b;
+          }
+          var d = this, g = this, m = (this.loadedNode = document.querySelector("#" + this.id() + " .prism-progress-loaded"), this.playedNode = document.querySelector("#" + this.id() + " .prism-progress-played"), this.cursorNode = document.querySelector("#" + this.id() + " .prism-progress-cursor"), this.timeNode = document.querySelector("#" + this._player._options.id + " .prism-progress-time"), this.thumbnailNode = document.querySelector(".prism-thumbnail"), this.controlNode = document.querySelector("#" + this._player._options.id + " .prism-controlbar"), document.querySelector("#" + this.id())), v = document.querySelector("#" + this.id() + " .prism-progress-cursor img"), f = (this.markerNode = document.querySelector("#" + this.id() + " .prism-progress-marker"), this.maskNodeLeft = document.querySelector("#" + this.id() + " .prism-progress-mask-left"), this.maskNodeRight = document.querySelector("#" + this.id() + " .prism-progress-mask-right"), "");
+          this._player._options.skinsDomain = this._player._options.assetPrefix || this._player._options.skinsDomain, f = this._player._options.skinsDomain ? this._player._options.skinsDomain + "/skins/default/img/dragcursor.png" : e.domain ? "https://" + e.domain + e.path + e.h5Version + "/skins/default/img/dragcursor.png" : "/build/skins/default/img/dragcursor.png", v && (v.src = f), u.on(this.cursorNode, "mousedown", function(b) {
+            g._onMouseDown(b);
+          }), u.on(this.cursorNode, "touchstart", function(b) {
+            g._onMouseDown(b);
+          }), u.on(m, "mousemove", function(b) {
+            g._progressMove(b);
+          }), u.on(m, "touchmove", function(b) {
+            g._progressMove(b);
+          }), u.on(m, "mousedown", function(b) {
+            p(!0);
+          }), u.on(m, "touchstart", function(b) {
+            p(!0);
+          }), u.on(m, "mouseup", function(b) {
+            p(!1);
+          }), u.on(m, "touchend", function(b) {
+            p(!1), g._moving && a.IS_MOBILE && (g._player.trigger(r.Private.EndStart, { toTime: g._lastSeekTime }), g._moving = !1);
+          }), u.on(this._el, "click", function(b) {
+            g._onMouseClick(b);
+          }), this._player.on(r.Private.HideProgress, function(b) {
+            g._hideProgress(b);
+          }), this._player.on(r.Private.CancelHideProgress, function(b) {
+            g._cancelHideProgress(b);
+          }), this._player.on(r.Private.HideBar, function(b) {
+            g._player._seeking = !1;
+          }), this._player.on(r.Video.LoadedMetadata, function() {
+            d._updateMaskNode();
+          }), this._player.on(r.Private.UpdateWatchTime, function() {
+            d._updateMaskNode();
+          }), u.on(m, r.Private.MouseOver, function(b) {
+            g._onMouseOver(b);
+          }), u.on(m, r.Private.MouseOut, function(b) {
+            g._onMouseOut(b);
+          }), u.on(this.controlNode, r.Private.MouseLeave, function(b) {
+            g._offMouseUp();
+          }), u.on(this.maskNodeLeft, "mouseenter", function() {
+            g._offMouseUp();
+          }), u.on(this.maskNodeRight, "mouseenter", function() {
+            g._offMouseUp();
+          }), a.IS_PC ? (v = h(function() {
+            l.addClass(m, "prism-progress-hover"), l.addClass(g.cursorNode, "cursor-hover");
+          }, 100), u.on(m, "mouseover", v), f = h(function() {
+            l.removeClass(m, "prism-progress-hover"), l.removeClass(g.cursorNode, "cursor-hover"), g._progressDown = !1;
+          }, 100), u.on(m, "mouseout", f)) : (l.addClass(m, "prism-progress-hover"), l.addClass(m, "prism-progress-mobile"), l.addClass(g.cursorNode, "cursor-hover")), this.bindTimeupdate = s.bind(this, this._onTimeupdate), this._player.on(r.Player.TimeUpdate, this.bindTimeupdate), a.IS_IPAD ? this.interval = setInterval(function() {
+            g._onProgress();
+          }, 500) : this._player.on(r.Video.Progress, function() {
+            g._onProgress();
+          }), this._player.on(r.Private.UpdateProgress, function(b) {
+            g._updateProgressBar(g.playedNode, b.paramData.targetTime);
+          }), this._player.on(r.Private.UpdateCursorPosition, function(b) {
+            g._updateCursorPosition(b.paramData.targetTime);
+          });
+        }, _progressMove: function(p) {
+          p.preventDefault();
+          var d, g, m = this._getSeconds(p);
+          m != 1 / 0 && (d = n.formatTime(m), g = this._getDistance(p), this.cursorNode) && (this._player.trigger(r.Private.ThumbnailShow, { time: m, formatTime: d, left: g, progressWidth: this.el().offsetWidth }), this._autoHideThumbnail(), this._progressDown) && this._onMouseMove(p);
+        }, _hideProgress: function(p) {
+          u.off(this.cursorNode, "mousedown"), u.off(this.cursorNode, "touchstart");
+        }, _cancelHideProgress: function(p) {
+          var d = this;
+          u.on(this.cursorNode, "mousedown", function(g) {
+            d._onMouseDown(g);
+          }), u.on(this.cursorNode, "touchstart", function(g) {
+            d._onMouseDown(g);
+          });
+        }, _canSeekable: function(p) {
+          var d = !0;
+          return d = typeof this._player.canSeekable == "function" ? this._player.canSeekable(p) : d;
+        }, _onMouseOver: function(p) {
+          this._cursorHideHandler && (clearTimeout(this._cursorHideHandler), this._cursorHideHandler = null), this._mouseInProgress || this._updateCursorPosition(this._player.getCurrentTime()), this._mouseInProgress = !0;
+        }, _onMouseOut: function(p) {
+          var d = this;
+          this._cursorHideHandler && clearTimeout(this._cursorHideHandler), this._cursorHideHandler = setTimeout(function() {
+            d._player.trigger(r.Private.ThumbnailHide), d._mouseInProgress = !1;
+          });
+        }, _getSeconds: function(g) {
+          var g = this._getDistance(g), d = this.el().offsetWidth, g = this._player.getDuration() ? g / d * this._player.getDuration() : 0;
+          return g = (g = g < 0 ? 0 : g) > this._player.getDuration() ? this._player.getDuration() : g;
+        }, _getDistance: function(p) {
+          if (p.touches && p.touches[0]) {
+            for (var d = this.el().offsetLeft, g = this.el(); g.offsetParent; ) {
+              var g = g.offsetParent, m = l.getTranslateX(g);
+              d += g.offsetLeft + m;
+            }
+            g.tagName && g.tagName.toLowerCase() === "body" && (d += document.getElementsByTagName("html")[0].offsetLeft);
+            var v = (p.touches ? p.touches[0] : p).pageX - d;
+            return v = v < 0 ? 0 : v;
+          }
+          return v = p.offsetX, p.target === this.cursorNode || p.target.offsetParent === this.cursorNode ? v += this.cursorNode.offsetLeft : p.target !== this._el && p.target.offsetParent !== this._el && p.target.offsetParent === this.markerNode && (v += p.target.offsetLeft), v;
+        }, _onMouseClick: function(p) {
+          var d = this, g = d._getSeconds(p);
+          d._canSeekable(g) ? d._player._canSeek(g + d._posOffset) && (d._player.exceedPreviewTime(g) && (g = d._player.getPreviewTime()), this._seekTime = g, d._updateProgressBar(this.playedNode, g), d._updateCursorPosition(g), this._mouseClickTimeHandle && clearTimeout(this._mouseClickTimeHandle), this._mouseClickTimeHandle = setTimeout(function() {
+            d._player._seeking = !0, d._mouseDown && !a.IS_MOBILE || (d._player.trigger(r.Private.SeekStart, { fromTime: d._player.getCurrentTime() }), d._player.trigger(r.Private.EndStart, { toTime: g })), d._player.seek(g), d._mouseDown = !1, d._mouseClickTimeHandle = null, d._inWaitingSeek = !1;
+          }, 0), this._inWaitingSeek = !0) : d._player.trigger(r.Private.Info_Show, { text: t.get("Can_Not_Seekable"), duration: 2e3 });
+        }, _onMouseDown: function(g) {
+          var d = this, g = (g.preventDefault(), this._mouseDown = !0, a.IS_PC && this._player.trigger(r.Private.SeekStart, { fromTime: this._player.getCurrentTime() }), u.on(this.controlNode, "mousemove", function(m) {
+            d._onMouseMove(m);
+          }), u.on(this.controlNode, "touchmove", function(m) {
+            d._onMouseMove(m);
+          }), u.on(this.controlNode, "mouseup", function(m) {
+            d._onControlBarMouseUp(m);
+          }), u.on(this.controlNode, "touchend", function(m) {
+            d._onControlBarMouseUp(m);
+          }), d._getSeconds(g));
+          d._canSeekable(g) ? d._player.exceedPreviewTime(g) && d._player.getPreviewTime() : d._player.trigger(r.Private.Info_Show, { text: t.get("Can_Not_Seekable"), duration: 2e3 });
+        }, _onMouseUp: function(p) {
+          this._onMouseUpIntern(p);
+        }, _onControlBarMouseUp: function(p) {
+          this._onMouseUpIntern(p);
+        }, _onPlayerMouseUp: function(p) {
+          this._onMouseUpIntern(p);
+        }, _offMouseUp: function() {
+          u.off(this.controlNode, "mousemove"), u.off(this.controlNode, "touchmove"), u.off(this.controlNode, "mouseup"), u.off(this.controlNode, "touchend");
+        }, _onMouseUpIntern: function(p) {
+          p.preventDefault(), this._offMouseUp(), p = this._getDistance(p) / this.el().offsetWidth * this._player.getDuration(), this._player.getDuration(), isNaN(p) || this._player.seek(p), a.IS_PC && this._player.trigger(r.Private.EndStart, { toTime: p }), this._autoHideThumbnail();
+        }, _onMouseMove: function(p) {
+          p.preventDefault(), !this._moving && a.IS_MOBILE && (this._player.trigger(r.Private.SeekStart, { fromTime: this._player.getCurrentTime() }), this._moving = !0), p = this._getSeconds(p), this._player.exceedPreviewTime(p) && (p = this._player.getPreviewTime()), this._player.seek(p), this._updateProgressBar(this.playedNode, p), this._updateCursorPosition(p), this._lastSeekTime = p;
+        }, _onTimeupdate: function(p) {
+          var d = this._player._options.source, d = this._getUrlSuffix(d), g = !1;
+          d === "mp4" && (a.IS_MAC_SAFARI && (g = !0), a.IS_IOS && (g = !0), a.IS_IE11) && (g = !0), d === "m3u8" && a.IS_IE11 && (g = !0), this._player._options.mediaType == "audio" && a.IS_IOS && (this._player._seeking = !1), (this._inWaitingSeek || this._progressDown) && !g || (this._updateProgressBar(this.playedNode, this._player.getCurrentTime()), this._updateCursorPosition(this._player.getCurrentTime()), this._player.trigger(r.Private.UpdateProgressBar, { time: this._player.getCurrentTime() }));
+        }, _onProgress: function(p) {
+          this._player.getDuration() && 1 <= this._player.getBuffered().length && this._updateProgressBar(this.loadedNode, this._player.getBuffered().end(this._player.getBuffered().length - 1));
+        }, _updateProgressBar: function(p, d) {
+          var g = this._player.getDuration();
+          this._player._switchSourcing != 1 && g && (this._seekTime != -1 && (this._player.getCurrentTime() >= this._seekTime || !this._player._seeking ? this._seekTime = -1 : d = this._seekTime), 1 < (d = d / g) && (d = 1), p) && l.css(p, "width", 100 * d + "%");
+        }, _updateCursorPosition: function(p) {
+          var d, g, m, v = this._player.getDuration();
+          this._player._switchSourcing != 1 && v && (d = 1, g = (this.cursorNode.offsetWidth || 16) / 2 / (m = this._player.el().clientWidth), m != 0 && (d = 1 - g), m = (m = p / v - g) < 0 ? 0 : m, this.cursorNode) && (d < m ? (l.css(this.cursorNode, "right", "0px"), l.css(this.cursorNode, "left", "auto")) : (l.css(this.cursorNode, "right", "auto"), l.css(this.cursorNode, "left", 100 * m + "%")));
+        }, _getUrlSuffix: function(p) {
+          return !p || typeof p != "string" ? "" : ((p = (p.split("?")[0] || "").split("."))[p.length - 1] || "").toLowerCase();
+        }, _autoHideThumbnail: function() {
+          var p = this;
+          a.IS_MOBILE && (this._thumbnailHideTimer && clearTimeout(this._thumbnailHideTimer), this._thumbnailHideTimer = setTimeout(function() {
+            p._moving || p._player.trigger(r.Private.ThumbnailHide);
+          }, 2e3));
+        }, _makeUninteractible: function(p) {
+          ["click", "mousedown", "mousemove", "mouseup", "touchstart", "touchmove", "touchend"].forEach(function(d) {
+            u.on(p, d, function(g) {
+              g.stopPropagation();
+            });
+          });
+        }, _updateMaskNode: function() {
+          var p, d = this._player._getSubVideoConfig();
+          d.start || d.end ? (l.css(this.maskNodeLeft, "width", "0px"), l.css(this.maskNodeRight, "width", "0px")) : ((d = this._player._getWatchTimeConfig()).watchStartTime && d.watchEndTime ? (p = 100 * Math.min(d.watchStartTime / this._player.getDuration(), 1) + "%", l.css(this.maskNodeLeft, "width", p)) : l.css(this.maskNodeLeft, "width", "0px"), d.watchEndTime ? (p = 100 * (1 - Math.min(d.watchEndTime / this._player.getDuration(), 1)) + "%", l.css(this.maskNodeRight, "width", p)) : l.css(this.maskNodeRight, "width", "0px"), this._makeUninteractible(this.maskNodeLeft), this._makeUninteractible(this.maskNodeRight));
+        }, disposeUI: function() {
+          this._seekTime = -1, this._lastSeekTime = 0, this._moving = !1, this.cursorNodeHandler && (clearTimeout(this.cursorNodeHandler), this.cursorNodeHandler = null), this._cursorHideHandler && (clearTimeout(this._cursorHideHandler), this._cursorHideHandler = null), this._mouseClickTimeHandle && (clearTimeout(this._mouseClickTimeHandle), this._mouseClickTimeHandle = null), this.interval && (clearInterval(this.interval), this.interval = null);
+        } });
+        o.exports = y;
+      }, { "../../config": 15, "../../lang/index": 24, "../../lib/constants": 29, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/function": 36, "../../lib/playerutil": 46, "../../lib/ua": 49, "../../lib/util": 51, "../../player/base/event/eventtype": 68, "../component": 132, "./util": 162 }], 146: [function(s, o, x) {
+        var _ = s("../component"), l = (s("../../lib/util"), s("../../lib/dom")), u = s("../../lib/event"), a = s("../../player/base/event/eventtype"), s = _.extend({ init: function(t, e) {
+          _.call(this, t, e), this.addClass("prism-marker-text");
+        }, createEl: function() {
+          var t = _.prototype.createEl.call(this, "div");
+          return t.innerHTML = "<p></p>", t;
+        }, bindEvent: function() {
+          var t = this;
+          t._player.on(a.Private.MarkerTextShow, function(e) {
+            var n = e.paramData, r = a.Player.MarkerDotOver;
+            t._player.trigger(r, e.paramData), n.progressMarker.isCustomized ? t._player.trigger(a.Private.LifeCycleChanged, { type: r, data: e.paramData }) : (t._thumbnailShowHanlde && (l.css(t.el(), "display", "none"), clearTimeout(t._thumbnailShowHanlde)), t._thumbnailShowHanlde = setTimeout(function() {
+              var h;
+              document.querySelector("#" + t.id() + " p").innerText = n.progressMarker.text || "", n && (l.css(t.el(), "display", "block"), h = t._player.el().offsetWidth, left = h * n.left, width = t.el().offsetWidth, left + width > h ? (l.css(t.el(), "right", "0px"), l.css(t.el(), "left", "auto")) : (left = (left -= width / 2) < 0 ? 0 : left, l.css(t.el(), "right", "auto"), l.css(t.el(), "left", left + "px")));
+            }, 30));
+          }), t._player.on(a.Private.MarkerTextHide, function(e) {
+            t._player.trigger(a.Player.MarkerDotOut), t._player.trigger(a.Private.LifeCycleChanged, { type: a.Player.MarkerDotOut, data: "" }), t._thumbnailShowHanlde && clearTimeout(t._thumbnailShowHanlde), l.css(t.el(), "display", "none");
+          }), u.on(t._player.tag, "click", function(e) {
+            e && e.target == e.currentTarget && t._player.trigger(a.Private.MarkerTextHide);
+          }), u.on(t._player.tag, "touchstart", function(e) {
+            e && e.target == e.currentTarget && t._player.trigger(a.Private.MarkerTextHide);
+          });
+        }, disposeUI: function() {
+          this._thumbnailShowHanlde && (clearTimeout(this._thumbnailShowHanlde), this._thumbnailShowHanlde = null);
+        } });
+        o.exports = s;
+      }, { "../../lib/dom": 33, "../../lib/event": 34, "../../lib/util": 51, "../../player/base/event/eventtype": 68, "../component": 132 }], 147: [function(t, o, x) {
+        var _ = t("./selector"), l = t("../../../lib/object"), u = (t("../../../lib/util"), t("../../../lib/cookie"), t("../../../lib/dom")), a = (t("../../../lib/event"), t("./util"), t("../../../lang/index")), s = t("../../../player/base/event/eventtype"), t = _.extend({ init: function(e, n) {
+          this.Name = a.get("AudioTrack"), this.Type = "audio", this.Tooltip = a.get("AudioTrack_Switch_To"), _.call(this, e, n);
+        }, bindEvent: function() {
+          this.bindCommonEvent();
+          var e = this, n = document.querySelector("#" + e.id() + " .selector-list");
+          document.querySelector("#" + e.id() + " .header"), e._player.on(s.Private.ChangeURL, function() {
+            e._hasGeneratedList = !1;
+          }), this._player.on(s.Player.AudioTrackSwitch, function() {
+            u.addClass(n, "disabled");
+          }), this._player.on(s.Player.AudioTrackSwitched, function() {
+            u.removeClass(n, "disabled");
+          }), e._player.on(s.Player.AudioTrackReady, function(r) {
+            !e._hasGeneratedList && (e._clear(), r = r.paramData) && (l.each(r, function(h, y) {
+              var p = u.createEl.call(e, "li", { key: h.value, text: h.text }), d = u.createEl.call(e, "span", { key: h.value, text: h.text });
+              d.innerText = h.text, p.appendChild(d), n.appendChild(p);
+            }), e._hasGeneratedList = !0);
+          });
+        }, execute: function(e) {
+          this._player._audioTrackService.switch(e);
+        } });
+        o.exports = t;
+      }, { "../../../lang/index": 24, "../../../lib/cookie": 30, "../../../lib/dom": 33, "../../../lib/event": 34, "../../../lib/object": 43, "../../../lib/util": 51, "../../../player/base/event/eventtype": 68, "./selector": 153, "./util": 155 }], 148: [function(t, o, x) {
+        var _ = t("../../component"), l = (t("../../../lib/dom"), t("../../../player/base/event/eventtype")), u = t("./list"), a = t("../../../lang/index"), s = t("../util"), t = _.extend({ init: function(e, n) {
+          _.call(this, e, n), this.addClass(n.className || "prism-setting-btn"), this._settingList = new u(e, n), e.addChild(this._settingList, n);
+        }, createEl: function() {
+          return _.prototype.createEl.call(this, "div");
+        }, bindEvent: function() {
+          var e = this;
+          this.on("click", function() {
+            e._settingList.isOpened ? e._player.trigger(l.Private.SettingListHide) : e._player.trigger(l.Private.SettingListShow), e._player.trigger(l.Private.SelectorHide), e._player.trigger(l.Private.MarkerTextHide), e._player.trigger(l.Private.VolumeVisibilityChange, "");
+          }), s.registerTooltipEvent.call(this, this.el(), a.get("Setting"));
+        } });
+        o.exports = t;
+      }, { "../../../lang/index": 24, "../../../lib/dom": 33, "../../../player/base/event/eventtype": 68, "../../component": 132, "../util": 162, "./list": 151 }], 149: [function(n, o, x) {
+        var _ = n("./selector"), l = n("../../../lib/object"), u = n("../../../lib/dom"), a = (n("../../../lib/event"), n("./util"), n("../../../lib/cookie")), s = n("../../../lib/constants"), t = n("../../../lang/index"), e = n("../../../player/base/event/eventtype"), n = _.extend({ init: function(r, h) {
+          this.Name = t.get("Subtitle"), this.Type = "cc", this.Tooltip = t.get("CC_Switch_To"), _.call(this, r, h);
+        }, bindEvent: function() {
+          this.bindCommonEvent();
+          var r = this;
+          this._player.on(e.Private.CCStateChanged, function(p) {
+            var y = p.paramData.value, p = p.paramData.lang, p = (y == "on" && p ? r._backCCText = p : y == "off" && r._backCCText == "" && (r._backCCText = r._previousSelection.text), "Off");
+            y == "on" && (p = r._backCCText), r._player.trigger(e.Private.SelectorUpdateList, { type: "cc", text: p });
+          });
+        }, generateList: function(r) {
+          var h = document.querySelector("#" + this.id() + " .selector-list"), y = this._player._ccService.tracks, p = this;
+          l.each(y, function(d, g) {
+            var m = u.createEl.call(this, "li", { key: d.value, text: d.text }), v = u.createEl.call(this, "span", { key: d.value, text: d.text });
+            d.text == r && (u.addClass(m, "current"), p._previousSelection = m), v.innerText = d.text, m.appendChild(v), h.appendChild(m);
+          });
+        }, execute: function(r) {
+          this._backCCText = "", a.set(s.SelectedCC, r, 365), this._player._ccService.switch(r);
+        } });
+        o.exports = n;
+      }, { "../../../lang/index": 24, "../../../lib/constants": 29, "../../../lib/cookie": 30, "../../../lib/dom": 33, "../../../lib/event": 34, "../../../lib/object": 43, "../../../player/base/event/eventtype": 68, "./selector": 153, "./util": 155 }], 150: [function(c, o, x) {
+        o.exports = { CC: c("./cc"), Speed: c("./speed"), Quality: c("./quality"), Audio: c("./audio") };
+      }, { "./audio": 147, "./cc": 149, "./quality": 152, "./speed": 154 }], 151: [function(r, o, x) {
+        var _ = r("../../component"), l = r("../../../lib/dom"), u = r("../../../lib/ua"), a = r("../../../lib/event"), s = r("../../../player/base/event/eventtype"), t = r("./export"), e = r("./util"), n = r("../../../lang/index"), r = _.extend({ init: function(h, y) {
+          for (var p in this.isOpened = !1, _.call(this, h, y), this.addClass(y.className || "prism-setting-list"), t)
+            p = new t[p](h, y), h.addChild(p, y);
+        }, createEl: function() {
+          var h = _.prototype.createEl.call(this, "div"), g = "<div class='prism-setting-item prism-setting-{type}' type={type}><div class='setting-content'><span class='setting-title'>{value}</span><span class='array'></span><span class='current-setting'></span></div></div>", y = g.replace(/{type}/g, "speed").replace("{value}", n.get("Speed")), p = g.replace(/{type}/g, "cc").replace("{value}", n.get("Subtitle")), d = g.replace(/{type}/g, "audio").replace("{value}", n.get("AudioTrack")), g = g.replace(/{type}/g, "quality").replace("{value}", n.get("Quality"));
+          return h.innerHTML = y + p + d + g, h;
+        }, bindEvent: function() {
+          function h() {
+            p._player.trigger(s.Private.SettingListHide), p.isOpened = !1;
+          }
+          function y(g) {
+            g && g.type && (document.querySelector("#" + p.id() + " .prism-setting-" + g.type + " .current-setting").innerText = g.text || "");
+          }
+          var p = this, d = (this._player.on(s.Private.SettingListShow, function(g) {
+            p.isOpened = !0, g = g.paramData, y(g), l.css(p.el(), "display", "block");
+          }), this._player.on(s.Private.UpdateToSettingList, function(g) {
+            g = g.paramData, y(g);
+          }), this._player.on(s.Private.SelectorUpdateList, function(g) {
+            g = g.paramData, y(g), p._player.trigger(s.Private.SelectorValueChange, g);
+          }), this._player.on(s.Private.SettingListHide, function() {
+            p.isOpened = !1, l.css(p.el(), "display", "none");
+          }), a.on(this.el(), "click", function(m) {
+            p._player.trigger(s.Private.SettingListHide);
+            var m = m.srcElement || m.target;
+            (m = e.findItemElementForList(m)) && (m = m.getAttribute("type"), p._player.trigger(s.Private.SelectorShow, { type: m }));
+          }), u.IS_MOBILE ? "touchleave" : "mouseleave");
+          a.on(this.el(), d, function() {
+            h();
+          }), a.on(this._player.tag, "click", function(g) {
+            g && g.target == g.currentTarget && h();
+          }), a.on(this._player.tag, "touchstart", function(g) {
+            g && g.target == g.currentTarget && h();
+          }), this._player.on(s.Private.QualityChange, function(f) {
+            var m, v, f = f.paramData;
+            f.levelSwitch && (m = document.querySelector("#" + p.id() + " .prism-setting-quality .current-setting"), v = n.get("Auto"), f = f.desc, -1 < m.innerText.indexOf(v)) && (f && -1 < String(f).indexOf("(") ? v = v + "-" + f : v += f ? "(" + f + ")" : "", m.innerText = v);
+          });
+        } });
+        o.exports = r;
+      }, { "../../../lang/index": 24, "../../../lib/dom": 33, "../../../lib/event": 34, "../../../lib/ua": 49, "../../../player/base/event/eventtype": 68, "../../component": 132, "./export": 150, "./util": 155 }], 152: [function(n, o, x) {
+        var _ = n("./selector"), l = n("../../../lib/object"), u = (n("../../../lib/util"), n("../../../lib/cookie")), a = n("../../../lib/dom"), s = (n("../../../lib/event"), n("../../../lib/constants")), t = n("../../../lang/index"), e = n("../../../player/base/event/eventtype"), n = _.extend({ init: function(r, h) {
+          this.Name = t.get("Quality"), this.Type = "quality", this.Tooltip = t.get("Quality_Switch_To"), _.call(this, r, h), this._isMasterLevel = !1;
+        }, showTip: function(r, h) {
+          this._player.trigger(e.Private.Info_Show, { text: r, duration: h, align: "lb" });
+        }, bindEvent: function() {
+          this.bindCommonEvent();
+          var r = this, h = (this._player.on(e.Private.QualityChange, function(y) {
+            var p, d, g = 0 < r._player._urls.length ? r._player._urls : r._player._qualityService.levels;
+            (data = y.paramData).levelSwitch ? (p = data.desc || data.bitrate, r._autoSWitchDesc = p, r._updateText(p)) : 0 < r._player._currentPlayIndex && (r._autoSWitchDesc = "", d = g[(p = r._player._currentPlayIndex) - 1].desc, g = g[p].desc, r.showTip(d + y.paramData + g, 1e3), r._player.trigger(e.Private.SelectorValueChange, { type: r.Type, text: g }));
+          }), document.querySelector("#" + r.id() + " .selector-list"));
+          this._player.on(e.Player.LevelSwitch, function() {
+            a.addClass(h, "disabled");
+          }), this._player.on(e.Player.LevelSwitched, function() {
+            a.removeClass(h, "disabled");
+          });
+        }, generateList: function(r) {
+          var h, y = this._player._urls, p = this._player._currentPlayIndex, d = this._player._qualityService.levels, g = (0 < d.length && (this._isMasterLevel = !0, this._player._options.isVBR) && (p = (y = d).length - 1), document.querySelector("#" + this.id() + " .selector-list"));
+          0 < y.length && (h = this, l.each(y, function(m, v) {
+            var f, b;
+            (m.desc || m.bitrate) && (f = a.createEl.call(this, "li", { key: m.Url, index: v, text: m.desc || m.bitrate }), b = a.createEl.call(this, "span", { key: m.Url, index: v, text: m.desc || m.bitrate }), v == p && (a.addClass(f, "current"), h._previousSelection = f), b.innerText = m.desc || m.bitrate, f.appendChild(b), g.appendChild(f));
+          })), this._autoSWitchDesc && this._updateText(this._autoSWitchDesc);
+        }, execute: function(r) {
+          if (this._player._switchSourcing = !0, this._isMasterLevel) {
+            for (var h, y = this._player._qualityService.levels, p = 0; p < y.length; p++) y[p].Url == r && y[p].desc != t.get("Auto") && (h = y[p], this._resetAutoText());
+            this._player._switchLevel ? this._player._switchLevel(r, h) : (d = this._player.autoplay || this._player._status != "pause", this._player._loadByUrlInner(r, this._player.getCurrentTime(), d));
+          } else {
+            for (var d, g = this._player._urls.length, m = this._player._currentPlayIndex, v = -1, p = 0; p < g; p++) if (this._player._urls[p].Url == r) {
+              v = this._player._currentPlayIndex = p, u.set(s.SelectedStreamLevel, this._player._urls[p].definition, 365);
+              break;
+            }
+            m != v && -1 < v && (m = this._player.getCurrentTime(), d = this._player.autoplay || this._player._status != "pause", this._player.autoplay || m != 0 || (d = !1), this._player._switchLevel && !this._player._options.isLive && this._player._options.isVBR ? this._player._switchLevel(r) : this._player._loadByUrlInner(r, m, d));
+          }
+          var f = this;
+          setTimeout(function() {
+            f._player._switchSourcing = !1;
+          });
+        }, _updateText: function(r) {
+          var h = document.querySelector("#" + this.id() + " .selector-list .current"), y = document.querySelector("#" + this.id() + " .selector-list .current span"), p = t.get("Auto");
+          y && y.innerText && -1 < y.innerText.indexOf(p) && (r && -1 < String(r).indexOf("(") ? p = p + "-" + r : p += r ? "(" + r + ")" : "", y.innerText = p, h) && (h.text = p);
+        }, _resetAutoText: function() {
+          for (var r = t.get("Auto"), h = document.querySelectorAll("#" + this.id() + " .selector-list li"), y = 0; y < h.length; y++) {
+            var p = h[y], d = p.querySelector("span");
+            if (-1 < d.innerText.indexOf(r)) {
+              d.innerText = r, p.text = r;
+              break;
+            }
+          }
+        } });
+        o.exports = n;
+      }, { "../../../lang/index": 24, "../../../lib/constants": 29, "../../../lib/cookie": 30, "../../../lib/dom": 33, "../../../lib/event": 34, "../../../lib/object": 43, "../../../lib/util": 51, "../../../player/base/event/eventtype": 68, "./selector": 153 }], 153: [function(e, o, x) {
+        var _ = e("../../component"), l = (e("../../../lib/object"), e("../../../lib/util"), e("../../../lib/ua")), u = (e("../../../lib/cookie"), e("../../../lib/dom")), a = e("../../../lib/event"), s = e("./util"), t = (e("../../../lang/index"), e("../../../player/base/event/eventtype")), e = _.extend({ init: function(n, r) {
+          this._hasGeneratedList = !1, this._previousSelection = null, this._backupSelector = "", _.call(this, n, r), this.className = r.className || "prism-" + this.Type + "-selector prism-setting-selector", this.addClass(this.className);
+        }, createEl: function() {
+          var n = _.prototype.createEl.call(this, "div");
+          return n.innerHTML = '<div class="header"><div class="left-array"></div><span>' + this.Name + '</span></div><ul class="selector-list"></ul>', n;
+        }, bindEvent: function() {
+          this.bindCommonEvent();
+        }, bindCommonEvent: function() {
+          var n = this, r = document.querySelector("#" + n.id() + " .selector-list"), p = document.querySelector("#" + n.id() + " .header");
+          function h() {
+            n._hasGeneratedList || (n._clear(), n.generateList(n._backupSelector), n._backupSelector = "", n._hasGeneratedList = !0);
+          }
+          this._player.on(t.Private.ChangeURL, function() {
+            n._hasGeneratedList = !1;
+          }), a.on(p, "click", function() {
+            n._player.trigger(t.Private.SelectorHide), n._player.trigger(t.Private.SettingListShow, { type: n.Type, text: n._previousSelection ? n._previousSelection.text : "" });
+          }), a.on(r, "click", function(g) {
+            var g = g.srcElement || g.target, m = g.key, v = g.text;
+            n._player.traceLog("selector.js", "selector::click#" + n.Name + "#" + n.Type + "#" + v + "#" + m), n._player.trigger(t.Player.SettingSelected, { name: n.Name, type: n.Type, text: v, key: m }), v !== void 0 && (n._previousSelection && u.removeClass(n._previousSelection, "current"), n._previousSelection = s.findliElementForSelector(g), u.addClass(n._previousSelection, "current"), n.execute && n.execute(m), g = n.Tooltip + "<span>" + v + "</span>", n._player.trigger(t.Private.Info_Show, { text: g, duration: 3e3, align: "lb" }));
+          }), n._player.on(t.Private.SelectorHide, function() {
+            y();
+          }), n._player.on(t.Private.SelectorValueChange, function(d) {
+            var g = d.paramData;
+            if (g && g.type == n.Type) {
+              var m = document.querySelectorAll("#" + n.id() + " .selector-list li");
+              if (m) {
+                for (var v = m.length, f = (v == 0 && (n._backupSelector = g.text), -1), b = 0; b < v; b++) if (m[b].text == g.text) {
+                  f = b;
+                  break;
+                }
+                n._previousSelection && (u.removeClass(n._previousSelection, "current"), n._previousSelection = null), f !== -1 ? (u.addClass(m[f], "current"), n._previousSelection = m[f]) : n._previousSelection || console.warn("UI Not Sync: No Such Option '" + g.text + "' in '" + g.type + "'");
+              }
+            }
+          }), n._player.on(t.Private.SettingListShow, function() {
+            h();
+          }), n._player.on(t.Private.SelectorGenerateList, function(m) {
+            var g = m.paramData && m.paramData.type, m = m.paramData && m.paramData.value;
+            g === n.Type && (n._hasGeneratedList = !1, m && (n._backupSelector = m), h());
+          }), n._player.on(t.Private.SelectorShow, function(d) {
+            (d = d.paramData).type == n.Type && (d = document.querySelector("#" + n._player.id() + " .prism-" + d.type + "-selector"), n._hasGeneratedList || h(), u.css(d, "display", "block"));
+          });
+          var y = function() {
+            u.css(n.el(), "display", "none"), n._player.trigger(t.Private.UpdateToSettingList, { type: n.Type, text: n._previousSelection ? n._previousSelection.text : "" });
+          }, p = l.IS_MOBILE ? "touchleave" : "mouseleave";
+          a.on(this.el(), p, function() {
+            y();
+          }), a.on(this._player.tag, "click", function(d) {
+            d && d.target == d.currentTarget && y();
+          }), a.on(this._player.tag, "touchstart", function(d) {
+            d && d.target == d.currentTarget && y();
+          });
+        }, setSelected: function(n) {
+        }, generateList: function() {
+        }, _clear: function() {
+          document.querySelector("#" + this.id() + " .selector-list").innerHTML = "";
+        } });
+        o.exports = e;
+      }, { "../../../lang/index": 24, "../../../lib/cookie": 30, "../../../lib/dom": 33, "../../../lib/event": 34, "../../../lib/object": 43, "../../../lib/ua": 49, "../../../lib/util": 51, "../../../player/base/event/eventtype": 68, "../../component": 132, "./util": 155 }], 154: [function(e, o, x) {
+        var _ = e("./selector"), l = e("../../../lib/object"), u = (e("../../../lib/util"), e("../../../lib/cookie"), e("../../../lib/dom")), a = (e("../../../lib/event"), e("./util"), e("../../../lib/constants")), s = e("../../../lang/index"), t = e("../../../player/base/event/eventtype"), e = _.extend({ init: function(n, r) {
+          var h = this;
+          this.Name = s.get("Speed"), this.Type = "speed", this.Tooltip = s.get("Speed_Switch_To"), this.speedPreStore = 1, this.listGenerated = !1, _.call(this, n, r), this._player.on(t.Private.PlaybackRateChanged, function(y) {
+            h.speedPreStore = y.paramData, h.listGenerated && h._player.trigger(t.Private.SelectorUpdateList, { type: "speed", text: y.paramData });
+          });
+        }, generateList: function() {
+          var n = document.querySelector("#" + this.id() + " .selector-list"), r = this._player._options.speedLevels, r = this.verifySpeedLevels(r) ? r : a.SpeedLevels, h = this;
+          l.each(r, function(y, p) {
+            var d = u.createEl.call(this, "li", { key: y.key, text: y.text }), g = u.createEl.call(this, "span", { key: y.key, text: y.text });
+            g.innerText = y.text, y.key == h.speedPreStore && (u.addClass(d, "current"), h._previousSelection = d), d.appendChild(g), n.appendChild(d);
+          }), this.listGenerated = !0;
+        }, execute: function(n) {
+          this._player.setSpeed(n, !1);
+        }, verifySpeedLevels: function(n) {
+          var r = 0;
+          if (n && n.length) try {
+            n.forEach(function(h) {
+              typeof h.key == "number" && h.key == h.key && 0 <= h.key && r++;
+            });
+          } catch {
+            return !1;
+          }
+          return n && r === n.length;
+        } });
+        o.exports = e;
+      }, { "../../../lang/index": 24, "../../../lib/constants": 29, "../../../lib/cookie": 30, "../../../lib/dom": 33, "../../../lib/event": 34, "../../../lib/object": 43, "../../../lib/util": 51, "../../../player/base/event/eventtype": 68, "./selector": 153, "./util": 155 }], 155: [function(c, o, x) {
+        o.exports.findliElementForSelector = function(_) {
+          var l;
+          return _ && _.tagName.toLowerCase() != "li" ? (l = _.parentElement) && l.tagName.toLowerCase() == "li" ? l : null : _;
+        }, o.exports.findliElementByKey = function(_, l) {
+          return document.querySelectors(_), null;
+        }, o.exports.findItemElementForList = function(_) {
+          var l;
+          return !_ || -1 < _.className.indexOf("prism-setting-item") || (l = _.parentElement) && (_ = o.exports.findItemElementForList(l)), _;
+        };
+      }, {}], 156: [function(t, o, x) {
+        var _ = t("../component"), l = t("../../lib/dom"), u = t("../../lang/index"), a = t("../../player/base/event/eventtype"), s = t("./util"), t = _.extend({ init: function(e, n) {
+          _.call(this, e, n), this.addClass("prism-snapshot-btn");
+        }, createEl: function() {
+          return _.prototype.createEl.call(this, "div");
+        }, bindEvent: function() {
+          var e = this, n = this._player;
+          n.on(a.Private.Snapshot_Hide, function() {
+            l.css(e._el, "display", "none");
+          }), s.registerTooltipEvent.call(this, this.el(), u.get("Snapshot")), this.on("click", function() {
+            e.trigger(a.Player.Snapshoting), e.trigger(a.Player.Snapshoted, n.takeSnapshot());
+          });
+        } });
+        o.exports = t;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../player/base/event/eventtype": 68, "../component": 132, "./util": 162 }], 157: [function(l, o, x) {
+        var _ = l("../component"), l = (l("../../lib/dom"), l("../../player/base/event/eventtype"), _.extend({ init: function(u, a) {
+          _.call(this, u, a), this.addClass("prism-text-overlay");
+        }, createEl: function() {
+          return _.prototype.createEl.call(this, "div");
+        }, _hide: function(u) {
+        }, _show: function(u) {
+        }, bindEvent: function() {
+        } }));
+        o.exports = l;
+      }, { "../../lib/dom": 33, "../../player/base/event/eventtype": 68, "../component": 132 }], 158: [function(t, o, x) {
+        var _ = t("../component"), l = (t("../../lib/util"), t("../../lib/dom")), u = t("../../lib/event"), a = (t("../../lib/ua"), t("../../lang/index"), t("../../player/base/event/eventtype")), s = t("./util"), t = _.extend({ init: function(e, n) {
+          _.call(this, e, n), this.addClass("prism-thumbnail");
+        }, createEl: function() {
+          var e = _.prototype.createEl.call(this, "div");
+          return e.innerHTML = "<img></img><span></span>", e;
+        }, bindEvent: function() {
+          var e = this, n = (u.on(this._el, "mousemove", function(r) {
+            r.preventDefault();
+          }), u.on(this._el, "touchmove", function(r) {
+            r.preventDefault();
+          }), e._player.on(a.Private.ThumbnailLoaded, function(d) {
+            var h, y, p, d = d.paramData;
+            d && 0 < d.length && (h = e._player._thumbnailService.makeUrl(d[0].text), e._player.log("THUMBNAILSTART", { tu: encodeURIComponent(h) }), y = (/* @__PURE__ */ new Date()).getTime(), d[0].isBig ? (l.css(e.el(), "background", "url(" + h + ")"), l.css(e.el(), "width", d[0].w + "px"), l.css(e.el(), "height", d[0].h + "px"), e._player.log("THUMBNAILCOMPLETE", { ftt: (/* @__PURE__ */ new Date()).getTime() - y })) : ((p = document.querySelector("#" + e.id() + " img")).onload = function() {
+              var g = p.width, m = p.height;
+              l.css(e.el(), "width", g + "px"), l.css(e.el(), "height", m + "px"), e._player.log("THUMBNAILCOMPLETE", { ftt: (/* @__PURE__ */ new Date()).getTime() - y });
+            }, p.src = h));
+          }), s.throttle(function(g) {
+            var h, y, p, g = g[0], d = document.querySelector("#" + e.id() + " span"), g = g.paramData;
+            d.innerText = g.formatTime, g && ((h = e._player._thumbnailService.findAvailableCue(g.time)) ? h.isBig ? (y = e._player._thumbnailService.makeUrl(h.text), l.css(e.el(), "background", "url(" + y + ")"), h.w, h.h, p = -1 * h.x + "px " + -1 * h.y + "px", l.css(e.el(), "background-position", p)) : (p = document.querySelector("#" + e.id() + " img"), y = e._player._thumbnailService.makeUrl(h.text), p.src != y && (p.src = y)) : (l.css(e.el(), "border", "none"), l.css(d, "left", "0px")), l.css(e.el(), "display", "block"), p = 0, y = (h ? e.el() : d).offsetWidth, p = g.left + y > g.progressWidth ? g.left - y : (p = g.left - y / 2) < 0 ? 0 : p, l.css(e.el(), "left", p + "px"));
+          }, 30));
+          e._player.on(a.Private.ThumbnailShow, n), e._player.on(a.Private.ThumbnailHide, function(r) {
+            l.css(e.el(), "display", "none");
+          });
+        }, _createSamllThumbnail: function() {
+        }, disposeUI: function() {
+        } });
+        o.exports = t;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../lib/ua": 49, "../../lib/util": 51, "../../player/base/event/eventtype": 68, "../component": 132, "./util": 162 }], 159: [function(a, o, x) {
+        var _ = a("../component"), l = a("../../lib/util"), u = a("../../player/base/event/eventtype"), a = _.extend({ init: function(s, t) {
+          _.call(this, s, t), this.addClass("prism-time-display");
+        }, createEl: function() {
+          var s = _.prototype.createEl.call(this, "div");
+          return s.innerHTML = '<span class="current-time">00:00</span> <span class="time-bound">/</span> <span class="duration">00:00</span>', s;
+        }, bindEvent: function() {
+          var s = this;
+          this._player.on(u.Video.DurationChange, function() {
+            var t = l.formatTime(s._player.getDisplayDuration());
+            t ? (document.querySelector("#" + s.id() + " .time-bound").style.display = "inline", document.querySelector("#" + s.id() + " .duration").style.display = "inline", document.querySelector("#" + s.id() + " .duration").innerText = t) : (document.querySelector("#" + s.id() + " .duration").style.display = "none", document.querySelector("#" + s.id() + " .time-bound").style.display = "none");
+          }), this._player.on(u.Video.TimeUpdate, function() {
+            var t = s._player.getCurrentTime(), t = l.formatTime(t);
+            document.querySelector("#" + s.id() + " .current-time") && (t ? (document.querySelector("#" + s.id() + " .current-time").style.display = "inline", document.querySelector("#" + s.id() + " .current-time").innerText = t) : document.querySelector("#" + s.id() + " .current-time").style.display = "none");
+          });
+        } });
+        o.exports = a;
+      }, { "../../lib/util": 51, "../../player/base/event/eventtype": 68, "../component": 132 }], 160: [function(a, o, x) {
+        var _ = a("../component"), l = a("../../lib/dom"), u = a("../../player/base/event/eventtype"), a = _.extend({ init: function(s, t) {
+          _.call(this, s, t), this.addClass("prism-tooltip");
+        }, createEl: function() {
+          var s = _.prototype.createEl.call(this, "p");
+          return s.innerText = "提示信息", s;
+        }, bindEvent: function() {
+          var s = this;
+          s._player.on(u.Private.TooltipShow, function(n) {
+            var e = document.querySelector("#" + s.id()), n = n.paramData, r = (e.innerText = n.text, l.css(e, "display", "block"), e.offsetWidth), h = document.querySelector("#" + s._player.id() + " .prism-controlbar");
+            h && (h = h.offsetWidth, n.left + r > h ? l.css(e, "left", h - r + "px") : l.css(e, "left", n.left - (r - n.width) / 2 + "px"));
+          }), s._player.on(u.Private.TooltipHide, function(t) {
+            var e = document.querySelector("#" + s.id());
+            l.css(e, "display", "none");
+          });
+        } });
+        o.exports = a;
+      }, { "../../lib/dom": 33, "../../player/base/event/eventtype": 68, "../component": 132 }], 161: [function(t, o, x) {
+        var _ = t("../component"), l = t("../../lib/dom"), u = t("../../lib/event"), a = t("../../lang/index"), s = t("../../player/base/event/eventtype"), t = _.extend({ init: function(e, n) {
+          _.call(this, e, n), this.addClass("prism-unmute-btn");
+        }, createEl: function() {
+          var e = _.prototype.createEl.call(this, "div");
+          return e.innerText = a.get("Click_To_Unmute"), e;
+        }, bindEvent: function() {
+          var e = this;
+          this._player.on(s.Private.MutedAutoplay, function() {
+            var n;
+            (n = e._player.getOptions().autoplayPolicy) != null && n.showUnmuteBtn && e._show();
+          }), this._player.on(s.Private.HideUnmuteButton, function() {
+            e._hide();
+          }), u.on(this.el(), "click", function() {
+            e._player.unMute(!0), e._hide();
+          });
+        }, _show: function() {
+          l.css(this.el(), "display", "block");
+        }, _hide: function() {
+          l.css(this.el(), "display", "none");
+        } });
+        o.exports = t;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../player/base/event/eventtype": 68, "../component": 132 }], 162: [function(c, o, x) {
+        var _ = c("../../lib/event"), l = c("../../player/base/event/eventtype");
+        o.exports.registerTooltipEvent = function(u, a) {
+          function s() {
+            t._controlbarTooltipHandler && (clearTimeout(t._controlbarTooltipHandler), t._controlbarTooltipHandler = null);
+          }
+          var t = this;
+          _.on(this.el(), "mouseover", function(e) {
+            s(), t._controlbarTooltipHandler = setTimeout(function() {
+              t._player.trigger(l.Private.TooltipHide);
+            }, 4e3);
+            var n = t.el().offsetLeft, r = t.el().offsetWidth, h = a;
+            typeof a == "function" && (h = a.call(this)), t._player.trigger(l.Private.TooltipShow, { left: n, width: r, text: h });
+          }), _.on(this.el(), "mouseout", function() {
+            s(), t._player.trigger(l.Private.TooltipHide);
+          });
+        }, o.exports.throttle = function(u, a) {
+          var s = Date.now();
+          return function() {
+            var t = arguments, e = Date.now();
+            a <= e - s && (u(t), s = e);
+          };
+        }, o.exports.debounce = function(u, a) {
+          var s;
+          return function() {
+            var t = this, e = arguments;
+            clearTimeout(s), s = setTimeout(function() {
+              u.apply(t, e);
+            }, a);
+          };
+        };
+      }, { "../../lib/event": 34, "../../player/base/event/eventtype": 68 }], 163: [function(n, o, x) {
+        var _ = n("../component"), l = n("../../lib/dom"), u = n("../../lib/event"), a = n("../../player/base/event/eventtype"), s = n("./util"), t = n("../../lang/index"), e = n("./volumecontrol"), n = _.extend({ init: function(r, h) {
+          _.call(this, r, h), this.addClass("prism-volume");
+          var y = new e(r, h);
+          r.addChild(y, h), this.volumeControl = y;
+        }, createEl: function() {
+          var r = _.prototype.createEl.call(this, "div");
+          return r.innerHTML = '<div class="volume-icon"><div class="short-horizontal"></div><div class="long-horizontal"></div></div>', r;
+        }, bindEvent: function() {
+          var r = this, h = r._player, y = (this.icon = document.querySelector("#" + r.id() + "  .volume-icon"), s.registerTooltipEvent.call(this, this.el(), function() {
+            return r._player.muted() || r._player.getVolume() == 0 ? t.get("Muted") : t.get("Volume");
+          }), u.on(this.icon, "click", function(d) {
+            var g;
+            r.volumeControl._shown ? h.muted() ? h.unMute() : h.mute() : (g = r.el().offsetLeft, r._player.trigger(a.Private.SettingListHide), r._player.trigger(a.Private.SelectorHide), r._player.trigger(a.Private.VolumeVisibilityChange, g), r._player.trigger(a.Private.MarkerTextHide));
+          }), document.querySelector("#" + r.id() + "  .long-horizontal")), p = document.querySelector("#" + r.id() + "  .short-horizontal");
+          u.on(this.el(), "mouseover", function() {
+            l.removeClass(y, "volume-hover-animation"), setTimeout(function() {
+              l.addClass(y, "volume-hover-animation");
+            }), setTimeout(function() {
+              l.removeClass(y, "volume-hover-animation"), l.addClass(p, "volume-hover-animation"), setTimeout(function() {
+                l.removeClass(p, "volume-hover-animation"), l.addClass(y, "volume-hover-animation");
+              }, 300);
+            }, 300);
+          }), u.on(window, "resize", function() {
+            var d;
+            r.volumeControl._shown && (d = r.el().offsetLeft, r._player.trigger(a.Private.VolumeUpdatePosition, d));
+          });
+        } });
+        o.exports = n;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../player/base/event/eventtype": 68, "../component": 132, "./util": 162, "./volumecontrol": 164 }], 164: [function(s, o, x) {
+        var _ = s("../component"), l = s("../../lib/dom"), u = s("../../lib/event"), a = s("../../player/base/event/eventtype"), s = (s("./util"), s("../../lang/index"), _.extend({ init: function(t, e) {
+          _.call(this, t, e), this.addClass("prism-volume-control"), this._shown = !1;
+        }, createEl: function() {
+          var t = _.prototype.createEl.call(this, "div");
+          return t.innerHTML = '<div class="volume-range"><div class="volume-value"></div><div class="volume-cursor"></div></div>', t;
+        }, bindEvent: function() {
+          var t = this;
+          this.icon = document.querySelector("#" + t._player.id() + "  .volume-icon"), this.control = document.querySelector("#" + t.id()), this.volumnValue = document.querySelector("#" + t.id() + "  .volume-value"), this.volumnRange = document.querySelector("#" + t.id() + "  .volume-range"), this.volumnCursor = document.querySelector("#" + t.id() + "  .volume-cursor"), this._player.on(a.Private.VolumeVisibilityChange, function(r) {
+            var n, r = r.paramData;
+            !t._shown && r ? (n = t._player.getVolume(), t._setVolumnUI(n), l.css(t.control, "display", "block"), r && t._updatePosition(r), t._shown = !0) : t._hide();
+          }), this._player.on(a.Private.VolumeUpdatePosition, function(e) {
+            e = e.paramData, t._shown && t._updatePosition(e);
+          }), this._player.on(a.Private.ControlBarClick, function(e) {
+            l.hasClass(e.paramData.target, "prism-controlbar-bg") && t._hide();
+          }), u.on(this.volumnRange, "click", function(e) {
+            e = l.getPointerPosition(t.volumnRange, e).y, e < 0 || 1 < e || (t._setVolumnUI(e = 1 < (e = e < 0 ? 0 : e) ? 1 : e), t._setMuteUI(e), t._player.setVolume(e));
+          }), u.on(this._player.tag, "click", function(e) {
+            e && e.target == e.currentTarget && t._hide();
+          }), u.on(this._player.tag, "touchstart", function(e) {
+            e && e.target == e.currentTarget && t._hide();
+          }), u.on(this.volumnCursor, "mousedown", function(e) {
+            t._onMouseDown(e);
+          }), u.on(this.volumnCursor, "touchstart", function(e) {
+            t._onMouseDown(e);
+          }), this._player.on(a.Private.VolumnChanged, function(e) {
+            e = e.paramData, -1 < e && t._setVolumnUI(e), t._setMuteUI(e);
+          }), u.on(this.control, "mouseleave", function() {
+            t._offEvent(), t._hide();
+          }), u.on(this.control, "mouseover", function() {
+            l.addClass(t.control, "hover");
+          }), t._rangeBottom = t._getBottom();
+        }, _getBottom: function() {
+          var t;
+          return window.getComputedStyle ? (t = window.getComputedStyle(this.volumnRange, null).getPropertyValue("bottom"), parseFloat(t)) : 26;
+        }, _onMouseDown: function(t) {
+          var e = this;
+          t.preventDefault(), u.on(this.control, "mousemove", function(n) {
+            e._onMouseMove(n);
+          }), u.on(this.control, "touchmove", function(n) {
+            e._onMouseMove(n);
+          }), u.on(this._player.tag, "mouseup", function(n) {
+            e._onMouseUp(n);
+          }), u.on(this._player.tag, "touchend", function(n) {
+            e._onMouseUp(n);
+          }), u.on(this.control, "mouseup", function(n) {
+            e._onMouseUp(n);
+          }), u.on(this.control, "touchend", function(n) {
+            e._onMouseUp(n);
+          });
+        }, _onMouseUp: function(t) {
+          t.preventDefault(), this._offEvent(), this.volumnRange.offsetHeight && (t = (this.volumnValue.offsetHeight / this.volumnRange.offsetHeight).toFixed(2), this._player.setVolume(t), this._setMuteUI(t));
+        }, _onMouseMove: function(t) {
+          t.preventDefault(), t = l.getPointerPosition(this.volumnRange, t).y, t < 0 || 1 < t || this._setVolumnUI(t = 1 < (t = t < 0 ? 0 : t) ? 1 : t);
+        }, _getPosition: function(t) {
+          for (var e = this.volumnRange, n = 0; e = e.offsetParent; ) n += e.offsetTop;
+          var r = this.volumnRange.offsetHeight, h = this.volumnCursor.offsetHeight, y = (t.touches ? t.touches[0] : t).pageY;
+          return (r - ((y = r < y - n ? t.clientY : y) - n) + h) / this.volumnRange.offsetHeight;
+        }, _offEvent: function() {
+          u.off(this._player.tag, "mouseup"), u.off(this._player.tag, "touchend"), u.off(this.control, "mousemove"), u.off(this.control, "touchmove"), u.off(this.control, "mouseup"), u.off(this.control, "touchend");
+        }, _setMuteUI: function(t) {
+          isNaN(t) || (t == 0 || t == -1 ? l.addClass(this.icon, "mute") : l.removeClass(this.icon, "mute"));
+        }, _setVolumnUI: function(t) {
+          isNaN(t) || (l.css(this.volumnValue, "height", 100 * t + "%"), l.css(this.volumnCursor, "bottom", 100 * (t = t == 1 ? 0.99 : t) + "%"));
+        }, _hide: function() {
+          l.css(this.control, "display", "none"), this._shown = !1;
+        }, _updatePosition: function(t) {
+          l.css(this.control, "left", t - 5 + "px");
+        } }));
+        o.exports = s;
+      }, { "../../lang/index": 24, "../../lib/dom": 33, "../../lib/event": 34, "../../player/base/event/eventtype": 68, "../component": 132, "./util": 162 }], 165: [function(c, o, x) {
+        o.exports = { H5Loading: c("./component/h5-loading"), bigPlayButton: c("./component/big-play-button"), unmuteButton: c("./component/unmute-button"), controlBar: c("./component/controlbar"), progress: c("./component/progress"), playButton: c("./component/play-button"), liveDisplay: c("./component/live-display"), timeDisplay: c("./component/time-display"), fullScreenButton: c("./component/fullscreen-button"), volume: c("./component/volume"), snapshot: c("./component/snapshot"), errorDisplay: c("./component/error-display"), infoDisplay: c("./component/info-display"), liveShiftProgress: c("../commonui/liveshiftprogress"), liveShiftTimeDisplay: c("../commonui/livetimedisplay"), setting: c("./component/setting/button"), subtitle: c("./component/cc-button"), thumbnail: c("./component/thumbnail"), tooltip: c("./component/tooltip") };
+      }, { "../commonui/liveshiftprogress": 13, "../commonui/livetimedisplay": 14, "./component/big-play-button": 133, "./component/cc-button": 134, "./component/controlbar": 135, "./component/error-display": 138, "./component/fullscreen-button": 139, "./component/h5-loading": 140, "./component/info-display": 141, "./component/live-display": 142, "./component/play-button": 143, "./component/progress": 145, "./component/setting/button": 148, "./component/snapshot": 156, "./component/thumbnail": 158, "./component/time-display": 159, "./component/tooltip": 160, "./component/unmute-button": 161, "./component/volume": 163 }] }, {}, [16])(16);
+    });
+  }(aliplayerMin)), aliplayerMin.exports;
+}
+var aliplayerMinExports = requireAliplayerMin();
+const Aliplayer$1 = /* @__PURE__ */ getDefaultExportFromCjs(aliplayerMinExports);
+function secondsToMinute(c) {
+  if (c) {
+    typeof c == "string" && (c.indexOf("分") > -1 ? c = c.replace(/[^0-9]/ig, "") * 60 : c.indexOf("秒") > -1 && (c = c.replace(/[^0-9]/ig, "")));
+    var o = Math.floor(c / (24 * 3600)), x = Math.floor((c - o * 24 * 3600) / 3600), _ = Math.floor((c - o * 24 * 3600 - x * 3600) / 60), l = parseInt(c - o * 24 * 3600 - x * 3600 - _ * 60), u = "";
+    return o > 0 && (u += o + "天"), u += `${x < 10 ? "0" + x : x}:`, u += `${_ < 10 ? "0" + _ : _}:`, u += `${l < 10 ? "0" + l : l}`, u;
+  } else
+    return "00:00:00";
+}
+function bind(c, o) {
+  return function() {
+    return c.apply(o, arguments);
+  };
+}
+const { toString } = Object.prototype, { getPrototypeOf } = Object, { iterator, toStringTag } = Symbol, kindOf = /* @__PURE__ */ ((c) => (o) => {
+  const x = toString.call(o);
+  return c[x] || (c[x] = x.slice(8, -1).toLowerCase());
+})(/* @__PURE__ */ Object.create(null)), kindOfTest = (c) => (c = c.toLowerCase(), (o) => kindOf(o) === c), typeOfTest = (c) => (o) => typeof o === c, { isArray } = Array, isUndefined = typeOfTest("undefined");
+function isBuffer(c) {
+  return c !== null && !isUndefined(c) && c.constructor !== null && !isUndefined(c.constructor) && isFunction(c.constructor.isBuffer) && c.constructor.isBuffer(c);
+}
+const isArrayBuffer = kindOfTest("ArrayBuffer");
+function isArrayBufferView(c) {
+  let o;
+  return typeof ArrayBuffer < "u" && ArrayBuffer.isView ? o = ArrayBuffer.isView(c) : o = c && c.buffer && isArrayBuffer(c.buffer), o;
+}
+const isString = typeOfTest("string"), isFunction = typeOfTest("function"), isNumber = typeOfTest("number"), isObject = (c) => c !== null && typeof c == "object", isBoolean = (c) => c === !0 || c === !1, isPlainObject = (c) => {
+  if (kindOf(c) !== "object")
+    return !1;
+  const o = getPrototypeOf(c);
+  return (o === null || o === Object.prototype || Object.getPrototypeOf(o) === null) && !(toStringTag in c) && !(iterator in c);
+}, isDate = kindOfTest("Date"), isFile = kindOfTest("File"), isBlob = kindOfTest("Blob"), isFileList = kindOfTest("FileList"), isStream = (c) => isObject(c) && isFunction(c.pipe), isFormData = (c) => {
+  let o;
+  return c && (typeof FormData == "function" && c instanceof FormData || isFunction(c.append) && ((o = kindOf(c)) === "formdata" || // detect form-data instance
+  o === "object" && isFunction(c.toString) && c.toString() === "[object FormData]"));
+}, isURLSearchParams = kindOfTest("URLSearchParams"), [isReadableStream, isRequest, isResponse, isHeaders] = ["ReadableStream", "Request", "Response", "Headers"].map(kindOfTest), trim = (c) => c.trim ? c.trim() : c.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
+function forEach(c, o, { allOwnKeys: x = !1 } = {}) {
+  if (c === null || typeof c > "u")
+    return;
+  let _, l;
+  if (typeof c != "object" && (c = [c]), isArray(c))
+    for (_ = 0, l = c.length; _ < l; _++)
+      o.call(null, c[_], _, c);
+  else {
+    const u = x ? Object.getOwnPropertyNames(c) : Object.keys(c), a = u.length;
+    let s;
+    for (_ = 0; _ < a; _++)
+      s = u[_], o.call(null, c[s], s, c);
+  }
+}
+function findKey(c, o) {
+  o = o.toLowerCase();
+  const x = Object.keys(c);
+  let _ = x.length, l;
+  for (; _-- > 0; )
+    if (l = x[_], o === l.toLowerCase())
+      return l;
+  return null;
+}
+const _global = typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : typeof window < "u" ? window : global, isContextDefined = (c) => !isUndefined(c) && c !== _global;
+function merge() {
+  const { caseless: c } = isContextDefined(this) && this || {}, o = {}, x = (_, l) => {
+    const u = c && findKey(o, l) || l;
+    isPlainObject(o[u]) && isPlainObject(_) ? o[u] = merge(o[u], _) : isPlainObject(_) ? o[u] = merge({}, _) : isArray(_) ? o[u] = _.slice() : o[u] = _;
+  };
+  for (let _ = 0, l = arguments.length; _ < l; _++)
+    arguments[_] && forEach(arguments[_], x);
+  return o;
+}
+const extend = (c, o, x, { allOwnKeys: _ } = {}) => (forEach(o, (l, u) => {
+  x && isFunction(l) ? c[u] = bind(l, x) : c[u] = l;
+}, { allOwnKeys: _ }), c), stripBOM = (c) => (c.charCodeAt(0) === 65279 && (c = c.slice(1)), c), inherits = (c, o, x, _) => {
+  c.prototype = Object.create(o.prototype, _), c.prototype.constructor = c, Object.defineProperty(c, "super", {
+    value: o.prototype
+  }), x && Object.assign(c.prototype, x);
+}, toFlatObject = (c, o, x, _) => {
+  let l, u, a;
+  const s = {};
+  if (o = o || {}, c == null) return o;
+  do {
+    for (l = Object.getOwnPropertyNames(c), u = l.length; u-- > 0; )
+      a = l[u], (!_ || _(a, c, o)) && !s[a] && (o[a] = c[a], s[a] = !0);
+    c = x !== !1 && getPrototypeOf(c);
+  } while (c && (!x || x(c, o)) && c !== Object.prototype);
+  return o;
+}, endsWith = (c, o, x) => {
+  c = String(c), (x === void 0 || x > c.length) && (x = c.length), x -= o.length;
+  const _ = c.indexOf(o, x);
+  return _ !== -1 && _ === x;
+}, toArray = (c) => {
+  if (!c) return null;
+  if (isArray(c)) return c;
+  let o = c.length;
+  if (!isNumber(o)) return null;
+  const x = new Array(o);
+  for (; o-- > 0; )
+    x[o] = c[o];
+  return x;
+}, isTypedArray = /* @__PURE__ */ ((c) => (o) => c && o instanceof c)(typeof Uint8Array < "u" && getPrototypeOf(Uint8Array)), forEachEntry = (c, o) => {
+  const _ = (c && c[iterator]).call(c);
+  let l;
+  for (; (l = _.next()) && !l.done; ) {
+    const u = l.value;
+    o.call(c, u[0], u[1]);
+  }
+}, matchAll = (c, o) => {
+  let x;
+  const _ = [];
+  for (; (x = c.exec(o)) !== null; )
+    _.push(x);
+  return _;
+}, isHTMLForm = kindOfTest("HTMLFormElement"), toCamelCase = (c) => c.toLowerCase().replace(
+  /[-_\s]([a-z\d])(\w*)/g,
+  function(x, _, l) {
+    return _.toUpperCase() + l;
+  }
+), hasOwnProperty = (({ hasOwnProperty: c }) => (o, x) => c.call(o, x))(Object.prototype), isRegExp = kindOfTest("RegExp"), reduceDescriptors = (c, o) => {
+  const x = Object.getOwnPropertyDescriptors(c), _ = {};
+  forEach(x, (l, u) => {
+    let a;
+    (a = o(l, u, c)) !== !1 && (_[u] = a || l);
+  }), Object.defineProperties(c, _);
+}, freezeMethods = (c) => {
+  reduceDescriptors(c, (o, x) => {
+    if (isFunction(c) && ["arguments", "caller", "callee"].indexOf(x) !== -1)
+      return !1;
+    const _ = c[x];
+    if (isFunction(_)) {
+      if (o.enumerable = !1, "writable" in o) {
+        o.writable = !1;
+        return;
+      }
+      o.set || (o.set = () => {
+        throw Error("Can not rewrite read-only method '" + x + "'");
+      });
+    }
+  });
+}, toObjectSet = (c, o) => {
+  const x = {}, _ = (l) => {
+    l.forEach((u) => {
+      x[u] = !0;
+    });
+  };
+  return isArray(c) ? _(c) : _(String(c).split(o)), x;
+}, noop = () => {
+}, toFiniteNumber = (c, o) => c != null && Number.isFinite(c = +c) ? c : o;
+function isSpecCompliantForm(c) {
+  return !!(c && isFunction(c.append) && c[toStringTag] === "FormData" && c[iterator]);
+}
+const toJSONObject = (c) => {
+  const o = new Array(10), x = (_, l) => {
+    if (isObject(_)) {
+      if (o.indexOf(_) >= 0)
+        return;
+      if (!("toJSON" in _)) {
+        o[l] = _;
+        const u = isArray(_) ? [] : {};
+        return forEach(_, (a, s) => {
+          const t = x(a, l + 1);
+          !isUndefined(t) && (u[s] = t);
+        }), o[l] = void 0, u;
+      }
+    }
+    return _;
+  };
+  return x(c, 0);
+}, isAsyncFn = kindOfTest("AsyncFunction"), isThenable = (c) => c && (isObject(c) || isFunction(c)) && isFunction(c.then) && isFunction(c.catch), _setImmediate = ((c, o) => c ? setImmediate : o ? ((x, _) => (_global.addEventListener("message", ({ source: l, data: u }) => {
+  l === _global && u === x && _.length && _.shift()();
+}, !1), (l) => {
+  _.push(l), _global.postMessage(x, "*");
+}))(`axios@${Math.random()}`, []) : (x) => setTimeout(x))(
+  typeof setImmediate == "function",
+  isFunction(_global.postMessage)
+), asap = typeof queueMicrotask < "u" ? queueMicrotask.bind(_global) : typeof process < "u" && process.nextTick || _setImmediate, isIterable = (c) => c != null && isFunction(c[iterator]), utils$1 = {
+  isArray,
+  isArrayBuffer,
+  isBuffer,
+  isFormData,
+  isArrayBufferView,
+  isString,
+  isNumber,
+  isBoolean,
+  isObject,
+  isPlainObject,
+  isReadableStream,
+  isRequest,
+  isResponse,
+  isHeaders,
+  isUndefined,
+  isDate,
+  isFile,
+  isBlob,
+  isRegExp,
+  isFunction,
+  isStream,
+  isURLSearchParams,
+  isTypedArray,
+  isFileList,
+  forEach,
+  merge,
+  extend,
+  trim,
+  stripBOM,
+  inherits,
+  toFlatObject,
+  kindOf,
+  kindOfTest,
+  endsWith,
+  toArray,
+  forEachEntry,
+  matchAll,
+  isHTMLForm,
+  hasOwnProperty,
+  hasOwnProp: hasOwnProperty,
+  // an alias to avoid ESLint no-prototype-builtins detection
+  reduceDescriptors,
+  freezeMethods,
+  toObjectSet,
+  toCamelCase,
+  noop,
+  toFiniteNumber,
+  findKey,
+  global: _global,
+  isContextDefined,
+  isSpecCompliantForm,
+  toJSONObject,
+  isAsyncFn,
+  isThenable,
+  setImmediate: _setImmediate,
+  asap,
+  isIterable
+};
+function AxiosError$1(c, o, x, _, l) {
+  Error.call(this), Error.captureStackTrace ? Error.captureStackTrace(this, this.constructor) : this.stack = new Error().stack, this.message = c, this.name = "AxiosError", o && (this.code = o), x && (this.config = x), _ && (this.request = _), l && (this.response = l, this.status = l.status ? l.status : null);
+}
+utils$1.inherits(AxiosError$1, Error, {
+  toJSON: function c() {
+    return {
+      // Standard
+      message: this.message,
+      name: this.name,
+      // Microsoft
+      description: this.description,
+      number: this.number,
+      // Mozilla
+      fileName: this.fileName,
+      lineNumber: this.lineNumber,
+      columnNumber: this.columnNumber,
+      stack: this.stack,
+      // Axios
+      config: utils$1.toJSONObject(this.config),
+      code: this.code,
+      status: this.status
+    };
+  }
+});
+const prototype$1 = AxiosError$1.prototype, descriptors = {};
+[
+  "ERR_BAD_OPTION_VALUE",
+  "ERR_BAD_OPTION",
+  "ECONNABORTED",
+  "ETIMEDOUT",
+  "ERR_NETWORK",
+  "ERR_FR_TOO_MANY_REDIRECTS",
+  "ERR_DEPRECATED",
+  "ERR_BAD_RESPONSE",
+  "ERR_BAD_REQUEST",
+  "ERR_CANCELED",
+  "ERR_NOT_SUPPORT",
+  "ERR_INVALID_URL"
+  // eslint-disable-next-line func-names
+].forEach((c) => {
+  descriptors[c] = { value: c };
+});
+Object.defineProperties(AxiosError$1, descriptors);
+Object.defineProperty(prototype$1, "isAxiosError", { value: !0 });
+AxiosError$1.from = (c, o, x, _, l, u) => {
+  const a = Object.create(prototype$1);
+  return utils$1.toFlatObject(c, a, function(t) {
+    return t !== Error.prototype;
+  }, (s) => s !== "isAxiosError"), AxiosError$1.call(a, c.message, o, x, _, l), a.cause = c, a.name = c.name, u && Object.assign(a, u), a;
+};
+const httpAdapter = null;
+function isVisitable(c) {
+  return utils$1.isPlainObject(c) || utils$1.isArray(c);
+}
+function removeBrackets(c) {
+  return utils$1.endsWith(c, "[]") ? c.slice(0, -2) : c;
+}
+function renderKey(c, o, x) {
+  return c ? c.concat(o).map(function(l, u) {
+    return l = removeBrackets(l), !x && u ? "[" + l + "]" : l;
+  }).join(x ? "." : "") : o;
+}
+function isFlatArray(c) {
+  return utils$1.isArray(c) && !c.some(isVisitable);
+}
+const predicates = utils$1.toFlatObject(utils$1, {}, null, function c(o) {
+  return /^is[A-Z]/.test(o);
+});
+function toFormData$1(c, o, x) {
+  if (!utils$1.isObject(c))
+    throw new TypeError("target must be an object");
+  o = o || new FormData(), x = utils$1.toFlatObject(x, {
+    metaTokens: !0,
+    dots: !1,
+    indexes: !1
+  }, !1, function(d, g) {
+    return !utils$1.isUndefined(g[d]);
+  });
+  const _ = x.metaTokens, l = x.visitor || n, u = x.dots, a = x.indexes, t = (x.Blob || typeof Blob < "u" && Blob) && utils$1.isSpecCompliantForm(o);
+  if (!utils$1.isFunction(l))
+    throw new TypeError("visitor must be a function");
+  function e(p) {
+    if (p === null) return "";
+    if (utils$1.isDate(p))
+      return p.toISOString();
+    if (!t && utils$1.isBlob(p))
+      throw new AxiosError$1("Blob is not supported. Use a Buffer instead.");
+    return utils$1.isArrayBuffer(p) || utils$1.isTypedArray(p) ? t && typeof Blob == "function" ? new Blob([p]) : Buffer.from(p) : p;
+  }
+  function n(p, d, g) {
+    let m = p;
+    if (p && !g && typeof p == "object") {
+      if (utils$1.endsWith(d, "{}"))
+        d = _ ? d : d.slice(0, -2), p = JSON.stringify(p);
+      else if (utils$1.isArray(p) && isFlatArray(p) || (utils$1.isFileList(p) || utils$1.endsWith(d, "[]")) && (m = utils$1.toArray(p)))
+        return d = removeBrackets(d), m.forEach(function(f, b) {
+          !(utils$1.isUndefined(f) || f === null) && o.append(
+            // eslint-disable-next-line no-nested-ternary
+            a === !0 ? renderKey([d], b, u) : a === null ? d : d + "[]",
+            e(f)
+          );
+        }), !1;
+    }
+    return isVisitable(p) ? !0 : (o.append(renderKey(g, d, u), e(p)), !1);
+  }
+  const r = [], h = Object.assign(predicates, {
+    defaultVisitor: n,
+    convertValue: e,
+    isVisitable
+  });
+  function y(p, d) {
+    if (!utils$1.isUndefined(p)) {
+      if (r.indexOf(p) !== -1)
+        throw Error("Circular reference detected in " + d.join("."));
+      r.push(p), utils$1.forEach(p, function(m, v) {
+        (!(utils$1.isUndefined(m) || m === null) && l.call(
+          o,
+          m,
+          utils$1.isString(v) ? v.trim() : v,
+          d,
+          h
+        )) === !0 && y(m, d ? d.concat(v) : [v]);
+      }), r.pop();
+    }
+  }
+  if (!utils$1.isObject(c))
+    throw new TypeError("data must be an object");
+  return y(c), o;
+}
+function encode$1(c) {
+  const o = {
+    "!": "%21",
+    "'": "%27",
+    "(": "%28",
+    ")": "%29",
+    "~": "%7E",
+    "%20": "+",
+    "%00": "\0"
+  };
+  return encodeURIComponent(c).replace(/[!'()~]|%20|%00/g, function(_) {
+    return o[_];
+  });
+}
+function AxiosURLSearchParams(c, o) {
+  this._pairs = [], c && toFormData$1(c, this, o);
+}
+const prototype = AxiosURLSearchParams.prototype;
+prototype.append = function c(o, x) {
+  this._pairs.push([o, x]);
+};
+prototype.toString = function c(o) {
+  const x = o ? function(_) {
+    return o.call(this, _, encode$1);
+  } : encode$1;
+  return this._pairs.map(function(l) {
+    return x(l[0]) + "=" + x(l[1]);
+  }, "").join("&");
+};
+function encode(c) {
+  return encodeURIComponent(c).replace(/%3A/gi, ":").replace(/%24/g, "$").replace(/%2C/gi, ",").replace(/%20/g, "+").replace(/%5B/gi, "[").replace(/%5D/gi, "]");
+}
+function buildURL(c, o, x) {
+  if (!o)
+    return c;
+  const _ = x && x.encode || encode;
+  utils$1.isFunction(x) && (x = {
+    serialize: x
+  });
+  const l = x && x.serialize;
+  let u;
+  if (l ? u = l(o, x) : u = utils$1.isURLSearchParams(o) ? o.toString() : new AxiosURLSearchParams(o, x).toString(_), u) {
+    const a = c.indexOf("#");
+    a !== -1 && (c = c.slice(0, a)), c += (c.indexOf("?") === -1 ? "?" : "&") + u;
+  }
+  return c;
+}
+class InterceptorManager {
+  constructor() {
+    this.handlers = [];
+  }
+  /**
+   * Add a new interceptor to the stack
+   *
+   * @param {Function} fulfilled The function to handle `then` for a `Promise`
+   * @param {Function} rejected The function to handle `reject` for a `Promise`
+   *
+   * @return {Number} An ID used to remove interceptor later
+   */
+  use(o, x, _) {
+    return this.handlers.push({
+      fulfilled: o,
+      rejected: x,
+      synchronous: _ ? _.synchronous : !1,
+      runWhen: _ ? _.runWhen : null
+    }), this.handlers.length - 1;
+  }
+  /**
+   * Remove an interceptor from the stack
+   *
+   * @param {Number} id The ID that was returned by `use`
+   *
+   * @returns {Boolean} `true` if the interceptor was removed, `false` otherwise
+   */
+  eject(o) {
+    this.handlers[o] && (this.handlers[o] = null);
+  }
+  /**
+   * Clear all interceptors from the stack
+   *
+   * @returns {void}
+   */
+  clear() {
+    this.handlers && (this.handlers = []);
+  }
+  /**
+   * Iterate over all the registered interceptors
+   *
+   * This method is particularly useful for skipping over any
+   * interceptors that may have become `null` calling `eject`.
+   *
+   * @param {Function} fn The function to call for each interceptor
+   *
+   * @returns {void}
+   */
+  forEach(o) {
+    utils$1.forEach(this.handlers, function(_) {
+      _ !== null && o(_);
+    });
+  }
+}
+const transitionalDefaults = {
+  silentJSONParsing: !0,
+  forcedJSONParsing: !0,
+  clarifyTimeoutError: !1
+}, URLSearchParams$1 = typeof URLSearchParams < "u" ? URLSearchParams : AxiosURLSearchParams, FormData$1 = typeof FormData < "u" ? FormData : null, Blob$1 = typeof Blob < "u" ? Blob : null, platform$1 = {
+  isBrowser: !0,
+  classes: {
+    URLSearchParams: URLSearchParams$1,
+    FormData: FormData$1,
+    Blob: Blob$1
+  },
+  protocols: ["http", "https", "file", "blob", "url", "data"]
+}, hasBrowserEnv = typeof window < "u" && typeof document < "u", _navigator = typeof navigator == "object" && navigator || void 0, hasStandardBrowserEnv = hasBrowserEnv && (!_navigator || ["ReactNative", "NativeScript", "NS"].indexOf(_navigator.product) < 0), hasStandardBrowserWebWorkerEnv = typeof WorkerGlobalScope < "u" && // eslint-disable-next-line no-undef
+self instanceof WorkerGlobalScope && typeof self.importScripts == "function", origin = hasBrowserEnv && window.location.href || "http://localhost", utils = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  hasBrowserEnv,
+  hasStandardBrowserEnv,
+  hasStandardBrowserWebWorkerEnv,
+  navigator: _navigator,
+  origin
+}, Symbol.toStringTag, { value: "Module" })), platform = {
+  ...utils,
+  ...platform$1
+};
+function toURLEncodedForm(c, o) {
+  return toFormData$1(c, new platform.classes.URLSearchParams(), Object.assign({
+    visitor: function(x, _, l, u) {
+      return platform.isNode && utils$1.isBuffer(x) ? (this.append(_, x.toString("base64")), !1) : u.defaultVisitor.apply(this, arguments);
+    }
+  }, o));
+}
+function parsePropPath(c) {
+  return utils$1.matchAll(/\w+|\[(\w*)]/g, c).map((o) => o[0] === "[]" ? "" : o[1] || o[0]);
+}
+function arrayToObject(c) {
+  const o = {}, x = Object.keys(c);
+  let _;
+  const l = x.length;
+  let u;
+  for (_ = 0; _ < l; _++)
+    u = x[_], o[u] = c[u];
+  return o;
+}
+function formDataToJSON(c) {
+  function o(x, _, l, u) {
+    let a = x[u++];
+    if (a === "__proto__") return !0;
+    const s = Number.isFinite(+a), t = u >= x.length;
+    return a = !a && utils$1.isArray(l) ? l.length : a, t ? (utils$1.hasOwnProp(l, a) ? l[a] = [l[a], _] : l[a] = _, !s) : ((!l[a] || !utils$1.isObject(l[a])) && (l[a] = []), o(x, _, l[a], u) && utils$1.isArray(l[a]) && (l[a] = arrayToObject(l[a])), !s);
+  }
+  if (utils$1.isFormData(c) && utils$1.isFunction(c.entries)) {
+    const x = {};
+    return utils$1.forEachEntry(c, (_, l) => {
+      o(parsePropPath(_), l, x, 0);
+    }), x;
+  }
+  return null;
+}
+function stringifySafely(c, o, x) {
+  if (utils$1.isString(c))
+    try {
+      return (o || JSON.parse)(c), utils$1.trim(c);
+    } catch (_) {
+      if (_.name !== "SyntaxError")
+        throw _;
+    }
+  return (x || JSON.stringify)(c);
+}
+const defaults = {
+  transitional: transitionalDefaults,
+  adapter: ["xhr", "http", "fetch"],
+  transformRequest: [function c(o, x) {
+    const _ = x.getContentType() || "", l = _.indexOf("application/json") > -1, u = utils$1.isObject(o);
+    if (u && utils$1.isHTMLForm(o) && (o = new FormData(o)), utils$1.isFormData(o))
+      return l ? JSON.stringify(formDataToJSON(o)) : o;
+    if (utils$1.isArrayBuffer(o) || utils$1.isBuffer(o) || utils$1.isStream(o) || utils$1.isFile(o) || utils$1.isBlob(o) || utils$1.isReadableStream(o))
+      return o;
+    if (utils$1.isArrayBufferView(o))
+      return o.buffer;
+    if (utils$1.isURLSearchParams(o))
+      return x.setContentType("application/x-www-form-urlencoded;charset=utf-8", !1), o.toString();
+    let s;
+    if (u) {
+      if (_.indexOf("application/x-www-form-urlencoded") > -1)
+        return toURLEncodedForm(o, this.formSerializer).toString();
+      if ((s = utils$1.isFileList(o)) || _.indexOf("multipart/form-data") > -1) {
+        const t = this.env && this.env.FormData;
+        return toFormData$1(
+          s ? { "files[]": o } : o,
+          t && new t(),
+          this.formSerializer
+        );
+      }
+    }
+    return u || l ? (x.setContentType("application/json", !1), stringifySafely(o)) : o;
+  }],
+  transformResponse: [function c(o) {
+    const x = this.transitional || defaults.transitional, _ = x && x.forcedJSONParsing, l = this.responseType === "json";
+    if (utils$1.isResponse(o) || utils$1.isReadableStream(o))
+      return o;
+    if (o && utils$1.isString(o) && (_ && !this.responseType || l)) {
+      const a = !(x && x.silentJSONParsing) && l;
+      try {
+        return JSON.parse(o);
+      } catch (s) {
+        if (a)
+          throw s.name === "SyntaxError" ? AxiosError$1.from(s, AxiosError$1.ERR_BAD_RESPONSE, this, null, this.response) : s;
+      }
+    }
+    return o;
+  }],
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
+  xsrfCookieName: "XSRF-TOKEN",
+  xsrfHeaderName: "X-XSRF-TOKEN",
+  maxContentLength: -1,
+  maxBodyLength: -1,
+  env: {
+    FormData: platform.classes.FormData,
+    Blob: platform.classes.Blob
+  },
+  validateStatus: function c(o) {
+    return o >= 200 && o < 300;
+  },
+  headers: {
+    common: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": void 0
+    }
+  }
+};
+utils$1.forEach(["delete", "get", "head", "post", "put", "patch"], (c) => {
+  defaults.headers[c] = {};
+});
+const ignoreDuplicateOf = utils$1.toObjectSet([
+  "age",
+  "authorization",
+  "content-length",
+  "content-type",
+  "etag",
+  "expires",
+  "from",
+  "host",
+  "if-modified-since",
+  "if-unmodified-since",
+  "last-modified",
+  "location",
+  "max-forwards",
+  "proxy-authorization",
+  "referer",
+  "retry-after",
+  "user-agent"
+]), parseHeaders = (c) => {
+  const o = {};
+  let x, _, l;
+  return c && c.split(`
+`).forEach(function(a) {
+    l = a.indexOf(":"), x = a.substring(0, l).trim().toLowerCase(), _ = a.substring(l + 1).trim(), !(!x || o[x] && ignoreDuplicateOf[x]) && (x === "set-cookie" ? o[x] ? o[x].push(_) : o[x] = [_] : o[x] = o[x] ? o[x] + ", " + _ : _);
+  }), o;
+}, $internals = Symbol("internals");
+function normalizeHeader(c) {
+  return c && String(c).trim().toLowerCase();
+}
+function normalizeValue(c) {
+  return c === !1 || c == null ? c : utils$1.isArray(c) ? c.map(normalizeValue) : String(c);
+}
+function parseTokens(c) {
+  const o = /* @__PURE__ */ Object.create(null), x = /([^\s,;=]+)\s*(?:=\s*([^,;]+))?/g;
+  let _;
+  for (; _ = x.exec(c); )
+    o[_[1]] = _[2];
+  return o;
+}
+const isValidHeaderName = (c) => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(c.trim());
+function matchHeaderValue(c, o, x, _, l) {
+  if (utils$1.isFunction(_))
+    return _.call(this, o, x);
+  if (l && (o = x), !!utils$1.isString(o)) {
+    if (utils$1.isString(_))
+      return o.indexOf(_) !== -1;
+    if (utils$1.isRegExp(_))
+      return _.test(o);
+  }
+}
+function formatHeader(c) {
+  return c.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (o, x, _) => x.toUpperCase() + _);
+}
+function buildAccessors(c, o) {
+  const x = utils$1.toCamelCase(" " + o);
+  ["get", "set", "has"].forEach((_) => {
+    Object.defineProperty(c, _ + x, {
+      value: function(l, u, a) {
+        return this[_].call(this, o, l, u, a);
+      },
+      configurable: !0
+    });
+  });
+}
+let AxiosHeaders$1 = class {
+  constructor(o) {
+    o && this.set(o);
+  }
+  set(o, x, _) {
+    const l = this;
+    function u(s, t, e) {
+      const n = normalizeHeader(t);
+      if (!n)
+        throw new Error("header name must be a non-empty string");
+      const r = utils$1.findKey(l, n);
+      (!r || l[r] === void 0 || e === !0 || e === void 0 && l[r] !== !1) && (l[r || t] = normalizeValue(s));
+    }
+    const a = (s, t) => utils$1.forEach(s, (e, n) => u(e, n, t));
+    if (utils$1.isPlainObject(o) || o instanceof this.constructor)
+      a(o, x);
+    else if (utils$1.isString(o) && (o = o.trim()) && !isValidHeaderName(o))
+      a(parseHeaders(o), x);
+    else if (utils$1.isObject(o) && utils$1.isIterable(o)) {
+      let s = {}, t, e;
+      for (const n of o) {
+        if (!utils$1.isArray(n))
+          throw TypeError("Object iterator must return a key-value pair");
+        s[e = n[0]] = (t = s[e]) ? utils$1.isArray(t) ? [...t, n[1]] : [t, n[1]] : n[1];
+      }
+      a(s, x);
+    } else
+      o != null && u(x, o, _);
+    return this;
+  }
+  get(o, x) {
+    if (o = normalizeHeader(o), o) {
+      const _ = utils$1.findKey(this, o);
+      if (_) {
+        const l = this[_];
+        if (!x)
+          return l;
+        if (x === !0)
+          return parseTokens(l);
+        if (utils$1.isFunction(x))
+          return x.call(this, l, _);
+        if (utils$1.isRegExp(x))
+          return x.exec(l);
+        throw new TypeError("parser must be boolean|regexp|function");
+      }
+    }
+  }
+  has(o, x) {
+    if (o = normalizeHeader(o), o) {
+      const _ = utils$1.findKey(this, o);
+      return !!(_ && this[_] !== void 0 && (!x || matchHeaderValue(this, this[_], _, x)));
+    }
+    return !1;
+  }
+  delete(o, x) {
+    const _ = this;
+    let l = !1;
+    function u(a) {
+      if (a = normalizeHeader(a), a) {
+        const s = utils$1.findKey(_, a);
+        s && (!x || matchHeaderValue(_, _[s], s, x)) && (delete _[s], l = !0);
+      }
+    }
+    return utils$1.isArray(o) ? o.forEach(u) : u(o), l;
+  }
+  clear(o) {
+    const x = Object.keys(this);
+    let _ = x.length, l = !1;
+    for (; _--; ) {
+      const u = x[_];
+      (!o || matchHeaderValue(this, this[u], u, o, !0)) && (delete this[u], l = !0);
+    }
+    return l;
+  }
+  normalize(o) {
+    const x = this, _ = {};
+    return utils$1.forEach(this, (l, u) => {
+      const a = utils$1.findKey(_, u);
+      if (a) {
+        x[a] = normalizeValue(l), delete x[u];
+        return;
+      }
+      const s = o ? formatHeader(u) : String(u).trim();
+      s !== u && delete x[u], x[s] = normalizeValue(l), _[s] = !0;
+    }), this;
+  }
+  concat(...o) {
+    return this.constructor.concat(this, ...o);
+  }
+  toJSON(o) {
+    const x = /* @__PURE__ */ Object.create(null);
+    return utils$1.forEach(this, (_, l) => {
+      _ != null && _ !== !1 && (x[l] = o && utils$1.isArray(_) ? _.join(", ") : _);
+    }), x;
+  }
+  [Symbol.iterator]() {
+    return Object.entries(this.toJSON())[Symbol.iterator]();
+  }
+  toString() {
+    return Object.entries(this.toJSON()).map(([o, x]) => o + ": " + x).join(`
+`);
+  }
+  getSetCookie() {
+    return this.get("set-cookie") || [];
+  }
+  get [Symbol.toStringTag]() {
+    return "AxiosHeaders";
+  }
+  static from(o) {
+    return o instanceof this ? o : new this(o);
+  }
+  static concat(o, ...x) {
+    const _ = new this(o);
+    return x.forEach((l) => _.set(l)), _;
+  }
+  static accessor(o) {
+    const _ = (this[$internals] = this[$internals] = {
+      accessors: {}
+    }).accessors, l = this.prototype;
+    function u(a) {
+      const s = normalizeHeader(a);
+      _[s] || (buildAccessors(l, a), _[s] = !0);
+    }
+    return utils$1.isArray(o) ? o.forEach(u) : u(o), this;
+  }
+};
+AxiosHeaders$1.accessor(["Content-Type", "Content-Length", "Accept", "Accept-Encoding", "User-Agent", "Authorization"]);
+utils$1.reduceDescriptors(AxiosHeaders$1.prototype, ({ value: c }, o) => {
+  let x = o[0].toUpperCase() + o.slice(1);
+  return {
+    get: () => c,
+    set(_) {
+      this[x] = _;
+    }
+  };
+});
+utils$1.freezeMethods(AxiosHeaders$1);
+function transformData(c, o) {
+  const x = this || defaults, _ = o || x, l = AxiosHeaders$1.from(_.headers);
+  let u = _.data;
+  return utils$1.forEach(c, function(s) {
+    u = s.call(x, u, l.normalize(), o ? o.status : void 0);
+  }), l.normalize(), u;
+}
+function isCancel$1(c) {
+  return !!(c && c.__CANCEL__);
+}
+function CanceledError$1(c, o, x) {
+  AxiosError$1.call(this, c ?? "canceled", AxiosError$1.ERR_CANCELED, o, x), this.name = "CanceledError";
+}
+utils$1.inherits(CanceledError$1, AxiosError$1, {
+  __CANCEL__: !0
+});
+function settle(c, o, x) {
+  const _ = x.config.validateStatus;
+  !x.status || !_ || _(x.status) ? c(x) : o(new AxiosError$1(
+    "Request failed with status code " + x.status,
+    [AxiosError$1.ERR_BAD_REQUEST, AxiosError$1.ERR_BAD_RESPONSE][Math.floor(x.status / 100) - 4],
+    x.config,
+    x.request,
+    x
+  ));
+}
+function parseProtocol(c) {
+  const o = /^([-+\w]{1,25})(:?\/\/|:)/.exec(c);
+  return o && o[1] || "";
+}
+function speedometer(c, o) {
+  c = c || 10;
+  const x = new Array(c), _ = new Array(c);
+  let l = 0, u = 0, a;
+  return o = o !== void 0 ? o : 1e3, function(t) {
+    const e = Date.now(), n = _[u];
+    a || (a = e), x[l] = t, _[l] = e;
+    let r = u, h = 0;
+    for (; r !== l; )
+      h += x[r++], r = r % c;
+    if (l = (l + 1) % c, l === u && (u = (u + 1) % c), e - a < o)
+      return;
+    const y = n && e - n;
+    return y ? Math.round(h * 1e3 / y) : void 0;
+  };
+}
+function throttle(c, o) {
+  let x = 0, _ = 1e3 / o, l, u;
+  const a = (e, n = Date.now()) => {
+    x = n, l = null, u && (clearTimeout(u), u = null), c.apply(null, e);
+  };
+  return [(...e) => {
+    const n = Date.now(), r = n - x;
+    r >= _ ? a(e, n) : (l = e, u || (u = setTimeout(() => {
+      u = null, a(l);
+    }, _ - r)));
+  }, () => l && a(l)];
+}
+const progressEventReducer = (c, o, x = 3) => {
+  let _ = 0;
+  const l = speedometer(50, 250);
+  return throttle((u) => {
+    const a = u.loaded, s = u.lengthComputable ? u.total : void 0, t = a - _, e = l(t), n = a <= s;
+    _ = a;
+    const r = {
+      loaded: a,
+      total: s,
+      progress: s ? a / s : void 0,
+      bytes: t,
+      rate: e || void 0,
+      estimated: e && s && n ? (s - a) / e : void 0,
+      event: u,
+      lengthComputable: s != null,
+      [o ? "download" : "upload"]: !0
+    };
+    c(r);
+  }, x);
+}, progressEventDecorator = (c, o) => {
+  const x = c != null;
+  return [(_) => o[0]({
+    lengthComputable: x,
+    total: c,
+    loaded: _
+  }), o[1]];
+}, asyncDecorator = (c) => (...o) => utils$1.asap(() => c(...o)), isURLSameOrigin = platform.hasStandardBrowserEnv ? /* @__PURE__ */ ((c, o) => (x) => (x = new URL(x, platform.origin), c.protocol === x.protocol && c.host === x.host && (o || c.port === x.port)))(
+  new URL(platform.origin),
+  platform.navigator && /(msie|trident)/i.test(platform.navigator.userAgent)
+) : () => !0, cookies = platform.hasStandardBrowserEnv ? (
+  // Standard browser envs support document.cookie
+  {
+    write(c, o, x, _, l, u) {
+      const a = [c + "=" + encodeURIComponent(o)];
+      utils$1.isNumber(x) && a.push("expires=" + new Date(x).toGMTString()), utils$1.isString(_) && a.push("path=" + _), utils$1.isString(l) && a.push("domain=" + l), u === !0 && a.push("secure"), document.cookie = a.join("; ");
+    },
+    read(c) {
+      const o = document.cookie.match(new RegExp("(^|;\\s*)(" + c + ")=([^;]*)"));
+      return o ? decodeURIComponent(o[3]) : null;
+    },
+    remove(c) {
+      this.write(c, "", Date.now() - 864e5);
+    }
+  }
+) : (
+  // Non-standard browser env (web workers, react-native) lack needed support.
+  {
+    write() {
+    },
+    read() {
+      return null;
+    },
+    remove() {
+    }
+  }
+);
+function isAbsoluteURL(c) {
+  return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(c);
+}
+function combineURLs(c, o) {
+  return o ? c.replace(/\/?\/$/, "") + "/" + o.replace(/^\/+/, "") : c;
+}
+function buildFullPath(c, o, x) {
+  let _ = !isAbsoluteURL(o);
+  return c && (_ || x == !1) ? combineURLs(c, o) : o;
+}
+const headersToObject = (c) => c instanceof AxiosHeaders$1 ? { ...c } : c;
+function mergeConfig$1(c, o) {
+  o = o || {};
+  const x = {};
+  function _(e, n, r, h) {
+    return utils$1.isPlainObject(e) && utils$1.isPlainObject(n) ? utils$1.merge.call({ caseless: h }, e, n) : utils$1.isPlainObject(n) ? utils$1.merge({}, n) : utils$1.isArray(n) ? n.slice() : n;
+  }
+  function l(e, n, r, h) {
+    if (utils$1.isUndefined(n)) {
+      if (!utils$1.isUndefined(e))
+        return _(void 0, e, r, h);
+    } else return _(e, n, r, h);
+  }
+  function u(e, n) {
+    if (!utils$1.isUndefined(n))
+      return _(void 0, n);
+  }
+  function a(e, n) {
+    if (utils$1.isUndefined(n)) {
+      if (!utils$1.isUndefined(e))
+        return _(void 0, e);
+    } else return _(void 0, n);
+  }
+  function s(e, n, r) {
+    if (r in o)
+      return _(e, n);
+    if (r in c)
+      return _(void 0, e);
+  }
+  const t = {
+    url: u,
+    method: u,
+    data: u,
+    baseURL: a,
+    transformRequest: a,
+    transformResponse: a,
+    paramsSerializer: a,
+    timeout: a,
+    timeoutMessage: a,
+    withCredentials: a,
+    withXSRFToken: a,
+    adapter: a,
+    responseType: a,
+    xsrfCookieName: a,
+    xsrfHeaderName: a,
+    onUploadProgress: a,
+    onDownloadProgress: a,
+    decompress: a,
+    maxContentLength: a,
+    maxBodyLength: a,
+    beforeRedirect: a,
+    transport: a,
+    httpAgent: a,
+    httpsAgent: a,
+    cancelToken: a,
+    socketPath: a,
+    responseEncoding: a,
+    validateStatus: s,
+    headers: (e, n, r) => l(headersToObject(e), headersToObject(n), r, !0)
+  };
+  return utils$1.forEach(Object.keys(Object.assign({}, c, o)), function(n) {
+    const r = t[n] || l, h = r(c[n], o[n], n);
+    utils$1.isUndefined(h) && r !== s || (x[n] = h);
+  }), x;
+}
+const resolveConfig = (c) => {
+  const o = mergeConfig$1({}, c);
+  let { data: x, withXSRFToken: _, xsrfHeaderName: l, xsrfCookieName: u, headers: a, auth: s } = o;
+  o.headers = a = AxiosHeaders$1.from(a), o.url = buildURL(buildFullPath(o.baseURL, o.url, o.allowAbsoluteUrls), c.params, c.paramsSerializer), s && a.set(
+    "Authorization",
+    "Basic " + btoa((s.username || "") + ":" + (s.password ? unescape(encodeURIComponent(s.password)) : ""))
+  );
+  let t;
+  if (utils$1.isFormData(x)) {
+    if (platform.hasStandardBrowserEnv || platform.hasStandardBrowserWebWorkerEnv)
+      a.setContentType(void 0);
+    else if ((t = a.getContentType()) !== !1) {
+      const [e, ...n] = t ? t.split(";").map((r) => r.trim()).filter(Boolean) : [];
+      a.setContentType([e || "multipart/form-data", ...n].join("; "));
+    }
+  }
+  if (platform.hasStandardBrowserEnv && (_ && utils$1.isFunction(_) && (_ = _(o)), _ || _ !== !1 && isURLSameOrigin(o.url))) {
+    const e = l && u && cookies.read(u);
+    e && a.set(l, e);
+  }
+  return o;
+}, isXHRAdapterSupported = typeof XMLHttpRequest < "u", xhrAdapter = isXHRAdapterSupported && function(c) {
+  return new Promise(function(x, _) {
+    const l = resolveConfig(c);
+    let u = l.data;
+    const a = AxiosHeaders$1.from(l.headers).normalize();
+    let { responseType: s, onUploadProgress: t, onDownloadProgress: e } = l, n, r, h, y, p;
+    function d() {
+      y && y(), p && p(), l.cancelToken && l.cancelToken.unsubscribe(n), l.signal && l.signal.removeEventListener("abort", n);
+    }
+    let g = new XMLHttpRequest();
+    g.open(l.method.toUpperCase(), l.url, !0), g.timeout = l.timeout;
+    function m() {
+      if (!g)
+        return;
+      const f = AxiosHeaders$1.from(
+        "getAllResponseHeaders" in g && g.getAllResponseHeaders()
+      ), S = {
+        data: !s || s === "text" || s === "json" ? g.responseText : g.response,
+        status: g.status,
+        statusText: g.statusText,
+        headers: f,
+        config: c,
+        request: g
+      };
+      settle(function(T) {
+        x(T), d();
+      }, function(T) {
+        _(T), d();
+      }, S), g = null;
+    }
+    "onloadend" in g ? g.onloadend = m : g.onreadystatechange = function() {
+      !g || g.readyState !== 4 || g.status === 0 && !(g.responseURL && g.responseURL.indexOf("file:") === 0) || setTimeout(m);
+    }, g.onabort = function() {
+      g && (_(new AxiosError$1("Request aborted", AxiosError$1.ECONNABORTED, c, g)), g = null);
+    }, g.onerror = function() {
+      _(new AxiosError$1("Network Error", AxiosError$1.ERR_NETWORK, c, g)), g = null;
+    }, g.ontimeout = function() {
+      let b = l.timeout ? "timeout of " + l.timeout + "ms exceeded" : "timeout exceeded";
+      const S = l.transitional || transitionalDefaults;
+      l.timeoutErrorMessage && (b = l.timeoutErrorMessage), _(new AxiosError$1(
+        b,
+        S.clarifyTimeoutError ? AxiosError$1.ETIMEDOUT : AxiosError$1.ECONNABORTED,
+        c,
+        g
+      )), g = null;
+    }, u === void 0 && a.setContentType(null), "setRequestHeader" in g && utils$1.forEach(a.toJSON(), function(b, S) {
+      g.setRequestHeader(S, b);
+    }), utils$1.isUndefined(l.withCredentials) || (g.withCredentials = !!l.withCredentials), s && s !== "json" && (g.responseType = l.responseType), e && ([h, p] = progressEventReducer(e, !0), g.addEventListener("progress", h)), t && g.upload && ([r, y] = progressEventReducer(t), g.upload.addEventListener("progress", r), g.upload.addEventListener("loadend", y)), (l.cancelToken || l.signal) && (n = (f) => {
+      g && (_(!f || f.type ? new CanceledError$1(null, c, g) : f), g.abort(), g = null);
+    }, l.cancelToken && l.cancelToken.subscribe(n), l.signal && (l.signal.aborted ? n() : l.signal.addEventListener("abort", n)));
+    const v = parseProtocol(l.url);
+    if (v && platform.protocols.indexOf(v) === -1) {
+      _(new AxiosError$1("Unsupported protocol " + v + ":", AxiosError$1.ERR_BAD_REQUEST, c));
+      return;
+    }
+    g.send(u || null);
+  });
+}, composeSignals = (c, o) => {
+  const { length: x } = c = c ? c.filter(Boolean) : [];
+  if (o || x) {
+    let _ = new AbortController(), l;
+    const u = function(e) {
+      if (!l) {
+        l = !0, s();
+        const n = e instanceof Error ? e : this.reason;
+        _.abort(n instanceof AxiosError$1 ? n : new CanceledError$1(n instanceof Error ? n.message : n));
+      }
+    };
+    let a = o && setTimeout(() => {
+      a = null, u(new AxiosError$1(`timeout ${o} of ms exceeded`, AxiosError$1.ETIMEDOUT));
+    }, o);
+    const s = () => {
+      c && (a && clearTimeout(a), a = null, c.forEach((e) => {
+        e.unsubscribe ? e.unsubscribe(u) : e.removeEventListener("abort", u);
+      }), c = null);
+    };
+    c.forEach((e) => e.addEventListener("abort", u));
+    const { signal: t } = _;
+    return t.unsubscribe = () => utils$1.asap(s), t;
+  }
+}, streamChunk = function* (c, o) {
+  let x = c.byteLength;
+  if (x < o) {
+    yield c;
+    return;
+  }
+  let _ = 0, l;
+  for (; _ < x; )
+    l = _ + o, yield c.slice(_, l), _ = l;
+}, readBytes = async function* (c, o) {
+  for await (const x of readStream(c))
+    yield* streamChunk(x, o);
+}, readStream = async function* (c) {
+  if (c[Symbol.asyncIterator]) {
+    yield* c;
+    return;
+  }
+  const o = c.getReader();
+  try {
+    for (; ; ) {
+      const { done: x, value: _ } = await o.read();
+      if (x)
+        break;
+      yield _;
+    }
+  } finally {
+    await o.cancel();
+  }
+}, trackStream = (c, o, x, _) => {
+  const l = readBytes(c, o);
+  let u = 0, a, s = (t) => {
+    a || (a = !0, _ && _(t));
+  };
+  return new ReadableStream({
+    async pull(t) {
+      try {
+        const { done: e, value: n } = await l.next();
+        if (e) {
+          s(), t.close();
+          return;
+        }
+        let r = n.byteLength;
+        if (x) {
+          let h = u += r;
+          x(h);
+        }
+        t.enqueue(new Uint8Array(n));
+      } catch (e) {
+        throw s(e), e;
+      }
+    },
+    cancel(t) {
+      return s(t), l.return();
+    }
+  }, {
+    highWaterMark: 2
+  });
+}, isFetchSupported = typeof fetch == "function" && typeof Request == "function" && typeof Response == "function", isReadableStreamSupported = isFetchSupported && typeof ReadableStream == "function", encodeText = isFetchSupported && (typeof TextEncoder == "function" ? /* @__PURE__ */ ((c) => (o) => c.encode(o))(new TextEncoder()) : async (c) => new Uint8Array(await new Response(c).arrayBuffer())), test = (c, ...o) => {
+  try {
+    return !!c(...o);
+  } catch {
+    return !1;
+  }
+}, supportsRequestStream = isReadableStreamSupported && test(() => {
+  let c = !1;
+  const o = new Request(platform.origin, {
+    body: new ReadableStream(),
+    method: "POST",
+    get duplex() {
+      return c = !0, "half";
+    }
+  }).headers.has("Content-Type");
+  return c && !o;
+}), DEFAULT_CHUNK_SIZE = 64 * 1024, supportsResponseStream = isReadableStreamSupported && test(() => utils$1.isReadableStream(new Response("").body)), resolvers = {
+  stream: supportsResponseStream && ((c) => c.body)
+};
+isFetchSupported && ((c) => {
+  ["text", "arrayBuffer", "blob", "formData", "stream"].forEach((o) => {
+    !resolvers[o] && (resolvers[o] = utils$1.isFunction(c[o]) ? (x) => x[o]() : (x, _) => {
+      throw new AxiosError$1(`Response type '${o}' is not supported`, AxiosError$1.ERR_NOT_SUPPORT, _);
+    });
+  });
+})(new Response());
+const getBodyLength = async (c) => {
+  if (c == null)
+    return 0;
+  if (utils$1.isBlob(c))
+    return c.size;
+  if (utils$1.isSpecCompliantForm(c))
+    return (await new Request(platform.origin, {
+      method: "POST",
+      body: c
+    }).arrayBuffer()).byteLength;
+  if (utils$1.isArrayBufferView(c) || utils$1.isArrayBuffer(c))
+    return c.byteLength;
+  if (utils$1.isURLSearchParams(c) && (c = c + ""), utils$1.isString(c))
+    return (await encodeText(c)).byteLength;
+}, resolveBodyLength = async (c, o) => {
+  const x = utils$1.toFiniteNumber(c.getContentLength());
+  return x ?? getBodyLength(o);
+}, fetchAdapter = isFetchSupported && (async (c) => {
+  let {
+    url: o,
+    method: x,
+    data: _,
+    signal: l,
+    cancelToken: u,
+    timeout: a,
+    onDownloadProgress: s,
+    onUploadProgress: t,
+    responseType: e,
+    headers: n,
+    withCredentials: r = "same-origin",
+    fetchOptions: h
+  } = resolveConfig(c);
+  e = e ? (e + "").toLowerCase() : "text";
+  let y = composeSignals([l, u && u.toAbortSignal()], a), p;
+  const d = y && y.unsubscribe && (() => {
+    y.unsubscribe();
+  });
+  let g;
+  try {
+    if (t && supportsRequestStream && x !== "get" && x !== "head" && (g = await resolveBodyLength(n, _)) !== 0) {
+      let S = new Request(o, {
+        method: "POST",
+        body: _,
+        duplex: "half"
+      }), w;
+      if (utils$1.isFormData(_) && (w = S.headers.get("content-type")) && n.setContentType(w), S.body) {
+        const [T, R] = progressEventDecorator(
+          g,
+          progressEventReducer(asyncDecorator(t))
+        );
+        _ = trackStream(S.body, DEFAULT_CHUNK_SIZE, T, R);
+      }
+    }
+    utils$1.isString(r) || (r = r ? "include" : "omit");
+    const m = "credentials" in Request.prototype;
+    p = new Request(o, {
+      ...h,
+      signal: y,
+      method: x.toUpperCase(),
+      headers: n.normalize().toJSON(),
+      body: _,
+      duplex: "half",
+      credentials: m ? r : void 0
+    });
+    let v = await fetch(p);
+    const f = supportsResponseStream && (e === "stream" || e === "response");
+    if (supportsResponseStream && (s || f && d)) {
+      const S = {};
+      ["status", "statusText", "headers"].forEach((P) => {
+        S[P] = v[P];
+      });
+      const w = utils$1.toFiniteNumber(v.headers.get("content-length")), [T, R] = s && progressEventDecorator(
+        w,
+        progressEventReducer(asyncDecorator(s), !0)
+      ) || [];
+      v = new Response(
+        trackStream(v.body, DEFAULT_CHUNK_SIZE, T, () => {
+          R && R(), d && d();
+        }),
+        S
+      );
+    }
+    e = e || "text";
+    let b = await resolvers[utils$1.findKey(resolvers, e) || "text"](v, c);
+    return !f && d && d(), await new Promise((S, w) => {
+      settle(S, w, {
+        data: b,
+        headers: AxiosHeaders$1.from(v.headers),
+        status: v.status,
+        statusText: v.statusText,
+        config: c,
+        request: p
+      });
+    });
+  } catch (m) {
+    throw d && d(), m && m.name === "TypeError" && /Load failed|fetch/i.test(m.message) ? Object.assign(
+      new AxiosError$1("Network Error", AxiosError$1.ERR_NETWORK, c, p),
+      {
+        cause: m.cause || m
+      }
+    ) : AxiosError$1.from(m, m && m.code, c, p);
+  }
+}), knownAdapters = {
+  http: httpAdapter,
+  xhr: xhrAdapter,
+  fetch: fetchAdapter
+};
+utils$1.forEach(knownAdapters, (c, o) => {
+  if (c) {
+    try {
+      Object.defineProperty(c, "name", { value: o });
+    } catch {
+    }
+    Object.defineProperty(c, "adapterName", { value: o });
+  }
+});
+const renderReason = (c) => `- ${c}`, isResolvedHandle = (c) => utils$1.isFunction(c) || c === null || c === !1, adapters = {
+  getAdapter: (c) => {
+    c = utils$1.isArray(c) ? c : [c];
+    const { length: o } = c;
+    let x, _;
+    const l = {};
+    for (let u = 0; u < o; u++) {
+      x = c[u];
+      let a;
+      if (_ = x, !isResolvedHandle(x) && (_ = knownAdapters[(a = String(x)).toLowerCase()], _ === void 0))
+        throw new AxiosError$1(`Unknown adapter '${a}'`);
+      if (_)
+        break;
+      l[a || "#" + u] = _;
+    }
+    if (!_) {
+      const u = Object.entries(l).map(
+        ([s, t]) => `adapter ${s} ` + (t === !1 ? "is not supported by the environment" : "is not available in the build")
+      );
+      let a = o ? u.length > 1 ? `since :
+` + u.map(renderReason).join(`
+`) : " " + renderReason(u[0]) : "as no adapter specified";
+      throw new AxiosError$1(
+        "There is no suitable adapter to dispatch the request " + a,
+        "ERR_NOT_SUPPORT"
+      );
+    }
+    return _;
+  },
+  adapters: knownAdapters
+};
+function throwIfCancellationRequested(c) {
+  if (c.cancelToken && c.cancelToken.throwIfRequested(), c.signal && c.signal.aborted)
+    throw new CanceledError$1(null, c);
+}
+function dispatchRequest(c) {
+  return throwIfCancellationRequested(c), c.headers = AxiosHeaders$1.from(c.headers), c.data = transformData.call(
+    c,
+    c.transformRequest
+  ), ["post", "put", "patch"].indexOf(c.method) !== -1 && c.headers.setContentType("application/x-www-form-urlencoded", !1), adapters.getAdapter(c.adapter || defaults.adapter)(c).then(function(_) {
+    return throwIfCancellationRequested(c), _.data = transformData.call(
+      c,
+      c.transformResponse,
+      _
+    ), _.headers = AxiosHeaders$1.from(_.headers), _;
+  }, function(_) {
+    return isCancel$1(_) || (throwIfCancellationRequested(c), _ && _.response && (_.response.data = transformData.call(
+      c,
+      c.transformResponse,
+      _.response
+    ), _.response.headers = AxiosHeaders$1.from(_.response.headers))), Promise.reject(_);
+  });
+}
+const VERSION$1 = "1.9.0", validators$1 = {};
+["object", "boolean", "number", "function", "string", "symbol"].forEach((c, o) => {
+  validators$1[c] = function(_) {
+    return typeof _ === c || "a" + (o < 1 ? "n " : " ") + c;
+  };
+});
+const deprecatedWarnings = {};
+validators$1.transitional = function c(o, x, _) {
+  function l(u, a) {
+    return "[Axios v" + VERSION$1 + "] Transitional option '" + u + "'" + a + (_ ? ". " + _ : "");
+  }
+  return (u, a, s) => {
+    if (o === !1)
+      throw new AxiosError$1(
+        l(a, " has been removed" + (x ? " in " + x : "")),
+        AxiosError$1.ERR_DEPRECATED
+      );
+    return x && !deprecatedWarnings[a] && (deprecatedWarnings[a] = !0, console.warn(
+      l(
+        a,
+        " has been deprecated since v" + x + " and will be removed in the near future"
+      )
+    )), o ? o(u, a, s) : !0;
+  };
+};
+validators$1.spelling = function c(o) {
+  return (x, _) => (console.warn(`${_} is likely a misspelling of ${o}`), !0);
+};
+function assertOptions(c, o, x) {
+  if (typeof c != "object")
+    throw new AxiosError$1("options must be an object", AxiosError$1.ERR_BAD_OPTION_VALUE);
+  const _ = Object.keys(c);
+  let l = _.length;
+  for (; l-- > 0; ) {
+    const u = _[l], a = o[u];
+    if (a) {
+      const s = c[u], t = s === void 0 || a(s, u, c);
+      if (t !== !0)
+        throw new AxiosError$1("option " + u + " must be " + t, AxiosError$1.ERR_BAD_OPTION_VALUE);
+      continue;
+    }
+    if (x !== !0)
+      throw new AxiosError$1("Unknown option " + u, AxiosError$1.ERR_BAD_OPTION);
+  }
+}
+const validator = {
+  assertOptions,
+  validators: validators$1
+}, validators = validator.validators;
+let Axios$1 = class {
+  constructor(o) {
+    this.defaults = o || {}, this.interceptors = {
+      request: new InterceptorManager(),
+      response: new InterceptorManager()
+    };
+  }
+  /**
+   * Dispatch a request
+   *
+   * @param {String|Object} configOrUrl The config specific for this request (merged with this.defaults)
+   * @param {?Object} config
+   *
+   * @returns {Promise} The Promise to be fulfilled
+   */
+  async request(o, x) {
+    try {
+      return await this._request(o, x);
+    } catch (_) {
+      if (_ instanceof Error) {
+        let l = {};
+        Error.captureStackTrace ? Error.captureStackTrace(l) : l = new Error();
+        const u = l.stack ? l.stack.replace(/^.+\n/, "") : "";
+        try {
+          _.stack ? u && !String(_.stack).endsWith(u.replace(/^.+\n.+\n/, "")) && (_.stack += `
+` + u) : _.stack = u;
+        } catch {
+        }
+      }
+      throw _;
+    }
+  }
+  _request(o, x) {
+    typeof o == "string" ? (x = x || {}, x.url = o) : x = o || {}, x = mergeConfig$1(this.defaults, x);
+    const { transitional: _, paramsSerializer: l, headers: u } = x;
+    _ !== void 0 && validator.assertOptions(_, {
+      silentJSONParsing: validators.transitional(validators.boolean),
+      forcedJSONParsing: validators.transitional(validators.boolean),
+      clarifyTimeoutError: validators.transitional(validators.boolean)
+    }, !1), l != null && (utils$1.isFunction(l) ? x.paramsSerializer = {
+      serialize: l
+    } : validator.assertOptions(l, {
+      encode: validators.function,
+      serialize: validators.function
+    }, !0)), x.allowAbsoluteUrls !== void 0 || (this.defaults.allowAbsoluteUrls !== void 0 ? x.allowAbsoluteUrls = this.defaults.allowAbsoluteUrls : x.allowAbsoluteUrls = !0), validator.assertOptions(x, {
+      baseUrl: validators.spelling("baseURL"),
+      withXsrfToken: validators.spelling("withXSRFToken")
+    }, !0), x.method = (x.method || this.defaults.method || "get").toLowerCase();
+    let a = u && utils$1.merge(
+      u.common,
+      u[x.method]
+    );
+    u && utils$1.forEach(
+      ["delete", "get", "head", "post", "put", "patch", "common"],
+      (p) => {
+        delete u[p];
+      }
+    ), x.headers = AxiosHeaders$1.concat(a, u);
+    const s = [];
+    let t = !0;
+    this.interceptors.request.forEach(function(d) {
+      typeof d.runWhen == "function" && d.runWhen(x) === !1 || (t = t && d.synchronous, s.unshift(d.fulfilled, d.rejected));
+    });
+    const e = [];
+    this.interceptors.response.forEach(function(d) {
+      e.push(d.fulfilled, d.rejected);
+    });
+    let n, r = 0, h;
+    if (!t) {
+      const p = [dispatchRequest.bind(this), void 0];
+      for (p.unshift.apply(p, s), p.push.apply(p, e), h = p.length, n = Promise.resolve(x); r < h; )
+        n = n.then(p[r++], p[r++]);
+      return n;
+    }
+    h = s.length;
+    let y = x;
+    for (r = 0; r < h; ) {
+      const p = s[r++], d = s[r++];
+      try {
+        y = p(y);
+      } catch (g) {
+        d.call(this, g);
+        break;
+      }
+    }
+    try {
+      n = dispatchRequest.call(this, y);
+    } catch (p) {
+      return Promise.reject(p);
+    }
+    for (r = 0, h = e.length; r < h; )
+      n = n.then(e[r++], e[r++]);
+    return n;
+  }
+  getUri(o) {
+    o = mergeConfig$1(this.defaults, o);
+    const x = buildFullPath(o.baseURL, o.url, o.allowAbsoluteUrls);
+    return buildURL(x, o.params, o.paramsSerializer);
+  }
+};
+utils$1.forEach(["delete", "get", "head", "options"], function c(o) {
+  Axios$1.prototype[o] = function(x, _) {
+    return this.request(mergeConfig$1(_ || {}, {
+      method: o,
+      url: x,
+      data: (_ || {}).data
+    }));
+  };
+});
+utils$1.forEach(["post", "put", "patch"], function c(o) {
+  function x(_) {
+    return function(u, a, s) {
+      return this.request(mergeConfig$1(s || {}, {
+        method: o,
+        headers: _ ? {
+          "Content-Type": "multipart/form-data"
+        } : {},
+        url: u,
+        data: a
+      }));
+    };
+  }
+  Axios$1.prototype[o] = x(), Axios$1.prototype[o + "Form"] = x(!0);
+});
+let CancelToken$1 = class gt {
+  constructor(o) {
+    if (typeof o != "function")
+      throw new TypeError("executor must be a function.");
+    let x;
+    this.promise = new Promise(function(u) {
+      x = u;
+    });
+    const _ = this;
+    this.promise.then((l) => {
+      if (!_._listeners) return;
+      let u = _._listeners.length;
+      for (; u-- > 0; )
+        _._listeners[u](l);
+      _._listeners = null;
+    }), this.promise.then = (l) => {
+      let u;
+      const a = new Promise((s) => {
+        _.subscribe(s), u = s;
+      }).then(l);
+      return a.cancel = function() {
+        _.unsubscribe(u);
+      }, a;
+    }, o(function(u, a, s) {
+      _.reason || (_.reason = new CanceledError$1(u, a, s), x(_.reason));
+    });
+  }
+  /**
+   * Throws a `CanceledError` if cancellation has been requested.
+   */
+  throwIfRequested() {
+    if (this.reason)
+      throw this.reason;
+  }
+  /**
+   * Subscribe to the cancel signal
+   */
+  subscribe(o) {
+    if (this.reason) {
+      o(this.reason);
+      return;
+    }
+    this._listeners ? this._listeners.push(o) : this._listeners = [o];
+  }
+  /**
+   * Unsubscribe from the cancel signal
+   */
+  unsubscribe(o) {
+    if (!this._listeners)
+      return;
+    const x = this._listeners.indexOf(o);
+    x !== -1 && this._listeners.splice(x, 1);
+  }
+  toAbortSignal() {
+    const o = new AbortController(), x = (_) => {
+      o.abort(_);
+    };
+    return this.subscribe(x), o.signal.unsubscribe = () => this.unsubscribe(x), o.signal;
+  }
+  /**
+   * Returns an object that contains a new `CancelToken` and a function that, when called,
+   * cancels the `CancelToken`.
+   */
+  static source() {
+    let o;
+    return {
+      token: new gt(function(l) {
+        o = l;
+      }),
+      cancel: o
+    };
+  }
+};
+function spread$1(c) {
+  return function(x) {
+    return c.apply(null, x);
+  };
+}
+function isAxiosError$1(c) {
+  return utils$1.isObject(c) && c.isAxiosError === !0;
+}
+const HttpStatusCode$1 = {
+  Continue: 100,
+  SwitchingProtocols: 101,
+  Processing: 102,
+  EarlyHints: 103,
+  Ok: 200,
+  Created: 201,
+  Accepted: 202,
+  NonAuthoritativeInformation: 203,
+  NoContent: 204,
+  ResetContent: 205,
+  PartialContent: 206,
+  MultiStatus: 207,
+  AlreadyReported: 208,
+  ImUsed: 226,
+  MultipleChoices: 300,
+  MovedPermanently: 301,
+  Found: 302,
+  SeeOther: 303,
+  NotModified: 304,
+  UseProxy: 305,
+  Unused: 306,
+  TemporaryRedirect: 307,
+  PermanentRedirect: 308,
+  BadRequest: 400,
+  Unauthorized: 401,
+  PaymentRequired: 402,
+  Forbidden: 403,
+  NotFound: 404,
+  MethodNotAllowed: 405,
+  NotAcceptable: 406,
+  ProxyAuthenticationRequired: 407,
+  RequestTimeout: 408,
+  Conflict: 409,
+  Gone: 410,
+  LengthRequired: 411,
+  PreconditionFailed: 412,
+  PayloadTooLarge: 413,
+  UriTooLong: 414,
+  UnsupportedMediaType: 415,
+  RangeNotSatisfiable: 416,
+  ExpectationFailed: 417,
+  ImATeapot: 418,
+  MisdirectedRequest: 421,
+  UnprocessableEntity: 422,
+  Locked: 423,
+  FailedDependency: 424,
+  TooEarly: 425,
+  UpgradeRequired: 426,
+  PreconditionRequired: 428,
+  TooManyRequests: 429,
+  RequestHeaderFieldsTooLarge: 431,
+  UnavailableForLegalReasons: 451,
+  InternalServerError: 500,
+  NotImplemented: 501,
+  BadGateway: 502,
+  ServiceUnavailable: 503,
+  GatewayTimeout: 504,
+  HttpVersionNotSupported: 505,
+  VariantAlsoNegotiates: 506,
+  InsufficientStorage: 507,
+  LoopDetected: 508,
+  NotExtended: 510,
+  NetworkAuthenticationRequired: 511
+};
+Object.entries(HttpStatusCode$1).forEach(([c, o]) => {
+  HttpStatusCode$1[o] = c;
+});
+function createInstance(c) {
+  const o = new Axios$1(c), x = bind(Axios$1.prototype.request, o);
+  return utils$1.extend(x, Axios$1.prototype, o, { allOwnKeys: !0 }), utils$1.extend(x, o, null, { allOwnKeys: !0 }), x.create = function(l) {
+    return createInstance(mergeConfig$1(c, l));
+  }, x;
+}
+const axios = createInstance(defaults);
+axios.Axios = Axios$1;
+axios.CanceledError = CanceledError$1;
+axios.CancelToken = CancelToken$1;
+axios.isCancel = isCancel$1;
+axios.VERSION = VERSION$1;
+axios.toFormData = toFormData$1;
+axios.AxiosError = AxiosError$1;
+axios.Cancel = axios.CanceledError;
+axios.all = function c(o) {
+  return Promise.all(o);
+};
+axios.spread = spread$1;
+axios.isAxiosError = isAxiosError$1;
+axios.mergeConfig = mergeConfig$1;
+axios.AxiosHeaders = AxiosHeaders$1;
+axios.formToJSON = (c) => formDataToJSON(utils$1.isHTMLForm(c) ? new FormData(c) : c);
+axios.getAdapter = adapters.getAdapter;
+axios.HttpStatusCode = HttpStatusCode$1;
+axios.default = axios;
+const {
+  Axios,
+  AxiosError,
+  CanceledError,
+  isCancel,
+  CancelToken,
+  VERSION,
+  all,
+  Cancel,
+  isAxiosError,
+  spread,
+  toFormData,
+  AxiosHeaders,
+  HttpStatusCode,
+  formToJSON,
+  getAdapter,
+  mergeConfig
+} = axios, axiosInstance = axios.create({
+  baseURL: "/",
+  timeout: 1e4,
+  withCredentials: !0
+});
+axiosInstance.interceptors.request.use(
+  (c) => c,
+  (c) => {
+    Promise.reject(c);
+  }
+);
+axiosInstance.interceptors.response.use(
+  (c) => {
+    const { code: o } = c.data;
+    return o == null ? Promise.resolve(c) : Promise.resolve(c.data);
+  },
+  (c) => Promise.reject(c)
+);
+function getPlayAuth(c, o, x) {
+  return axiosInstance({
+    url: `https://dms.multimediapress.cn/dms/api/v2/getPlayAuth/appId/${c}/vid/${o}/timeOut/${x}`,
+    method: "get"
+  });
+}
+function getVideoInfo(c) {
+  return axiosInstance({
+    url: "https://dms.multimediapress.cn/dms/api/v2/getVideoInfo",
+    method: "post",
+    data: c
+  });
+}
+function getPlayInfo(c, o) {
+  return axiosInstance({
+    url: `https://dms.multimediapress.cn/dms/v2/playInfo/${c}/${o}`,
+    method: "get"
+  });
+}
+const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "index",
+  props: {
+    themeColor: {
+      type: String,
+      default: "#F44336"
+    },
+    url: {
+      type: String,
+      default: ""
+    },
+    playerId: {
+      type: String,
+      default: (/* @__PURE__ */ new Date()).getTime() + ""
+    },
+    cover: {
+      type: String,
+      default: ""
+    },
+    vid: {
+      // 视频id
+      type: [Number, String],
+      default: 0
+    },
+    playType: {
+      // 播放方式 1地址播放（开放不加密）2地址编码播放（地址base64加密）3防盗链播放（通过视频编号获取视频播放地址，防盗）
+      type: Number,
+      default: 1
+    },
+    appId: {
+      type: Number,
+      default: 0
+    },
+    allowDuration: {
+      type: Number,
+      default: -1
+      // 允许试看时长 -1表示无限制 单位分钟
+    },
+    enterExitPoint: {
+      type: Array,
+      default: []
+    },
+    marks: {
+      type: Array,
+      default: () => []
+    },
+    options: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  emits: ["login", "timeupdate", "update:enterExitPoint", "success", "ready", "play", "pause", "playing", "ended", "canplay", "liveStreamStop", "hideBar", "showBar", "waiting", "requestFullScreen", "cancelFullScreen", "error", "startSeek", "completeSeek"],
+  setup(c, { expose: o, emit: x }) {
+    let _ = shallowRef(0), l = shallowRef(!1);
+    const u = ref(null), a = x, s = c, t = ref(!1), e = reactive({
+      videoSrc: "",
+      // 视频地址
+      options: {},
+      container: null,
+      duration: 0,
+      showLoginDialogTip: !1,
+      showLoginTip: !0,
+      isLogin: !1,
+      player: null,
+      currentP: "0",
+      currentTime: 0
+    });
+    function n(G, F = {}) {
+      const {
+        type: J = "info",
+        duration: ae = 3e3,
+        position: de = "top-center"
+      } = F, me = document.createElement("div");
+      me.className = `toast toast-${J} toast-${de}`, me.textContent = G, document.body.appendChild(me), setTimeout(() => {
+        me.classList.add("show");
+      }, 10), setTimeout(() => {
+        me.classList.remove("show"), setTimeout(() => {
+          me.remove();
+        }, 300);
+      }, ae);
+    }
+    const r = (G) => {
+      const F = e.player.getCurrentTime();
+      if (console.log(e.player), G === "0") {
+        if (F >= s.enterExitPoint[1])
+          return n(F === s.enterExitPoint[1] ? "入点和出点位置相同，请重新设置" : "入点时间不能大于出点时间，请重新设置", {
+            type: "warning",
+            duration: 2e3
+          }), !1;
+        e.player._el.getElementsByClassName("point-tag")[0].style.left = F / e.duration * 100 + "%", e.player._el.getElementsByClassName("point-tag")[0].title = "入点：" + secondsToMinute(F), s.enterExitPoint[0] = F;
+      } else {
+        if (F <= s.enterExitPoint[0])
+          return n(F === s.enterExitPoint[0] ? "入点和出点位置相同，请重新设置" : "出点时间不能小于入点时间，请重新设置", {
+            type: "warning",
+            duration: 2e3
+          }), !1;
+        e.player._el.getElementsByClassName("point-tag")[1].style.left = F / e.duration * 100 + "%", e.player._el.getElementsByClassName("point-tag")[1].title = "出点：" + secondsToMinute(F), s.enterExitPoint[1] = F;
+      }
+      a("update:enterExitPoint", s.enterExitPoint);
+    };
+    function h(G) {
+      s.playType === 1 ? (e.videoSrc = s.url, y()) : s.playType === 2 ? getPlayAuth(s.appId, G || s.vid, 30).then((F) => {
+        const { code: J, data: ae } = F;
+        J === 200 && getVideoInfo({ appId: s.appId, vid: G || s.vid, playAuth: ae }).then((de) => {
+          const { code: me, data: ke } = de;
+          me === 200 ? (e.videoSrc = ke.url, e.duration = ke.duration, t.value = ke.innerIp, ke.innerIp && (e.isLogin = !0)) : (e.videoSrc = "", t.value = !1), y();
+        });
+      }) : s.playType === 3 && getPlayInfo(s.appId, G || s.vid).then((F) => {
+        F.code === 200 ? (e.videoSrc = F.data, t.value = F.innerIp, F.innerIp && (e.isLogin = !0)) : (e.videoSrc = "", t.value = !1), y();
+      });
+    }
+    onMounted(() => {
+      h();
+    });
+    function y() {
+      var ae;
+      const G = "dms_player" + s.playerId, F = {
+        license: {
+          domain: "multimediapress.cn",
+          key: "6PdiKZSqULDBDP1VMe7a07ddcd50847418d8794bd756eb577"
+        },
+        id: G,
+        source: e.videoSrc,
+        height: "100%",
+        components: [
+          { name: "progressMarkerComponent", type: d },
+          { name: "CustomComponent", type: S }
+        ],
+        showViewPointsBar: !0,
+        // 是否显示学习记录
+        showSpeed: !0,
+        // 是否显示倍速按钮
+        logo: [{
+          //logo
+          width: 20,
+          position: "top-left",
+          origin: "box",
+          src: "./static/images/player_logo.png",
+          offsetY: 1,
+          offsetX: 2
+        }],
+        speedLevels: [
+          { value: 0.25, label: "0.25x" },
+          { value: 0.5, label: "0.5x" },
+          { value: 1, label: "倍速" },
+          { value: 1.25, label: "1.25x" },
+          { value: 1.5, label: "1.5x" },
+          { value: 2, label: "2.0x" }
+        ],
+        showTracks: !0,
+        // 是否显示字幕
+        skinLayoutIgnore: ["bigPlayButton"],
+        controlBarVisibility: "always",
+        marks: [],
+        // 标记点
+        showKnowledge: !0,
+        // 是否显示知识点进度条
+        knowledgeOpen: !0,
+        // 知识点进度条默认是否开启显示
+        Knowledge: [],
+        viewPoints: []
+        // 观看学习记录进度
+      };
+      e.options = Object.assign(F, s.options);
+      const J = [];
+      e.options.marks && e.options.marks.forEach((de) => {
+        J.push({
+          offset: de.offset,
+          time: secondsToMinute(de.time),
+          text: de.text,
+          isCustomized: !0
+        });
+      }), F.progressMarkers = J, O(), document.getElementById(G) ? e.container = document.getElementById(G) : (e.container = document.createElement("div"), e.container.id = G, (ae = u.value) == null || ae.appendChild(e.container)), e.player = new Aliplayer$1(F, function(de) {
+        de.on("ready", function(me) {
+          a("ready", me), e.options.volume && de.setVolume(e.options.volume), e.duration = de.getDuration(), f(), b();
+          const ke = e.container.getElementsByClassName("prism-progress")[0];
+          if (s.allowDuration !== -1) {
+            const Le = document.createElement("div");
+            if (ke) {
+              const je = s.allowDuration * 60 / e.duration;
+              Le.className = "allow-point-marker", Le.style.left = je * 100 + "%", ke.appendChild(Le);
+            }
+          }
+          if (e.options.showViewPointsBar) {
+            const Le = document.createElement("div");
+            Le.className = "progress-range", ke.after(Le), P();
+          }
+          de.on("play", () => {
+            const Le = de.getCurrentTime();
+            if (!e.isLogin && s.allowDuration !== -1 && Le >= s.allowDuration * 60) {
+              e.showLoginDialogTip = !0, de.pause(), de.seek(s.allowDuration * 60);
+              return;
+            }
+            l.value = !0, a("play", de);
+          }), de.on("pause", () => {
+            a("pause", de);
+          }), de.on("seek", function(Le) {
+            _.value = de.getCurrentTime();
+            const je = de.getCurrentTime();
+            !e.isLogin && s.allowDuration !== -1 && je >= s.allowDuration * 60 && (e.showLoginDialogTip = !0, de.pause(), de.seek(s.allowDuration * 60));
+          });
+        }), de.on("error", function(me) {
+          a("error", me);
+        }), de.on("waiting", function(me) {
+          a("waiting", me);
+        }), de.on("startSeek", function(me) {
+          a("startSeek", me);
+        }), de.on("completeSeek", function(me) {
+          a("completeSeek", me);
+        }), de.on("liveStreamStop", function(me) {
+          a("liveStreamStop", me);
+        }), de.on("hideBar", function(me) {
+          a("hideBar", me);
+        }), de.on("showBar", function(me) {
+          a("showBar", me);
+        }), de.on("requestFullScreen", function(me) {
+          a("requestFullScreen", me);
+        }), de.on("cancelFullScreen", function(me) {
+          a("cancelFullScreen", me);
+        }), de.on("timeupdate", function() {
+          H(de);
+        });
+      });
+    }
+    let p = null;
+    const d = Aliplayer$1.Component({
+      createEl: function(G) {
+        p = document.createElement("div"), p.className = "progress-marker-container", p.innerHTML = '<div class="marker-title"></div><div class="marker-time"></div>', G.appendChild(p);
+      },
+      markerDotOver: function(G, F) {
+        let J = F.progressMarker;
+        p.getElementsByClassName("marker-title")[0].innerHTML = J.text, p.getElementsByClassName("marker-time")[0].innerHTML = J.time, p.style.left = F.left * 100 + "%", F.left * 100 > 5 && F.left * 100 < 95 ? p.style.transform = "translateX(-50%)" : p.style.transform = "translateX(0)", p.style.display = "flex";
+      },
+      markerDotOut: function() {
+        p.style.display = "none";
+      }
+    });
+    function g(G) {
+      G !== void 0 ? e.options.knowledgeOpen = G : e.options.knowledgeOpen = !e.options.knowledgeOpen;
+    }
+    function m(G, F) {
+      e.options.showKnowledge = G, f(F);
+    }
+    function v(G) {
+      e.options.showViewPointsBar = G;
+    }
+    function f(G) {
+      let F = [];
+      if (G && G.length ? F = G : F = e.options.knowledge, e.options.showKnowledge) {
+        if (e.container.querySelector(".knowledge-bar")) {
+          e.container.querySelector(".knowledge-switch-btn").style.display = "block", e.container.querySelector(".knowledge-bar").style.display = "";
+          return;
+        }
+        const ae = document.createElement("div");
+        ae.className = "knowledge-switch-btn", ae.innerHTML = `
+      <div class="knowledge-switch-slider"></div>
+      <div class="tip">切换显示视频内容进度</div>
+    `, e.container.querySelector(".prism-controlbar").appendChild(ae);
+        const de = document.createElement("div");
+        de.className = "knowledge-bar";
+        let me = '<div class="knowledge-bar-percent"></div>';
+        for (var J = 0; J < F.length; J++) {
+          const ke = F[J], Le = F[J + 1];
+          let je = e.duration;
+          Le && (je = Le.fromTo[0]);
+          let Ve = (je - ke.fromTo[0]) / e.duration * 100;
+          Ve = Ve > 100 ? 100 : Ve;
+          let Qe = ke.fromTo[0] / e.duration * 100;
+          Qe = Qe > 100 ? 100 : Qe, me += `<div class="knowledge-section" data-start="${ke.fromTo[0]}" data-end="${ke.fromTo[1]}" title="${ke.name}" style="width:${Ve}%;left:${Qe}%">${ke.name}</div>`;
+        }
+        de.innerHTML = me, e.container.appendChild(de);
+      } else
+        e.container.querySelector(".knowledge-switch-btn") && (e.container.querySelector(".knowledge-switch-btn").style.display = "none", e.container.querySelector(".knowledge-bar").style.display = "none");
+    }
+    function b(G) {
+      let F = [];
+      if (G && G.length ? F = G : F = s.enterExitPoint, F && F.length > 0) {
+        const J = document.createElement("div");
+        J.className = "point-tags", J.innerHTML = `<div class="point-tag enter-icon" title="入点：${secondsToMinute(F[0])}" style="left:${F[0] / e.duration * 100}%"></div>
+    <div class="point-tag exit-icon" title="出点：${secondsToMinute(F[1])}" style="left:${F[1] / e.duration * 100}%"></div>`, e.container.querySelector(".prism-controlbar").appendChild(J);
+        const ae = document.createElement("div");
+        ae.className = "point-btn-wrap", ae.innerHTML = ` <div class="point-btn" data-id="0" title="打入点">
+    </div><div class="point-btn" data-id="1" title="打出点"></div>`, e.container.querySelector(".prism-controlbar").appendChild(ae);
+      }
+    }
+    const S = Aliplayer$1.Component({
+      createEl: function(G) {
+        if (s.allowDuration !== -1) {
+          const F = document.createElement("div");
+          F.className = "player-login-bar-tip", F.innerHTML = `试看${s.allowDuration}分钟，需要登录才能完整观看
+      <span class="login-btn">立即登录</span>
+      <span class="close-btn"></span>`;
+          const J = document.createElement("div");
+          J.className = "login-dialog-tip", J.innerHTML = '<div class="login-tip">登录观看完整版视频</div><div class="login-btn">立即登录</div>', G.appendChild(F), G.appendChild(J);
+        }
+        if (e.options.showTracks) {
+          const F = document.createElement("div");
+          F.className = "subtile-box";
+          let J = "", ae = "active";
+          e.options.textTracks && e.options.textTracks.forEach((de) => {
+            de.default && (ae = ""), J += `
+            <div class="cc-item ${de.default ? "active" : ""}" data-lang="${de.srclang}" data-src="${de.src}">${de.label}</div>
+          `;
+          }), F.innerHTML = `
+        <div class="cc-list">
+          <div class="cc-item ${ae}" data-lang="none" data-src="">无</div>
+          ${J}
+        </div>
+        <div class="cc-btn">
+        </div>
+      `, G.querySelector(".prism-controlbar").appendChild(F);
+        }
+        if (e.options.showSpeed) {
+          const F = document.createElement("div");
+          F.className = "speed-box";
+          let J = "", ae = "倍速";
+          e.options.speedLevels && e.options.speedLevels.forEach((de) => {
+            let me = "";
+            s.options.speed ? s.options.speed === de.value && (me = "active", ae = de.value === 1 ? "倍速" : de.label) : de.value === 1 && (me = "active"), J += `
+            <div class="speed-item ${me}" data-value="${de.value}">${de.label}</div>
+          `;
+          }), F.innerHTML = `
+        <div class="speed-list">
+          ${J}
+        </div>
+        <div class="speed-btn">
+        ${ae}
+        </div>
+      `, G.querySelector(".prism-controlbar").appendChild(F);
+        }
+      }
+    });
+    function w(G) {
+      e.player.setSpeed(G);
+      let F = "倍速";
+      e.container.querySelectorAll(".speed-item").forEach((J) => {
+        J.classList.remove("active"), J.dataset.value === G && (J.classList.add("active"), F = J.dataset.value === "1" ? "倍速" : J.innerText, e.container.querySelector(".speed-btn").innerHTML = F);
+      });
+    }
+    function T(G) {
+      e.container.querySelectorAll(".cc-item").forEach((F) => {
+        F.classList.remove("active"), F.dataset.lang === G && (F.classList.add("active"), e.player._ccService && (G ? e.player._ccService.switch(G) : e.player._ccService.switch("off")));
+      });
+    }
+    function R(G) {
+      if (G.target.className.indexOf("login-btn") !== -1 && (e.showLoginDialogTip = !0, U()), G.target.className.indexOf("close-btn") !== -1 && (e.showLoginTip = !1), G.target.className.indexOf("point-btn") !== -1) {
+        const F = G.target.dataset.id;
+        r(F);
+      }
+      if (G.target.className.indexOf("speed-item") !== -1) {
+        const F = G.target.dataset.value;
+        w(F);
+      }
+      if (G.target.className.indexOf("cc-item") !== -1) {
+        const F = G.target.dataset.lang;
+        T(F);
+      }
+      if ((G.target.className.indexOf("knowledge-switch-btn") !== -1 || G.target.className.indexOf("knowledge-switch-slider") !== -1) && (e.options.knowledgeOpen = !e.options.knowledgeOpen), G.target.className.indexOf("knowledge-section") !== -1) {
+        const F = G.target.dataset.start;
+        e.player.seek(F);
+      }
+    }
+    const P = () => {
+      const G = e.container.querySelector(".progress-range");
+      if (!G) return;
+      const J = [...e.options.viewPoints].sort((Le, je) => Le - je), ae = [];
+      let de = J[0], me = J[0];
+      for (let Le = 1; Le < J.length; Le++)
+        J[Le] === me + 1 || (ae.push([de, me]), de = J[Le]), me = J[Le];
+      ae.push([de, me]);
+      let ke = "";
+      ae.forEach(([Le, je]) => {
+        const Ve = Math.max(0, Math.min(100, Le / e.duration * 100)), Qe = Math.max(0, Math.min(100 - Ve, (je - Le + 1) / e.duration * 100));
+        ke += `<div class="progress-range-segment" style="left:${Ve}%;width:${Qe}%"></div>`;
+      }), G.innerHTML = ke;
+    };
+    function E() {
+      return e.options.viewPoints;
+    }
+    function A(G) {
+      e.options.viewPoints = G, P();
+    }
+    function H(G) {
+      if (e.currentTime = G.getCurrentTime(), e.currentTime) {
+        const F = parseInt(e.currentTime);
+        e.options.viewPoints.indexOf(F) === -1 && e.options.viewPoints.push(F), P();
+        const J = (e.currentTime / e.duration * 100).toFixed(2);
+        e.container.querySelector(".knowledge-bar-percent").style.width = J + "%";
+      }
+      a("timeupdate", { currentTime: e.currentTime, duration: e.duration, viewPoints: e.options.viewPoints }), s.allowDuration !== -1 && e.currentTime >= s.allowDuration * 60 && !e.isLogin && (e.showLoginDialogTip = !0, G.pause(), G.seek(s.allowDuration * 60)), e.currentFrom !== e.currentTime && (e.currentFrom = e.currentTime);
+    }
+    function M(G) {
+      G.isLogin = G;
+    }
+    function O() {
+      var G;
+      e.player && ((G = e.player) == null || G.dispose(), e.showLoginDialogTip = !1, document.getElementById("dms_player" + s.playerId) && document.getElementById("dms_player" + s.playerId).remove(), e.player = null);
+    }
+    function j(G) {
+      O(), h(G);
+    }
+    const U = () => {
+      a("login");
+    }, N = reactive({
+      show: !1,
+      x: "0px",
+      y: "0px"
+    }), C = (G) => {
+      N.show = !0, N.x = G.clientX + "px", N.y = G.clientY + "px", G.preventDefault();
+    }, I = (G) => {
+      N.show = !1;
+    };
+    document.addEventListener("click", I);
+    const L = function() {
+      var G = document.createElement("input");
+      G.setAttribute("readonly", "readonly"), G.setAttribute("value", window.location.href), document.body.appendChild(G), G.select();
+      var F = document.execCommand("copy");
+      return document.body.removeChild(G), n("复制成功", { type: "success" }), F;
+    };
+    function q(G) {
+      var F;
+      (F = e.player) == null || F.seek(G);
+    }
+    function Q() {
+      var G;
+      (G = e.player) == null || G.pause();
+    }
+    function B() {
+      var G;
+      (G = e.player) == null || G.play();
+    }
+    function k() {
+      var G;
+      (G = e.player) == null || G.setVolume(0);
+    }
+    function D(G) {
+      var F;
+      (F = e.player) == null || F.setVolume(G);
+    }
+    function X() {
+      var G;
+      (G = e.player) == null || G.setVolume(1);
+    }
+    function te() {
+      var G;
+      return (G = e.player) == null ? void 0 : G.getVolume();
+    }
+    function ie() {
+      var G;
+      return (G = e.player) == null ? void 0 : G.getDuration();
+    }
+    function ne() {
+      var G;
+      return (G = e.player) == null ? void 0 : G.getCurrentTime();
+    }
+    return o({
+      getCurrentTime: ne,
+      getDuration: ie,
+      getVolume: te,
+      changeVid: j,
+      pause: Q,
+      play: B,
+      seek: q,
+      init: h,
+      initPlayer: y,
+      destroy: O,
+      changeLoginState: M,
+      isPlay: l,
+      setVolume: D,
+      mute: k,
+      unmute: X,
+      setTextTrack: T,
+      setSpeed: w,
+      getViewPoints: E,
+      setViewPoints: A,
+      changeKnowledgeOpen: g,
+      changeKnowledgeShow: m,
+      initKnowledge: f,
+      initEnterExitPoint: b,
+      changeViewPointsShow: v,
+      showToast: n
+    }), onUnmounted(() => {
+      document.removeEventListener("click", I), O();
+    }), (G, F) => (openBlock(), createElementBlock(Fragment, null, [
+      createElementVNode("div", {
+        ref_key: "playerRef",
+        ref: u,
+        class: normalizeClass(["video-player", {
+          "show-knowledge-bar": e.options.knowledgeOpen,
+          "show-view-points": e.options.showViewPointsBar,
+          "no-login": c.allowDuration !== -1 && !e.isLogin,
+          "show-login-tip-dialog": e.showLoginDialogTip,
+          "show-login-tip": e.showLoginTip && !e.isLogin
+        }]),
+        style: normalizeStyle({ "--primary-color": c.themeColor }),
+        onContextmenu: C,
+        onClick: R
+      }, [
+        createElementVNode("div", {
+          id: "dms_player" + s.playerId
+        }, null, 8, _hoisted_1)
+      ], 38),
+      (openBlock(), createBlock(Teleport, { to: "body" }, [
+        N.show ? (openBlock(), createElementBlock("div", {
+          key: 0,
+          class: "player-contextmenu",
+          style: normalizeStyle({ top: N.y, left: N.x })
+        }, [
+          F[0] || (F[0] = createElementVNode("div", { class: "contextmenu-item" }, "国开出版集团", -1)),
+          createElementVNode("div", {
+            class: "contextmenu-item copy-page-url",
+            onClick: L
+          }, "复制页面链接"),
+          F[1] || (F[1] = createElementVNode("div", { class: "contextmenu-item" }, "版本号：v1.0", -1))
+        ], 4)) : createCommentVNode("", !0)
+      ]))
+    ], 64));
+  }
+});
+export {
+  _sfc_main as default
+};
