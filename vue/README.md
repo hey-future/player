@@ -1,6 +1,22 @@
 # 播放器SDK文档
+### 项目运行步骤
+1. 克隆项目到本地
+```
+git clone https://github.com/hey-future/player.git
+cd player/vue
+```
+2. 安装依赖
+```
+npm install
+```
+3. 启动项目
+```
+npm run dev
+```
+4. 打开浏览器访问 http://localhost:5173/ 即可查看播放器demo
+5. http://localhost:5173/demo.html  是使用cdn方式引入播放器demo
 ### 在Vue项目中接入Web播放器SDK
-可以下载播放器SDK，然后引入到项目中，然后在需要使用的地方引入即可
+可以下载播放器SDK，然后在需要使用的地方引入即可 [播放器sdk下载](https://github.com/hey-future/player/tree/master/vue/src/DmsPlayer)
 播放器demo代码示例, 完整代码可以查看src文件夹下的index.vue文件
 ```
 <template>
