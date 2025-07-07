@@ -13121,7 +13121,7 @@ const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
         const Ee = document.createElement("div");
         Ee.className = "knowledge-switch-btn", Ee.innerHTML = `
       <div class="knowledge-switch-slider"></div>
-      <div class="tip">切换显示视频内容进度</div>
+      <div class="tip">切换显示视频知识点</div>
     `, e.container.querySelector(".prism-controlbar").appendChild(Ee);
         const de = document.createElement("div");
         de.className = "knowledge-bar";
