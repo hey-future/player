@@ -381,9 +381,9 @@ function requireAliplayerMin() {
             for (clearTimeout(this.Timmer), this.Timmer = null; K = this.selfQueue.pop(); ) this.postData(K, "err");
             return this;
           }, _lg: function(K, Q, ae, le) {
-            var pe = this, ye = pe._conf, Se = pe.getPage(), be = ye.ignore || {}, _e = be.ignoreErrors, he = be.ignoreResErrors, xe = be.ignoreUrls, be = be.ignoreApis;
-            if (pe._isRobot || oe.ignoreByRule(Se, xe) || oe.ignoreByRule(oe.decode(Se), xe) || K === "error" && (oe.ignoreByRule(Q.msg, _e) || oe.ignoreByRule(oe.decode(Q.msg), _e)) || K === "resourceError" && (oe.ignoreByRule(Q.src, he) || oe.ignoreByRule(oe.decode(Q.src), he)) || K === "api" && (oe.ignoreByRule(Q.api, be) || oe.ignoreByRule(oe.decode(Q.api), be)) || !pe.checkImgUrl(ye.imgUrl) || !Q || ye.disabled || !ye.pid || le === 0) return pe;
-            if (xe = Q.dl, delete Q.dl, Q = oe.ext({ t: K, times: 1, page: Se, tag: ye.tag || "", release: ye.release || "", environment: ye.environment, begin: Date.now(), c1: ye.c1, c2: ye.c2, c3: ye.c3 }, Q, pe.commonInfo(), pe._common, { pid: ye.pid, _v: pe.ver, pv_id: pe.pageview, username: pe.getUsername(), sampling: ae || 1, dl: xe, z: oe.seq() }), oe.T(ye.beforeReport) === "Function") try {
+            var pe = this, ye = pe._conf, Se = pe.getPage(), be = ye.ignore || {}, _e = be.ignoreErrors, he = be.ignoreResErrors, ke = be.ignoreUrls, be = be.ignoreApis;
+            if (pe._isRobot || oe.ignoreByRule(Se, ke) || oe.ignoreByRule(oe.decode(Se), ke) || K === "error" && (oe.ignoreByRule(Q.msg, _e) || oe.ignoreByRule(oe.decode(Q.msg), _e)) || K === "resourceError" && (oe.ignoreByRule(Q.src, he) || oe.ignoreByRule(oe.decode(Q.src), he)) || K === "api" && (oe.ignoreByRule(Q.api, be) || oe.ignoreByRule(oe.decode(Q.api), be)) || !pe.checkImgUrl(ye.imgUrl) || !Q || ye.disabled || !ye.pid || le === 0) return pe;
+            if (ke = Q.dl, delete Q.dl, Q = oe.ext({ t: K, times: 1, page: Se, tag: ye.tag || "", release: ye.release || "", environment: ye.environment, begin: Date.now(), c1: ye.c1, c2: ye.c2, c3: ye.c3 }, Q, pe.commonInfo(), pe._common, { pid: ye.pid, _v: pe.ver, pv_id: pe.pageview, username: pe.getUsername(), sampling: ae || 1, dl: ke, z: oe.seq() }), oe.T(ye.beforeReport) === "Function") try {
               if (!(Q = ye.beforeReport(Q))) return pe;
             } catch {
               return pe;
@@ -430,13 +430,13 @@ function requireAliplayerMin() {
                   }
                   _e.length !== 0 && (Se = { type: "ui.".concat(pe), data: { message: ((he) => {
                     if (!he || he.nodeType !== 1) return "";
-                    for (var xe = he || null, be = [], Te = 0, q = 0, z = ""; xe && Te++ < 5 && !((z = ((ee) => {
+                    for (var ke = he || null, be = [], Te = 0, q = 0, z = ""; ke && Te++ < 5 && !((z = ((ee) => {
                       var ue, fe, we, Ae, Re = [];
                       if (!ee || typeof ee.tagName != "string") return "";
-                      if (Re.push(ee.tagName.toLowerCase()), typeof ee.id == "string" && Re.push("#".concat(ee.id)), typeof (ue = ee.className) == "string") for (fe = ue.split(/\s+/), ke = 0; ke < fe.length; ke++) Re.push(".".concat(fe[ke]));
-                      for (var Ie = ["type", "name", "title", "alt", "data-arms-attr"], ke = 0; ke < Ie.length; ke++) typeof (Ae = ee.getAttribute(we = Ie[ke])) == "string" && Re.push("[".concat(we, '="').concat(Ae, '"]'));
+                      if (Re.push(ee.tagName.toLowerCase()), typeof ee.id == "string" && Re.push("#".concat(ee.id)), typeof (ue = ee.className) == "string") for (fe = ue.split(/\s+/), Pe = 0; Pe < fe.length; Pe++) Re.push(".".concat(fe[Pe]));
+                      for (var Ie = ["type", "name", "title", "alt", "data-arms-attr"], Pe = 0; Pe < Ie.length; Pe++) typeof (Ae = ee.getAttribute(we = Ie[Pe])) == "string" && Re.push("[".concat(we, '="').concat(Ae, '"]'));
                       return Re.join("");
-                    })(xe)) === "html" || 1 < Te && 80 <= q + 3 * be.length + z.length); ) be.push(z), q += z.length, xe = xe.parentNode;
+                    })(ke)) === "html" || 1 < Te && 80 <= q + 3 * be.length + z.length); ) be.push(z), q += z.length, ke = ke.parentNode;
                     return be.reverse().join(" > ");
                   })(_e) }, timestamp: Date.now() }, pe === "click" ? K && K.addBehavior(Se) : pe === "keypress" && (ae || K && K.addBehavior(Se), clearTimeout(ae), ae = setTimeout(function() {
                     ae = void 0;
@@ -467,17 +467,17 @@ function requireAliplayerMin() {
             }, initBehavior: function() {
               if (!this.hasInitBehavior && !K) {
                 try {
-                  document && document.referrer && document.location && (z = document.referrer, ee = document.location.href, z !== "") && (Q = ee, K) && K.addBehavior({ type: "navigation", data: { from: z, to: ee } }), ge && ge.document && ge.document.addEventListener && (ge.document.addEventListener("click", Z("click"), !1), ge.document.addEventListener("keypress", Z("keypress"), !1)), Te = (Te = ge && ge.chrome) && Te.app && Te.app.runtime, q = "history" in ge && !!ge.history.pushState && !!ge.history.replaceState, !Te && q && (xe = function(ue, fe) {
+                  document && document.referrer && document.location && (z = document.referrer, ee = document.location.href, z !== "") && (Q = ee, K) && K.addBehavior({ type: "navigation", data: { from: z, to: ee } }), ge && ge.document && ge.document.addEventListener && (ge.document.addEventListener("click", Z("click"), !1), ge.document.addEventListener("keypress", Z("keypress"), !1)), Te = (Te = ge && ge.chrome) && Te.app && Te.app.runtime, q = "history" in ge && !!ge.history.pushState && !!ge.history.replaceState, !Te && q && (ke = function(ue, fe) {
                     K && K.addBehavior({ type: "navigation", data: { from: ue, to: fe } }), Q = fe;
                   }, be = ge.onpopstate, ge.onpopstate = function() {
                     for (var ue = arguments.length, fe = new Array(ue), we = 0; we < ue; we++) fe[we] = arguments[we];
                     var Ae = ge.location.href;
-                    if (xe(Q, Ae), be) return be.apply(this, fe);
+                    if (ke(Q, Ae), be) return be.apply(this, fe);
                   }, B(ge.history, "pushState", Te = function(ue) {
                     return function() {
                       for (var fe = arguments.length, we = new Array(fe), Ae = 0; Ae < fe; Ae++) we[Ae] = arguments[Ae];
                       var Re = 2 < we.length ? we[2] : void 0;
-                      return Re && xe(Q, String(Re)), ue.apply(this, we);
+                      return Re && ke(Q, String(Re)), ue.apply(this, we);
                     };
                   }), B(ge.history, "replaceState", Te));
                   var pe = this.getConfig("enableConsole");
@@ -493,8 +493,8 @@ function requireAliplayerMin() {
                           return function() {
                             for (var we = arguments.length, Ae = new Array(we), Re = 0; Re < we; Re++) Ae[Re] = arguments[Re];
                             if (K && K.addBehavior({ type: "console", data: { level: fe, message: Ae } }), fe === "error") for (var Ie = 0; Ie < Ae.length; Ie++) {
-                              var ke = Ae[Ie];
-                              ke && ke.message && ke.stack && K && K.errorHandler(new ErrorEvent("error", { error: ke, message: ke.message }));
+                              var Pe = Ae[Ie];
+                              Pe && Pe.message && Pe.stack && K && K.errorHandler(new ErrorEvent("error", { error: Pe, message: Pe.message }));
                             }
                             ue && Function.prototype.apply.call(ue, ge.console, Ae);
                           };
@@ -507,7 +507,7 @@ function requireAliplayerMin() {
                 }
                 (K = this).hasInitBehavior = !0;
               }
-              var xe, be, Te, q, z, ee;
+              var ke, be, Te, q, z, ee;
               return this;
             } });
           }), A;
@@ -545,17 +545,17 @@ function requireAliplayerMin() {
             }
             var re, K, Q, ae, le = g(), pe = (M || (M = 1, Q = g(), ae = Y().TIMING_KEYS, U = function() {
               var z, ee, ue, fe = Q.win || {}, we = fe.performance;
-              return we && typeof we == "object" && typeof we.getEntriesByType == "function" ? (z = {}, ee = we.timing || {}, ue = we.getEntriesByType("resource") || [], z.begin = ee[ae[1]] || Date.now(), typeof fe.PerformanceNavigationTiming == "function" && (fe = we.getEntriesByType("navigation")[0]) && (ee = fe), Q.each({ dom: [10, 8], load: [14, 1] }, function(ke, Re) {
-                var Ie = ee[ae[ke[1]]], ke = ee[ae[ke[0]]];
-                0 < Ie && 0 < ke && 0 <= (ke = Math.round(ke - Ie)) && ke < 6e5 && (z[Re] = ke);
+              return we && typeof we == "object" && typeof we.getEntriesByType == "function" ? (z = {}, ee = we.timing || {}, ue = we.getEntriesByType("resource") || [], z.begin = ee[ae[1]] || Date.now(), typeof fe.PerformanceNavigationTiming == "function" && (fe = we.getEntriesByType("navigation")[0]) && (ee = fe), Q.each({ dom: [10, 8], load: [14, 1] }, function(Pe, Re) {
+                var Ie = ee[ae[Pe[1]]], Pe = ee[ae[Pe[0]]];
+                0 < Ie && 0 < Pe && 0 <= (Pe = Math.round(Pe - Ie)) && Pe < 6e5 && (z[Re] = Pe);
               }), z.res = JSON.stringify(ue), z) : null;
             }), U), ye = (I || (I = 1, re = g(), K = Y().TIMING_KEYS, P = function() {
               var z, ee, ue, fe, we, Ae = re.win || {}, Re = Ae.performance;
-              return Re && typeof Re == "object" ? (z = {}, ee = Re.timing || {}, ue = Date.now(), fe = 1, typeof Ae.PerformanceNavigationTiming == "function" && (we = Re.getEntriesByType("navigation")[0]) && (ee = we, fe = 2), re.each({ dns: [3, 2], tcp: [5, 4], ssl: [5, 17], ttfb: [7, 6], trans: [8, 7], dom: [10, 8], res: [14, 12], firstbyte: [7, 2], fpt: [8, 1], tti: [10, 1], ready: [12, 1], load: [14, 1] }, function(Ve, ke) {
+              return Re && typeof Re == "object" ? (z = {}, ee = Re.timing || {}, ue = Date.now(), fe = 1, typeof Ae.PerformanceNavigationTiming == "function" && (we = Re.getEntriesByType("navigation")[0]) && (ee = we, fe = 2), re.each({ dns: [3, 2], tcp: [5, 4], ssl: [5, 17], ttfb: [7, 6], trans: [8, 7], dom: [10, 8], res: [14, 12], firstbyte: [7, 2], fpt: [8, 1], tti: [10, 1], ready: [12, 1], load: [14, 1] }, function(Ve, Pe) {
                 var je = ee[K[Ve[1]]], Ve = ee[K[Ve[0]]];
-                (fe === 2 || 0 < je && 0 < Ve) && 0 <= (Ve = Math.round(Ve - je)) && Ve < 6e5 && (z[ke] = Ve);
+                (fe === 2 || 0 < je && 0 < Ve) && 0 <= (Ve = Math.round(Ve - je)) && Ve < 6e5 && (z[Pe] = Ve);
               }), we = Ae.navigator.connection, Ae = Re.navigation || {}, z.ct = we ? we.effectiveType || we.type : "", (Re = 999 < (Re = we && (we.downlink || we.downlinkMax || we.bandwidth) || null) ? 999 : Re) && (z.bandwidth = Re), z.navtype = Ae.type === 1 ? "Reload" : "Other", fe === 1 && 0 < ee[K[16]] && 0 < ee[K[1]] && 0 <= (we = ee[K[16]] - ee[K[1]]) && we < 36e5 && (z.fpt = we), fe === 1 && 0 < ee[K[1]] ? z.begin = ee[K[1]] : z.begin = fe === 2 && 0 < z.load ? ue - z.load : ue, z) : null;
-            }), P), Se = null, _e = ge.documentElement, he = ce.innerWidth || _e.clientWidth || ge.body.clientWidth, xe = ce.innerHeight || _e.clientHeight || ge.body.clientHeight, be = ce.navigator.connection, Te = { sr: screen.width + "x" + screen.height, vp: he + "x" + xe, ct: be ? be.effectiveType || be.type : "" }, q = {};
+            }), P), Se = null, _e = ge.documentElement, he = ce.innerWidth || _e.clientWidth || ge.body.clientWidth, ke = ce.innerHeight || _e.clientHeight || ge.body.clientHeight, be = ce.navigator.connection, Te = { sr: screen.width + "x" + screen.height, vp: he + "x" + ke, ct: be ? be.effectiveType || be.type : "" }, q = {};
             return le.ext(oe.prototype, { activeErrHandler: function(z) {
               return Se && !z || (Se = this), this;
             }, errorHandler: function(z) {
@@ -573,8 +573,8 @@ function requireAliplayerMin() {
               try {
                 var fe = ee.getSrc(ue), we = typeof ue.tagName == "string" ? ue.tagName.toLowerCase() : "", Ae = ee.getXPath(ue, 5), Re = le.getURL(fe), Ie = { src: fe && fe.substring(0, 1e3), node_name: we, xpath: Ae, res_type: le.getResType(we, fe), res_name: Re.path, domain: Re.domain };
                 return ee._conf.enableResource && ee.fixResourceStatus && z.timeStamp && ee.fixResourceStatus({ src: fe, node_name: we, res_type: le.getResType(we, fe), timeStamp: z.timeStamp, domain: Re.domain }), ee._lg("resourceError", Ie), ee;
-              } catch (ke) {
-                return le.warn("[ARMS] resourceErrorHandler error :", ke), ee;
+              } catch (Pe) {
+                return le.warn("[ARMS] resourceErrorHandler error :", Pe), ee;
               }
             }, getSrc: function(z) {
               var ee, ue, fe = z.src || z.href;
@@ -656,10 +656,10 @@ function requireAliplayerMin() {
               var ye = B.MutationObserver;
               return (Q = new ye(function() {
                 var Se, _e, he;
-                Se = pe._startTime, Se = Date.now() - Se, (he = Z.querySelector("body")) ? (_e = 0, _e += function xe(be, Te, q) {
+                Se = pe._startTime, Se = Date.now() - Se, (he = Z.querySelector("body")) ? (_e = 0, _e += function ke(be, Te, q) {
                   var z = 0, ee = be.tagName;
                   if (ee !== "SCRIPT" && ee !== "STYLE" && ee !== "META" && ee !== "HEAD") {
-                    if (0 < (ee = be.children ? be.children.length : 0)) for (var ue = be.children, fe = ee - 1; 0 <= fe; fe--) z += xe(ue[fe], Te + 1, 0 < z);
+                    if (0 < (ee = be.children ? be.children.length : 0)) for (var ue = be.children, fe = ee - 1; 0 <= fe; fe--) z += ke(ue[fe], Te + 1, 0 < z);
                     if (z <= 0 && !q && !(be.getBoundingClientRect && be.getBoundingClientRect().top < re)) return 0;
                     z += 1 + 0.5 * Te;
                   }
@@ -670,9 +670,9 @@ function requireAliplayerMin() {
               }), Q;
             }, endObserving: function(le, pe) {
               var ye = this;
-              if (Q && ae) if (ye.fmpTimmer && (clearTimeout(ye.fmpTimmer), ye.fmpTimmer = null), pe || !((xe, be) => (xe = Date.now() - xe, !(be < xe || xe - (K && K.length && K[K.length - 1].t || 0) > 2 * ce)))(ye._startTime, le)) {
-                Q.disconnect(), ae = 0, K = function xe(be) {
-                  for (var Te = 1; Te < be.length; Te++) if (be[Te].score < be[Te - 1].score) return be.splice(Te, 1), xe(be);
+              if (Q && ae) if (ye.fmpTimmer && (clearTimeout(ye.fmpTimmer), ye.fmpTimmer = null), pe || !((ke, be) => (ke = Date.now() - ke, !(be < ke || ke - (K && K.length && K[K.length - 1].t || 0) > 2 * ce)))(ye._startTime, le)) {
+                Q.disconnect(), ae = 0, K = function ke(be) {
+                  for (var Te = 1; Te < be.length; Te++) if (be[Te].score < be[Te - 1].score) return be.splice(Te, 1), ke(be);
                   return be;
                 }(K);
                 for (var Se, _e = null, he = 1; he < K.length; he++) K[he].t >= K[he - 1].t && (Se = K[he].score - K[he - 1].score, !_e || _e.rate <= Se) && (_e = { t: K[he].t, rate: Se });
@@ -685,21 +685,21 @@ function requireAliplayerMin() {
         }
         function me() {
           return D || (D = 1, k = function(oe, ce) {
-            function ge(pe, ye, Se, _e, he, xe, be, Te, q, z, ee, ue, fe) {
-              he = B.J(he) || null, (ye = B.safetyCall(ye, [he, _e], null)) && (he = ye.code || xe, _e = !("success" in ye) || ye.success, pe.api(Se, _e, be, he, ye.msg, Te, q, z, _e ? {} : ee, re, ue, fe));
+            function ge(pe, ye, Se, _e, he, ke, be, Te, q, z, ee, ue, fe) {
+              he = B.J(he) || null, (ye = B.safetyCall(ye, [he, _e], null)) && (he = ye.code || ke, _e = !("success" in ye) || ye.success, pe.api(Se, _e, be, he, ye.msg, Te, q, z, _e ? {} : ee, re, ue, fe));
             }
             var B = g(), Z = null, re = B.getCurDomain(), K = "fetch", Q = "__oFetch_", ae = "__oXMLHttpRequest_", le = "XMLHttpRequest";
             return B.ext(oe.prototype, { removeHook: function(pe, ye) {
               return Z && (ye || this === Z) && (ce[Q] && (ce[K] = ce[Q], delete ce[Q]), ce[ae] && (ce[le] = ce[ae], delete ce[ae]), Z = null), this;
             }, addHook: function(pe) {
-              return !pe && Z || (Z || (typeof ce[K] == "function" && (he = ce[K], ce[Q] = he, ce[K] = function(xe, be) {
-                var Te = arguments.length === 1 ? [xe] : Array.apply(null, arguments), q = Z;
+              return !pe && Z || (Z || (typeof ce[K] == "function" && (he = ce[K], ce[Q] = he, ce[K] = function(ke, be) {
+                var Te = arguments.length === 1 ? [ke] : Array.apply(null, arguments), q = Z;
                 if (!q || !q.api || be && (be.method === "HEAD" || be.mode === "no-cors")) return he.apply(ce, Te);
                 be = be || {};
-                var z = Date.now(), ee = q._conf, ue = B.duration(), fe = we = (xe && typeof xe != "string" ? xe.url : xe) || "", we = B.cutUrlSearch(we), Re = (ee.ignore || {}).ignoreApis, Ae = ee.parseTraceId;
+                var z = Date.now(), ee = q._conf, ue = B.duration(), fe = we = (ke && typeof ke != "string" ? ke.url : ke) || "", we = B.cutUrlSearch(we), Re = (ee.ignore || {}).ignoreApis, Ae = ee.parseTraceId;
                 if (!B.checkAPI(we, !0) || B.ignoreByRule(we, Re)) return he.apply(ce, Te);
                 we = B.filterByRule(we, fe, ee.ignoreApiPath || ee.apiHelper);
-                var Re = ee.enableLinkTrace, Ie = "", ke = "", je = q.getConfig("pid"), Ve = null, Je = q.getConfig("sample"), ot = q.getConfig("linkType"), Ge = 1;
+                var Re = ee.enableLinkTrace, Ie = "", Pe = "", je = q.getConfig("pid"), Ve = null, Je = q.getConfig("sample"), ot = q.getConfig("linkType"), Ge = 1;
                 if (Je && !q.sampling(Je) && (Ge = 0), Re) {
                   Je = "";
                   try {
@@ -708,18 +708,18 @@ function requireAliplayerMin() {
                     Je = "";
                   }
                   var Le, Re = B.checkSameOrigin(fe, Je);
-                  if (q.getConfig("enableApiCors") || Re) if (xe && typeof xe != "string") try {
+                  if (q.getConfig("enableApiCors") || Re) if (ke && typeof ke != "string") try {
                     if (Te[0].headers && typeof Te[0].headers.get == "function" && typeof Te[0].headers.append == "function") switch (ot) {
                       case "arms":
                         var We = Te[0].headers.get("EagleEye-TraceID"), Ye = Te[0].headers.get("EagleEye-SessionID"), it = Te[0].headers.get("EagleEye-pAppName");
-                        We ? Ie = We : (Ie = q.getTraceId()["EagleEye-TraceID"], Te[0].headers.append("EagleEye-TraceID", Ie)), Ye ? ke = Ye : (ke = q.getPageviewId()["EagleEye-SessionID"], Te[0].headers.append("EagleEye-SessionID", ke)), it || Te[0].headers.append("EagleEye-pAppName", je);
+                        We ? Ie = We : (Ie = q.getTraceId()["EagleEye-TraceID"], Te[0].headers.append("EagleEye-TraceID", Ie)), Ye ? Pe = Ye : (Pe = q.getPageviewId()["EagleEye-SessionID"], Te[0].headers.append("EagleEye-SessionID", Pe)), it || Te[0].headers.append("EagleEye-pAppName", je);
                         break;
                       case "b3":
-                        var $e, st = Te[0].headers.get("X-B3-TraceId"), Ie = st || ($e = q.getB3TraceId(Ge), Te[0].headers.append("X-B3-TraceId", $e["X-B3-TraceId"]), Te[0].headers.append("X-B3-ParentSpanId", $e["X-B3-ParentSpanId"]), Te[0].headers.append("X-B3-SpanId", $e["X-B3-SpanId"]), Te[0].headers.append("X-B3-Sampled", $e["X-B3-Sampled"]), Te[0].headers.append("X-Request-ID", B.guid()), $e["X-B3-TraceId"]), ke = q.pageview;
+                        var $e, st = Te[0].headers.get("X-B3-TraceId"), Ie = st || ($e = q.getB3TraceId(Ge), Te[0].headers.append("X-B3-TraceId", $e["X-B3-TraceId"]), Te[0].headers.append("X-B3-ParentSpanId", $e["X-B3-ParentSpanId"]), Te[0].headers.append("X-B3-SpanId", $e["X-B3-SpanId"]), Te[0].headers.append("X-B3-Sampled", $e["X-B3-Sampled"]), Te[0].headers.append("X-Request-ID", B.guid()), $e["X-B3-TraceId"]), Pe = q.pageview;
                         break;
                       default:
                         var lt = Te[0].headers.get("uber-trace-id");
-                        Ie = lt ? lt.split(":")[0] : (lt = q.getUberTraceId(Ge), Te[0].headers.append("uber-trace-id", lt["uber-trace-id"]), lt.traceId), ke = q.pageview;
+                        Ie = lt ? lt.split(":")[0] : (lt = q.getUberTraceId(Ge), Te[0].headers.append("uber-trace-id", lt["uber-trace-id"]), lt.traceId), Pe = q.pageview;
                     }
                   } catch (Ze) {
                     B.warn(`[retcode] fetch failed to set header, exception is :
@@ -727,13 +727,13 @@ function requireAliplayerMin() {
                   }
                   else switch (be.headers = be.headers || {}, ot) {
                     case "arms":
-                      be.headers["EagleEye-TraceID"] ? Ie = be.headers["EagleEye-TraceID"] : (Ie = q.getTraceId()["EagleEye-TraceID"], be.headers["EagleEye-TraceID"] = Ie), be.headers["EagleEye-SessionID"] ? ke = be.headers["EagleEye-SessionID"] : (ke = q.getPageviewId()["EagleEye-SessionID"], be.headers["EagleEye-SessionID"] = ke), be.headers["EagleEye-pAppName"] || (be.headers["EagleEye-pAppName"] = je);
+                      be.headers["EagleEye-TraceID"] ? Ie = be.headers["EagleEye-TraceID"] : (Ie = q.getTraceId()["EagleEye-TraceID"], be.headers["EagleEye-TraceID"] = Ie), be.headers["EagleEye-SessionID"] ? Pe = be.headers["EagleEye-SessionID"] : (Pe = q.getPageviewId()["EagleEye-SessionID"], be.headers["EagleEye-SessionID"] = Pe), be.headers["EagleEye-pAppName"] || (be.headers["EagleEye-pAppName"] = je);
                       break;
                     case "b3":
-                      Ie = be.headers["X-B3-TraceId"] || (Le = q.getB3TraceId(Ge), be.headers["X-B3-TraceId"] = Le["X-B3-TraceId"], be.headers["X-B3-ParentSpanId"] = Le["X-B3-ParentSpanId"], be.headers["X-B3-SpanId"] = Le["X-B3-SpanId"], be.headers["X-B3-Sampled"] = Le["X-B3-Sampled"], be.headers["X-Request-ID"] = B.guid(), Le["X-B3-TraceId"]), ke = q.getPageviewId()["EagleEye-SessionID"];
+                      Ie = be.headers["X-B3-TraceId"] || (Le = q.getB3TraceId(Ge), be.headers["X-B3-TraceId"] = Le["X-B3-TraceId"], be.headers["X-B3-ParentSpanId"] = Le["X-B3-ParentSpanId"], be.headers["X-B3-SpanId"] = Le["X-B3-SpanId"], be.headers["X-B3-Sampled"] = Le["X-B3-Sampled"], be.headers["X-Request-ID"] = B.guid(), Le["X-B3-TraceId"]), Pe = q.getPageviewId()["EagleEye-SessionID"];
                       break;
                     default:
-                      Ie = be.headers["uber-trace-id"] ? be.headers["uber-trace-id"].split(":")[0] : (Le = q.getUberTraceId(Ge), be.headers["uber-trace-id"] = Le["uber-trace-id"], Le.traceId), ke = q.getPageviewId()["EagleEye-SessionID"];
+                      Ie = be.headers["uber-trace-id"] ? be.headers["uber-trace-id"].split(":")[0] : (Le = q.getUberTraceId(Ge), be.headers["uber-trace-id"] = Le["uber-trace-id"], Le.traceId), Pe = q.getPageviewId()["EagleEye-SessionID"];
                   }
                 }
                 return he.apply(ce, Te).then(function(rt) {
@@ -750,7 +750,7 @@ function requireAliplayerMin() {
                       Ze.text().then(function(ct) {
                         !Ie && B.isFunction(Ae) && (dt = Ae(Ze, ct)) && B.isString(dt) && (Ie = dt);
                         var dt = B.getFetchSnapshot(Te, ct, ut);
-                        Ze.ok ? ge(q, ee.parseResponse, we, fe, ct, Ze.status || 200, ft, z, Ie, ke, dt, Ve, Ge) : (q.api(we, !1, ft, Ze.status || 404, Ze.statusText, z, Ie, ke, dt, re, Ve, Ge), ee.enableResource && Z.fixResourceStatus && Z.fixResourceStatus({ src: Ze.url, res_type: "api" }));
+                        Ze.ok ? ge(q, ee.parseResponse, we, fe, ct, Ze.status || 200, ft, z, Ie, Pe, dt, Ve, Ge) : (q.api(we, !1, ft, Ze.status || 404, Ze.statusText, z, Ie, Pe, dt, re, Ve, Ge), ee.enableResource && Z.fixResourceStatus && Z.fixResourceStatus({ src: Ze.url, res_type: "api" }));
                       });
                     }
                     return rt;
@@ -759,11 +759,11 @@ function requireAliplayerMin() {
                   }
                 }).catch(function(rt) {
                   var Ze;
-                  throw q && q.api && (Ze = ue(), q.api(we, !1, Ze, rt.name || "Error", rt.message, z, Ie, ke, {}, re), ee.enableResource) && Z.fixResourceStatus && Z.fixResourceStatus({ src: fe, res_type: "api" }), rt;
+                  throw q && q.api && (Ze = ue(), q.api(we, !1, Ze, rt.name || "Error", rt.message, z, Ie, Pe, {}, re), ee.enableResource) && Z.fixResourceStatus && Z.fixResourceStatus({ src: fe, res_type: "api" }), rt;
                 });
-              }, ce[K].toString = B.createFakeToString(K)), typeof ce[le] == "function" && (Se = ce[le], ce[ae] = Se, (_e = function(xe) {
-                var be, Te, q, z, ee, ue, fe, we, Ae, Re, Ie, ke, je, Ve, Je, ot, Ge, Le = new Se(xe), We = Z;
-                return We && We.api && Le.addEventListener && (ee = Le.send, ue = Le.open, fe = Le.setRequestHeader, we = We._conf, Ae = (we.ignore || {}).ignoreApis, Re = we.parseTraceId, Ie = We.getConfig("enableLinkTrace"), Ve = je = ke = "", Je = null, xe = We.getConfig("sample"), ot = We.getConfig("linkType"), Ge = 1, xe && !We.sampling(xe) && (Ge = 0), Le.open = function(Ye, it) {
+              }, ce[K].toString = B.createFakeToString(K)), typeof ce[le] == "function" && (Se = ce[le], ce[ae] = Se, (_e = function(ke) {
+                var be, Te, q, z, ee, ue, fe, we, Ae, Re, Ie, Pe, je, Ve, Je, ot, Ge, Le = new Se(ke), We = Z;
+                return We && We.api && Le.addEventListener && (ee = Le.send, ue = Le.open, fe = Le.setRequestHeader, we = We._conf, Ae = (we.ignore || {}).ignoreApis, Re = we.parseTraceId, Ie = We.getConfig("enableLinkTrace"), Ve = je = Pe = "", Je = null, ke = We.getConfig("sample"), ot = We.getConfig("linkType"), Ge = 1, ke && !We.sampling(ke) && (Ge = 0), Le.open = function(Ye, it) {
                   if (ye = Ye, Ye = arguments.length === 1 ? [Ye] : Array.apply(null, arguments), ue.apply(Le, Ye), z = it || "", q = B.cutUrlSearch(z), Ye = !B.checkAPI(q, !0) || B.ignoreByRule(q, Ae), q = q ? B.filterByRule(q, z, we.ignoreApiPath || we.apiHelper) : "", !Ye && Ie) {
                     it = "";
                     try {
@@ -773,14 +773,14 @@ function requireAliplayerMin() {
                     }
                     if (Ye = B.checkSameOrigin(z, it), (We.getConfig("enableApiCors") || Ye) && fe && typeof fe == "function") switch (ot) {
                       case "arms":
-                        ke = We.getTraceId()["EagleEye-TraceID"], fe.apply(Le, ["EagleEye-TraceID", ke]), je = We.getPageviewId()["EagleEye-SessionID"], fe.apply(Le, ["EagleEye-SessionID", je]), Ve = We.getConfig("pid"), fe.apply(Le, ["EagleEye-pAppName", Ve]);
+                        Pe = We.getTraceId()["EagleEye-TraceID"], fe.apply(Le, ["EagleEye-TraceID", Pe]), je = We.getPageviewId()["EagleEye-SessionID"], fe.apply(Le, ["EagleEye-SessionID", je]), Ve = We.getConfig("pid"), fe.apply(Le, ["EagleEye-pAppName", Ve]);
                         break;
                       case "b3":
                         var $e = We.getB3TraceId(Ge);
-                        fe.apply(Le, ["X-B3-TraceId", $e["X-B3-TraceId"]]), fe.apply(Le, ["X-B3-ParentSpanId", $e["X-B3-ParentSpanId"]]), fe.apply(Le, ["X-B3-SpanId", $e["X-B3-SpanId"]]), fe.apply(Le, ["X-B3-Sampled", $e["X-B3-Sampled"]]), fe.apply(Le, ["X-Request-ID", B.guid()]), ke = $e["X-B3-TraceId"], je = We.getPageviewId()["EagleEye-SessionID"];
+                        fe.apply(Le, ["X-B3-TraceId", $e["X-B3-TraceId"]]), fe.apply(Le, ["X-B3-ParentSpanId", $e["X-B3-ParentSpanId"]]), fe.apply(Le, ["X-B3-SpanId", $e["X-B3-SpanId"]]), fe.apply(Le, ["X-B3-Sampled", $e["X-B3-Sampled"]]), fe.apply(Le, ["X-Request-ID", B.guid()]), Pe = $e["X-B3-TraceId"], je = We.getPageviewId()["EagleEye-SessionID"];
                         break;
                       default:
-                        $e = We.getUberTraceId(Ge), fe.apply(Le, ["uber-trace-id", $e["uber-trace-id"]]), ke = $e.traceId, je = We.getPageviewId()["EagleEye-SessionID"];
+                        $e = We.getUberTraceId(Ge), fe.apply(Le, ["uber-trace-id", $e["uber-trace-id"]]), Pe = $e.traceId, je = We.getPageviewId()["EagleEye-SessionID"];
                     }
                   }
                 }, Le.send = function() {
@@ -790,18 +790,18 @@ function requireAliplayerMin() {
                 }, B.on(Le, "readystatechange", function() {
                   if (q && Le.readyState === 4) {
                     var Ye = Te(), it = B.getXhrSnapshot(z, ye, Le);
-                    if (ke || typeof ($e = B.parseXhrHeaders(typeof Le.getAllResponseHeaders == "function" && Le.getAllResponseHeaders() || "")) == "object" && $e["eagleeye-traceid"] && (ke = $e["eagleeye-traceid"], Je = "response"), !ke && B.isFunction(Re) && ($e = Re(Le)) && B.isString($e) && (ke = $e), 200 <= Le.status && Le.status <= 299) {
+                    if (Pe || typeof ($e = B.parseXhrHeaders(typeof Le.getAllResponseHeaders == "function" && Le.getAllResponseHeaders() || "")) == "object" && $e["eagleeye-traceid"] && (Pe = $e["eagleeye-traceid"], Je = "response"), !Pe && B.isFunction(Re) && ($e = Re(Le)) && B.isString($e) && (Pe = $e), 200 <= Le.status && Le.status <= 299) {
                       var $e = Le.status || 200;
                       if (typeof Le.getResponseHeader == "function") {
                         var st = Le.getResponseHeader("Content-Type");
                         if (st && !/(text)|(json)/.test(st)) return;
                       }
-                      Le.responseType && Le.responseType !== "text" ? We.api(q, !0, Ye, $e, "", be, ke, je, {}, re, Je, Ge) : ge(We, we.parseResponse, q, z, Le.responseText, $e, Ye, be, ke, je, it, Je, Ge);
-                    } else We.api(q, !1, Ye, Le.status || "FAILED", Le.statusText, be, ke, je, it, re, Je, Ge), we.enableResource && Z.fixResourceStatus && Z.fixResourceStatus({ src: Le.responseURL || z, res_type: "api" });
+                      Le.responseType && Le.responseType !== "text" ? We.api(q, !0, Ye, $e, "", be, Pe, je, {}, re, Je, Ge) : ge(We, we.parseResponse, q, z, Le.responseText, $e, Ye, be, Pe, je, it, Je, Ge);
+                    } else We.api(q, !1, Ye, Le.status || "FAILED", Le.statusText, be, Pe, je, it, re, Je, Ge), we.enableResource && Z.fixResourceStatus && Z.fixResourceStatus({ src: Le.responseURL || z, res_type: "api" });
                   }
                 })), Le;
-              }).prototype = Se.prototype, B.each(Object.keys(Se), function(xe) {
-                _e[xe] = Se[xe];
+              }).prototype = Se.prototype, B.each(Object.keys(Se), function(ke) {
+                _e[ke] = Se[ke];
               }), ce[le] = _e, ce[le].toString = B.createFakeToString(le))), Z = this), this;
               var ye, Se, _e, he;
             }, initHook: function() {
@@ -809,7 +809,7 @@ function requireAliplayerMin() {
             } }), oe;
           }), k;
         }
-        function Ce() {
+        function xe() {
           return te || (te = 1, X = function(oe, ce) {
             function ge(Q, ae) {
               var le;
@@ -820,7 +820,7 @@ function requireAliplayerMin() {
               typeof ae == "function" && (re[Q] = function(_e, pe, ye) {
                 var _e = arguments.length === 1 ? [_e] : Array.apply(null, arguments), Se = location.href, _e = ae.apply(re, _e);
                 if (ye && typeof ye == "string" && ye !== Se) try {
-                  var he = Se.split("#"), xe = ye.split("#"), be = Z.cutUrlSearch(he[0]), Te = Z.cutUrlSearch(xe[0]), q = he[1] && he[1].replace(/^\/?(.*)/, "$1"), z = xe[1] && xe[1].replace(/^\/?(.*)/, "$1");
+                  var he = Se.split("#"), ke = ye.split("#"), be = Z.cutUrlSearch(he[0]), Te = Z.cutUrlSearch(ke[0]), q = he[1] && he[1].replace(/^\/?(.*)/, "$1"), z = ke[1] && ke[1].replace(/^\/?(.*)/, "$1");
                   q !== z ? ge("historystatechange", z) : be !== Te && ge("historystatechange", Te);
                 } catch (ee) {
                   Z.warn("[retcode] error in " + Q + ": " + ee);
@@ -855,10 +855,10 @@ function requireAliplayerMin() {
                 this[Z] || (this[Z] = {});
                 for (var le = this[Z], pe = 0, ye = K.length; pe < ye; pe += 1) {
                   var Se, _e = K[pe];
-                  oe.checkAPI(_e.name, !1) && (_e = ((he, xe, be) => {
+                  oe.checkAPI(_e.name, !1) && (_e = ((he, ke, be) => {
                     if (he instanceof B.PerformanceResourceTiming && he.initiatorType) {
-                      var Te, q, z, ee, ue, fe, we, Ae, Re, Ie = oe.getResType(he.initiatorType, he.name), ke = xe.resourceTypes || [], je = (xe.ignore || {}).ignoreResources;
-                      if (Ie && ke.includes(Ie) && !oe.ignoreByRule(he.name, je) && !oe.ignoreByRule(oe.decode(he.name), je)) return ke = he[ce[0]], je = he[ce[1]], Te = he[ce[2]], q = he[ce[3]], z = he[ce[4]], ee = he[ce[5]], ue = he[ce[6]], fe = he[ce[7]], we = he[ce[8]], Ae = he[ce[18]], Re = he[ce[19]], (be.has(he) || oe.areInOrder(ke, je, Te, q, z, ee, ue, fe, we) && !(fe < ke)) && oe.areInOrder(ke, Ae = Ae < ke ? ke : Ae, Re = Re < ke ? je : Re, je) ? { domain: oe.getURL(he.name).domain, res_type: Ie, src_type: oe.getSrcType(he.name, xe.cdnHostList), success: 1, size: Math.round(he.decodedBodySize), duration: Math.round(he.duration), timeStamp: he.responseEnd, timing: he } : void 0;
+                      var Te, q, z, ee, ue, fe, we, Ae, Re, Ie = oe.getResType(he.initiatorType, he.name), Pe = ke.resourceTypes || [], je = (ke.ignore || {}).ignoreResources;
+                      if (Ie && Pe.includes(Ie) && !oe.ignoreByRule(he.name, je) && !oe.ignoreByRule(oe.decode(he.name), je)) return Pe = he[ce[0]], je = he[ce[1]], Te = he[ce[2]], q = he[ce[3]], z = he[ce[4]], ee = he[ce[5]], ue = he[ce[6]], fe = he[ce[7]], we = he[ce[8]], Ae = he[ce[18]], Re = he[ce[19]], (be.has(he) || oe.areInOrder(Pe, je, Te, q, z, ee, ue, fe, we) && !(fe < Pe)) && oe.areInOrder(Pe, Ae = Ae < Pe ? Pe : Ae, Re = Re < Pe ? je : Re, je) ? { domain: oe.getURL(he.name).domain, res_type: Ie, src_type: oe.getSrcType(he.name, ke.cdnHostList), success: 1, size: Math.round(he.decodedBodySize), duration: Math.round(he.duration), timeStamp: he.responseEnd, timing: he } : void 0;
                     }
                   })(_e, Q, ae)) && ((Se = _e.res_type + "-" + _e.domain) in le || (le[Se] = []), le[Se].push(_e));
                 }
@@ -873,24 +873,24 @@ function requireAliplayerMin() {
               var K, Q, ae = this[Z] || {}, le = this._conf.resourceSlow || 2e3, pe = this[re], ye = (this[Z] = {}, Object.keys(ae));
               ye.length !== 0 && (K = [], oe.each(ye, function(_e) {
                 var _e = ae[_e], he = { domain: "", res_type: "", src_type: "", size: 0, duration: 0, count: 0, err_count: 0, err_duration: 0, slow_count: 0, slow_duration: 0, timings: [] };
-                oe.each(_e, function(xe) {
-                  var be = xe.timing || {}, Te = pe.get(xe.timing), Te = Te ? Te.success : 1, q = xe.duration > le ? 1 : 0;
-                  he.domain = xe.domain, he.res_type = xe.res_type, he.src_type = xe.src_type, he.count += 1, he.duration += xe.duration, he.size += xe.size, Te || (he.err_count += 1, he.err_duration += xe.duration), q && (he.slow_count += 1, he.slow_duration += xe.duration);
+                oe.each(_e, function(ke) {
+                  var be = ke.timing || {}, Te = pe.get(ke.timing), Te = Te ? Te.success : 1, q = ke.duration > le ? 1 : 0;
+                  he.domain = ke.domain, he.res_type = ke.res_type, he.src_type = ke.src_type, he.count += 1, he.duration += ke.duration, he.size += ke.size, Te || (he.err_count += 1, he.err_duration += ke.duration), q && (he.slow_count += 1, he.slow_duration += ke.duration);
                   try {
                     var z = JSON.parse(JSON.stringify(be));
                     z.success = Te, z.resourceSlow = le, z.isSlow = q, he.timings.push(z);
                   } catch {
                   }
-                }), he.count && (he.size = Math.round(he.size / he.count), he.duration = Math.round(he.duration / he.count)), he.slow_count && (he.slow_duration = Math.round(he.slow_duration / he.slow_count)), he.err_count && (he.err_duration = Math.round(he.err_duration / he.err_count)), 20 < he.timings.length && (he.timings.sort(function(xe, be) {
-                  return be.duration - xe.duration;
+                }), he.count && (he.size = Math.round(he.size / he.count), he.duration = Math.round(he.duration / he.count)), he.slow_count && (he.slow_duration = Math.round(he.slow_duration / he.slow_count)), he.err_count && (he.err_duration = Math.round(he.err_duration / he.err_count)), 20 < he.timings.length && (he.timings.sort(function(ke, be) {
+                  return be.duration - ke.duration;
                 }), he.timings.length = 20), he.timings = encodeURIComponent(JSON.stringify(he.timings)), K.push(he);
               }), ye = { _combo: 1, resource: JSON.stringify(K) }, Q = B.navigator.connection, ye.ct = Q ? Q.effectiveType || Q.type : "", (Q = 999 < (Q = Q && (Q.downlink || Q.downlinkMax || Q.bandwidth) || null) ? 999 : Q) && (ye.bandwidth = Q), this._lg("resource", ye, this.getConfig("sample")));
             } });
           }), ie;
         }
         function Ne() {
-          var oe, ce, ge, B, Z, re, K, Q, ae, le, pe, ye, Se, _e, he, xe, be, Te;
-          return se || (se = 1, oe = g(), b || (b = 1, _e = g(), he = T(), xe = ["api", "success", "time", "code", "msg", "trace", "traceId", "begin", "pv_id", "sid", "seq", "domain", "flag", "apiSnapshot", "tag", "c1", "c2", "c3"], be = function(q) {
+          var oe, ce, ge, B, Z, re, K, Q, ae, le, pe, ye, Se, _e, he, ke, be, Te;
+          return se || (se = 1, oe = g(), b || (b = 1, _e = g(), he = T(), ke = ["api", "success", "time", "code", "msg", "trace", "traceId", "begin", "pv_id", "sid", "seq", "domain", "flag", "apiSnapshot", "tag", "c1", "c2", "c3"], be = function(q) {
             var z = (q.key || "default").split("::");
             return 1 < z.length ? _e.ext(q, { group: z[0], key: z[1] }) : _e.ext(q, { group: "default_group", key: z[0] });
           }, (Te = function(q) {
@@ -929,16 +929,16 @@ function requireAliplayerMin() {
             arguments.length === 1 ? (typeof q == "string" && (q = { message: q }, z = {}), typeof q == "object" && (z = q = q.error || q)) : (typeof q == "string" && (q = { message: q }), typeof z != "object" && (z = {}));
             var ee, ue = q.name || "CustomError", fe = q.message || "", we = q.stack || "", Ae = (z = z || {}, typeof location == "object" && typeof location.href == "string" && location.href.substring(0, 500) || "");
             if (_e.checkSDKError(fe, z.filename)) return ee = q.msg || q.message, _e.ignoreByRule(ee, Ve = /^Script error\.?$/) || _e.ignoreByRule(_e.decode(ee), Ve) ? this : (ee = { msg: _e.selfErrKey, err: { msg_raw: _e.encode(q.msg || q.message) } }, this._self("error", ee, 1));
-            for (var Re = { begin: Date.now(), cate: ue, msg: fe && fe.substring(0, 1e3), stack: we && we.substring(0, 1e3), file: _e.removeUrlSearch(z.filename || ""), line: z.lineno || "", col: z.colno || "", err: { msg_raw: _e.encode(fe), stack_raw: _e.encode(we) }, dl: Ae }, Ie = ["tag", "c1", "c2", "c3"], ke = 0; ke < Ie.length; ke++) {
-              var je = Ie[ke];
+            for (var Re = { begin: Date.now(), cate: ue, msg: fe && fe.substring(0, 1e3), stack: we && we.substring(0, 1e3), file: _e.removeUrlSearch(z.filename || ""), line: z.lineno || "", col: z.colno || "", err: { msg_raw: _e.encode(fe), stack_raw: _e.encode(we) }, dl: Ae }, Ie = ["tag", "c1", "c2", "c3"], Pe = 0; Pe < Ie.length; Pe++) {
+              var je = Ie[Pe];
               z[je] && (Re[je] = z[je]);
             }
             var Ve = (this.getConfig("ignore") || {}).ignoreErrors;
             return _e.ignoreByRule(Re.msg, Ve) || _e.ignoreByRule(_e.decode(Re.msg), Ve) ? this : (this.beforeSend && this.beforeSend("error", Re), this._lg("error", Re, 1));
           }, behavior: function(q) {
             if (q) return q = typeof q == "object" && q.behavior ? q : { behavior: q }, this.beforeSend && this.beforeSend("behavior", q), this._lg("behavior", q, 1);
-          }, api: function(q, z, ee, ue, fe, we, Ae, Re, Ie, ke, je, Ve, Je, ot, Ge, Le) {
-            return q ? (q = typeof q == "string" ? { api: q, success: z, time: ee, code: ue, msg: fe, begin: we, traceId: Ae, pv_id: Re, apiSnapshot: Ie, domain: ke, flag: Ve, tag: Je, c1: ot, c2: Ge, c3: Le } : _e.sub(q, xe), _e.checkAPI(q.api, !0) ? (q.code = q.code || "", z = q.msg || "", z = typeof z == "string" ? z.substring(0, 1e3) : z, q.msg = z, q.success = q.success ? 1 : 0, q.time = +q.time, q.begin = q.begin, q.traceId = q.traceId || "", q.pv_id = q.pv_id || "", q.domain = q.domain || "", q.flag = q.flag, q.dl = typeof location == "object" && typeof location.href == "string" && location.href.substring(0, 500) || "", q.apiSnapshot && (typeof q.apiSnapshot == "object" && (q.apiSnapshot = JSON.stringify(q.apiSnapshot)), typeof q.apiSnapshot != "string" && delete q.apiSnapshot, 2e3 < q.apiSnapshot.length) && (q.apiSnapshot = q.apiSnapshot.substring(0, 2e3)), je && (q.traceOrigin = je), !q.api || isNaN(q.time) ? (_e.warn("[retcode] invalid time or api"), this) : (ee = (this.getConfig("ignore") || {}).ignoreApis, _e.ignoreByRule(q.api, ee) || _e.ignoreByRule(_e.decode(q.api), ee) || q.time < 0 ? this : (this.beforeSend && this.beforeSend("api", q), this._lg("api", q, q.success && this.getConfig("sample"), q.flag)))) : this) : (_e.warn("[retcode] api is null"), this);
+          }, api: function(q, z, ee, ue, fe, we, Ae, Re, Ie, Pe, je, Ve, Je, ot, Ge, Le) {
+            return q ? (q = typeof q == "string" ? { api: q, success: z, time: ee, code: ue, msg: fe, begin: we, traceId: Ae, pv_id: Re, apiSnapshot: Ie, domain: Pe, flag: Ve, tag: Je, c1: ot, c2: Ge, c3: Le } : _e.sub(q, ke), _e.checkAPI(q.api, !0) ? (q.code = q.code || "", z = q.msg || "", z = typeof z == "string" ? z.substring(0, 1e3) : z, q.msg = z, q.success = q.success ? 1 : 0, q.time = +q.time, q.begin = q.begin, q.traceId = q.traceId || "", q.pv_id = q.pv_id || "", q.domain = q.domain || "", q.flag = q.flag, q.dl = typeof location == "object" && typeof location.href == "string" && location.href.substring(0, 500) || "", q.apiSnapshot && (typeof q.apiSnapshot == "object" && (q.apiSnapshot = JSON.stringify(q.apiSnapshot)), typeof q.apiSnapshot != "string" && delete q.apiSnapshot, 2e3 < q.apiSnapshot.length) && (q.apiSnapshot = q.apiSnapshot.substring(0, 2e3)), je && (q.traceOrigin = je), !q.api || isNaN(q.time) ? (_e.warn("[retcode] invalid time or api"), this) : (ee = (this.getConfig("ignore") || {}).ignoreApis, _e.ignoreByRule(q.api, ee) || _e.ignoreByRule(_e.decode(q.api), ee) || q.time < 0 ? this : (this.beforeSend && this.beforeSend("api", q), this._lg("api", q, q.success && this.getConfig("sample"), q.flag)))) : this) : (_e.warn("[retcode] api is null"), this);
           }, speed: function(q, z, ee) {
             var ue = this, fe = this.getConfig("startTime") || this._startTime;
             return /^s(\d|1[0])$/.test(q) ? (z = typeof z != "number" ? Date.now() - fe : fe <= z ? z - fe : z, ue.speedCache = ue.speedCache || {}, ue.speedCache[q] = z, ue.speedCache.begin = fe, clearTimeout(ue.speedTimmer), ue.speedTimmer = setTimeout(function() {
@@ -1034,7 +1034,7 @@ function requireAliplayerMin() {
             q = oe.ext({ pid: this._conf.pid }, q);
             var z = this.__proto__.constructor(q);
             return q.page && z.sendPV(), z;
-          } }), O()(Q, Z), de()(Q, Z, re), Ee()(Q, Z, re), me()(Q, Z), Ce()(Q, Z), Ue()(Q, Z), Q._super = ce, Q._root = ce._root, ce.Browser = Q, l.exports = Q), l.exports;
+          } }), O()(Q, Z), de()(Q, Z, re), Ee()(Q, Z, re), me()(Q, Z), xe()(Q, Z), Ue()(Q, Z), Q._super = ce, Q._root = ce._root, ce.Browser = Q, l.exports = Q), l.exports;
         }
         var Ke = { getArmsLogger: function() {
           return G || (G = 1, ce = window, ge = ce.BrowserLogger = Ne(), B = g().key, Z = "__hasInitBlSdk", ge.singleton = function(Q, ae) {
@@ -1049,7 +1049,7 @@ function requireAliplayerMin() {
           }
           var ce, ge, B, Z, re, K;
         } };
-        let ve = "https://arms-retcode.aliyuncs.com/r.png?", Pe = "https://arms-retcode-sg.aliyuncs.com/r.png?", De = "https://retcode-us-west-1.arms.aliyuncs.com/r.png?", Oe = "e1iftji1w7@7ec1cef2cc88733", Me = "e1iftji1w7@10a06d1ec260adc", Xe = "e1iftji1w7@10a06d1ec260adc", He = { cn: { reportUrl: ve, pid: Oe }, "cn-hangzhou": { reportUrl: ve, pid: Oe }, sg: { reportUrl: Pe, pid: Me }, "ap-southeast-1": { reportUrl: Pe, pid: Me }, usw: { reportUrl: De, pid: Xe }, "us-west-1": { reportUrl: De, pid: Xe } }, Qe = (oe) => oe !== null && typeof oe == "object", ze = (oe) => Object.prototype.toString.call(oe).slice(8, -1), at = (oe) => !!Object.isExtensible(oe) && ze(oe) === "Object";
+        let ve = "https://arms-retcode.aliyuncs.com/r.png?", Ce = "https://arms-retcode-sg.aliyuncs.com/r.png?", De = "https://retcode-us-west-1.arms.aliyuncs.com/r.png?", Oe = "e1iftji1w7@7ec1cef2cc88733", Me = "e1iftji1w7@10a06d1ec260adc", Xe = "e1iftji1w7@10a06d1ec260adc", He = { cn: { reportUrl: ve, pid: Oe }, "cn-hangzhou": { reportUrl: ve, pid: Oe }, sg: { reportUrl: Ce, pid: Me }, "ap-southeast-1": { reportUrl: Ce, pid: Me }, usw: { reportUrl: De, pid: Xe }, "us-west-1": { reportUrl: De, pid: Xe } }, Qe = (oe) => oe !== null && typeof oe == "object", ze = (oe) => Object.prototype.toString.call(oe).slice(8, -1), at = (oe) => !!Object.isExtensible(oe) && ze(oe) === "Object";
         function tt(oe, ce) {
           if (typeof oe == "string" && (ce = oe.indexOf(ce), !(ce < 0)))
             return (oe = oe.indexOf(`
@@ -1089,13 +1089,13 @@ function requireAliplayerMin() {
               for (re of Object.keys(ye)) ye[re].get && pe.push(re);
               var K = { MediaboxWrapperObjectGetter(Se, _e) {
                 if (typeof _e == "string" && -1 < pe.indexOf(_e)) {
-                  let xe;
+                  let ke;
                   try {
-                    xe = Se[_e];
+                    ke = Se[_e];
                   } catch (be) {
                     throw Z(be), be;
                   }
-                  return Be(xe, B, Z);
+                  return Be(ke, B, Z);
                 }
                 var he;
                 return !(10 < B) && (!(he = Reflect.getOwnPropertyDescriptor(Se, _e)) || he.writable || he.configurable) ? Be(Se[_e], B, Z) : Se[_e];
@@ -1420,16 +1420,16 @@ function requireAliplayerMin() {
               var N = void 0, O = 1, F = 2;
               function U(G, W, Y) {
                 p(function(de) {
-                  var Ee = !1, me = ((Ce, Ue, Ne, Ke) => {
+                  var Ee = !1, me = ((xe, Ue, Ne, Ke) => {
                     try {
-                      Ce.call(Ue, Ne, Ke);
+                      xe.call(Ue, Ne, Ke);
                     } catch (ve) {
                       return ve;
                     }
-                  })(Y, W, function(Ce) {
-                    Ee || (Ee = !0, (W !== Ce ? P : L)(de, Ce));
-                  }, function(Ce) {
-                    Ee || (Ee = !0, V(de, Ce));
+                  })(Y, W, function(xe) {
+                    Ee || (Ee = !0, (W !== xe ? P : L)(de, xe));
+                  }, function(xe) {
+                    Ee || (Ee = !0, V(de, xe));
                   }, de._label);
                   !Ee && me && (Ee = !0, V(de, me));
                 }, G);
@@ -1472,21 +1472,21 @@ function requireAliplayerMin() {
               function j(G) {
                 var W = G._subscribers, Y = G._state;
                 if (W.length !== 0) {
-                  for (var de, Ee = void 0, me = G._result, Ce = 0; Ce < W.length; Ce += 3) de = W[Ce], Ee = W[Ce + Y], de ? k(Y, de, Ee, me) : Ee(me);
+                  for (var de, Ee = void 0, me = G._result, xe = 0; xe < W.length; xe += 3) de = W[xe], Ee = W[xe + Y], de ? k(Y, de, Ee, me) : Ee(me);
                   G._subscribers.length = 0;
                 }
               }
               function k(G, W, Y, de) {
-                var Ee = s(Y), me = void 0, Ce = void 0, Ue = !0;
+                var Ee = s(Y), me = void 0, xe = void 0, Ue = !0;
                 if (Ee) {
                   try {
                     me = Y(de);
                   } catch (Ne) {
-                    Ue = !1, Ce = Ne;
+                    Ue = !1, xe = Ne;
                   }
                   if (W === me) return void V(W, new TypeError("A promises callback cannot return that same promise."));
                 } else me = de;
-                W._state === N && (Ee && Ue ? P(W, me) : Ue === !1 ? V(W, Ce) : G === O ? L(W, me) : G === F && V(W, me));
+                W._state === N && (Ee && Ue ? P(W, me) : Ue === !1 ? V(W, xe) : G === O ? L(W, me) : G === F && V(W, me));
               }
               var D = 0;
               function X(G) {
@@ -1497,13 +1497,13 @@ function requireAliplayerMin() {
               }, ie.prototype._eachEntry = function(G, W) {
                 var Y = this._instanceConstructor, de = Y.resolve;
                 if (de === R) {
-                  var Ee, me = void 0, Ce = void 0, Ue = !1;
+                  var Ee, me = void 0, xe = void 0, Ue = !1;
                   try {
                     me = G.then;
                   } catch (Ne) {
-                    Ue = !0, Ce = Ne;
+                    Ue = !0, xe = Ne;
                   }
-                  me === C && G._state !== N ? this._settledAt(G._state, W, G._result) : typeof me != "function" ? (this._remaining--, this._result[W] = G) : Y === ne ? (Ee = new Y(H), Ue ? V(Ee, Ce) : M(Ee, G, me), this._willSettleAt(Ee, W)) : this._willSettleAt(new Y(function(Ne) {
+                  me === C && G._state !== N ? this._settledAt(G._state, W, G._result) : typeof me != "function" ? (this._remaining--, this._result[W] = G) : Y === ne ? (Ee = new Y(H), Ue ? V(Ee, xe) : M(Ee, G, me), this._willSettleAt(Ee, W)) : this._willSettleAt(new Y(function(Ne) {
                     return Ne(G);
                   }), W);
                 } else this._willSettleAt(de(G), W);
@@ -7437,14 +7437,14 @@ function requireAliplayerMin() {
             return I;
           };
           var P, I = {}, L = Object.prototype, V = L.hasOwnProperty, W = typeof Symbol == "function" ? Symbol : {}, J = W.iterator || "@@iterator", j = W.asyncIterator || "@@asyncIterator", k = W.toStringTag || "@@toStringTag";
-          function D(ve, Pe, De, Oe) {
-            Object.defineProperty(ve, Pe, { value: De, enumerable: !Oe, configurable: !Oe, writable: !Oe });
+          function D(ve, Ce, De, Oe) {
+            Object.defineProperty(ve, Ce, { value: De, enumerable: !Oe, configurable: !Oe, writable: !Oe });
           }
           try {
             D({}, "");
           } catch {
-            D = function(Pe, De, Oe) {
-              return Pe[De] = Oe;
+            D = function(Ce, De, Oe) {
+              return Ce[De] = Oe;
             };
           }
           function X(ve, ze, De, Oe) {
@@ -7477,9 +7477,9 @@ function requireAliplayerMin() {
               }
             }), !0), ze;
           }
-          function te(ve, Pe, De) {
+          function te(ve, Ce, De) {
             try {
-              return { type: "normal", arg: ve.call(Pe, De) };
+              return { type: "normal", arg: ve.call(Ce, De) };
             } catch (Oe) {
               return { type: "throw", arg: Oe };
             }
@@ -7496,24 +7496,24 @@ function requireAliplayerMin() {
             return this;
           }), Object.getPrototypeOf), Y = Y && Y(Y(Ke([]))), de = (Y && Y !== L && V.call(Y, J) && (W = Y), G.prototype = ne.prototype = Object.create(W));
           function Ee(ve) {
-            ["next", "throw", "return"].forEach(function(Pe) {
-              D(ve, Pe, function(De) {
-                return this._invoke(Pe, De);
+            ["next", "throw", "return"].forEach(function(Ce) {
+              D(ve, Ce, function(De) {
+                return this._invoke(Ce, De);
               });
             });
           }
-          function me(ve, Pe) {
+          function me(ve, Ce) {
             var De;
             D(this, "_invoke", function(Oe, Me) {
               function Xe() {
-                return new Pe(function(He, Qe) {
+                return new Ce(function(He, Qe) {
                   (function ze(Fe, tt, Be, nt) {
                     var et, Fe = te(ve[Fe], ve, tt);
-                    if (Fe.type !== "throw") return (tt = (et = Fe.arg).value) && typeof tt == "object" && V.call(tt, "__await") ? Pe.resolve(tt.__await).then(function(qe) {
+                    if (Fe.type !== "throw") return (tt = (et = Fe.arg).value) && typeof tt == "object" && V.call(tt, "__await") ? Ce.resolve(tt.__await).then(function(qe) {
                       ze("next", qe, Be, nt);
                     }, function(qe) {
                       ze("throw", qe, Be, nt);
-                    }) : Pe.resolve(tt).then(function(qe) {
+                    }) : Ce.resolve(tt).then(function(qe) {
                       et.value = qe, Be(et);
                     }, function(qe) {
                       return ze("throw", qe, Be, nt);
@@ -7525,23 +7525,23 @@ function requireAliplayerMin() {
               return De = De ? De.then(Xe, Xe) : Xe();
             }, !0);
           }
-          function Ce(ve) {
+          function xe(ve) {
             this.tryEntries.push(ve);
           }
           function Ue(ve) {
-            var Pe = ve[4] || {};
-            Pe.type = "normal", Pe.arg = P, ve[4] = Pe;
+            var Ce = ve[4] || {};
+            Ce.type = "normal", Ce.arg = P, ve[4] = Ce;
           }
           function Ne(ve) {
-            this.tryEntries = [[-1]], ve.forEach(Ce, this), this.reset(!0);
+            this.tryEntries = [[-1]], ve.forEach(xe, this), this.reset(!0);
           }
           function Ke(ve) {
             if (ve != null) {
-              var Pe, De = ve[J];
+              var Ce, De = ve[J];
               if (De) return De.call(ve);
               if (typeof ve.next == "function") return ve;
-              if (!isNaN(ve.length)) return Pe = -1, (De = function Oe() {
-                for (; ++Pe < ve.length; ) if (V.call(ve, Pe)) return Oe.value = ve[Pe], Oe.done = !1, Oe;
+              if (!isNaN(ve.length)) return Ce = -1, (De = function Oe() {
+                for (; ++Ce < ve.length; ) if (V.call(ve, Ce)) return Oe.value = ve[Ce], Oe.done = !1, Oe;
                 return Oe.value = P, Oe.done = !0, Oe;
               }).next = De;
             }
@@ -7555,10 +7555,10 @@ function requireAliplayerMin() {
             return { __await: ve };
           }, Ee(me.prototype), D(me.prototype, j, function() {
             return this;
-          }), I.AsyncIterator = me, I.async = function(ve, Pe, De, Oe, Me) {
+          }), I.AsyncIterator = me, I.async = function(ve, Ce, De, Oe, Me) {
             Me === void 0 && (Me = Promise);
-            var Xe = new me(X(ve, Pe, De, Oe), Me);
-            return I.isGeneratorFunction(Pe) ? Xe : Xe.next().then(function(He) {
+            var Xe = new me(X(ve, Ce, De, Oe), Me);
+            return I.isGeneratorFunction(Ce) ? Xe : Xe.next().then(function(He) {
               return He.done ? He.value : Xe.next();
             });
           }, Ee(de), D(de, k, "Generator"), D(de, J, function() {
@@ -7566,14 +7566,14 @@ function requireAliplayerMin() {
           }), D(de, "toString", function() {
             return "[object Generator]";
           }), I.keys = function(ve) {
-            var Pe, De = Object(ve), Oe = [];
-            for (Pe in De) Oe.unshift(Pe);
+            var Ce, De = Object(ve), Oe = [];
+            for (Ce in De) Oe.unshift(Ce);
             return function Me() {
-              for (; Oe.length; ) if ((Pe = Oe.pop()) in De) return Me.value = Pe, Me.done = !1, Me;
+              for (; Oe.length; ) if ((Ce = Oe.pop()) in De) return Me.value = Ce, Me.done = !1, Me;
               return Me.done = !0, Me;
             };
           }, I.values = Ke, Ne.prototype = { constructor: Ne, reset: function(ve) {
-            if (this.prev = this.next = 0, this.sent = this._sent = P, this.done = !1, this.delegate = null, this.method = "next", this.arg = P, this.tryEntries.forEach(Ue), !ve) for (var Pe in this) Pe.charAt(0) === "t" && V.call(this, Pe) && !isNaN(+Pe.slice(1)) && (this[Pe] = P);
+            if (this.prev = this.next = 0, this.sent = this._sent = P, this.done = !1, this.delegate = null, this.method = "next", this.arg = P, this.tryEntries.forEach(Ue), !ve) for (var Ce in this) Ce.charAt(0) === "t" && V.call(this, Ce) && !isNaN(+Ce.slice(1)) && (this[Ce] = P);
           }, stop: function() {
             this.done = !0;
             var ve = this.tryEntries[0][4];
@@ -7581,11 +7581,11 @@ function requireAliplayerMin() {
             return this.rval;
           }, dispatchException: function(ve) {
             if (this.done) throw ve;
-            var Pe = this;
+            var Ce = this;
             function De(at) {
-              Xe.type = "throw", Xe.arg = ve, Pe.next = at;
+              Xe.type = "throw", Xe.arg = ve, Ce.next = at;
             }
-            for (var Oe = Pe.tryEntries.length - 1; 0 <= Oe; --Oe) {
+            for (var Oe = Ce.tryEntries.length - 1; 0 <= Oe; --Oe) {
               var Me = this.tryEntries[Oe], Xe = Me[4], He = this.prev, Qe = Me[1], ze = Me[2];
               if (Me[0] === -1) return De("end"), !1;
               if (!Qe && !ze) throw Error("try statement without catch or finally");
@@ -7594,7 +7594,7 @@ function requireAliplayerMin() {
                 if (He < ze) return De(ze), !1;
               }
             }
-          }, abrupt: function(ve, Pe) {
+          }, abrupt: function(ve, Ce) {
             for (var De = this.tryEntries.length - 1; 0 <= De; --De) {
               var Oe = this.tryEntries[De];
               if (-1 < Oe[0] && Oe[0] <= this.prev && this.prev < Oe[2]) {
@@ -7602,24 +7602,24 @@ function requireAliplayerMin() {
                 break;
               }
             }
-            var Xe = (Me = Me && (ve === "break" || ve === "continue") && Me[0] <= Pe && Pe <= Me[2] ? null : Me) ? Me[4] : {};
-            return Xe.type = ve, Xe.arg = Pe, Me ? (this.method = "next", this.next = Me[2], ie) : this.complete(Xe);
-          }, complete: function(ve, Pe) {
+            var Xe = (Me = Me && (ve === "break" || ve === "continue") && Me[0] <= Ce && Ce <= Me[2] ? null : Me) ? Me[4] : {};
+            return Xe.type = ve, Xe.arg = Ce, Me ? (this.method = "next", this.next = Me[2], ie) : this.complete(Xe);
+          }, complete: function(ve, Ce) {
             if (ve.type === "throw") throw ve.arg;
-            return ve.type === "break" || ve.type === "continue" ? this.next = ve.arg : ve.type === "return" ? (this.rval = this.arg = ve.arg, this.method = "return", this.next = "end") : ve.type === "normal" && Pe && (this.next = Pe), ie;
+            return ve.type === "break" || ve.type === "continue" ? this.next = ve.arg : ve.type === "return" ? (this.rval = this.arg = ve.arg, this.method = "return", this.next = "end") : ve.type === "normal" && Ce && (this.next = Ce), ie;
           }, finish: function(ve) {
-            for (var Pe = this.tryEntries.length - 1; 0 <= Pe; --Pe) {
-              var De = this.tryEntries[Pe];
+            for (var Ce = this.tryEntries.length - 1; 0 <= Ce; --Ce) {
+              var De = this.tryEntries[Ce];
               if (De[2] === ve) return this.complete(De[4], De[3]), Ue(De), ie;
             }
           }, catch: function(ve) {
-            for (var Pe = this.tryEntries.length - 1; 0 <= Pe; --Pe) {
-              var De, Oe, Me = this.tryEntries[Pe];
+            for (var Ce = this.tryEntries.length - 1; 0 <= Ce; --Ce) {
+              var De, Oe, Me = this.tryEntries[Ce];
               if (Me[0] === ve) return (De = Me[4]).type === "throw" && (Oe = De.arg, Ue(Me)), Oe;
             }
             throw Error("illegal catch attempt");
-          }, delegateYield: function(ve, Pe, De) {
-            return this.delegate = { i: Ke(ve), r: Pe, n: De }, this.method === "next" && (this.arg = P), ie;
+          }, delegateYield: function(ve, Ce, De) {
+            return this.delegate = { i: Ke(ve), r: Ce, n: De }, this.method === "next" && (this.arg = P), ie;
           } }, I;
         }
         function u(P, I, L, V, J, j, k) {
@@ -12868,12 +12868,12 @@ const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
         type: de = "info",
         duration: Ee = 3e3,
         position: me = "top-center"
-      } = Y, Ce = document.createElement("div");
-      Ce.className = `toast toast-${de} toast-${me}`, Ce.textContent = W, document.body.appendChild(Ce), setTimeout(() => {
-        Ce.classList.add("show");
+      } = Y, xe = document.createElement("div");
+      xe.className = `toast toast-${de} toast-${me}`, xe.textContent = W, document.body.appendChild(xe), setTimeout(() => {
+        xe.classList.add("show");
       }, 10), setTimeout(() => {
-        Ce.classList.remove("show"), setTimeout(() => {
-          Ce.remove();
+        xe.classList.remove("show"), setTimeout(() => {
+          xe.remove();
         }, 300);
       }, Ee);
     }
@@ -12900,8 +12900,8 @@ const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
       s.playType === 1 ? (e.videoSrc = s.url, y()) : s.playType === 2 ? getPlayAuth(s.appId, W || s.vid, 30).then((Y) => {
         const { code: de, data: Ee } = Y;
         de === 200 && getVideoInfo({ appId: s.appId, vid: W || s.vid, playAuth: Ee }).then((me) => {
-          const { code: Ce, data: Ue } = me;
-          Ce === 200 ? (e.videoSrc = Ue.url, e.duration = Ue.duration, t.value = Ue.innerIp, Ue.innerIp && (e.isLogin = !0)) : (e.videoSrc = "", t.value = !1), y();
+          const { code: xe, data: Ue } = me;
+          xe === 200 ? (e.videoSrc = Ue.url, e.duration = Ue.duration, t.value = Ue.innerIp, Ue.innerIp && (e.isLogin = !0)) : (e.videoSrc = "", t.value = !1), y();
         });
       }) : s.playType === 3 && getPlayInfo(s.appId, W || s.vid).then((Y) => {
         Y.code === 200 ? (e.videoSrc = Y.data, t.value = Y.innerIp, Y.innerIp && (e.isLogin = !0)) : (e.videoSrc = "", t.value = !1), y();
@@ -12969,8 +12969,8 @@ const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
           isCustomized: !0
         });
       }), Y.progressMarkers = de, F(), document.getElementById(W) ? e.container = document.getElementById(W) : (e.container = document.createElement("div"), e.container.id = W, (Ee = c.value) == null || Ee.appendChild(e.container)), e.player = new Aliplayer$1(Y, function(me) {
-        me.on("ready", function(Ce) {
-          a("ready", Ce), e.options.volume && me.setVolume(e.options.volume), e.duration = me.getDuration(), b(), S();
+        me.on("ready", function(xe) {
+          a("ready", xe), e.options.volume && me.setVolume(e.options.volume), e.duration = me.getDuration(), b(), S();
           const Ue = e.container.getElementsByClassName("prism-progress")[0];
           if (s.allowDuration !== -1) {
             const Ne = document.createElement("div");
@@ -12997,24 +12997,30 @@ const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
             const Ke = me.getCurrentTime();
             !e.isLogin && s.allowDuration !== -1 && Ke >= s.allowDuration * 60 && (e.showLoginDialogTip = !0, me.pause(), me.seek(s.allowDuration * 60));
           });
-        }), me.on("error", function(Ce) {
-          a("error", Ce);
-        }), me.on("waiting", function(Ce) {
-          a("waiting", Ce);
-        }), me.on("startSeek", function(Ce) {
-          a("startSeek", Ce);
-        }), me.on("completeSeek", function(Ce) {
-          a("completeSeek", Ce);
-        }), me.on("liveStreamStop", function(Ce) {
-          a("liveStreamStop", Ce);
-        }), me.on("hideBar", function(Ce) {
-          a("hideBar", Ce);
-        }), me.on("showBar", function(Ce) {
-          a("showBar", Ce);
-        }), me.on("requestFullScreen", function(Ce) {
-          a("requestFullScreen", Ce);
-        }), me.on("cancelFullScreen", function(Ce) {
-          a("cancelFullScreen", Ce);
+        }), me.on("canplay", function(xe) {
+          a("canplay", xe);
+        }), me.on("error", function(xe) {
+          a("error", xe);
+        }), me.on("waiting", function(xe) {
+          a("waiting", xe);
+        }), me.on("playing", function(xe) {
+          a("playing", xe);
+        }), me.on("ended", function(xe) {
+          a("ended", xe);
+        }), me.on("startSeek", function(xe) {
+          a("startSeek", xe);
+        }), me.on("completeSeek", function(xe) {
+          a("completeSeek", xe);
+        }), me.on("liveStreamStop", function(xe) {
+          a("liveStreamStop", xe);
+        }), me.on("hideBar", function(xe) {
+          a("hideBar", xe);
+        }), me.on("showBar", function(xe) {
+          a("showBar", xe);
+        }), me.on("requestFullScreen", function(xe) {
+          a("requestFullScreen", xe);
+        }), me.on("cancelFullScreen", function(xe) {
+          a("cancelFullScreen", xe);
         }), me.on("timeupdate", function() {
           N(me);
         });
@@ -13067,17 +13073,17 @@ const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
     `, e.container.querySelector(".prism-controlbar").appendChild(Ee);
         const me = document.createElement("div");
         me.className = "knowledge-bar";
-        let Ce = '<div class="knowledge-bar-percent"></div>';
+        let xe = '<div class="knowledge-bar-percent"></div>';
         for (var de = 0; de < Y.length; de++) {
           const Ue = Y[de], Ne = Y[de + 1];
           let Ke = e.duration;
           Ne && (Ke = Ne.fromTo[0]);
           let ve = (Ke - Ue.fromTo[0]) / e.duration * 100;
           ve = ve > 100 ? 100 : ve;
-          let Pe = Ue.fromTo[0] / e.duration * 100;
-          Pe = Pe > 100 ? 100 : Pe, Ce += `<div class="knowledge-section" data-start="${Ue.fromTo[0]}" data-end="${Ue.fromTo[1]}" title="${Ue.name}" style="width:${ve}%;left:${Pe}%">${Ue.name}</div>`;
+          let Ce = Ue.fromTo[0] / e.duration * 100;
+          Ce = Ce > 100 ? 100 : Ce, xe += `<div class="knowledge-section" data-start="${Ue.fromTo[0]}" data-end="${Ue.fromTo[1]}" title="${Ue.name}" style="width:${ve}%;left:${Ce}%">${Ue.name}</div>`;
         }
-        me.innerHTML = Ce, e.container.appendChild(me);
+        me.innerHTML = xe, e.container.appendChild(me);
       } else
         e.container.querySelector(".knowledge-switch-btn") && (e.container.querySelector(".knowledge-switch-btn").style.display = "none", e.container.querySelector(".knowledge-bar").style.display = "none");
     }
@@ -13127,9 +13133,9 @@ const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
           Y.className = "speed-box";
           let de = "", Ee = "倍速";
           e.options.speedLevels && e.options.speedLevels.forEach((me) => {
-            let Ce = "";
-            s.options.speed ? s.options.speed === me.value && (Ce = "active", Ee = me.value === 1 ? "倍速" : me.label) : me.value === 1 && (Ce = "active"), de += `
-            <div class="speed-item ${Ce}" data-value="${me.value}">${me.label}</div>
+            let xe = "";
+            s.options.speed ? s.options.speed === me.value && (xe = "active", Ee = me.value === 1 ? "倍速" : me.label) : me.value === 1 && (xe = "active"), de += `
+            <div class="speed-item ${xe}" data-value="${me.value}">${me.label}</div>
           `;
           }), Y.innerHTML = `
         <div class="speed-list">
@@ -13176,14 +13182,14 @@ const _hoisted_1 = ["id"], _sfc_main = /* @__PURE__ */ defineComponent({
       const W = e.container.querySelector(".progress-range");
       if (!W) return;
       const de = [...e.options.viewPoints].sort((Ne, Ke) => Ne - Ke), Ee = [];
-      let me = de[0], Ce = de[0];
+      let me = de[0], xe = de[0];
       for (let Ne = 1; Ne < de.length; Ne++)
-        de[Ne] === Ce + 1 || (Ee.push([me, Ce]), me = de[Ne]), Ce = de[Ne];
-      Ee.push([me, Ce]);
+        de[Ne] === xe + 1 || (Ee.push([me, xe]), me = de[Ne]), xe = de[Ne];
+      Ee.push([me, xe]);
       let Ue = "";
       Ee.forEach(([Ne, Ke]) => {
-        const ve = Math.max(0, Math.min(100, Ne / e.duration * 100)), Pe = Math.max(0, Math.min(100 - ve, (Ke - Ne + 1) / e.duration * 100));
-        Ue += `<div class="progress-range-segment" style="left:${ve}%;width:${Pe}%"></div>`;
+        const ve = Math.max(0, Math.min(100, Ne / e.duration * 100)), Ce = Math.max(0, Math.min(100 - ve, (Ke - Ne + 1) / e.duration * 100));
+        Ue += `<div class="progress-range-segment" style="left:${ve}%;width:${Ce}%"></div>`;
       }), W.innerHTML = Ue;
     };
     function A() {
