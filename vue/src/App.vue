@@ -14,6 +14,10 @@
       @login="handleLogin"
       @timeupdate="handleTimeUpdate"
     />
+    
+  </div>
+  <div class="player1">
+    <div id="video_player"></div>
   </div>
   <h3> 播放器配置 </h3>
   <h4> 使用应用文件编号加载视频 </h4>
@@ -42,27 +46,34 @@
   <button @click="initEnterExitPoint()">关闭打点标记功能</button> 
 </template>
 <script lang="ts" setup>
-import { nextTick, reactive, ref } from "vue";
+import { nextTick, onMounted, reactive, ref } from "vue";
 import VideoPlayer from './DmsPlayer/index.js'
 import './DmsPlayer/index.css'
-const videoRef = ref(null);
+const videoRef = ref();
 // 销毁
 const handleDestory = () => {
   videoRef.value.destroy();
 }
+const option = reactive({
+  appId: 18,
+  vid: 211370,
+  playType: 2,
+  url: 'https://vjs.zencdn.net/v/oceans.mp4',
+  enterExitPoint: []
+});
 // 画中画
-const pipButton = (value) => {
+const pipButton = (value:boolean) => {
   videoRef.value.PictureInPicture(value)
 }
 // 初始化
-const handleInit = (type) => {
+const handleInit = (type:number) => {
   option.playType = type;
   nextTick(() => {
     videoRef.value.init();
   })
 }
 // 学习进度条显示隐藏控制
-const handleChangeViewPointsShow = (val) => {
+const handleChangeViewPointsShow = (val:boolean) => {
   videoRef.value.changeViewPointsShow(val);
 }
 // 设置学习进度
@@ -73,7 +84,7 @@ const handleSetViewPoints = () => {
   }
   videoRef.value.setViewPoints(arrPoint);
 }
-const hanldeShowKnowledge = (val) => {
+const hanldeShowKnowledge = (val:boolean) => {
   const knowledge = [
     {
       name: "资本积累的本质与形式",
@@ -106,11 +117,11 @@ const hanldeShowKnowledge = (val) => {
   ]
   videoRef.value.changeKnowledgeShow(val,knowledge);
 }
-const changeKnowledgeOpen = (val) => {
+const changeKnowledgeOpen = (val:boolean) => {
   videoRef.value.changeKnowledgeOpen(val);
 }
 
-const initEnterExitPoint = (data?) => {
+const initEnterExitPoint = (data?:any) => {
   videoRef.value.initEnterExitPoint(data);
 }
 
@@ -147,14 +158,9 @@ const showProgressMarkers = () => {
   ]
   videoRef.value.setProgressMarkers(marks);
 }
-const option = reactive({
-  appId: 18,
-  vid: 211370,
-  playType: 2,
-  url: 'https://vjs.zencdn.net/v/oceans.mp4'
-});
-const progressInfo = ref([]);
-for (let i = 0; i < 100; i++) {
+
+const progressInfo = ref<Array<number>>([]);
+for (let i:number = 0; i < 100; i++) {
   progressInfo.value.push(i);
 }
 for (let i = 200; i < 500; i++) {
@@ -213,9 +219,61 @@ const options = {
 
 
 const handleLogin = () => {};
-const handleTimeUpdate = (data) => {
+const handleTimeUpdate = (data:any) => {
   // console.log(data)
 };
+onMounted(() => {
+  // console.log(videoRef.value)
+   window.myDmsplayer = new DmsPlayer({
+            containerId: 'video_player',
+            url: '',
+            autoplay: false,
+            // muted: false,
+            loop: false,
+            // drag: false,
+            // hideTrack:true,
+            showBar: true,
+            autoHideBar: true,
+            autoHideBarTime: 5000,
+            currentTime: 0, // 指定开始播放时间
+            allowDuration: -1,
+            playType: 3,
+            appId: 37, // 获取防盗链项目id参数
+            vid: 76370, // 视频编号
+            logo: {
+              url: '',
+              postion: 0,
+              w: '20%',
+              h: 'auto'
+            },
+            playCallBackTime: 1000, // 播放多长时间回调一次 单位毫秒
+            playCallBack: function(data) { // 播放回调函数，在这里自定义调用播放过程
+              //中请求接口逻辑 data 返回当前视频播放的时间,以及总时长
+              console.log(data);
+            },
+            onPlay: function(data) { // 当点击播放时的回调
+              // myDmsplayer.changeCurrentTime(1)
+              console.log('播放1')
+            },
+            onPause: function(data) { // 当播放暂停时的回调
+              console.log('暂停1')
+              
+            },
+            onEnd: function(data) { // 当播放完成时的回调
+              console.log('结束1')
+            },
+            onError: function(data) { // 当播放失败时的回调
+              console.log('播放失败1')
+            },
+            fullscreenCallBack: function(value) {
+              // 全屏回调 value = true 全屏 false 退出全屏
+              console.log(value)
+            },
+            onDestroy: function(value) {
+              console.log('onDestroy')
+            }
+          })
+});
 </script>
 
 <style>
@@ -223,6 +281,17 @@ const handleTimeUpdate = (data) => {
   width: 640px;
   margin: 20px auto;
   height: 320px;
+}
+.player1 {
+  width: 640px;
+  margin: 20px auto;
+  height: 320px;
+}
+#video_player {
+  width: 640px;
+  margin: 20px auto;
+  height: 320px;
+
 }
 label {
   margin: 8px 16px;

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="./index.css" />
+    <title>播放器</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #app {
+        width: 100%;
+        height: 100vh;
+      }
+      .player {
+        width: 960px;
+        height: 520px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="player">
+        <dms-player
+          ref="videoRef"
+          :player-id="'main'"
+          :theme-color="'#F44336'"
+          :play-type="2"
+          :allow-duration="-1"
+          :app-id="18"
+          :vid="211370"
+          :options="options"
+          @canplay="handlePlay"
+          @ended="handleEnd"
+          >
+        </dms-player>
+    </div>
+  </div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="./index.umd.cjs"></script>
+<script >
+    const { createApp, defineCustomElement } = Vue
+    const app = createApp({
+      // 应用根组件选项
+      data() {
+        return {
+          options: {
+            cover: "https://oucp.multimediapress.cn//images/1/2022/07/28/cdc35935-a46d-42db-b664-6b8eb4db9d85_1.jpg",
+            logo: [
+              {
+                width: 20,
+                position: "top-left",
+                origin: "box",
+                src: "./static/images/player_logo.png",
+                offsetY: 1,
+                offsetX: 2,
+              }
+            ],
+            // disableSeek:true, //禁用进度条
+            autoPlay: true,
+            speed: 1, // 播放速度
+            textTracks: [
+              {
+                kind: "subtitles",
+                label: "中文",
+                src: "https://player.alicdn.com/file/official-video/subtitle-cn.vtt",
+                srclang: "zh-CN",
+              },
+              {
+                kind: "subtitles",
+                label: "英文",
+                src: "https://player.alicdn.com/file/official-video/subtitle-en-us.vtt",
+                srclang: "en-US",
+                default: true,
+              },
+            ],
+            controlBarVisibility: "always",
+          }
+        };
+      },
+      mounted() {
+        // console.log(this.$refs.videoRef);// 获取到播放器组件实例
+      },
+      methods: {
+        handlePlay(e) {
+          console.log("canplay",e);
+        },
+        handleEnd() {
+          console.log("endend");
+        }
+      }
+    });
+    // 注册播放器组件
+    app.component('DmsPlayer', DmsPlayer.default || DmsPlayer);
+    // 挂载应用
+    app.mount('#app');
+</script>
