@@ -156,7 +156,7 @@ const handleTimeUpdate = (data) => {
 ```
 
 ### 播放器SDK API
-#### 播放器组件属性
+#### 播放器组件属性(视频类型)
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | appId | 应用id | number | - |
@@ -169,9 +169,10 @@ const handleTimeUpdate = (data) => {
 | allowDuration | 允许试看时长 | number | -1 标识可以观看全部 >0需要登录后才可以观看全部 单位秒  如果设置参数大于0可以通过调用播放器changeLoginState来更改登录状态|
 | audit | 是否开启审核 | boolean | false 默认关闭   true 开启  开启后只有审核通过的视频才能播放|
 | url | 视频地址 | string | - |
-#### 播放器配置optins
+#### 播放器配置optins(视频类型)
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| license | License授权 | Object | domian为申请License授权时所填写的域名  Key为License密钥  { domain: "example.com",key: "example-key"} |
 | autoPlay | 是否自动播放 | boolean | false |
 | disableSeek | 是否禁用进度条 | boolean | false |
 | controlBarVisibility | 控制栏显示方式 | string | always |
@@ -179,6 +180,7 @@ const handleTimeUpdate = (data) => {
 | cover | 封面图 | string | - |
 | clickPause | 点击暂停 | boolean | false |
 | showKnowledge | 显示知识点 | boolean | false |
+| knowledgeType | 获取知识点的方式 | number | 1 通过视频id获取知识点显示 2 通过自定义数据源显示知识点结合knowledge参数使用 |
 | knowledge | 知识点数据 | array | [{ name: "知识点名称", fromTo: [24.3, 162.94]}] |
 | knowledgeOpen| 知识点开关开启 | boolean | false |
 | viewPoints | 观看记录时间点 | array | [] |
@@ -197,7 +199,7 @@ const handleTimeUpdate = (data) => {
 | watchEndTime | 结束播发的时间 | number | 和 watchStartTime 配合使用，开启区间播放功能，只能在开始和结束时间范围内播放和拖拽进度条。如果参数值小于watchStartTime，则watchStartTime失效。单位：秒 |
 
 
-#### 播放器回调
+#### 播放器回调(视频类型)
 | 回调名称 | 说明 | 参数 |
 | --- | --- | --- |
 | login | 登录回调 | - |
@@ -218,7 +220,7 @@ const handleTimeUpdate = (data) => {
 | startSeek | 跳转开始回调 | - |
 | completeSeek | 跳转完成回调 | - |
 
-#### 播放器内置方法
+#### 播放器内置方法(视频类型)
 | 方法名称 | 说明 | 参数 |
 | --- | --- | --- |
 | getCurrentTime | 获取当前播放时间 | - |
@@ -251,3 +253,41 @@ const handleTimeUpdate = (data) => {
 
 
 
+#### 播放器组件属性(文档类型)
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| appId | 应用id | number | - |
+| vid | 文件id | number | - |
+| darkMode | 是否为暗黑主题 | boolean | false |
+
+#### 播放器回调(文档类型)
+| 回调名称 | 说明 | 参数 |
+| --- | --- | --- |
+| pageChanged | 页码变化回调 | data |
+
+#### 播放器内置方法(文档类型)
+| 方法名称 | 说明 | 参数 |
+| --- | --- | --- |
+| zoom | 放大缩小 | 参数1：string in/out 参数2：number 放大缩小的倍数 |
+| goToPage | 跳转到指定页码 | 参数1：number 页码 |
+| getPagesInfo | 获取当前文档的页码信息 | - |
+| destroy | 销毁 | - |
+
+
+#### 常见问题
+1. 更改播放器参数后怎么重新渲染视频?
+```
+// 1. 首先调用播放器销毁方法：
+videoRef.value.destroy();
+// 2. 然后重新初始化播放器：
+videoRef.value.init();
+
+```
+2. 播放器提示 播放出错 LICENSE ERROR ，联系管理员生成播放器License
+```
+// 修改播放器options参数增加license配置参数
+"license":{
+  domain: "crtvup.com.cn", // 将这个域名替换成当前浏览器访问域名
+  key: "6PdiKZSqULDBDP1VMe7a07ddcd50847418d8794bd756eb577"
+}
+```

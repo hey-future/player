@@ -34,6 +34,17 @@
         :options="options">
       </dms-player>
     </div>
+    文档阅读器
+     <div class="player">
+      <dms-player
+        ref="videoRef1"
+        :player-id="'pdfmain'"
+        :app-id="4"
+        :vid="241406"
+        :play-type="3"
+      >
+      </dms-player>
+    </div>
   </div>
 </body>
 </html>
@@ -80,6 +91,7 @@
       },
       mounted() {
         console.log(this.$refs.videoRef);// 获取到播放器组件实例
+        console.log(this.$refs.videoRef1);// 获取到播放器组件实例
       },
       method: {
 

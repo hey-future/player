@@ -1,5 +1,6 @@
 <template>
-    <div class="player">
+  <h2>新版视频播放器</h2>
+  <div class="player">
     <VideoPlayer
       ref="videoRef"
       playerId="main"
@@ -14,10 +15,6 @@
       @login="handleLogin"
       @timeupdate="handleTimeUpdate"
     />
-    
-  </div>
-  <div class="player1">
-    <div id="video_player"></div>
   </div>
   <h3> 播放器配置 </h3>
   <h4> 使用应用文件编号加载视频 </h4>
@@ -44,12 +41,46 @@
   <button @click="handleChangeViewPointsShow(false)">隐藏观看记录进度条</button>  
   <button @click="initEnterExitPoint([0,300])">开启打点标记功能</button>
   <button @click="initEnterExitPoint()">关闭打点标记功能</button> 
+
+  <h2>文档阅读器</h2>
+  <div class="player" style="width: 100%;height: 600px">
+    <VideoPlayer
+      ref="pdfRef"
+      playerId="pdfMain"
+      :appId="4"
+      :vid="241406"
+      :playType="3"
+    />
+  </div>
+  <h3> 文档阅读器方法 </h3>
+  <button @click="handleZoom('in')">放大</button>
+  <button @click="handleZoom('out')">缩小</button>
+  <div>
+    <input type="text" v-model="page" />
+      <button @click="handleGoToPage()">跳转到指定页面</button>
+  </div>
+  <h2>老版本阅读器</h2>
+  <div class="player1">
+    <div id="video_player"></div>
+  </div>
+  
 </template>
 <script lang="ts" setup>
 import { nextTick, onMounted, reactive, ref } from "vue";
 import VideoPlayer from './DmsPlayer/index.js'
 import './DmsPlayer/index.css'
 const videoRef = ref();
+const pdfRef = ref();
+const page = ref(1)
+const handleZoom = (type) => {
+  pdfRef.value.zoom(type);
+}
+const handleGoToPage = () => {
+  pdfRef.value.goToPage(page.value);
+}
+const onPageChanged = (data) => {
+  page.value = data;
+}
 // 销毁
 const handleDestory = () => {
   videoRef.value.destroy();
