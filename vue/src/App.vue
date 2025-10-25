@@ -27,7 +27,7 @@
   <input type="text" v-model="option.url" />
   <button @click="handleInit(1)">初始化</button>
   <h3> 播放器方法 </h3>
-  <button @click="handleDestory">销毁</button>
+  <button @click="handleDestory('video')">销毁</button>
   <button @click="pipButton(true)">开启画中画模式</button>
   <button @click="pipButton(false)">关闭画中画模式</button>
   <button @click="showProgressMarkers">显示视频打点标记</button>
@@ -53,12 +53,30 @@
     />
   </div>
   <h3> 文档阅读器方法 </h3>
+  <button @click="handleDestory('pdf')">销毁</button>
   <button @click="handleZoom('in')">放大</button>
   <button @click="handleZoom('out')">缩小</button>
   <div>
     <input type="text" v-model="page" />
       <button @click="handleGoToPage()">跳转到指定页面</button>
   </div>
+  <h2>图片阅读器</h2>
+  <div class="player" style="width: 100%;height: 400px">
+    <VideoPlayer
+      ref="imgRef"
+      playerId="imageMain"
+      :appId="4"
+      :vid="110313"
+      :playType="3"
+    />
+  </div>
+  <h3> 图片阅读器方法 </h3>
+  <button @click="handleDestory('image')">销毁</button>
+  <button @click="handleImgZoom('in')">放大</button>
+  <button @click="handleImgZoom('out')">缩小</button>
+  <button @click="handleImgRotate(30)">向右旋转</button>
+  <button @click="handleImgRotate(-30)">向左旋转</button>
+  <button @click="handleImgReset()">重置</button>
   <h2>老版本阅读器</h2>
   <div class="player1">
     <div id="video_player"></div>
@@ -71,6 +89,7 @@ import VideoPlayer from './DmsPlayer/index.js'
 import './DmsPlayer/index.css'
 const videoRef = ref();
 const pdfRef = ref();
+const imgRef = ref();
 const page = ref(1)
 const handleZoom = (type) => {
   pdfRef.value.zoom(type);
@@ -78,12 +97,27 @@ const handleZoom = (type) => {
 const handleGoToPage = () => {
   pdfRef.value.goToPage(page.value);
 }
+const handleImgZoom = (type) => {
+  imgRef.value.zoom(type, 0.5);
+}
+const handleImgReset = () => {
+  imgRef.value.reset();
+}
+const handleImgRotate = (deg) => {
+  imgRef.value.rotate(deg)
+}
 const onPageChanged = (data) => {
   page.value = data;
 }
 // 销毁
-const handleDestory = () => {
-  videoRef.value.destroy();
+const handleDestory = (type) => {
+  if (type === 'pdf') {
+    pdfRef.value.destroy();
+  } else if (type === 'image') {
+    imgRef.value.destroy();
+  } else {
+    videoRef.value.destroy();
+  }
 }
 const option = reactive({
   appId: 18,

@@ -273,6 +273,18 @@ const handleTimeUpdate = (data) => {
 | getPagesInfo | 获取当前文档的页码信息 | - |
 | destroy | 销毁 | - |
 
+#### 播放器组件属性(图片类型)
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| appId | 应用id | number | - |
+| vid | 文件id | number | - |
+| url | 图片地址 | string | - |
+#### 播放器内置方法(图片类型)
+| 方法名称 | 说明 | 参数 |
+| --- | --- | --- |
+| zoom | 放大缩小 | 参数1：string in/out 参数2：number 放大缩小的倍数 |
+| rotate | 旋转 | 参数1：number 旋转角度|
+| destroy | 销毁 | - |
 
 #### 常见问题
 1. 更改播放器参数后怎么重新渲染视频?
