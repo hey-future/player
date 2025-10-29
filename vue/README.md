@@ -156,6 +156,12 @@ const handleTimeUpdate = (data) => {
 ```
 
 ### 播放器SDK API
+
+#### 播放器配置optins(公共)
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | ------ | --- | --- |
+| watermark | 播放器水印            | object | 自定义水印。示例如下<br/>    watermark: {<br/>      show: true, // 是否显示水印 <br/>     text: '国家开放大学', // 水印文字<br/>     image:'', // 水印图片填写图片链接地址，图片和文字水印优先显示图片<br/>     color: '#ccc', // 水印文字颜色<br/>     opacity: 0.5, // 水印透明度<br/>     rotate: 30, // 水印旋转角度 <br/>     spacingX: 200, // 水印横向间隔 <br/>     spacingY: 100, // 水印纵向间隔 <br/>     imageWidth:'100px', // 图片水印宽度 <br/>     imageHeight: '50px' // 图片水印高度<br/>    } <br/>     <br/>    |
+
 #### 播放器组件属性(视频类型)
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -172,7 +178,7 @@ const handleTimeUpdate = (data) => {
 #### 播放器配置optins(视频类型)
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| license | License授权 | Object | domian为申请License授权时所填写的域名  Key为License密钥  { domain: "example.com",key: "example-key"} |
+| license | License授权 | Object | domian为申请License授权时所填写的域名  Key为License密钥 <br/> ```{ domain: "example.com",key: "example-key"}``` |
 | autoPlay | 是否自动播放 | boolean | false |
 | disableSeek | 是否禁用进度条 | boolean | false |
 | controlBarVisibility | 控制栏显示方式 | string | always |
@@ -187,7 +193,7 @@ const handleTimeUpdate = (data) => {
 | showViewPointsBar | 显示观看记录 | boolean | false |
 | marks | 视频标记点 | array | [{ text: "文本描述", offset: 24.3, time: 24.3}] |
 | mute | 是否静音 | boolean | false 设置是否静音播放。在浏览器禁止自动播放时可以通过配置此参数进行静音自动播放 |
-| logo | 播放器logo | array | 自定义Logo图片。示例如下：logo: [{width: 30,position: 'bottom-right',origin: 'content',src: 'a.png'}] 字段解释如下： src：Logo图片地址。 origin：定位参照物。取值如下： box：播放器 content：视频内容 width/height：Logo的宽高，单位是百分比（根据origin计算），如果只指定一边，则另一边按图片比例缩放。 position：Logo的相对位置，相对origin定位。取值如下： top-left：左上 top-right：右上 bottom-left：左下 bottom-right：右下 offsetX/offsetY：相对于position的偏移，单位：百分比%（根据origin计算）。 |
+| logo | 播放器logo | array | 自定义Logo图片。示例如下：<br/>logo: [{width: 30,position: 'bottom-right',origin: 'content',src: 'a.png'}] <br/>字段解释如下： <br/> src：Logo图片地址。 <br/>origin：定位参照物。取值如下： <br/>box：播放器 <br/>content：视频内容 <br/>width/height：Logo的宽高，单位是百分比（根据origin计算），如果只指定一边，则另一边按图片比例缩放。 <br/>position：Logo的相对位置，相对origin定位。取值如下： top-left：左上 top-right：右上 bottom-left：左下 bottom-right：右下 offsetX/offsetY：相对于position的偏移，单位：百分比%（根据origin计算）。 |
 | speed | 播放速度 | number | 1 |
 | textTracks | 字幕 | array | - |
 | showBarTime | 控制栏自动隐藏时间，单位：毫秒。 | number | 3000 |
@@ -197,6 +203,8 @@ const handleTimeUpdate = (data) => {
 | end | 结束时间点 | number | 和 start 配合使用，截取视频的一部分作为一个独立的视频。如：原视频时长 60 秒，设置 start:10、end:30 后，视频显示时长为 20 秒，并从原视频的第 10 秒开始播放。 |
 | watchStartTime | 开始播放的时间 | number | 单独使用，代表开始播放的时间； 和 watchEndTime 配合使用，开启区间播放功能，只能在开始和结束时间范围内播放和拖拽进度条。单位：秒 |
 | watchEndTime | 结束播发的时间 | number | 和 watchStartTime 配合使用，开启区间播放功能，只能在开始和结束时间范围内播放和拖拽进度条。如果参数值小于watchStartTime，则watchStartTime失效。单位：秒 |
+
+
 
 
 #### 播放器回调(视频类型)
@@ -259,6 +267,7 @@ const handleTimeUpdate = (data) => {
 | appId | 应用id | number | - |
 | vid | 文件id | number | - |
 | darkMode | 是否为暗黑主题 | boolean | false |
+| url | 文档地址 | string | - |
 
 #### 播放器回调(文档类型)
 | 回调名称 | 说明 | 参数 |
