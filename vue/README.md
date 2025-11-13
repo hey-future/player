@@ -195,6 +195,7 @@ const handleTimeUpdate = (data) => {
 | mute | 是否静音 | boolean | false 设置是否静音播放。在浏览器禁止自动播放时可以通过配置此参数进行静音自动播放 |
 | logo | 播放器logo | array | 自定义Logo图片。示例如下：<br/>logo: [{width: 30,position: 'bottom-right',origin: 'content',src: 'a.png'}] <br/>字段解释如下： <br/> src：Logo图片地址。 <br/>origin：定位参照物。取值如下： <br/>box：播放器 <br/>content：视频内容 <br/>width/height：Logo的宽高，单位是百分比（根据origin计算），如果只指定一边，则另一边按图片比例缩放。 <br/>position：Logo的相对位置，相对origin定位。取值如下： top-left：左上 top-right：右上 bottom-left：左下 bottom-right：右下 offsetX/offsetY：相对于position的偏移，单位：百分比%（根据origin计算）。 |
 | speed | 播放速度 | number | 1 |
+| showTracks | 是否显示字幕按钮 | boolean | true |
 | textTracks | 字幕 | array | - |
 | showBarTime | 控制栏自动隐藏时间，单位：毫秒。 | number | 3000 |
 | volume | 音量 | number | 1 |
