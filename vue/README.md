@@ -126,7 +126,7 @@ const handleTimeUpdate = (data) => {
               {
                 kind: "subtitles",
                 label: "中文",
-                src: "https://player.alicdn.com/file/official-video/subtitle-cn.vtt",
+                src: "",
                 srclang: "zh-CN",
               },
               {
