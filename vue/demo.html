@@ -28,9 +28,9 @@
         :player-id="'main'"
         :theme-color="'#F44336'"
         :play-type="2"
-        :allow-duration="2"
-        :app-id="18"
-        :vid="512901"
+        :allow-duration="-1"
+        :app-id="42"
+        :vid="442501"
         :options="options">
       </dms-player>
     </div>
@@ -75,15 +75,9 @@
                 kind: "subtitles",
                 label: "中文",
                 src: "",
-                srclang: "zh-CN",
-              },
-              {
-                kind: "subtitles",
-                label: "英文",
-                src: "",
-                srclang: "en-US",
                 default: true,
-              },
+                srclang: "zh-CN",
+              }
             ],
             controlBarVisibility: "always",
           }
