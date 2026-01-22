@@ -39,6 +39,25 @@
           @ended="handleEnd"
           >
         </dms-player>
+
+        <dms-player
+      ref="pdfRef"
+      playerId="pdfMain"
+      :appId="42"
+      :vid="501780"
+      :playType="3"
+      :options="{
+        watermark: {
+          show: true,
+          text: '国家开放大学',
+          color: '#ccc',
+          opacity: 0.5,
+          rotate: 30,
+          spacingX: 200,
+          spacingY: 100
+        }
+      }"
+    ></dms-player>
     </div>
   </div>
 </body>
