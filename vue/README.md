@@ -154,7 +154,11 @@ const handleTimeUpdate = (data) => {
     app.mount('#app');
 </script>
 ```
-
+### 在微信小程序中播放器
+可以使用webview 嵌入h5网页的形式使用播放器
+```
+<web-view src="https://xxx.xxx.cn/xxx.html"></web-view>
+```
 ### 播放器SDK API
 
 #### 播放器配置optins(公共)
