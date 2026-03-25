@@ -185,7 +185,7 @@ const handleTimeUpdate = (data) => {
 | license | License授权 | Object | domian为申请License授权时所填写的域名  Key为License密钥 <br/> ```{ domain: "example.com",key: "example-key"}``` |
 | autoPlay | 是否自动播放 | boolean | false |
 | disableSeek | 是否禁用进度条 | boolean | false |
-| controlBarVisibility | 控制栏显示方式 | string | always |
+| controlBarVisibility | 控制栏显示方式 | string | always ：控制面板一直显示。  click ：单击播放器区域。 hover ：移动到播放器区域。  never ：隐藏整个控制面板。 |
 | controlBar | 控制栏配置 | object | - |
 | cover | 封面图 | string | - |
 | clickPause | 点击暂停 | boolean | false |
