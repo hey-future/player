@@ -170,7 +170,7 @@ const handleTimeUpdate = (data) => {
 #### 播放器组件属性(视频类型)
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| platform | 所用视频所属平台 | string | 播放媒资视频传 'dms' 爱知汇测试传 'learn-beta' 爱知汇正式传 'learn' 默认 'dms' |
+| platform | 所用视频所属平台 | string | 播放媒资视频传 'dms' 媒资测试 'dms-dev' 爱知汇测试传 'learn-beta' 爱知汇正式传 'learn' 默认 'dms' |
 | appId | 应用id | number | - |
 | vid | 视频id | number | - |
 | playerId | 播放器id | string | - |

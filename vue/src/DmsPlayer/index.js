@@ -58833,28 +58833,88 @@ axiosInstance.interceptors.response.use(
   (p) => Promise.reject(p)
 );
 function getPlayAuth(p, e, u, U) {
+  let F = "dms.multimediapress.cn/dms";
+  switch (p) {
+    case "dms":
+      F = "dms.multimediapress.cn/dms";
+      break;
+    case "learn":
+      F = "learn-api.oucp.com.cn/heyfuture";
+      break;
+    case "learn-beta":
+      F = "learn-beta-api.multimediapress.cn/heyfuture";
+      break;
+    case "dms-dev":
+      F = "dms.dev.multimediapress.cn/dms";
+      break;
+  }
   return axiosInstance({
-    url: `https://${p === "learn" ? "learn-api.oucp.com.cn/heyfuture" : p === "learn-beta" ? "learn-beta-api.multimediapress.cn/heyfuture" : "dms.multimediapress.cn/dms"}/api/v2/getPlayAuth/appId/${e}/vid/${u}/timeOut/${U}`,
+    url: `https://${F}/api/v2/getPlayAuth/appId/${e}/vid/${u}/timeOut/${U}`,
     method: "get"
   });
 }
 function getVideoInfo(p, e) {
+  let u = "dms.multimediapress.cn/dms";
+  switch (p) {
+    case "dms":
+      u = "dms.multimediapress.cn/dms";
+      break;
+    case "learn":
+      u = "learn-api.oucp.com.cn/heyfuture";
+      break;
+    case "learn-beta":
+      u = "learn-beta-api.multimediapress.cn/heyfuture";
+      break;
+    case "dms-dev":
+      u = "dms.dev.multimediapress.cn/dms";
+      break;
+  }
   return axiosInstance({
-    url: `https://${p === "learn" ? "learn-api.oucp.com.cn/heyfuture" : p === "learn-beta" ? "learn-beta-api.multimediapress.cn/heyfuture" : "dms.multimediapress.cn/dms"}/api/v2/getVideoInfo`,
+    url: `https://${u}/api/v2/getVideoInfo`,
     method: "post",
     data: e
   });
 }
 function getPlayInfo(p, e, u, U) {
-  let Z = `https://${p === "learn" ? "learn-api.oucp.com.cn/heyfuture" : p === "learn-beta" ? "learn-beta-api.multimediapress.cn/heyfuture" : "dms.multimediapress.cn/dms"}/v2/playInfo/${e}/${u}`;
+  let F = "dms.multimediapress.cn/dms";
+  switch (p) {
+    case "dms":
+      F = "dms.multimediapress.cn/dms";
+      break;
+    case "learn":
+      F = "learn-api.oucp.com.cn/heyfuture";
+      break;
+    case "learn-beta":
+      F = "learn-beta-api.multimediapress.cn/heyfuture";
+      break;
+    case "dms-dev":
+      F = "dms.dev.multimediapress.cn/dms";
+      break;
+  }
+  let Z = `https://${F}/v2/playInfo/${e}/${u}`;
   return U && (Z += "/1"), axiosInstance({
     url: Z,
     method: "get"
   });
 }
 function getKgInfo(p, e) {
+  let u = "dms.multimediapress.cn/dms";
+  switch (p) {
+    case "dms":
+      u = "dms.multimediapress.cn/dms";
+      break;
+    case "learn":
+      u = "learn-api.oucp.com.cn/heyfuture";
+      break;
+    case "learn-beta":
+      u = "learn-beta-api.multimediapress.cn/heyfuture";
+      break;
+    case "dms-dev":
+      u = "dms.dev.multimediapress.cn/dms";
+      break;
+  }
   return axiosInstance({
-    url: `https://${p === "learn" ? "learn-api.oucp.com.cn/heyfuture" : p === "learn-beta" ? "learn-beta-api.multimediapress.cn/heyfuture" : "dms.multimediapress.cn/dms"}/v2/kg/${e}`,
+    url: `https://${u}/v2/kg/${e}`,
     method: "get"
   });
 }
