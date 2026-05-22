@@ -159,6 +159,7 @@ const handleTimeUpdate = (data) => {
 ```
 <web-view src="https://xxx.xxx.cn/xxx.html"></web-view>
 ```
+
 ### 播放器SDK API
 
 #### 播放器配置optins(公共)
@@ -169,6 +170,7 @@ const handleTimeUpdate = (data) => {
 #### 播放器组件属性(视频类型)
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
+| platform | 所用视频所属平台 | string | 播放媒资视频传 'dms' 爱知汇测试传 'learn-beta' 爱知汇正式传 'learn' 默认 'dms' |
 | appId | 应用id | number | - |
 | vid | 视频id | number | - |
 | playerId | 播放器id | string | - |
@@ -191,6 +193,7 @@ const handleTimeUpdate = (data) => {
 | cover | 封面图 | string | - |
 | clickPause | 点击暂停 | boolean | false |
 | showKnowledge | 显示知识点 | boolean | false |
+| showKnowledgeSwitchBtn | 是否显示知识点切换开关 | boolean | true |
 | knowledgeType | 获取知识点的方式 | number | 1 通过视频id获取知识点显示 2 通过自定义数据源显示知识点结合knowledge参数使用 |
 | knowledge | 知识点数据 | array | [{ name: "知识点名称", fromTo: [24.3, 162.94]}] |
 | knowledgeOpen| 知识点开关开启 | boolean | false |
