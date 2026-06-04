@@ -162,7 +162,7 @@ const handleTimeUpdate = (data) => {
 
 ### 播放器SDK API
 
-#### 播放器配置optins(公共)
+#### 播放器配置options(公共)
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | ------ | --- | --- |
 | watermark | 播放器水印            | object | 自定义水印。示例如下<br/>    watermark: {<br/>      show: true, // 是否显示水印 <br/>     text: '国家开放大学', // 水印文字<br/>     image:'', // 水印图片填写图片链接地址，图片和文字水印优先显示图片<br/>     color: '#ccc', // 水印文字颜色<br/>     opacity: 0.5, // 水印透明度<br/>     rotate: 30, // 水印旋转角度 <br/>     spacingX: 200, // 水印横向间隔 <br/>     spacingY: 100, // 水印纵向间隔 <br/>     imageWidth:'100px', // 图片水印宽度 <br/>     imageHeight: '50px' // 图片水印高度<br/>    } <br/>     <br/>    |
@@ -181,7 +181,7 @@ const handleTimeUpdate = (data) => {
 | allowDuration | 允许试看时长 | number | -1 标识可以观看全部 >0需要登录后才可以观看全部 单位秒  如果设置参数大于0可以通过调用播放器changeLoginState来更改登录状态|
 | audit | 是否开启审核 | boolean | false 默认关闭   true 开启  开启后只有审核通过的视频才能播放|
 | url | 视频地址 | string | - |
-#### 播放器配置optins(视频类型)
+#### 播放器配置options(视频类型)
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | license | License授权 | Object | domian为申请License授权时所填写的域名  Key为License密钥 <br/> ```{ domain: "example.com",key: "example-key"}``` |
