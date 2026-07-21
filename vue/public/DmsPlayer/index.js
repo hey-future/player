@@ -58904,10 +58904,10 @@ function getKgInfo(p, e) {
       u = "dms.multimediapress.cn/dms";
       break;
     case "learn":
-      u = "learn-api.oucp.com.cn/heyfuture";
+      u = "learn-api.oucp.com.cn/tag";
       break;
     case "learn-beta":
-      u = "learn-beta-api.multimediapress.cn/heyfuture";
+      u = "learn-beta-api.multimediapress.cn/tag";
       break;
     case "dms-dev":
       u = "dms.dev.multimediapress.cn/dms";

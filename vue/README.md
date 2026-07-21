@@ -177,7 +177,7 @@ const handleTimeUpdate = (data) => {
 | themeColor | 主题色 | string | #F44336 |
 | options | 播放器配置 | object | - |
 | enterExitPoint | 进入退出点 | array | - |
-| playType | 播放方式 | number | 默认1 1传入url视频地址播放  1地址播放（开放不加密）2 传appId和vid获取视频播放|
+| playType | 播放方式 | number | 默认1 1传入url视频地址播放  1地址播放（开放不加密）2 传appId和vid获取视频播放 3防盗链播放（通过appId和视频编号Vid获取视频播放地址，防盗）| 
 | allowDuration | 允许试看时长 | number | -1 标识可以观看全部 >0需要登录后才可以观看全部 单位秒  如果设置参数大于0可以通过调用播放器changeLoginState来更改登录状态|
 | audit | 是否开启审核 | boolean | false 默认关闭   true 开启  开启后只有审核通过的视频才能播放|
 | url | 视频地址 | string | - |
