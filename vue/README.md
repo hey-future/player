@@ -476,9 +476,3 @@ videoRef.value.init();
 }
 ```
 
-3. 如何打包更新 SDK？
-
-```
-pnpm lib
-# 产物输出到 lib/DmsPlayer/（index.js / index.umd.cjs / index.css）
-```
